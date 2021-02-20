@@ -1,11 +1,12 @@
 <center> 
-
 <h2>Empresas Cadastradas:</h2>
+
+<% if @companies.count == 0 %>
+<p>Nenhuma empresa cadastrada</p>
+<% end %>
 
 <% @companies.each do |company| %>
 <p><%= link_to company.name, company_path(company) %></p>
 <% end %>
-
-
 
 </center>

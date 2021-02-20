@@ -6,5 +6,6 @@ class Company < ApplicationRecord
     validates :domain, uniqueness: true
     validates :domain, presence: true
 
+   
 
 end

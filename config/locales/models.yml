@@ -1,0 +1,36 @@
+pt-BR:
+  activerecord:
+    models:
+      candidate: 
+        one: Candidato
+        other: Candidatos
+      company:
+        one: Empresa
+        other: Empresas
+      employee:
+        one: Colaborador
+        other: Colaboradores
+      job:
+        one: Vaga
+        other: Vagas
+    attributes:
+      employee:
+        email: E-mail
+        password: Senha
+        firstname: Nome
+        surname: Sobrenome
+        regular: Regular
+        admin: Admin
+      candidate:
+        email: E-mail
+        password: Senha
+        firstname: Nome
+        surname: Sobrenome
+      company:
+        name: Nome
+        domain: Domínio
+        foundation: Data de Função
+        city: Cidade
+        country: País
+
+

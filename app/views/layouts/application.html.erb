@@ -10,19 +10,26 @@
   </head>
 
   <body>
-  <nav>
+
+  <div class="nav">
   <%= link_to 'Página inicial', root_path %>
-  <%= link_to 'Área do candidato', root_path %>
+  <%= link_to 'Área do candidato', new_candidate_session_path %>
   <%= link_to 'Área da empresa', new_employee_session_path %>
+
+  <%unless employee_signed_in? %>
   <%= link_to 'Cadastre-se', new_employee_registration_path %>
+  <%end%>
+
   <% if employee_signed_in? %>
+  <%= current_employee.email %> (<%=current_employee.company.name%> - <%=current_employee.role%>) 
   <%= link_to 'Sair', destroy_employee_session_path, method: :delete %>
   <% end %>
+
   <% if candidate_signed_in? %>
   <%= link_to 'Sair', destroy_candidate_session_path, method: :delete %>
   <% end %>
-  </nav>
-
+  </div>
+  
   <center>
   <% if notice %>
     <p class="alert alert-success"><%= notice %></p>

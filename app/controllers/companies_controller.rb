@@ -1,7 +1,6 @@
 class CompaniesController < ApplicationController
 
     before_action :authenticate_employee!, only: [:new, :create, :edit]
-
     
     def index
         @companies = Company.all
@@ -15,7 +14,7 @@ class CompaniesController < ApplicationController
     def create
         company_params = params.require(:company).permit(:name, :domain, :city, :state)
         @company = Company.new(company_params)
-        redirect_to company_path(@company)
+        redirect_to @company
     end
 
     def edit
