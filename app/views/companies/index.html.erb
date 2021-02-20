@@ -1,0 +1,9 @@
+<center> 
+
+<h2>Empresas Cadastradas:</h2>
+
+<% @companies.each do |company| %>
+<p><%= link_to company.name, root_path %></p>
+<% end %>
+
+</center>
