@@ -12,14 +12,14 @@
   <body>
   <nav>
   <%= link_to 'Página inicial', root_path %>
-  <%= link_to 'Área do candidato', new_applicant_session_path %>
+  <%= link_to 'Área do candidato', root_path %>
   <%= link_to 'Área da empresa', new_employee_session_path %>
   <%= link_to 'Cadastre-se', new_employee_registration_path %>
   <% if employee_signed_in? %>
   <%= link_to 'Sair', destroy_employee_session_path, method: :delete %>
   <% end %>
-  <% if applicant_signed_in? %>
-  <%= link_to 'Sair', destroy_applicant_session_path, method: :delete %>
+  <% if candidate_signed_in? %>
+  <%= link_to 'Sair', destroy_candidate_session_path, method: :delete %>
   <% end %>
   </nav>
 

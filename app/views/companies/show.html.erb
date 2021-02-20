@@ -1,0 +1,11 @@
+<center>
+
+<p>Nome: <%= @company.name %></p> 
+<p>Domínio: <%= @company.domain %></p>
+<p>Endereço: <%= @company.city %> - <%= @company.state %></p>
+
+<% if employee_signed_in?  %>
+<%= link_to 'Editar dados da empresa', edit_company_path(@company) %>
+<% end %>
+
+</center>
