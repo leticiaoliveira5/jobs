@@ -1,0 +1,11 @@
+pt-BR:
+  companies:
+    show:
+      active: 'Ativo'
+      inactive: 'Inativo'
+      code: 'Código'
+  job_opportunities:
+    show:
+      job_title: 'Título da vaga'
+      inactive: 'Inativo'
+      code: 'Código'

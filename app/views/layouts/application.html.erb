@@ -11,14 +11,40 @@
 
   <body>
 
-  <div class="nav">
-  <%= link_to 'Página inicial', root_path %>
-  <%= link_to 'Área do candidato', new_candidate_session_path %>
-  <%= link_to 'Área da empresa', new_employee_session_path %>
+<div class="header">
+  <h1>Jobs</h1>
+  <h2>Sua carreira começa aqui</h2>
+</div>
+
+<div class="nav">
+
+  <% if employee_signed_in? %>
+    <%= current_employee.email %> (<%=current_employee.company.name%> - <%=current_employee.role%>) 
+  <% end %>
+
+ <%= link_to 'Página inicial', root_path %>
+
+  <% unless employee_signed_in? || candidate_signed_in? %>
+  <div class="dropdown login">
+    <button class="dropbtn">Entrar</button>
+    <div class="dropdown-content">
+      <%= link_to 'Candidato', new_candidate_session_path %>
+      <%= link_to 'Empresa', new_employee_session_path %>
+    </div>
+  </div> 
+
+
+  <div class="dropdown signin">
+    <button class="dropbtn">Cadastre-se</button>
+    <div class="dropdown-content">
+      <%= link_to 'Candidato', new_candidate_registration_path %>
+      <%= link_to 'Empresa', new_employee_registration_path %>
+    </div>
+  </div> 
+  <%end%>
 
   <% if employee_signed_in? %>
   <%= link_to 'Área da empresa', company_path(current_employee.company) %>
-  <%= current_employee.email %> (<%=current_employee.company.name%> - <%=current_employee.role%>) 
   <%= link_to 'Sair', destroy_employee_session_path, method: :delete %>
   <% end %>
 
@@ -29,10 +55,10 @@
   
   <center>
   <% if notice %>
-    <p class="alert alert-success"><%= notice %></p>
+    <p class="alert-success"><%= notice %></p>
   <% end %>
   <% if alert %>
-    <p class="alert alert-danger"><%= alert %></p>
+    <p class="alert-danger"><%= alert %></p>
   <% end %>
   </center>
 

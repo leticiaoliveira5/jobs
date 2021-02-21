@@ -1,8 +1,12 @@
 <div class="contentblock">
 <h1>Vaga - <%= @job_opportunity.company.name %> </h1>
 
-~DADOS DA VAGA~
+<p><%=@job_opportunity.job_title%></p>
+<p><%@job_opportunity.description%></p>
+<p><%=@job_opportunity.job_level%></p>
+<p><%=@job_opportunity.salary_range%></p>
 
-<%#= link_to 'Inscrever-se nesta vaga', new_job_application_path %>
+
+<h3><%= link_to 'Inscrever-se nesta vaga', create_job_application_job_opportunity_path(@job_opportunity), method: :post %></h3>
 
 </div>

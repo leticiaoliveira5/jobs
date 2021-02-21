@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_21_155054) do
+ActiveRecord::Schema.define(version: 2021_02_21_202055) do
 
   create_table "candidates", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2021_02_21_155054) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "surname"
+    t.string "firstname"
     t.index ["email"], name: "index_candidates_on_email", unique: true
     t.index ["reset_password_token"], name: "index_candidates_on_reset_password_token", unique: true
   end
@@ -48,6 +50,15 @@ ActiveRecord::Schema.define(version: 2021_02_21_155054) do
     t.index ["company_id"], name: "index_employees_on_company_id"
     t.index ["email"], name: "index_employees_on_email", unique: true
     t.index ["reset_password_token"], name: "index_employees_on_reset_password_token", unique: true
+  end
+
+  create_table "job_applications", force: :cascade do |t|
+    t.integer "job_opportunity_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "candidate_id"
+    t.index ["candidate_id"], name: "index_job_applications_on_candidate_id"
+    t.index ["job_opportunity_id"], name: "index_job_applications_on_job_opportunity_id"
   end
 
   create_table "job_opportunities", force: :cascade do |t|

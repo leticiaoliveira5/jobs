@@ -5,21 +5,21 @@ feature 'Employee sign in' do
   scenario 'successfully and registers company' do
 
     visit root_path
-    click_on 'Área da empresa'
-    click_on 'Cadastre-se'
-    fill_in 'Nome', with: 'Steve'
-    fill_in 'Sobrenome', with: 'Jobs'
+    within('.signin') do
+    click_on 'Empresa'
+    end
+    fill_in 'Firstname', with: 'Steve'
+    fill_in 'Surname', with: 'Jobs'
     fill_in 'Email', with: 'steve@apple.com'
-    fill_in 'Senha', with: '123456'
+    fill_in 'Password', with: '123456'
     click_on 'Sign up'
 
     expect(page).to have_content('steve@apple.com')
     expect(page).to have_content('Welcome! You have signed up successfully')
-    expect(page).to have_content('Domínio: apple.com')
-    expect(page).to have_field('(Admin)')
-    expect(page).to have_field('Nome')
-    expect(page).to have_field('Cidade')
-    expect(page).to have_field('Estado')
+    expect(page).to have_text('Cadastro de empresa')
+    expect(page).to have_field('Name')
+    expect(page).to have_field('City')
+    expect(page).to have_field('State')
 
   end
 
@@ -33,12 +33,13 @@ feature 'Employee sign in' do
                                 surname:'Jobs')
 
     visit root_path
-    click_on 'Área da empresa'
-    click_on 'Cadastre-se'
-    fill_in 'Nome', with: 'Ronald'
-    fill_in 'Sobrenome', with: 'Wayne'
+    within('.signin') do
+      click_on 'Empresa'
+      end
+    fill_in 'Firstname', with: 'Ronald'
+    fill_in 'Surname', with: 'Wayne'
     fill_in 'Email', with: 'ronald@apple.com'
-    fill_in 'Senha', with: '123456'
+    fill_in 'Password', with: '123456'
     click_on 'Sign up'
 
     expect(page).to have_content('ronald@apple.com')
@@ -55,17 +56,18 @@ feature 'Employee sign in' do
                                 surname:'oliveira')
 
     visit root_path
-    click_on 'Entrar'
+    within('.login') do
+      click_on 'Empresa'
+    end
     within('form') do
-    fill_in 'E-mail', with: 'leticia@email.com'
-    fill_in 'Senha', with: '123456'
-    click_on 'Fazer login'
+    fill_in 'Email', with: 'leticia@email.com'
+    fill_in 'Password', with: '123456'
+    click_on 'Log in'
     end
     click_on 'Sair'
 
     expect(page).not_to have_content employee.email
     expect(page).not_to have_link 'Sair'
-    expect(page).to have_link 'Entrar'
 
   end
 

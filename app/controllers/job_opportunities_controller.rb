@@ -1,7 +1,7 @@
 class JobOpportunitiesController < ApplicationController
    
     before_action :authenticate_employee!, only: [:create, :new, :edit]
-    
+    before_action :authenticate_candidate!, only: [:create_job_application]
 
     def new
         @job_opportunity = JobOpportunity.new
@@ -27,6 +27,12 @@ class JobOpportunitiesController < ApplicationController
             render 'new'
         end
         
+    end
+
+    def create_job_application
+        @job_opportunity = JobOpportunity.find(params[:id])
+        @job_opportunity.create_job_application!(@job_opportunity, current_candidate)
+        redirect_to @job_opportunity, notice: t('.success')
     end
 
 end

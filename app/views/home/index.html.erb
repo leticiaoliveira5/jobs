@@ -1,12 +1,19 @@
-<center>
-<h1>Jobs</h1>
-<h2>Sua carreira começa aqui</h2>
+
+<div class="contentblock">
+
+<h2>Busca vagas</h2>
+
+</div>
+
+
+<div class="contentblock">
+<h2>Vagas recentes</h2>
+
+<% @job_opportunities.each do |job| %>
+<%= link_to job.job_title, job_opportunity_path(job) %>
+<%end%>
+</div>
+
 
 <h3><%=link_to 'Ver empresas cadastradas', companies_path%></h3>
 
-<h3>Busca vagas</h3>
-
-
-
-
-</center>

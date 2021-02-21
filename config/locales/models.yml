@@ -32,5 +32,12 @@ pt-BR:
         foundation: Data de Função
         city: Cidade
         country: País
+      job_opportunity:
+        job_title: Título da vaga
+        job_level: Nível de escolaridade
+        salary_range: Faixa salarial
+        place: Local
+        
+
 
 
