@@ -1,24 +1,8 @@
 <center>
 
-<div class="companydata">
-<h2>Dados da empresa</h2>
-<p>Nome: <%= @company.name %></p> 
-<p>Domínio: <%= @company.domain %></p>
-<p>Endereço: <%= @company.city %> - <%= @company.state %></p>
-</div>
-
-<div clas="joblist">
-<h2>Vagas cadastradas</h2>
-<%# if @company.jobs.count == 0 %>
-<p>Nenhuma vaga cadastrada.</p>
-<%#end%>
-</div>
-
-<div class="employeepanel">
-
 <% if employee_signed_in? && current_employee.company == @company %>
-
-<h2>Painel colaborador</h2>
+<div class="employeepanel">
+<h2>Painel colaborador - <%= current_employee.firstname%> (<%=current_employee.role%>) </h2>
 
 <% if current_employee.admin? %>
 <h3>Funcionários cadastrados:</h3>
@@ -28,11 +12,27 @@
 <p><%= link_to 'Editar dados da empresa', edit_company_path(@company) %></p>
 <%end%>
 
-<p><%= link_to 'Cadastrar nova vaga', company_path(@company) %></p>
-<% end %>
+<p><%= link_to 'Cadastrar nova vaga', new_job_opportunity_path %></p>
+</div><% end %>
+
+<div class="contentblock">
+<h2>Dados da empresa</h2>
+<p>Nome: <%= @company.name %></p> 
+<p>Domínio: <%= @company.domain %></p>
+<p>Endereço: <%= @company.city %> - <%= @company.state %></p>
+</div>
+
+<div class="contentblock">
+<h2>Vagas cadastradas</h2>
+<% if @company.job_opportunities.count == 0 %>
+<p>Nenhuma vaga cadastrada.</p>
+<% else %>
+ <% @company.job_opportunities.each do |job| %>
+ <p><%= link_to job.job_title, job_opportunity_path(job) %></p>
+ <%end%>
+<%end%>
 </div>
 
 
 
 
-</center>

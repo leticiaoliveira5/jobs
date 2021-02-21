@@ -9,4 +9,7 @@ Rails.application.routes.draw do
 
   resources :companies, only: %i[index new create update edit show]
 
+  resources :job_opportunities, only: %i[new create update edit show]
+
+
 end
