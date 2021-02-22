@@ -1,0 +1,19 @@
+<center>
+
+<div class="contentblock">
+
+<% if candidate_signed_in? && current_candidate == @resume.candidate %>
+<%= link_to 'Editar currículo', edit_resume_path(@resume) %>
+<% end %>
+
+<h2>Currículo</h2>
+
+<h4>Nome completo: <%=@resume.candidate.firstname%> <%=@resume.candidate.surname%></h4>
+
+<h4>Experiências profissionais</h4>
+<h4>Idiomas</h4>
+<h4>Conhecimentos</h4>
+<h4>Cursos</h4>
+<h4>Endereço</h4>
+
+</div>

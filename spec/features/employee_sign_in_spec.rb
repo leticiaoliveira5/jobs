@@ -18,14 +18,14 @@ feature 'Employee sign in' do
     expect(page).to have_content('Welcome! You have signed up successfully')
     expect(page).to have_text('Cadastro de empresa')
     expect(page).to have_field('Name')
-    expect(page).to have_field('City')
-    expect(page).to have_field('State')
+    expect(page).to have_field('Address')
+    expect(page).to have_field('Cnpj')
 
   end
 
   scenario 'and belongs to company' do
 
-    company = Company.create!(name: 'Apple', domain:'apple.com', city: 'Los Angeles', state: 'California')
+    company = Company.create!(name: 'Apple', domain:'apple.com', address: 'Los Angeles', cnpj: '123')
 
     employee = Employee.create!(email: 'steve@apple.com',
                                 password: '123456',

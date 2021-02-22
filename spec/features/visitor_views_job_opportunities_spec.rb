@@ -11,8 +11,8 @@ feature 'Visitor views job opportunities' do
 
   scenario 'and clicks to apply' do
 
-    company = Company.create!(name: 'Apple', domain:'apple.com', city: 'Los Angeles', state: 'California')
-    company = Company.create!(name: 'Microsoft', domain:'microsoft.com', city: 'Los Angeles', state: 'California')
+    company = Company.create!(name: 'Apple', domain:'apple.com', address: 'Los Angeles', cnpj: '123')
+    company = Company.create!(name: 'Microsoft', domain:'microsoft.com', address: 'Los Angeles', cnpj: '123')
 
     visit root_path
     click_on 'Ver empresas cadastradas'

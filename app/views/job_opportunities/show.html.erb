@@ -1,12 +1,33 @@
+<center>
 <div class="contentblock">
-<h1>Vaga - <%= @job_opportunity.company.name %> </h1>
-
+<h1>Vaga (<%=@job_opportunity.status%>)  </h1>
+<p><%= @job_opportunity.company.name %></p>
 <p><%=@job_opportunity.job_title%></p>
 <p><%@job_opportunity.description%></p>
 <p><%=@job_opportunity.job_level%></p>
 <p><%=@job_opportunity.salary_range%></p>
 
-
+<% unless employee_signed_in? %>
 <h3><%= link_to 'Inscrever-se nesta vaga', create_job_application_job_opportunity_path(@job_opportunity), method: :post %></h3>
+<% end %>
+
+<% if employee_signed_in? && current_employee.company == @job_opportunity.company %>
+    <% if @job_opportunity.active? %>
+        <%=link_to 'Inativar vaga', inactivate_job_opportunity_job_opportunity_path(@job_opportunity), method: :post%>
+    <% elsif @job_opportunity.inactive? %>
+        <%=link_to 'Ativar vaga', activate_job_opportunity_job_opportunity_path(@job_opportunity), method: :post%>
+    <%end%>
+<%end%>
 
 </div>
+
+<% if employee_signed_in? %>
+<div class="contentblock">
+
+<h2>Candidaturas recebidas para esta vaga:</h2>
+    <% @job_opportunity.job_applications.each do |a| %>
+     <p><%=a.job_title %> - <%= link_to "#{b.candidate.firstname} #{b.candidate.surname}", resume_path(b.candidate) %></p>
+    <%end%>
+
+</div>
+<%end%>

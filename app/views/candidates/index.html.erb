@@ -1,0 +1,11 @@
+<center>
+<div class="contentblock">
+<%= link_to 'Meu currículo', resume_path(current_candidate) %>
+</div>
+
+<div class="contentblock">
+<h2>Minhas vagas</h2>
+<% current_candidate.job_applications.each do |ja| %>
+nome da vaga (cancelar candidatura)
+<% end %>
+</div>

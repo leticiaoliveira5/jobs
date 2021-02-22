@@ -17,7 +17,9 @@ class JobOpportunitiesController < ApplicationController
                                                                         :description, 
                                                                         :job_level, 
                                                                         :salary_range, 
-                                                                        :place, 
+                                                                        :place,
+                                                                        :number_of_positions,
+                                                                        :limit_date, 
                                                                         :company)
         @job_opportunity = JobOpportunity.new(job_opportunity_params)
         @job_opportunity.company = current_employee.company
@@ -31,8 +33,24 @@ class JobOpportunitiesController < ApplicationController
 
     def create_job_application
         @job_opportunity = JobOpportunity.find(params[:id])
+        if @job_opportunity.active?
         @job_opportunity.create_job_application!(@job_opportunity, current_candidate)
         redirect_to @job_opportunity, notice: t('.success')
+        else 
+        redirect_to @job_opportunity, notice: t('.failure')
+        end
+    end
+
+    def inactivate_job_opportunity
+    @job_opportunity = JobOpportunity.find(params[:id])
+    @job_opportunity.inactive!
+    redirect_to @job_opportunity
+    end
+
+    def activate_job_opportunity
+        @job_opportunity = JobOpportunity.find(params[:id])
+        @job_opportunity.active!
+        redirect_to @job_opportunity
     end
 
 end

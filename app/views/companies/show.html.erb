@@ -15,11 +15,22 @@
 <p><%= link_to 'Cadastrar nova vaga', new_job_opportunity_path %></p>
 </div><% end %>
 
+
+<div class="contentblock">
+<h2>Candidaturas recebidas</h2>
+    <% @company.job_opportunities.each do |a| %>
+            <% a.job_applications.each do |b| %>
+            <p><%=a.job_title %> - <%= link_to "#{b.candidate.firstname} #{b.candidate.surname}", resume_path(b.candidate) %></p>
+            <%end%>
+<%end%>
+</div>
+
 <div class="contentblock">
 <h2>Dados da empresa</h2>
 <p>Nome: <%= @company.name %></p> 
 <p>Domínio: <%= @company.domain %></p>
-<p>Endereço: <%= @company.city %> - <%= @company.state %></p>
+<p>Endereço: <%= @company.address %></p>
+<p>CNPJ <%= @company.cnpj %></p>
 </div>
 
 <div class="contentblock">
@@ -28,7 +39,7 @@
 <p>Nenhuma vaga cadastrada.</p>
 <% else %>
  <% @company.job_opportunities.each do |job| %>
- <p><%= link_to job.job_title, job_opportunity_path(job) %></p>
+ <p><%= link_to "#{job.job_title} (#{job.status})", job_opportunity_path(job) %></p>
  <%end%>
 <%end%>
 </div>

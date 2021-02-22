@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
 
-    before_action :authenticate_employee!, only: [:new, :create, :edit]
+    before_action :authenticate_employee!, only: [:new, :create, :edit, :update]
     
     def index
         @companies = Company.all
@@ -11,8 +11,17 @@ class CompaniesController < ApplicationController
         @companies = Company.all
     end
 
+    def show
+        @company = Company.find(params[:id])
+    end
+
     def create
-        company_params = params.require(:company).permit(:name, :domain, :city, :state)
+        company_params = params.require(:company).permit(:name,
+                                                :domain,
+                                                :cnpj,
+                                                :address,
+                                                :address,
+                                                :cnpj)
         @company = Company.new(company_params)
         redirect_to @company
     end
@@ -25,13 +34,11 @@ class CompaniesController < ApplicationController
         @company = Company.find(params[:id])
         @company.update(name: params[:company][:name], 
         domain: params[:company][:domain],
-        city: params[:company][:city],
-        state: params[:company][:state])
+        cnpj: params[:company][:cnpj],
+        address: params[:company][:address])
         redirect_to company_path(@company)
     end
 
-    def show
-        @company = Company.find(params[:id])
-    end
+ 
 
 end

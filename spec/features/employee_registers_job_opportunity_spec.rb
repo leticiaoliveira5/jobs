@@ -6,8 +6,8 @@ feature 'employee registers job opportunity' do
 
         company = Company.create!(name: 'Globo', 
                                     domain:'globo.com', 
-                                    city: 'Rio de Janeiro', 
-                                    state: 'RJ')
+                                    address: 'Rio de Janeiro', 
+                                    cnpj: '12346')
         employee = Employee.create!(email: 'faustao@globo.com',
                                     password: '123456',
                                     firstname: 'Fausto', 

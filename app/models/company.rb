@@ -4,7 +4,7 @@ class Company < ApplicationRecord
     has_many :job_opportunities
   
 
-    validates :domain, uniqueness: true
+    validates :domain, :cnpj, uniqueness: true
     validates :domain, presence: true
 
    

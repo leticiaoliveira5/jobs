@@ -18,9 +18,7 @@
 
 <div class="nav">
 
-  <% if employee_signed_in? %>
-    <%= current_employee.email %> (<%=current_employee.company.name%> - <%=current_employee.role%>) 
-  <% end %>
+
 
  <%= link_to 'Página inicial', root_path %>
 
@@ -33,7 +31,6 @@
     </div>
   </div> 
 
-
   <div class="dropdown signin">
     <button class="dropbtn">Cadastre-se</button>
     <div class="dropdown-content">
@@ -43,14 +40,24 @@
   </div> 
   <%end%>
 
-  <% if employee_signed_in? %>
-  <%= link_to 'Área da empresa', company_path(current_employee.company) %>
-  <%= link_to 'Sair', destroy_employee_session_path, method: :delete %>
+  <% if candidate_signed_in? %>
+  <%= link_to 'Área do candidato', candidates_path %>
+  <div class="navright">
+  <%= current_candidate.email %>
+  <%= link_to 'Sair', destroy_candidate_session_path, method: :delete %>
+  </div>
   <% end %>
 
-  <% if candidate_signed_in? %>
-  <%= link_to 'Sair', destroy_candidate_session_path, method: :delete %>
+
+  <% if employee_signed_in? %>
+  <%= link_to 'Área da empresa', company_path(current_employee.company) %>
+  <div class="navright">
+  <%= current_employee.email %> (<%=current_employee.company.name%> - <%=current_employee.role%>)
+  <%= link_to 'Sair', destroy_employee_session_path, method: :delete %>
+  </div>
   <% end %>
+  
+
   </div>
   
   <center>

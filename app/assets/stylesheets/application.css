@@ -15,9 +15,14 @@
  */
 
  body{
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
+    font-family: Verdana, sans-serif;
+    font-size: 16px;
     background-color: #c5d5c5;
+    margin:0;
+ }
+
+ .header {
+  padding:10px 20px 10px 20px;
  }
 
  a { 
@@ -50,10 +55,12 @@
  .nav { 
    background-color: #4CAF50;
    width:100%;
-   padding: 0;
    border:none;
    margin:0;
    list-style-type: none;  
+   padding: 0px;
+   vertical-align: middle;
+   
  }
 
  .nav a{ 
@@ -63,13 +70,29 @@
   font-size: 16px;
   border: none;
   text-decoration: none;
+  vertical-align: middle;
+  display: inline-block;
+ }
+
+ .nav a:hover{
+  background-color: #3e8e41;
+ }
+
+ .navright {
+  float:right;
+  color: white;
+  border: none;
+  background-color: #4CAF50;
+  font-size: 16px;
+  vertical-align: middle;
+  display: inline-block;
  }
 
  .contentblock {
    background-color: whitesmoke;
    width: 80%;
    align-self: center;
-   border-radius: 15px 50px 30px;
+   border-radius: 10px 45px 25px;
    padding:10px 25px 20px 25px; /*top right bottom left*/
    margin:15px;
    text-align: left;
