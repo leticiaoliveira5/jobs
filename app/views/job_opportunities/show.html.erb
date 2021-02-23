@@ -26,7 +26,7 @@
 
 <h2>Candidaturas recebidas para esta vaga:</h2>
     <% @job_opportunity.job_applications.each do |a| %>
-     <p><%=a.job_title %> - <%= link_to "#{b.candidate.firstname} #{b.candidate.surname}", resume_path(b.candidate) %></p>
+     <p><%=@job_opportunity.job_title %> - <%= link_to "#{a.candidate.firstname} #{a.candidate.surname}", resume_path(a.candidate) %></p>
     <%end%>
 
 </div>

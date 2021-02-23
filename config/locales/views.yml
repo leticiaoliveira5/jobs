@@ -7,5 +7,11 @@ pt-BR:
   job_opportunities:
     show:
       job_title: 'Título da vaga'
+      job_level: 'Nível de escolaridade'
       inactive: 'Inativo'
-      code: 'Código'
+      active: 'Ativo'    
+    new:
+      job_title: 'Título da vaga'
+      job_level: 'Nível de escolaridade'
+      inactive: 'Inativo'
+      active: 'Ativo'

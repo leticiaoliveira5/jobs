@@ -12,8 +12,15 @@ feature 'Visitor visits home page' do
 
   scenario 'and views registered companies' do
 
-    company = Company.create!(name: 'Apple', domain:'apple.com', address: 'Los Angeles', cnpj: '123')
-    company = Company.create!(name: 'Microsoft', domain:'microsoft.com', address: 'Los Angeles', cnpj: '123')
+    Company.create!(name: 'Apple', 
+    domain:'apple.com', 
+    address: 'Los Angeles', 
+    cnpj: '4321')
+    
+    Company.create!(name: 'Microsoft', 
+    domain:'microsoft.com', 
+    address: 'Los Angeles', 
+    cnpj: '1234')
 
     visit root_path
     click_on 'Ver empresas cadastradas'

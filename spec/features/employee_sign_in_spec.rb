@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Employee sign in' do
 
-  scenario 'successfully and registers company' do
+  scenario 'successfully and company is created' do
 
     visit root_path
     within('.signin') do
@@ -20,12 +20,16 @@ feature 'Employee sign in' do
     expect(page).to have_field('Name')
     expect(page).to have_field('Address')
     expect(page).to have_field('Cnpj')
+    expect(Company.count).to eq(1)
 
   end
 
   scenario 'and belongs to company' do
 
-    company = Company.create!(name: 'Apple', domain:'apple.com', address: 'Los Angeles', cnpj: '123')
+    company = Company.create!(name: 'Apple', 
+                              domain:'apple.com', 
+                              address: 'Los Angeles', 
+                              cnpj: '1234')
 
     employee = Employee.create!(email: 'steve@apple.com',
                                 password: '123456',
@@ -34,8 +38,8 @@ feature 'Employee sign in' do
 
     visit root_path
     within('.signin') do
-      click_on 'Empresa'
-      end
+    click_on 'Empresa'
+    end
     fill_in 'Firstname', with: 'Ronald'
     fill_in 'Surname', with: 'Wayne'
     fill_in 'Email', with: 'ronald@apple.com'

@@ -1,12 +1,33 @@
 <center>
 <div class="contentblock">
-<h1>Editar Currículo</h1>
+<h1>Preencha seu currículo</h1>
+<h3>Atenção: você deve preencher todo o currículo antes de se candidatar para uma vaga.</h3>
 
 <%= form_for(@resume) do |f| %>
   
   <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </div>
+  <div>
+    <%= f.label :education %>
+    <%= f.text_field :education %>
+  </div>
+    <div>
+    <%= f.label :experience %>
+    <%= f.text_field :experience %>
+  </div>
+     <div>
+    <%= f.label :languages %>
+    <%= f.text_field :languages %>
+  </div>
+      <div>
+    <%= f.label :abilities %>
+    <%= f.text_field :abilities %>
+  </div>
+     <div>
+    <%= f.label :courses %>
+    <%= f.text_field :courses %>
   </div>
 
 <%= f.submit 'Atualizar currículo' %>

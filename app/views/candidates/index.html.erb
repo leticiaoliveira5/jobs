@@ -1,11 +1,19 @@
 <center>
 <div class="contentblock">
+<h2>Painel de controle - candidato</h2>
 <%= link_to 'Meu currículo', resume_path(current_candidate) %>
+<%= link_to 'Editar dados da minha conta', edit_candidate_registration_path(current_candidate) %>
 </div>
+
 
 <div class="contentblock">
 <h2>Minhas vagas</h2>
+
+<% if current_candidate.job_applications.count > 0 %>
 <% current_candidate.job_applications.each do |ja| %>
-nome da vaga (cancelar candidatura)
+<%= ja.job_opportunity.job_title %> (<%= link_to 'cancelar candidatura', destroy_job_application_path(ja) %>)
 <% end %>
+<% else %>
+Você ainda não se inscreveu em nenhuma vaga.
+<%end%>
 </div>

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   devise_for :candidates
 
-  resources :resumes, only: %i[index new create update edit show]
+
 
   resources :companies, only: %i[index new create update edit show]
 
@@ -19,7 +19,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :candidates, only: %i[index]
+  resources :candidates, only: %i[index] 
+  resources :resumes, only: %i[index new create update edit show]
+  
 
   
 
