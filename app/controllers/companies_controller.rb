@@ -16,7 +16,7 @@ class CompaniesController < ApplicationController
     end
 
     def create
-        company_params = params.require(:company).permit(:name,
+        company_params = params.permit(:name,
                                                 :domain,
                                                 :address,
                                                 :cnpj)

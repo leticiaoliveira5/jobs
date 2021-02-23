@@ -1,10 +1,15 @@
 <center>
 <div class="contentblock">
-<h1>Vaga (<%=@job_opportunity.status%>)  </h1>
+<h2>Vaga (<%=@job_opportunity.status%>)  </h2>
+<p> <%= :name %> </p>
 <p><%= @job_opportunity.company.name %></p>
+<p> <%= :job_title %> </p>
+<p><%=@job_opportunity.description%></p>
+<p> <%= :job_level %> </p>
 <p><%=@job_opportunity.job_title%></p>
-<p><%@job_opportunity.description%></p>
+<p> <%= :description %> </p>
 <p><%=@job_opportunity.job_level%></p>
+<p> <%= :salary_range %> </p>
 <p><%=@job_opportunity.salary_range%></p>
 
 <% unless employee_signed_in? %>
@@ -25,8 +30,12 @@
 <div class="contentblock">
 
 <h2>Candidaturas recebidas para esta vaga:</h2>
-    <% @job_opportunity.job_applications.each do |a| %>
-     <p><%=@job_opportunity.job_title %> - <%= link_to "#{a.candidate.firstname} #{a.candidate.surname}", resume_path(a.candidate) %></p>
+    <% if @job_opportunity.job_applications.count > 0 %>
+        <% @job_opportunity.job_applications.each do |a| %>
+        <p><%=@job_opportunity.job_title %> - <%= link_to "#{a.candidate.firstname} #{a.candidate.surname}", resume_path(a.candidate) %></p>
+        <%end%>
+    <% else %>
+    Nenhum candidato se inscreveu para esta vaga
     <%end%>
 
 </div>

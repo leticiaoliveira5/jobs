@@ -1,7 +1,7 @@
 <center>
 <div class="contentblock">
 
-<h2>Busca vagas</h2>
+<h2>Busca</h2>
 
 </div>
 
@@ -9,9 +9,11 @@
 <h2>Vagas recentes</h2>
 
 <% @job_opportunities.each do |job| %>
-<%= link_to job.job_title, job_opportunity_path(job) %>
+<h4><%= link_to job.job_title, job_opportunity_path(job) %> - <%= job.company.name %></h4>
+<p>  (<%= job.place %>) </p>
 <%end%>
+<h3><%=button_to 'Ver empresas cadastradas', companies_path%></h3>
 </div>
 
-<h3><%=button_to 'Ver empresas cadastradas', companies_path%></h3>
+
 
