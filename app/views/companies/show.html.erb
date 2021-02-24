@@ -27,10 +27,14 @@
 
 <div class="contentblock">
 <h2>Dados da empresa</h2>
-<p>Nome: <%= @company.name %></p> 
-<p>Domínio: <%= @company.domain %></p>
-<p>Endereço: <%= @company.address %></p>
-<p>CNPJ <%= @company.cnpj %></p>
+<p class="field"><%= I18n.t :name %></p>
+<%= @company.name %> 
+<p class="field"><%= I18n.t :domain %></p>
+ <%= @company.domain %>
+<p class="field"><%= I18n.t :address %></p>
+<%= @company.address %>
+<p class="field"><%= I18n.t :cnpj %></p>
+<%= @company.cnpj %>
 </div>
 
 <div class="contentblock">

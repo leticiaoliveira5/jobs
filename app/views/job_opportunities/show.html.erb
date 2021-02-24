@@ -1,19 +1,21 @@
 <center>
 <div class="contentblock">
-<h2>Vaga (<%=@job_opportunity.status%>)  </h2>
-<p> <%= :name %> </p>
+<h2> <%= I18n.t :job_opportunity %> (<%=t(".#{@job_opportunity.status}")%>)  </h2>
+<p> <%= I18n.t :company %> </p>
 <p><%= @job_opportunity.company.name %></p>
-<p> <%= :job_title %> </p>
+<p> <%= I18n.t :job_title %> </p>
 <p><%=@job_opportunity.description%></p>
-<p> <%= :job_level %> </p>
+<p> <%= I18n.t :job_level %> </p>
 <p><%=@job_opportunity.job_title%></p>
-<p> <%= :description %> </p>
+<p> <%= I18n.t :description %> </p>
 <p><%=@job_opportunity.job_level%></p>
-<p> <%= :salary_range %> </p>
+<p> <%= I18n.t :salary_range %> </p>
 <p><%=@job_opportunity.salary_range%></p>
+<p> <%= I18n.t :place %> </p>
+<p><%=@job_opportunity.place %></p>
 
-<% unless employee_signed_in? %>
-<h3><%= link_to 'Inscrever-se nesta vaga', create_job_application_job_opportunity_path(@job_opportunity), method: :post %></h3>
+<% unless employee_signed_in? || @job_opportunity.inactive? %>
+<h4><%= link_to 'Inscrever-se nesta vaga', create_job_application_job_opportunity_path(@job_opportunity), method: :post %></h4>
 <% end %>
 
 <% if employee_signed_in? && current_employee.company == @job_opportunity.company %>
@@ -26,7 +28,7 @@
 
 </div>
 
-<% if employee_signed_in? %>
+<% if employee_signed_in? && current_employee.company == @job_opportunity.company %>
 <div class="contentblock">
 
 <h2>Candidaturas recebidas para esta vaga:</h2>

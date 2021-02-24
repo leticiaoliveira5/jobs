@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Candidate sign in and fills resume' do
+feature 'Candidate sign up and fills resume' do
 
     scenario 'successfully' do
 
@@ -21,11 +21,11 @@ feature 'Candidate sign in and fills resume' do
         within('.signin') do 
             click_on 'Candidato'
         end
-        fill_in 'Firstname', with: 'Maria'
-        fill_in 'Surname', with: 'Pereira'
-        fill_in 'email', with: 'mariap@email.com'
-        fill_in 'password', with: '123456'
-        click_on 'Sign in'
+        fill_in 'Nome', with: 'Maria'
+        fill_in 'Sobrenome', with: 'Pereira'
+        fill_in 'E-mail', with: 'mariap@email.com'
+        fill_in 'Senha', with: '123456'
+        click_on 'Sign up'
 
         expect(page).to have_content 'Preencha seu currículo'
         expect(page).to have_content 'Atenção: você deve preencher todo o currículo antes de se candidatar para uma vaga'

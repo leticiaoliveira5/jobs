@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
 
-    before_action :authenticate_employee!, only: [:new, :create, :edit, :update]
+    before_action :authenticate_employee!, only: %i[:new, :create, :edit, :update]
     
     def index
         @companies = Company.all

@@ -1,7 +1,7 @@
 class JobOpportunitiesController < ApplicationController
    
-    before_action :authenticate_employee!, only: [:create, :new, :edit]
-    before_action :authenticate_candidate!, only: [:create_job_application]
+    before_action :authenticate_employee!, only: %i[:create, :new, :edit]
+    before_action :authenticate_candidate!, only: %i[:create_job_application]
 
     def new
         @job_opportunity = JobOpportunity.new
@@ -33,11 +33,15 @@ class JobOpportunitiesController < ApplicationController
 
     def create_job_application
         @job_opportunity = JobOpportunity.find(params[:id])
-        if @job_opportunity.active?
-        @job_opportunity.create_job_application!(@job_opportunity, current_candidate)
-        redirect_to @job_opportunity, notice: t('.success')
-        else 
-        redirect_to @job_opportunity, notice: t('.failure')
+        unless candidate_signed_in?
+        redirect_to new_candidate_session_path, notice: "Você precisa registrar-se para continuar"
+        else
+            if @job_opportunity.active? && current_candidate.job_applications.find_by(job_opportunity: @job_opportunity) == nil 
+            @job_opportunity.create_job_application!(@job_opportunity, current_candidate)
+            redirect_to @job_opportunity, notice: t(".success")
+            else 
+            redirect_to @job_opportunity, notice: t(".failure")
+            end
         end
     end
 

@@ -1,17 +1,17 @@
 pt-BR:
-  companies:
-    show:
-      active: 'Ativo'
-      inactive: 'Inativo'
-      code: 'Código'
-  job_opportunities:
-    show:
-      job_title: 'Título da vaga'
-      job_level: 'Nível de escolaridade'
-      inactive: 'Inativo'
-      active: 'Ativo'    
-    new:
-      job_title: 'Título da vaga'
-      job_level: 'Nível de escolaridade'
-      inactive: 'Inativo'
-      active: 'Ativo'
+  job_opportunity: 'Vaga'
+  active: 'Ativa'
+  inactive: 'Inativa'
+  description: 'Descrição'
+  inactive: 'Inativa'
+  job_level: Nível de escolaridade
+  job_title: Título da vaga
+  limit_date: Data limite
+  place: Local
+  salary_range: Faixa salarial 
+  company: Empresa
+  address: Endereço
+  cnpj: CNPJ
+  domain: Domínio
+  name: Nome
+  

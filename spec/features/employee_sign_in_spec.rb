@@ -8,18 +8,18 @@ feature 'Employee sign in' do
     within('.signin') do
     click_on 'Empresa'
     end
-    fill_in 'Firstname', with: 'Steve'
-    fill_in 'Surname', with: 'Jobs'
-    fill_in 'Email', with: 'steve@apple.com'
-    fill_in 'Password', with: '123456'
+    fill_in 'Nome', with: 'Steve'
+    fill_in 'Sobrenome', with: 'Jobs'
+    fill_in 'E-mail', with: 'steve@apple.com'
+    fill_in 'Senha', with: '123456'
     click_on 'Sign up'
 
     expect(page).to have_content('steve@apple.com')
-    expect(page).to have_content('Welcome! You have signed up successfully')
+    expect(page).to have_text('Bem vindo! Você realizou seu registro com sucesso.')
     expect(page).to have_text('Cadastro de empresa')
-    expect(page).to have_field('Name')
-    expect(page).to have_field('Address')
-    expect(page).to have_field('Cnpj')
+    expect(page).to have_field('Nome')
+    expect(page).to have_field('Endereço')
+    expect(page).to have_field('CNPJ')
     expect(Company.count).to eq(1)
 
   end
@@ -40,15 +40,15 @@ feature 'Employee sign in' do
     within('.signin') do
     click_on 'Empresa'
     end
-    fill_in 'Firstname', with: 'Ronald'
-    fill_in 'Surname', with: 'Wayne'
-    fill_in 'Email', with: 'ronald@apple.com'
-    fill_in 'Password', with: '123456'
+    fill_in 'Nome', with: 'Ronald'
+    fill_in 'Sobrenome', with: 'Wayne'
+    fill_in 'E-mail', with: 'ronald@apple.com'
+    fill_in 'Senha', with: '123456'
     click_on 'Sign up'
 
     expect(page).to have_content('ronald@apple.com')
     expect(page).to have_content('Apple')
-    expect(page).to have_content('Domínio: apple.com')
+    expect(page).to have_content('Los Angeles')
 
   end
 
@@ -64,8 +64,8 @@ feature 'Employee sign in' do
       click_on 'Empresa'
     end
     within('form') do
-    fill_in 'Email', with: 'leticia@email.com'
-    fill_in 'Password', with: '123456'
+    fill_in 'E-mail', with: 'leticia@email.com'
+    fill_in 'Senha', with: '123456'
     click_on 'Log in'
     end
     click_on 'Sair'

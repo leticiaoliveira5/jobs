@@ -22,31 +22,29 @@ feature 'Candidate applies to job' do
         firstname: 'Karoline', 
         surname: 'dos Santos')
 
-        resume = Resume.create!(candidate: candidate)
-
         visit root_path
         within('.login') do 
             click_on 'Candidato'
         end
-        fill_in 'email', with: 'karol@k.com'
-        fill_in 'password', with: '123456'
-        click_on 'Login'
+        fill_in 'E-mail', with: 'karol@k.com'
+        fill_in 'Senha', with: '123456'
+        click_on 'Log in'
         click_on 'Ver empresas cadastradas'
         click_on 'Globo'
         click_on 'Dummie'
         click_on 'Inscrever-se nesta vaga'
 
-        expect(page).to have_content 'Você está concorrendo a esta vaga'
+        expect(page).to have_text 'Inscrição realizada com sucesso!'
+        expect(page).not_to have_link 'Inscrever-se nesta vaga'
 
     end
 
-        scenario 'only if resume is complete' do
-
+    scenario 'only once' do
 
         company = Company.create!(name: 'Globo', 
-        domain:'globo.com', 
-        address: 'Rio de Janeiro', 
-        cnpj: '12346')
+                                    domain:'globo.com', 
+                                    address: 'Rio de Janeiro', 
+                                    cnpj: '12346')
 
         job_opportunity = JobOpportunity.create!(company: company, 
         job_title: 'Dummie',
@@ -61,25 +59,22 @@ feature 'Candidate applies to job' do
         firstname: 'Karoline', 
         surname: 'dos Santos')
 
-        resume = Resume.create!(candidate: candidate)
-
         visit root_path
         within('.login') do 
-        click_on 'Candidato'
+            click_on 'Candidato'
         end
-        fill_in 'email', with: 'karol@k.com'
-        fill_in 'password', with: '123456'
-        click_on 'Login'
+        fill_in 'E-mail', with: 'karol@k.com'
+        fill_in 'Senha', with: '123456'
+        click_on 'Log in'
         click_on 'Ver empresas cadastradas'
         click_on 'Globo'
         click_on 'Dummie'
         click_on 'Inscrever-se nesta vaga'
+        click_on 'Inscrever-se nesta vaga'
 
-        expect(page).to have_content 'Você está concorrendo a esta vaga'
-        expect(JobApplications.count).to eq(0)
-
-
-        end
-
+        expect(JobApplication.count).to eq(1)
+        expect(page).to have_text 'Você já se inscreveu nesta vaga'
+    
+    end
 
 end

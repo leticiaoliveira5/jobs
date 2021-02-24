@@ -22,13 +22,14 @@ feature 'employee registers job opportunity' do
         fill_in 'Título da vaga', with: 'Ator'
         fill_in 'Faixa salarial', with: 'A combinar'
         fill_in 'Nível de escolaridade', with: 'Nível médio'
-        fill_in 'Place', with: 'Curicica, Rio de Janeiro'
+        fill_in 'Local', with: 'Curicica, Rio de Janeiro'
         fill_in 'Descrição', with: 'Atuar em novelas da emissora.'
-        click_on 'Submit'
+        click_on 'Cadastrar vaga'
 
-        expect(page).to have_content 'Ator - Globo'
+        expect(page).to have_content 'Globo'
         expect(page).to have_content 'Descrição'
-        expect(company.job_opportunities.count).to eq '1'
+        expect(page).to have_content 'Atuar em novelas da emissora'
+        expect(company.job_opportunities.count).to eq(1)
 
     end
 
@@ -83,8 +84,8 @@ feature 'employee registers job opportunity' do
         visit root_path
         click_on 'Área da empresa'
         click_on 'Cadastrar nova vaga'
-        fill_in 'Jobtitle', with: 'Atriz'
-        click_on 'Submit'
+        fill_in 'Título da vaga', with: 'Atriz'
+        click_on 'Cadastrar vaga'
 
         expect(page).to have_content 'Não pode ficar em branco'
         expect(JobOpportunity.count).to eq(0)
