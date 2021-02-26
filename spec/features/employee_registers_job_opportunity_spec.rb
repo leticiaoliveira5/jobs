@@ -4,15 +4,14 @@ feature 'employee registers job opportunity' do
 
     scenario 'successfully' do
 
-        company = Company.create!(name: 'Globo', 
-                                    domain:'globo.com', 
-                                    address: 'Rio de Janeiro', 
-                                    cnpj: '12346')
         employee = Employee.create!(email: 'faustao@globo.com',
                                     password: '123456',
                                     firstname: 'Fausto', 
-                                    surname:'Silva',
-                                    role: 'admin')
+                                    surname:'Silva')
+
+        company = Company.find_by(domain: 'globo.com')
+        company.update(name: 'Globo', domain:'globo.com', 
+        address: 'Rio de Janeiro', cnpj: '12346')
         
         login_as employee, scope: :employee
         
@@ -35,27 +34,24 @@ feature 'employee registers job opportunity' do
 
     scenario 'only if belongs to company' do
         
-        company = Company.create!(name: 'Globo', 
-                                domain:'globo.com', 
-                                address: 'Rio de Janeiro', 
-                                cnpj: '12346')
-
         company_employee = Employee.create!(email: 'faustao@globo.com',
         password: '123456',
         firstname: 'Fausto', 
-        surname:'Silva',
-        role: 'regular',
-        company: company)
+        surname:'Silva')
+        company = Company.find_by(domain:'globo.com')
+        company.update(name: 'Globo', domain:'globo.com', 
+                        address: 'Rio de Janeiro', cnpj: '12346')
 
-        another_company = Company.create!(name: 'Record', 
-                                    domain:'r7.com', 
+        another_company_employee = Employee.create!(email: 'rodrigo@record.com',
+                                                    password: '123456',
+                                                    firstname: 'Rodrigo', 
+                                                    surname:'Faro')
+        another_company = Company.find_by(domain: 'record.com')
+        another_company.update(name: 'Record',
                                     address: 'Rio de Janeiro', 
                                     cnpj: '1230')
-
         
-
         login_as company_employee, scope: :employee
-
         visit root_path
         click_on 'Ver empresas cadastradas'
         click_on 'Record'
@@ -68,19 +64,15 @@ feature 'employee registers job opportunity' do
 
     scenario 'only if all fields are filled' do
 
-        company = Company.create!(name: 'Globo', 
-        domain:'globo.com', 
-        address: 'Rio de Janeiro', 
-        cnpj: '1234678910')
-
         company_employee = Employee.create!(email: 'faustao@globo.com',
         password: '123456',
         firstname: 'Fausto', 
-        surname:'Silva',
-        role: 'admin')
+        surname:'Silva')
+        company = Company.find_by(domain: 'globo.com')
+        company = Company.update(name: 'Globo', 
+        address: 'Rio de Janeiro', cnpj: '1234678910')
 
         login_as company_employee, scope: :employee
-
         visit root_path
         click_on 'Área da empresa'
         click_on 'Cadastrar nova vaga'

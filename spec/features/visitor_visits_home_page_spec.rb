@@ -14,15 +14,15 @@ feature 'Visitor visits home page' do
 
   scenario 'and views registered companies' do
 
-    Company.create!(name: 'Apple', 
-    domain:'apple.com', 
-    address: 'Los Angeles', 
-    cnpj: '4321')
-    
-    Company.create!(name: 'Microsoft', 
-    domain:'microsoft.com', 
-    address: 'Los Angeles', 
-    cnpj: '1234')
+    apple_employee = Employee.create!(email: 'steve@apple.com',
+    password: '123456',firstname: 'Steve', surname:'Jobs')
+    apple = Company.where(domain:'apple.com')
+    apple.update(name:'Apple', address: 'San Francisco', cnpj: '123456789')
+
+    microsoft_employee = Employee.create!(email: 'bill@microsoft.com',
+    password: '123456', firstname: 'Bill', surname:'Gates')
+    microsoft = Company.where(domain: 'microsoft.com')
+    microsoft.update(name: 'Microsoft', address: 'San Francisco', cnpj: '987654321')
 
     visit root_path
     click_on 'Ver empresas cadastradas'

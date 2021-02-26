@@ -26,15 +26,10 @@ feature 'Employee sign in' do
 
   scenario 'and belongs to company' do
 
-    company = Company.create!(name: 'Apple', 
-                              domain:'apple.com', 
-                              address: 'Los Angeles', 
-                              cnpj: '1234')
-
-    employee = Employee.create!(email: 'steve@apple.com',
-                                password: '123456',
-                                firstname: 'Steve', 
-                                surname:'Jobs')
+   employee = Employee.create!(email: 'steve@apple.com', password: '123456', 
+    firstname: 'Steve', surname:'Jobs')
+    company = Company.find_by(domain: 'apple.com')
+    company.update(name: 'Apple', address: 'Los Angeles', cnpj: '1234')
 
     visit root_path
     within('.signin') do
@@ -69,7 +64,8 @@ feature 'Employee sign in' do
     click_on 'Log in'
     end
     click_on 'Sair'
-
+    
+    expect(Company.count).to eq(1)
     expect(page).not_to have_content employee.email
     expect(page).not_to have_link 'Sair'
 

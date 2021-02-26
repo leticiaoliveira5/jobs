@@ -4,10 +4,14 @@ feature 'Candidate applies to job' do
 
     scenario 'successfully' do
 
-        company = Company.create!(name: 'Globo', 
-                                    domain:'globo.com', 
-                                    address: 'Rio de Janeiro', 
-                                    cnpj: '12346')
+        employee = Employee.create!(email: 'faustao@globo.com',
+        password: '123456',
+        firstname: 'Fausto', 
+        surname:'Silva')
+
+        company = Company.find_by(domain: 'globo.com')
+        company.update(name: 'Globo', domain:'globo.com', 
+        address: 'Rio de Janeiro', cnpj: '12346')
 
         job_opportunity = JobOpportunity.create!(company: company, 
         job_title: 'Dummie',
@@ -41,10 +45,14 @@ feature 'Candidate applies to job' do
 
     scenario 'only once' do
 
-        company = Company.create!(name: 'Globo', 
-                                    domain:'globo.com', 
-                                    address: 'Rio de Janeiro', 
-                                    cnpj: '12346')
+        employee = Employee.create!(email: 'faustao@globo.com',
+                                    password: '123456',
+                                    firstname: 'Fausto', 
+                                    surname:'Silva')
+
+        company = employee.find_by(domain:'globo.com')
+        company.update(name: 'Globo', domain:'globo.com', 
+        address: 'Rio de Janeiro', cnpj: '12346')
 
         job_opportunity = JobOpportunity.create!(company: company, 
         job_title: 'Dummie',

@@ -4,17 +4,10 @@ feature 'Employee views job applications received' do
     
     scenario 'successfully' do
 
-        apple = Company.create!(name: 'Apple', 
-        domain:'apple.com', 
-        address: 'Los Angeles', 
-        cnpj: '123456789')
-
         apple_employee = Employee.create!(email: 'steve@apple.com',
-        password: '123456',
-        firstname: 'Steve', 
-        surname:'Jobs',
-        role: 'admin',
-        company: apple)
+                password: '123456',firstname: 'Steve', surname:'Jobs')
+        apple = Company.find_by(domain:'apple.com')
+        apple.update(name: 'Apple', address: 'San Francisco', cnpj: '123456789')
 
         job_opportunity = JobOpportunity.create!(company: apple, 
         job_title: 'Desenvolvedor',
@@ -41,22 +34,15 @@ feature 'Employee views job applications received' do
 
     scenario 'only if belongs to company' do
 
-        apple = Company.create!(name: 'Apple', 
-        domain:'apple.com', 
-        address: 'Los Angeles', 
-        cnpj: '123456789')
-
-        microsoft = Company.create!(name: 'Microsoft', 
-        domain:'microsoft.com', 
-        address: 'Los Angeles', 
-        cnpj: '987654321')
+        apple_employee = Employee.create!(email: 'steve@apple.com',
+        password: '123456',firstname: 'Steve', surname:'Jobs')
+        apple = apple_employee.company
+        apple.update(name:'Apple', address: 'San Francisco', cnpj: '123456789')
 
         microsoft_employee = Employee.create!(email: 'bill@microsoft.com',
-        password: '123456',
-        firstname: 'Bill', 
-        surname:'Gates',
-        role: 'admin',
-        company: microsoft)
+        password: '123456', firstname: 'Bill', surname:'Gates')
+        microsoft = microsoft_employee.company 
+        microsoft.update(name: 'Microsoft', address: 'San Francisco', cnpj: '987654321')
 
         job_opportunity = JobOpportunity.create!(company: apple, 
         job_title: 'Desenvolvedor',
@@ -66,7 +52,8 @@ feature 'Employee views job applications received' do
         place: 'home office',
         number_of_positions: '5')
 
-        candidate = Candidate.create(email: 'juliette@gmail.com', password: '123456', firstname: 'Juliette', surname: 'Freire')
+        candidate = Candidate.create(email: 'juliette@gmail.com', password: '123456', 
+                                    firstname: 'Juliette', surname: 'Freire')
 
         JobApplication.create!(candidate: candidate, job_opportunity: job_opportunity)
 

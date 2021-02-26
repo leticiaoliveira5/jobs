@@ -4,17 +4,10 @@ feature 'Visitor searches job opportunitiees' do
 
     scenario 'successfully' do 
 
-        apple = Company.create!(name: 'Apple', 
-        domain:'apple.com', 
-        address: 'Los Angeles', 
-        cnpj: '123456789')
-
         apple_employee = Employee.create!(email: 'steve@apple.com',
-        password: '123456',
-        firstname: 'Steve', 
-        surname:'Jobs',
-        role: 'admin',
-        company: apple)
+                password: '123456',firstname: 'Steve', surname:'Jobs')
+        apple = Company.find_by(domain:'apple.com')
+        apple.update(name:'Apple', address: 'San Francisco', cnpj: '123456789')
 
         job_opportunity = JobOpportunity.create!(company: apple, 
         job_title: 'Desenvolvedor',

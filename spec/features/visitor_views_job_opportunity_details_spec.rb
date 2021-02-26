@@ -4,15 +4,15 @@ feature 'Visitor views job opportunity details' do
 
   scenario 'successfully' do
 
-    apple = Company.create!(name: 'Apple', 
-    domain:'apple.com', 
-    address: 'Los Angeles', 
-    cnpj: '123456789')
+    apple_employee = Employee.create!(email: 'steve@apple.com',
+    password: '123456',firstname: 'Steve', surname:'Jobs')
+    apple = Company.find_by(domain:'apple.com')
+    apple.update(name:'Apple', address: 'San Francisco', cnpj: '123456789')
 
-    microsoft = Company.create!(name: 'Microsoft', 
-      domain:'microsoft.com', 
-      address: 'Los Angeles', 
-      cnpj: '987654321')
+    microsoft_employee = Employee.create!(email: 'bill@microsoft.com',
+    password: '123456', firstname: 'Bill', surname:'Gates')
+    microsoft = Company.find_by(domain: 'microsoft.com')
+    microsoft.update(name: 'Microsoft', address: 'San Francisco', cnpj: '987654321')
 
     JobOpportunity.create!(company: apple, 
     job_title: 'Desenvolvedor',
@@ -35,10 +35,10 @@ feature 'Visitor views job opportunity details' do
 
   scenario 'and clicks to apply' do
 
-    apple = Company.create!(name: 'Apple', 
-                    domain:'apple.com', 
-                    address: 'Los Angeles', 
-                    cnpj: '123456789')
+    apple_employee = Employee.create!(email: 'steve@apple.com',
+    password: '123456',firstname: 'Steve', surname:'Jobs')
+    apple = Company.find_by(domain:'apple.com')
+    apple.update(name:'Apple', address: 'San Francisco', cnpj: '123456789')
     
     JobOpportunity.create!(company: apple, 
     job_title: 'Desenvolvedor',
