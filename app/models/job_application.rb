@@ -4,9 +4,4 @@ class JobApplication < ApplicationRecord
 
 
 
-def cancel_job_application
-  @job_application.destroy!
-end
-
-
 end

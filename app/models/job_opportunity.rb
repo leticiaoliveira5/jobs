@@ -9,7 +9,13 @@ class JobOpportunity < ApplicationRecord
   def create_job_application!(job_opportunity, current_candidate)
     JobApplication.create!(job_opportunity: job_opportunity, 
     candidate: current_candidate)
- end
+  end
+
+  def self.search(search)
+      self.joins(:company).where("job_title LIKE ? OR name LIKE ?","%#{search}%","%#{search}%")
+      # sintaxe SQL para buscas no banco de dados
+      # Like procura o texto independente da posição na string
+  end   
 
 
 end

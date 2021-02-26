@@ -1,8 +1,12 @@
 <center>
 <div class="contentblock">
-<h2>Painel de controle - candidato</h2>
-<%= link_to 'Meu currículo', resume_path(current_candidate) %>
+<h2>Painel de controle - <%= current_candidate.firstname %> <%= current_candidate.surname %> </h2>
+<p>Sobre mim: <%= current_candidate.about_me %></p>
+<p>CPF: <%= current_candidate.cpf %></p>
+<%= link_to 'Ver currículo', resume_path(current_candidate) %>
+<% if candidate_signed_in? %>
 <%= link_to 'Editar dados da minha conta', edit_candidate_registration_path(current_candidate) %>
+<% end %>
 </div>
 
 
@@ -10,8 +14,8 @@
 <h2>Minhas vagas</h2>
 
 <% if current_candidate.job_applications.count > 0 %>
-<% current_candidate.job_applications.each do |ja| %>
-<%= ja.job_opportunity.job_title %> (<%= link_to 'cancelar candidatura', destroy_job_application_path(ja) %>)
+<% current_candidate.job_applications.each do |job_application| %>
+<%= job_application.job_opportunity.job_title %> (<%= link_to 'cancelar candidatura', candidate_cancel_job_application_path(job_application), method: :delete %>)
 <% end %>
 <% else %>
 Você ainda não se inscreveu em nenhuma vaga.
@@ -20,7 +24,6 @@ Você ainda não se inscreveu em nenhuma vaga.
 
 <div class="contentblock">
 <h2>Propostas recebidas</h2>
-
 
 Você ainda não recebeu nenhuma proposta.
 

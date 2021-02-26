@@ -57,4 +57,6 @@ class JobOpportunitiesController < ApplicationController
         redirect_to @job_opportunity
     end
 
+
+
 end

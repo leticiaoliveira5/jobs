@@ -34,7 +34,11 @@ class CompaniesController < ApplicationController
         domain: params[:company][:domain],
         address: params[:company][:address],
         cnpj: params[:company][:cnpj],)
-        redirect_to company_path(@company)
+        if @company.save
+            redirect_to company_path(@company)
+        else
+            redirect_to edit_company_path(@company), alert: 'failure'
+        end
     end
 
 end

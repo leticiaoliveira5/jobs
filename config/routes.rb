@@ -6,8 +6,6 @@ Rails.application.routes.draw do
 
   devise_for :candidates
 
-
-
   resources :companies, only: %i[index new create update edit show]
 
   resources :job_opportunities, only: %i[new create update edit show] do
@@ -19,11 +17,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :candidates, only: %i[index] 
+  resources :candidates, only: %i[index] do
+      delete 'cancel_job_application'
+  end
+
   resources :resumes, only: %i[index new create update edit show]
-  
 
-  
-
+  resources :search_results, only: %i[index]
 
 end

@@ -30,6 +30,7 @@ class ResumesController < ApplicationController
         abilities: params[:resume][:abilities],
         courses: params[:resume][:courses])
         redirect_to resume_path(@resume)
+
     end
 
 end
