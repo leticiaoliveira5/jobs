@@ -59,5 +59,31 @@ feature 'Visitor views job opportunity details' do
 
   end
 
+  scenario 'only if job opportunity is active' do
+
+    apple_employee = Employee.create!(email: 'steve@apple.com',
+    password: '123456',firstname: 'Steve', surname:'Jobs')
+    apple = Company.find_by(domain:'apple.com')
+    apple.update(name:'Apple', address: 'San Francisco', cnpj: '123456789')
+    
+    job_opportunity = JobOpportunity.create!(company: apple, 
+    job_title: 'Desenvolvedor',
+    job_level: 'Nível superior', 
+    salary_range: 'Inbox',
+    description: 'Uma boa oportunidade',
+    place: 'home office',
+    number_of_positions: '5')
+
+    job_opportunity.inactive!
+
+    visit root_path
+    click_on 'Ver empresas cadastradas'
+    click_on 'Apple'
+  
+    expect(current_path).to eq(company_path(apple))
+    expect(page).not_to have_content('Desenvolvedor')
+
+  end
+
 
 end

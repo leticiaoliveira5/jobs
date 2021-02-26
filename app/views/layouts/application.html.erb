@@ -42,6 +42,7 @@
 
   <% if candidate_signed_in? %>
   <%= link_to 'Área do candidato', candidates_path(current_candidate) %>
+  <%= link_to 'Meu currículo', resume_path(current_candidate.resume) %>
   <div class="navright">
   <%= current_candidate.email %>
   <%= link_to 'Sair', destroy_candidate_session_path, method: :delete %>

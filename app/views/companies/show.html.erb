@@ -1,51 +1,64 @@
 <center>
 
+
 <% if employee_signed_in? && current_employee.company == @company %>
-<div class="employeepanel">
-<h2>Painel colaborador - <%= current_employee.firstname%> (<%=current_employee.role%>) </h2>
+    <div class="employeepanel">
+        <h2>Painel colaborador - <%= current_employee.firstname%> (<%=current_employee.role%>) </h2>
 
-<% if current_employee.admin? %>
-<h3>Funcionários cadastrados:</h3>
-<% @company.employees.each do |employee| %>
-<p><%= employee.firstname %> <%= employee.surname %> (<%= employee.role %>)</p>
-<%end%>
-<p><%= link_to 'Editar dados da empresa', edit_company_path(@company) %></p>
-<%end%>
-
-<p><%= link_to 'Cadastrar nova vaga', new_job_opportunity_path %></p>
-</div><% end %>
-
-
-<div class="contentblock">
-<h2>Candidaturas recebidas</h2>
-    <% @company.job_opportunities.each do |a| %>
-            <% a.job_applications.each do |b| %>
-            <p><%=a.job_title %> - <%= link_to "#{b.candidate.firstname} #{b.candidate.surname}", resume_path(b.candidate) %></p>
+        <% if current_employee.admin? %>
+            <h3>Funcionários cadastrados:</h3>
+            <% @company.employees.each do |employee| %>
+            <p><%= employee.firstname %> <%= employee.surname %> (<%= employee.role %>)</p>
             <%end%>
-<%end%>
+            <p><%= link_to 'Editar dados da empresa', edit_company_path(@company) %></p>
+        <%end%>
+
+        <p><%= link_to 'Cadastrar nova vaga', new_job_opportunity_path %></p>
+    </div>
+
+    <div class="contentblock">
+        <h2>Vagas inativas</h2>
+        <% if @company.job_opportunities.inactive.count == 0 %>
+            <p>Nenhuma vaga ativa no momento.</p>
+            <% else %>
+            <% @company.job_opportunities.inactive.each do |job| %>
+            <p><%= link_to "#{job.job_title} (#{job.status})", job_opportunity_path(job) %></p>
+            <%end%> 
+        <%end%>
+    </div>
+
+    <div class="contentblock">
+    <h2>Candidaturas recebidas</h2>
+        <% @company.job_opportunities.each do |a| %>
+                <% a.job_applications.each do |b| %>
+                <p><%=a.job_title %> - <%= link_to "#{b.candidate.firstname} #{b.candidate.surname}", resume_path(b.candidate) %></p>
+                <%end%>
+        <%end%>
+    </div>
+
+<% end %>
+
+<div class="contentblock">
+    <h2>Dados da empresa</h2>
+    <p class="field"><%= I18n.t :name %></p>
+    <%= @company.name %> 
+    <p class="field"><%= I18n.t :domain %></p>
+    <%= @company.domain %>
+    <p class="field"><%= I18n.t :address %></p>
+    <%= @company.address %>
+    <p class="field"><%= I18n.t :cnpj %></p>
+    <%= @company.cnpj %>
 </div>
 
 <div class="contentblock">
-<h2>Dados da empresa</h2>
-<p class="field"><%= I18n.t :name %></p>
-<%= @company.name %> 
-<p class="field"><%= I18n.t :domain %></p>
- <%= @company.domain %>
-<p class="field"><%= I18n.t :address %></p>
-<%= @company.address %>
-<p class="field"><%= I18n.t :cnpj %></p>
-<%= @company.cnpj %>
-</div>
-
-<div class="contentblock">
-<h2>Vagas cadastradas</h2>
-<% if @company.job_opportunities.count == 0 %>
-<p>Nenhuma vaga cadastrada.</p>
-<% else %>
- <% @company.job_opportunities.each do |job| %>
- <p><%= link_to "#{job.job_title} (#{job.status})", job_opportunity_path(job) %></p>
- <%end%>
-<%end%>
+    <h2>Vagas disponíveis</h2>
+    <% if @company.job_opportunities.active.count == 0 %>
+        <p>Nenhuma vaga ativa no momento.</p>
+    <% else %>
+        <% @company.job_opportunities.active.each do |job| %>
+        <p><%= link_to "#{job.job_title}", job_opportunity_path(job) %></p>
+        <%end%>
+    <%end%>
 </div>
 
 

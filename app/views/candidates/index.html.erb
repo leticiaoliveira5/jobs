@@ -3,6 +3,8 @@
 <h2>Painel de controle - <%= current_candidate.firstname %> <%= current_candidate.surname %> </h2>
 <p>Sobre mim: <%= current_candidate.about_me %></p>
 <p>CPF: <%= current_candidate.cpf %></p>
+<p>Endereço: <%= current_candidate.address %></p>
+
 <%= link_to 'Ver currículo', resume_path(current_candidate) %>
 <% if candidate_signed_in? %>
 <%= link_to 'Editar dados da minha conta', edit_candidate_registration_path(current_candidate) %>

@@ -31,6 +31,8 @@ pt-BR:
       resume:
         abilities: Conhecimentos
         education: Formação acadêmica
+        languages: Idiomas
+        courses: Cursos
         experience: Experiência profissional
     errors:
       messages:

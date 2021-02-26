@@ -4,7 +4,7 @@ class ResumesController < ApplicationController
     end
 
     def show
-        @resume = Resume.find(params[:id])
+        @resume = Resume.joins(:candidate).find(params[:id])
     end
 
     def create
