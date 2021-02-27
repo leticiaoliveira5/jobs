@@ -37,7 +37,8 @@ class JobOpportunitiesController < ApplicationController
         redirect_to new_candidate_session_path, notice: "Você precisa registrar-se para continuar"
         else
             if @job_opportunity.active? && current_candidate.job_applications.find_by(job_opportunity: @job_opportunity) == nil 
-            @job_opportunity.create_job_application!(@job_opportunity, current_candidate)
+            JobApplication.create(job_opportunity: @job_opportunity, 
+            candidate: current_candidate)
             redirect_to @job_opportunity, notice: t(".success")
             else 
             redirect_to @job_opportunity, notice: t(".failure")
@@ -46,9 +47,9 @@ class JobOpportunitiesController < ApplicationController
     end
 
     def inactivate_job_opportunity
-    @job_opportunity = JobOpportunity.find(params[:id])
-    @job_opportunity.inactive!
-    redirect_to @job_opportunity
+        @job_opportunity = JobOpportunity.find(params[:id])
+        @job_opportunity.inactive!
+        redirect_to @job_opportunity
     end
 
     def activate_job_opportunity

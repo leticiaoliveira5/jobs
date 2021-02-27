@@ -26,7 +26,7 @@ RSpec.describe JobOpportunity, type: :model do
 
         login_as candidate
 
-        job_application = job_opportunity.create_job_application!(job_opportunity, candidate)
+        job_application = JobApplication.create!(job_opportunity: job_opportunity, candidate: candidate)
 
         expect(JobApplication.count).to eq(1)
         expect(job_application.candidate).to eq(candidate)

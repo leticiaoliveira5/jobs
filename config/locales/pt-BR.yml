@@ -22,17 +22,17 @@ pt-BR:
         active: Ativa
         description: Descrição
         inactive: Inativa
-        job_level: Nível de escolaridade
-        job_title: Título da vaga
-        limit_date: Data limite
-        place: Local
-        salary_range: Faixa salarial
+        job_level: nível de escolaridade
+        job_title: título da vaga
+        limit_date: data limite
+        place: local
+        salary_range: faixa salarial
       resume:
-        abilities: Conhecimentos
-        education: Formação acadêmica
-        languages: Idiomas
-        courses: Cursos
-        experience: Experiência profissional
+        abilities: conhecimentos
+        education: formação acadêmica
+        languages: idiomas
+        courses: cursos
+        experience: experiência profissional
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'

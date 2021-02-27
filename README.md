@@ -1,6 +1,6 @@
 <h1> Jobs </h1>
 
-The application lets people who work in the same company create and manage job opportunities and find candidates interested them.
+The application lets people who work in the same company create and manage job opportunities and find candidates interested in them.
 
 <h1> Status </h1>
 
@@ -37,13 +37,17 @@ Clone the project:
 
 <p><code>git clone https://github.com/leticiaoliveira5/jobs</code></p>
 
-Go to project folder;
+Go to project folder:
 
 <p><code>cd ~/jobs</code></p>
 
 Install dependencies:
 
-<p><code>bundle install</code></p>
+<p><code>rails db:setup</code></p>
+
+To populate the database:
+
+<p><code>rake db:seed</code></p>
 
 Run:
 
@@ -54,18 +58,13 @@ Now you can use the application on your web browser from http://localhost:3000/
 <h1>Seeds</h1>
 
 Database populated via file <code>db/seeds.rb</code>
-<br>Run <code>rake db:seed</code>
 <br>Pre-saved logins:
-
 <br>candidates:
-
 <br>email: 'aline@mail.com', password: '123456'
 <br>email: 'bianca@mail.com', password: '123456'
-
 <br>employees:
-
-<br>email: 'fatima@globe.com', password: '123456'
-<br>email: 'monique@globe.com', password '123456'
+<br>email: 'fatima@startv.com', password: '123456'
+<br>email: 'monique@startv.com', password '123456'
 <br>email: 'arthur@fly.com', password '123456'
 
 <h1>Languages</h1>
@@ -83,4 +82,3 @@ Run <code>rspec</code>
 <h1>Coded by Letícia Oliveira</h1>
 
 leoliveira994@gmail.com
-

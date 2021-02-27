@@ -1,9 +1,8 @@
 pt-BR:
-  job_opportunity: 'Vaga'
-  active: 'Ativa'
-  inactive: 'Inativa'
-  description: 'Descrição'
-  inactive: 'Inativa'
+  job_opportunity: Vaga
+  active: Ativa
+  inactive: Inativa
+  description: Descrição
   job_level: Nível de escolaridade
   job_title: Título da vaga
   limit_date: Data limite
