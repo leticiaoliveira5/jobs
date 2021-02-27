@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe JobApplication, type: :model do
 
-  context '#cancel_job_application' do
+  context '#destroy' do
 
     it  'deletes job application' do
 
@@ -26,12 +26,12 @@ RSpec.describe JobApplication, type: :model do
 
       login_as candidate
 
-      job_application = job_opportunity.create_job_application!(job_opportunity, candidate)
+      job_application = JobApplication.create(job_opportunity: job_opportunity, candidate: candidate)
 
-      job_application.cancel_job_application!
+      job_application.destroy!
 
       expect(candidate.job_applications.count).to eq(0)
-      expect(job_application).to be_falsy
+      expect(JobApplication.count).to eq(0)
 
     end
 

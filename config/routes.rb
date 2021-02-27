@@ -17,9 +17,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :candidates, only: %i[index] do
-      delete 'cancel_job_application'
-  end
+  resources :candidates, only: %i[index] 
+  
+  resources :job_applications, only: %i[destroy]
 
   resources :resumes, only: %i[index new create update edit show]
 

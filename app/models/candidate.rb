@@ -10,13 +10,7 @@ class Candidate < ApplicationRecord
   after_create :create_resume
 
   def create_resume
-    Resume.create!(id: self.id, candidate: self)
+    Resume.create!(candidate: self)
   end
-
-  def cancel_job_application!(job_opportunity, current_candidate)
-    @job_application = JobApplication.find_by(job_opportunity: job_opportunity, candidate: current_candidate)
-    @job_application.destroy!
-  end
-
 
 end

@@ -34,7 +34,7 @@ class JobOpportunitiesController < ApplicationController
     def create_job_application
         @job_opportunity = JobOpportunity.find(params[:id])
         unless candidate_signed_in?
-        redirect_to new_candidate_session_path, notice: "Você precisa registrar-se para continuar"
+            redirect_to new_candidate_session_path, notice: "Você precisa registrar-se para continuar"
         else
             if @job_opportunity.active? && current_candidate.job_applications.find_by(job_opportunity: @job_opportunity) == nil 
             JobApplication.create(job_opportunity: @job_opportunity, 

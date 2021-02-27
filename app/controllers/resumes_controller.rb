@@ -22,7 +22,7 @@ class ResumesController < ApplicationController
     end
 
       def update
-        @resume = resume.find(params[:id])
+        @resume = Resume.find(params[:id])
         @resume.update(address: params[:resume][:address], 
         education: params[:resume][:education],
         experience: params[:resume][:experience],
