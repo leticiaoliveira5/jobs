@@ -16,7 +16,7 @@ Under development
 <br> [X] Candidate fills resume
 <br> [X] Company employee views applications received
 <br> [X] Visitors, employees and candidates search job opportunities by name and by company
-<br> [ ] Company employee makes a job proposal to a candidate
+<br> [X] Company employee makes a job proposal to a candidate
 <br> [ ] Candidate sees proposals received
 <br> [ ] Employee approves/disapproves candidate's application
 <br> [ ] Job opportunity is deactivated when the needed number of candidates are approved

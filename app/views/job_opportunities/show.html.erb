@@ -1,10 +1,6 @@
 <center>
 <div class="contentblock">
 <h2> <%=@job_opportunity.job_title%> (<%=t(".#{@job_opportunity.status}")%>)  </h2>
-<% if employee_signed_in? %>
-<p>(<%= link_to 'Editar vaga', edit_job_opportunity_path(@job_opportunity) %>)</p>
-<%end%>
-
 <p> <%= t('.company') %>: <%= @job_opportunity.company.name %></p>
 <p> <%= t('.job_level') %>: <%=@job_opportunity.job_level%></p>
 <p> <%= t('.description') %>: <%=@job_opportunity.description%></p>
@@ -25,6 +21,10 @@
     <%end%>
 <%end%>
 
+<% if employee_signed_in? %>
+<%= link_to 'Editar vaga', edit_job_opportunity_path(@job_opportunity) %>
+<%end%>
+
 </div>
 
 <% if employee_signed_in? && current_employee.company == @job_opportunity.company %>
@@ -33,7 +33,9 @@
 <h2>Candidaturas recebidas para esta vaga:</h2>
     <% if @job_opportunity.job_applications.count > 0 %>
         <% @job_opportunity.job_applications.each do |a| %>
-        <p><%=@job_opportunity.job_title %> - <%= link_to "#{a.candidate.firstname} #{a.candidate.surname}", resume_path(a.candidate) %></p>
+        <p><%=@job_opportunity.job_title %> - <%= a.candidate.firstname %> <%= a.candidate.surname %></p>
+        <p><%= link_to "Ver currículo de #{a.candidate.firstname}", resume_path(a.candidate) %> 
+        <p><%= link_to "Fazer proposta para #{a.candidate.firstname}", new_job_application_job_proposal_path(a) %>
         <%end%>
     <% else %>
     Nenhum candidato se inscreveu para esta vaga

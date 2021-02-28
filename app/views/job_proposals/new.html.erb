@@ -1,0 +1,38 @@
+<center>
+
+<% if @job_proposal.errors.any? %>
+    <div class="alert-danger">
+        <% @job_proposal.errors.full_messages.each do |error| %>
+            <p><%= error %></p>
+        <% end %>
+    </div>
+  <% end %>
+
+<div class="contentblock">
+    <h1>Fazer proposta para candidato: </h1>
+    <%=t('.firstname')%>: <%= @job_application.candidate.firstname %> 
+    <%=t('.job_opportunity')%>: <%= @job_application.job_opportunity.job_title %>
+
+    <%= form_for([@job_application, @job_proposal]) do |f| %>
+    
+        <div>
+            <%= f.label :message %>
+            <%= f.text_field :message %>
+        </div>
+
+        <div>
+            <%= f.label :start_date %>
+            <%= f.text_field :start_date%>
+        </div>
+
+        <div>
+            <%= f.label :salary_proposal %>
+            <%= f.text_field :salary_proposal %>
+        </div>
+
+        <%= f.submit 'Enviar' %>
+
+    <% end %>
+
+    <p><%= link_to 'Voltar', company_path(current_employee.company) %>
+</div>

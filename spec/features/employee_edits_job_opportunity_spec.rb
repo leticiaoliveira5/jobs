@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'employee registers job opportunity' do
+feature 'employee edits job opportunity' do
 
     scenario 'successfully' do
 
