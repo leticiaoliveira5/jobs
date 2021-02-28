@@ -56,7 +56,7 @@
         <p>Nenhuma vaga ativa no momento.</p>
     <% else %>
         <% @company.job_opportunities.active.each do |job| %>
-        <p><%= link_to "#{job.job_title}", job_opportunity_path(job) %></p>
+        <p><%= link_to "#{job.job_title}", job_opportunity_path(job) %> </p>
         <%end%>
     <%end%>
 </div>

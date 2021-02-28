@@ -1,11 +1,17 @@
 <center>
 <div class="contentblock">
 <h2> <%=@job_opportunity.job_title%> (<%=t(".#{@job_opportunity.status}")%>)  </h2>
+<% if employee_signed_in? %>
+<p>(<%= link_to 'Editar vaga', edit_job_opportunity_path(@job_opportunity) %>)</p>
+<%end%>
+
 <p> <%= t('.company') %>: <%= @job_opportunity.company.name %></p>
 <p> <%= t('.job_level') %>: <%=@job_opportunity.job_level%></p>
 <p> <%= t('.description') %>: <%=@job_opportunity.description%></p>
 <p> <%= t('.salary_range') %>: <%=@job_opportunity.salary_range%></p>
 <p> <%= t('.place') %>: <%=@job_opportunity.place %></p>
+<p> <%= t('.limit_date') %>: <%=@job_opportunity.limit_date %></p>
+
 
 <% unless employee_signed_in? || @job_opportunity.inactive? %>
 <h4><%= link_to 'Inscrever-se nesta vaga', create_job_application_job_opportunity_path(@job_opportunity), method: :post %></h4>

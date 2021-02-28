@@ -58,6 +58,23 @@ class JobOpportunitiesController < ApplicationController
         redirect_to @job_opportunity
     end
 
+    def edit
+        @job_opportunity = JobOpportunity.find(params[:id])
+    end
 
+    def update
+        @job_opportunity = JobOpportunity.find(params[:id])
+        @job_opportunity.update(job_title: params[:job_opportunity][:job_title], 
+        description: params[:job_opportunity][:description],
+        job_level: params[:job_opportunity][:job_level],
+        salary_range: params[:job_opportunity][:salary_range],
+        number_of_positions: params[:job_opportunity][:number_of_positions],
+        limit_date:params[:job_opportunity][:limit_date])
+        if @job_opportunity.save
+            redirect_to job_opportunity_path(@job_opportunity)
+        else
+            render 'edit'
+        end
+    end
 
 end
