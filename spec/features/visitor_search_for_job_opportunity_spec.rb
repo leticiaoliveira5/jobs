@@ -14,7 +14,8 @@ feature 'Visitor searches job opportunities' do
         job_level: 'Nível superior', 
         salary_range: 'Inbox',
         description: 'Uma boa oportunidade',
-        place: 'home office',
+        place: 'home office',        
+        limit_date: '26/10/2021',
         number_of_positions: '5')
 
         visit root_path
@@ -39,7 +40,8 @@ feature 'Visitor searches job opportunities' do
         job_level: 'Nível superior', 
         salary_range: 'Inbox',
         description: 'Uma boa oportunidade',
-        place: 'home office',
+        place: 'home office',        
+        limit_date: '26/10/2021',
         number_of_positions: '5')
 
         visit root_path

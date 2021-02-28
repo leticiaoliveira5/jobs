@@ -19,6 +19,7 @@ feature 'Candidate applies to job' do
         salary_range: 'Salário mínimo',
         description: 'Auxiliar em diversas atividades',
         place: 'Curicica - RJ',
+        limit_date: '26/10/2021',
         number_of_positions: '10')
 
         candidate = Candidate.create(email: 'karol@k.com', 
@@ -60,6 +61,7 @@ feature 'Candidate applies to job' do
         salary_range: 'Salário mínimo',
         description: 'Auxiliar em diversas atividades',
         place: 'Curicica - RJ',
+        limit_date: '26/10/2021', 
         number_of_positions: '10')
 
         candidate = Candidate.create(email: 'karol@k.com', 
@@ -101,7 +103,8 @@ feature 'Candidate applies to job' do
         job_level: 'Nível médio', 
         salary_range: 'Salário mínimo',
         description: 'Auxiliar em diversas atividades',
-        place: 'Curicica - RJ',
+        place: 'Curicica - RJ',        
+        limit_date: '26/10/2021',
         number_of_positions: '10')
 
         candidate = Candidate.create(email: 'karol@k.com', 

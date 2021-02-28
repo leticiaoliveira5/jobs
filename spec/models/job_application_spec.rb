@@ -18,8 +18,8 @@ RSpec.describe JobApplication, type: :model do
       job_opportunity = JobOpportunity.create!(company: company, 
       job_title: 'Dummie', job_level: 'Nível médio', 
       salary_range: 'Salário mínimo',
-      description: 'Auxiliar em diversas atividades',
-      place: 'Curicica - RJ', number_of_positions: '10')
+      description: 'Auxiliar em diversas atividades', limit_date: '26/10/2021',
+      place: 'Curicica - RJ', number_of_positions: 10)
 
       candidate = Candidate.create(email: 'karol@k.com', password: '123456',
       firstname: 'Karoline', surname: 'dos Santos')

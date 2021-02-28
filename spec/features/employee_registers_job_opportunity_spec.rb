@@ -23,6 +23,8 @@ feature 'employee registers job opportunity' do
         fill_in 'Nível de escolaridade', with: 'Nível médio'
         fill_in 'Local', with: 'Curicica, Rio de Janeiro'
         fill_in 'Descrição', with: 'Atuar em novelas da emissora.'
+        fill_in 'Data limite', with: '26/10/2021'
+        fill_in 'Número de vagas', with: '2'
         click_on 'Cadastrar vaga'
 
         expect(page).to have_content 'Globo'
@@ -79,8 +81,13 @@ feature 'employee registers job opportunity' do
         fill_in 'Título da vaga', with: 'Atriz'
         click_on 'Cadastrar vaga'
 
-        expect(page).to have_content 'Não pode ficar em branco'
         expect(JobOpportunity.count).to eq(0)
+        expect(page).to have_content 'Descrição não pode ficar em branco'
+        expect(page).to have_content 'Nível de escolaridade não pode ficar em branco'
+        expect(page).to have_content 'Faixa salarial não pode ficar em branco'
+        expect(page).to have_content 'Local não pode ficar em branco'
+        expect(page).to have_content 'Data limite não pode ficar em branco'
+
 
     end
 

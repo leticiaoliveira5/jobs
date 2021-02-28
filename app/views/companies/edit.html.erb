@@ -1,4 +1,14 @@
-<center><div class="contentblock">
+<center>
+
+<% if @company.errors.any? %>
+    <div class="alert-danger">
+    <% @company.errors.full_messages.each do |error| %>
+        <p><%= error %></p>
+      <% end %>
+    </div>
+  <% end %>
+  
+<div class="contentblock">
 <h1>Cadastro de empresa</h1>
 
 <%= form_for(@company) do |f| %>

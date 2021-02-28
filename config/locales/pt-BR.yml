@@ -27,6 +27,7 @@ pt-BR:
         limit_date: Data limite
         place: Local
         salary_range: Faixa salarial
+        number_of_positions: Número de vagas
       resume:
         abilities: Conhecimentos
         education: Formação acadêmica

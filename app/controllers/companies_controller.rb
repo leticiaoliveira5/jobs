@@ -37,7 +37,7 @@ class CompaniesController < ApplicationController
         if @company.save
             redirect_to company_path(@company)
         else
-            redirect_to edit_company_path(@company), alert: 'failure'
+            render 'edit'
         end
     end
 

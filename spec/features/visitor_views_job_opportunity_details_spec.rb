@@ -20,6 +20,7 @@ feature 'Visitor views job opportunity details' do
     salary_range: 'Inbox',
     description: 'Uma boa oportunidade',
     place: 'Home Office',
+    limit_date: '26/10/2021',
     number_of_positions: '5')
 
     visit root_path
@@ -46,7 +47,8 @@ feature 'Visitor views job opportunity details' do
     salary_range: 'Inbox',
     description: 'Uma boa oportunidade',
     place: 'home office',
-    number_of_positions: '5')
+    limit_date: '26/10/2021',
+    number_of_positions: 5)
 
     visit root_path
     click_on 'Ver empresas cadastradas'
@@ -72,7 +74,8 @@ feature 'Visitor views job opportunity details' do
     salary_range: 'Inbox',
     description: 'Uma boa oportunidade',
     place: 'home office',
-    number_of_positions: '5')
+    limit_date: '26/10/2021',
+    number_of_positions: 5)
 
     job_opportunity.inactive!
 

@@ -1,4 +1,14 @@
-<center><div class="contentblock">
+<center>
+
+<% if @job_opportunity.errors.any? %>
+    <div class="alert-danger">
+    <% @job_opportunity.errors.full_messages.each do |error| %>
+        <p><%= error %></p>
+      <% end %>
+    </div>
+  <% end %>
+
+<div class="contentblock">
 <h1>Cadastro de vaga - <%= current_employee.company.name %> </h1>
 
 <%= form_for(@job_opportunity) do |f| %>
@@ -31,6 +41,11 @@
     <div>
     <%= f.label :limit_date %>
     <%= f.text_field :limit_date %>
+  </div>
+
+      <div>
+    <%= f.label :number_of_positions %>
+    <%= f.text_field :number_of_positions %>
   </div>
 
   <%= f.submit 'Cadastrar vaga' %>

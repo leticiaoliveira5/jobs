@@ -15,6 +15,7 @@ feature 'Employee views job applications received' do
         salary_range: 'Inbox',
         description: 'Uma boa oportunidade',
         place: 'home office',
+        limit_date: '26/10/2021',
         number_of_positions: '5')
 
         candidate = Candidate.create(email: 'juliette@gmail.com', password: '123456', firstname: 'Juliette', surname: 'Freire')
@@ -49,7 +50,8 @@ feature 'Employee views job applications received' do
         job_level: 'Nível superior', 
         salary_range: 'Inbox',
         description: 'Uma boa oportunidade',
-        place: 'home office',
+        place: 'home office',        
+        limit_date: '26/10/2021',
         number_of_positions: '5')
 
         candidate = Candidate.create(email: 'juliette@gmail.com', password: '123456', 
