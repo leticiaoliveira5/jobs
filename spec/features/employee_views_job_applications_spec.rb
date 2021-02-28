@@ -20,7 +20,9 @@ feature 'Employee views job applications received' do
 
         candidate = Candidate.create(email: 'juliette@gmail.com', password: '123456', firstname: 'Juliette', surname: 'Freire')
 
-        JobApplication.create!(candidate: candidate, job_opportunity: job_opportunity)
+        JobApplication.create!(candidate: candidate, 
+                            job_opportunity: job_opportunity,
+                            status:0)
 
         login_as apple_employee
 
@@ -57,7 +59,9 @@ feature 'Employee views job applications received' do
         candidate = Candidate.create(email: 'juliette@gmail.com', password: '123456', 
                                     firstname: 'Juliette', surname: 'Freire')
 
-        JobApplication.create!(candidate: candidate, job_opportunity: job_opportunity)
+        JobApplication.create!(candidate: candidate, 
+        job_opportunity: job_opportunity,
+        status: 0)
 
         login_as microsoft_employee
 

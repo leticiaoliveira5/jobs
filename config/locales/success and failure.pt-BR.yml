@@ -6,3 +6,6 @@ pt-BR:
   job_applications:
     destroy:
       success: 'Você não está mais inscrito nesta vaga'
+  job_proposals:
+    create:
+      success: 'A proposta foi enviada para o candidato'

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'employee makes proposal to candidate' do
+feature 'Employee makes proposal to candidate' do
 
     scenario 'successfully' do
 
@@ -21,7 +21,9 @@ feature 'employee makes proposal to candidate' do
         candidate = Candidate.create(email: 'juliette@gmail.com', password: '123456', 
                                     firstname: 'Juliette', surname: 'Freire')
 
-        JobApplication.create!(candidate: candidate, job_opportunity: job_opportunity)
+        JobApplication.create!(candidate: candidate, 
+                                job_opportunity: job_opportunity,
+                                status:0)
 
         login_as apple_employee
 
@@ -29,9 +31,9 @@ feature 'employee makes proposal to candidate' do
         click_on 'Área da empresa'
         click_on 'Desenvolvedor'
         click_on 'Fazer proposta para Juliette'
-        fill_in 'Mensagem', with: ''
-        fill_in 'Proposta salarial', with: ''
-        fill_in 'Data de Início', with: ''
+        fill_in 'Mensagem', with: 'Mensagem teste'
+        fill_in 'Proposta salarial', with: '2500'
+        fill_in 'Data de início', with: '25/04/2021'
         click_on 'Enviar'
 
         expect(JobProposal.count).to eq(1)

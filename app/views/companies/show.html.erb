@@ -28,11 +28,14 @@
     </div>
 
     <div class="contentblock">
-    <h2>Candidaturas recebidas</h2>
+        <h2>Candidaturas recebidas</h2>
         <% @company.job_opportunities.each do |a| %>
-                <% a.job_applications.each do |b| %>
-                <p><%=a.job_title %> - <%= link_to "#{b.candidate.firstname} #{b.candidate.surname}", resume_path(b.candidate) %></p>
-                <%end%>
+            <% a.job_applications.each do |b| %>
+                <p><%=a.job_title %> - <%= link_to "#{b.candidate.firstname} #{b.candidate.surname}", resume_path(b.candidate) %> <%= t(".#{b.status}") %></p>
+                <%= link_to "Ver currículo de #{b.candidate.firstname}", resume_path(b.candidate) %> 
+                <%= link_to "Fazer proposta para #{b.candidate.firstname}", new_job_application_job_proposal_path(b) %>
+                <%= link_to "Rejeitar candidatura de #{b.candidate.firstname}", root_path %>
+            <%end%>
         <%end%>
     </div>
 
@@ -40,13 +43,13 @@
 
 <div class="contentblock">
     <h2>Dados da empresa</h2>
-    <p class="field"><%= I18n.t :name %></p>
+    <p class="field"><%= t('.name') %></p>
     <%= @company.name %> 
-    <p class="field"><%= I18n.t :domain %></p>
+    <p class="field"><%= t('.domain') %></p>
     <%= @company.domain %>
-    <p class="field"><%= I18n.t :address %></p>
+    <p class="field"><%= t('.address') %></p>
     <%= @company.address %>
-    <p class="field"><%= I18n.t :cnpj %></p>
+    <p class="field"><%= t('.cnpj') %></p>
     <%= @company.cnpj %>
 </div>
 

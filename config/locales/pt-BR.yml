@@ -28,6 +28,17 @@ pt-BR:
         place: Local
         salary_range: Faixa salarial
         number_of_positions: Número de vagas
+        status:
+          active: Ativa
+          inative: Inativa
+      job_proposal:
+        message: Mensagem
+        salary_proposal: Proposta salarial
+        start_date: Data de início
+        status:
+          waiting: Aguardando avaliação
+          accepted: Aceita
+          declined: Não aceita
       resume:
         abilities: Conhecimentos
         education: Formação acadêmica
@@ -53,6 +64,9 @@ pt-BR:
       job_application:
         one: Inscrição
         other: Inscrições
+      job_proposal:
+        one: Candidatura
+        other: Candidaturas
       job_opportunity:
         one: Vaga
         other: Vagas

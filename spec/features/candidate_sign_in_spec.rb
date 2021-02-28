@@ -14,11 +14,7 @@ feature 'Candidate sign up and fills resume' do
         fill_in 'Senha', with: '123456'
         click_on 'Sign up'
 
-        expect(page).to have_content 'Preencha seu currículo'
-        expect(page).to have_field 'Idiomas'
-        expect(page).to have_field 'Conhecimentos'
-        expect(page).to have_field 'Formação'
-        expect(page).to have_button 'Atualizar currículo'
+        expect(page).to have_content 'Bem vindo! Você realizou seu registro com sucesso.'
 
     end
 
