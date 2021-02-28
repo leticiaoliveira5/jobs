@@ -43,11 +43,11 @@ Go to project folder:
 
 Install dependencies:
 
-<p><code>rails db:setup</code></p>
+<p><code>bundle install</code></p>
 
 To populate the database:
 
-<p><code>rake db:seed</code></p>
+<p><code>rake db:setup</code></p>
 
 Run:
 

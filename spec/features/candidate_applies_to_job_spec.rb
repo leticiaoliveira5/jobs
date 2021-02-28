@@ -39,7 +39,7 @@ feature 'Candidate applies to job' do
         click_on 'Inscrever-se nesta vaga'
 
         expect(page).to have_text 'Inscrição realizada com sucesso!'
-        expect(page).not_to have_link 'Inscrever-se nesta vaga'
+        expect(JobApplication.count).to eq(1)
 
     end
 
@@ -117,7 +117,7 @@ feature 'Candidate applies to job' do
         click_on 'Cancelar candidatura'
 
         expect(candidate.job_applications.count).to eq(0)
-        expect(page).to have_text 'Você não está mais inscrito nesta vaga.'
+        expect(page).to have_text 'Você não está mais inscrito nesta vaga'
 
     end
 

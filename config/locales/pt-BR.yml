@@ -22,17 +22,17 @@ pt-BR:
         active: Ativa
         description: Descrição
         inactive: Inativa
-        job_level: nível de escolaridade
-        job_title: título da vaga
-        limit_date: data limite
-        place: local
-        salary_range: faixa salarial
+        job_level: Nível de escolaridade
+        job_title: Título da vaga
+        limit_date: Data limite
+        place: Local
+        salary_range: Faixa salarial
       resume:
-        abilities: conhecimentos
-        education: formação acadêmica
-        languages: idiomas
-        courses: cursos
-        experience: experiência profissional
+        abilities: Conhecimentos
+        education: Formação acadêmica
+        languages: Idiomas
+        courses: Cursos
+        experience: Experiência profissional
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
@@ -58,8 +58,10 @@ pt-BR:
       resume:
         one: Currículo
         other: Currículos
-  address: Address
-  cnpj: Cnpj
+  address: Endereço
+  cnpj: CNPJ
+  domain: Domínio
+  name: Nome
   companies:
     show:
       address: Endereço
@@ -213,8 +215,8 @@ pt-BR:
       update: Atualizar %{model}
   job_opportunities:
     create_job_application:
-      failure: Failure
-      success: Success
+      failure: 'Você já se inscreveu nesta vaga'
+      success: 'Inscrição realizada com sucesso!'
     new:
       active: Ativa
       description: Descrição
@@ -233,7 +235,7 @@ pt-BR:
       limit_date: Data limite
       place: Local
       salary_range: Faixa salarial
-  name: Name
+  name: Nome
   number:
     currency:
       format:

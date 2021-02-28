@@ -59,8 +59,10 @@ pt-BR:
       resume:
         one: Currículo
         other: Currículos
-  address: Address
-  cnpj: Cnpj
+  address: Endereço
+  cnpj: CNPJ
+  domain: Domínio
+  name: Nome
   companies:
     show:
       address: Endereço
@@ -174,8 +176,8 @@ pt-BR:
       update: Atualizar %{model}
   job_opportunities:
     create_job_application:
-      failure: Failure
-      success: Success
+      failure: 'Inscrição realizada com sucesso'
+      success: 'Você já se inscreveu nesta vaga'
     new:
       active: Ativa
       description: Descrição
@@ -194,7 +196,7 @@ pt-BR:
       limit_date: Data limite
       place: Local
       salary_range: Faixa salarial
-  name: Name
+  name: Nome
   number:
     currency:
       format:

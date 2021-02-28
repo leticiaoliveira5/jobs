@@ -1,5 +1,8 @@
 pt-BR:
   job_opportunities:
     create_job_application:
-      success: Inscrição realizada com sucesso!
-      failure: Você já se inscreveu nesta vaga
+      success: 'Inscrição realizada com sucesso!'
+      failure: 'Você já se inscreveu nesta vaga'
+  job_applications:
+    destroy:
+      success: 'Você não está mais inscrito nesta vaga'

@@ -1,16 +1,20 @@
 pt-BR:
-  job_opportunity: Vaga
-  active: Ativa
-  inactive: Inativa
-  description: Descrição
-  job_level: Nível de escolaridade
-  job_title: Título da vaga
-  limit_date: Data limite
-  place: Local
-  salary_range: Faixa salarial 
-  company: Empresa
-  address: Endereço
-  cnpj: CNPJ
-  domain: Domínio
-  name: Nome
-  
+  job_opportunities:
+    show:
+      description: Descrição
+      job_level: Nível de escolaridade
+      job_title: Título da vaga
+      limit_date: Data limite
+      place: Local
+      salary_range: Faixa salarial 
+      status:
+        active: Ativa
+        inactive: Inativa
+  companies:
+    show:
+      address: Endereço
+      cnpj: CNPJ
+      domain: Domínio
+      name: Nome
+      job_opportunity: Vaga
+    
