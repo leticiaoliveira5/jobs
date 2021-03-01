@@ -26,7 +26,7 @@ RSpec.describe JobApplication, type: :model do
 
       login_as candidate
 
-      job_application = JobApplication.create(job_opportunity: job_opportunity, candidate: candidate)
+      job_application = JobApplication.create(job_opportunity: job_opportunity, candidate: candidate,status:0)
 
       job_application.destroy!
 

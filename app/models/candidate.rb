@@ -5,6 +5,7 @@ class Candidate < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :job_applications
+  has_many :job_proposals
   has_one :resume
 
   after_create :create_resume

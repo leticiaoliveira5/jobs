@@ -33,13 +33,13 @@
 <h2>Candidaturas recebidas para esta vaga:</h2>
     <% if @job_opportunity.job_applications.count > 0 %>
         <% @job_opportunity.job_applications.each do |a| %>
-        <h4><%=@job_opportunity.job_title %> - <%= a.candidate.firstname %> <%= a.candidate.surname %> <%= t(".#{a.status}") %></h4>
+        <h4><%=@job_opportunity.job_title %> - <%= a.candidate.firstname %> <%= a.candidate.surname %> (<%= t(".job_applications.status.#{a.status}") %>)</h4>
         <%= link_to "Ver currículo de #{a.candidate.firstname}", resume_path(a.candidate) %> 
         <%= link_to "Fazer proposta para #{a.candidate.firstname}", new_job_application_job_proposal_path(a) %>
-        <%= link_to "Rejeitar candidatura #{a.candidate.firstname}", root_path %>
+        <%= link_to "Rejeitar candidatura de #{a.candidate.firstname}", root_path %>
         <%end%>
     <% else %>
-    Nenhum candidato se inscreveu para esta vaga
+        Nenhum candidato se inscreveu para esta vaga
     <%end%>
 
 </div>

@@ -15,12 +15,12 @@
 
 <div class="contentblock">
 
-<h2>Minhas vagas</h2>
+    <h2>Minhas vagas</h2>
 
     <% if current_candidate.job_applications.count > 0 %>
         <% current_candidate.job_applications.each do |job_application| %>
-        <%= job_application.job_opportunity.job_title %> 
-        (<%= button_to 'Cancelar candidatura', job_application_path(job_application), method: :delete %>)
+        <%= link_to job_application.job_opportunity.job_title, job_opportunity_path(job_application.job_opportunity) %> 
+        <%= button_to 'Cancelar candidatura', job_application_path(job_application), method: :delete %>
         <% end %>
     <% else %>
         Você ainda não se inscreveu em nenhuma vaga.
@@ -29,9 +29,12 @@
 </div>
 
 <div class="contentblock">
-
-<h2>Propostas recebidas</h2>
-
-Você ainda não recebeu nenhuma proposta.
-
+    <h2>Propostas recebidas</h2>
+    <% unless current_candidate.job_proposals.count == 0 %>
+        <% current_candidate.job_proposals.each do |proposal| %>
+            <%= link_to "#{proposal.job_application.job_opportunity.job_title} - #{proposal.job_application.job_opportunity.company.name}", job_application_job_proposal_path(proposal.job_application, proposal) %>
+        <% end %>
+    <% else %>
+        Você ainda não recebeu nenhuma proposta.
+    <% end %>
 </div>

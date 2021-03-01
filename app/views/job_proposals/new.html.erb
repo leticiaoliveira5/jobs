@@ -10,7 +10,7 @@
 
 <div class="contentblock">
     <h1>Fazer proposta para candidato: </h1>
-    <%=t('.firstname')%>: <%= @job_application.candidate.firstname %> 
+    <%=t('.firstname')%>: <%= @job_application.candidate.firstname %><br>
     <%=t('.job_opportunity')%>: <%= @job_application.job_opportunity.job_title %>
 
     <%= form_for([@job_application, @job_proposal]) do |f| %>

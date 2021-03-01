@@ -1,6 +1,7 @@
 pt-BR:
   job_opportunities:
     show:
+      company: Empresa
       description: Descrição
       job_level: Nível de escolaridade
       job_title: Título da vaga
@@ -10,6 +11,11 @@ pt-BR:
       status:
         active: Ativa
         inactive: Inativa
+      job_applications:
+        status:
+          waiting: Aguardando avaliação
+          accepted: Aceita
+          declined: Não aceita
   companies:
     show:
       address: Endereço
@@ -17,4 +23,15 @@ pt-BR:
       domain: Domínio
       name: Nome
       job_opportunity: Vaga
+      job_application: Candidatura
+      job_applications:
+        status:
+          waiting: Aguardando avaliação
+          accepted: Aceita
+          declined: Não aceita
+  job_proposals:
+    new:
+      firstname: Nome
+      job_opportunity: Vaga
+    
     
