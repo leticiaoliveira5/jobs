@@ -18,7 +18,7 @@ Under development
 <br> [X] Visitors, employees and candidates search job opportunities by name and by company
 <br> [X] Company employee makes a job proposal to a candidate
 <br> [X] Candidate sees proposals received
-<br> [ ] Candidate can accept or reject proposal
+<br> [X] Candidate can accept or reject proposal
 <br> [ ] Employee approves/disapproves candidate's application
 <br> [ ] Job opportunity is deactivated when the needed number of candidates are approved
 

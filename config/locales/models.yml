@@ -28,6 +28,15 @@ pt-BR:
         limit_date: Data limite
         place: Local
         salary_range: Faixa salarial
+      job_proposal:
+        message: Mensagem
+        salary_proposal: Proposta salarial
+        start_date: Data de início
+        start_date_confirmation: Confirme a data de início
+        rejection_motive: Motivo da recusa
+        waiting: Aguardando avaliação
+        accepted: Aceita
+        rejected: Não aceita
       resume:
         abilities: Conhecimentos
         education: Formação acadêmica

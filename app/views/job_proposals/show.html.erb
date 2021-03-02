@@ -9,36 +9,32 @@
     <p><%= t('.start_date') %>:
     <%= @job_proposal.start_date %></p>
 
-    <button class="clicker" tabindex="1">Aceitar proposta</button>
+    <% if candidate_signed_in? && @job_proposal.status == 'waiting' %>
 
-    <div class="hiddendiv">
-        <%= form_for(accept_proposal_job_application_job_proposal_path) do |f| %>
+        <h4>Aceitar proposta</h4>
 
-            <div>
-                <%= f.label :start_date_confirmation %>
-                <%= f.text_field :start_date_confirmation %>
-            </div>
+        <div class= "accept-form">
+            <%= form_tag accept_job_application_job_proposal_path, method: :post do %>
+                <div>
+                    <%= label_tag t('.start_date_confirmation') %>
+                    <%= text_field_tag :start_date_confirmation, params[:start_date_confirmation] %>
+                </div>
+                <%= submit_tag 'Confirmar' %>
+            <% end %>
+        </div>
 
-        <%= f.submit 'Confirmar', action: :accept_proposal, method: :post  %>
+        <h4>Rejeitar proposta</h4>
 
-        <% end %>
-    </div>
+        <div class= "reject-form">
+            <%= form_tag reject_job_application_job_proposal_path, method: :post do %>
+                <div>
+                    <%= label_tag t('.rejection_motive') %>
+                    <%= text_field_tag :rejection_motive, params[:rejection_motive] %>
+                </div>
+                <%= submit_tag 'Confirmar' %>
+            <% end %>
+        </div>
 
-    <button class="clicker" tabindex="1">Rejeitar proposta</button>
-
-    <div class="hiddendiv">
-
-        <%= form_for(reject_proposal_job_application_job_proposal_path) do |f| %>
-        
-            <div>
-                <%= f.label :rejection_motive %>
-                <%= f.text_field :rejection_motive %>
-            </div>
-
-            <%= f.submit 'Confirmar', action: :reject_proposal, method: :post  %>
-
-        <% end %>
-
-    </div>
+    <% end %>
 
 </div>

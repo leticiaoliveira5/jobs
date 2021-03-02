@@ -30,18 +30,18 @@ class JobProposalsController < ApplicationController
         @job_proposal = JobProposal.find(params[:id])
     end
 
-    def accept_proposal
+    def accept
         @job_proposal = JobProposal.find(params[:id])
-        @job_proposal.update(start_date_confirmation: params[:job_proposal][:start_date_confirmation])
+        @job_proposal.start_date_confirmation = params[:start_date_confirmation]
         @job_proposal.accepted!
-        redirect_to candidate_path(current_candidate), notice: t(".success")
+        redirect_to job_application_job_proposal_path(@job_proposal), notice: t(".success")
     end
 
-    def reject_proposal
+    def reject
         @job_proposal = JobProposal.find(params[:id])        
-        @job_proposal.update(rejection_motive: params[:job_proposal][:rejection_motive])
+        @job_proposal.rejection_motive = params[:rejection_motive]
         @job_proposal.rejected!
-        redirect_to candidate_path(current_candidate), notice: t(".success")
+        redirect_to job_application_job_proposal_path(@job_proposal), notice: t(".success")
     end
 
 end

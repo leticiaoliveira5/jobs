@@ -9,3 +9,7 @@ pt-BR:
   job_proposals:
     create:
       success: 'A proposta foi enviada para o candidato'
+    reject:
+      success: 'Resposta enviada com sucesso'
+    accept:
+      success: 'Confirmação enviada com sucesso!'

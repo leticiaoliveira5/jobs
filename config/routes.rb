@@ -21,8 +21,8 @@ Rails.application.routes.draw do
   
   resources :job_applications, only: %i[destroy] do
       resources :job_proposals, only: %i[new create show] do
-        post 'accept_proposal', on: :member
-        post 'reject_proposal', on: :member
+        post 'accept', on: :member
+        post 'reject', on: :member
       end
   end
 
