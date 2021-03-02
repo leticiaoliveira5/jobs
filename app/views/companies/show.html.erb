@@ -52,12 +52,7 @@
     <div class="contentblock">
         <h2>Respostas de propostas enviadas</h2>
 
-        <% job_proposals = @company.job_opportunities.job_applications.job_proposals %>
-            <% job_proposals.each |p| do %>
-                <% if p.accepted? %>
-                    <%= p.acceptance_message %>
-                <% end %>
-            <% end %>
+
  
     </div>
 
