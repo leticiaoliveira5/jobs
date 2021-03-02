@@ -1,4 +1,44 @@
 <center>
 <div class="contentblock">
-<h2>Proposta</h2>
+    <h2>Proposta (<%=t(".#{@job_proposal.status}")%>)</h2>
+
+    <p><%= t('.message') %>:
+    <%= @job_proposal.message %></p>
+    <p><%= t('.salary_proposal') %>:
+    <%= @job_proposal.salary_proposal %></p>
+    <p><%= t('.start_date') %>:
+    <%= @job_proposal.start_date %></p>
+
+    <button class="clicker" tabindex="1">Aceitar proposta</button>
+
+    <div class="hiddendiv">
+        <%= form_for(accept_proposal_job_application_job_proposal_path) do |f| %>
+
+            <div>
+                <%= f.label :start_date_confirmation %>
+                <%= f.text_field :start_date_confirmation %>
+            </div>
+
+        <%= f.submit 'Confirmar', action: :accept_proposal, method: :post  %>
+
+        <% end %>
+    </div>
+
+    <button class="clicker" tabindex="1">Rejeitar proposta</button>
+
+    <div class="hiddendiv">
+
+        <%= form_for(reject_proposal_job_application_job_proposal_path) do |f| %>
+        
+            <div>
+                <%= f.label :rejection_motive %>
+                <%= f.text_field :rejection_motive %>
+            </div>
+
+            <%= f.submit 'Confirmar', action: :reject_proposal, method: :post  %>
+
+        <% end %>
+
+    </div>
+
 </div>

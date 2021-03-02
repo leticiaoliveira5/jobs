@@ -88,6 +88,18 @@
   display: inline-block;
  }
 
+ .clicker {
+  cursor:pointer;
+  }
+  
+  .hiddendiv{
+  display:none;
+  }
+  
+  .clicker:focus-within + .hiddendiv{
+  display:block;
+  }
+
  .contentblock {
    background-color: whitesmoke;
    width: 80%;

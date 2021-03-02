@@ -20,7 +20,10 @@ Rails.application.routes.draw do
   resources :candidates, only: %i[index] 
   
   resources :job_applications, only: %i[destroy] do
-      resources :job_proposals, only: %i[new create show]
+      resources :job_proposals, only: %i[new create show] do
+        post 'accept_proposal', on: :member
+        post 'reject_proposal', on: :member
+      end
   end
 
   resources :resumes, only: %i[index new create update edit show]

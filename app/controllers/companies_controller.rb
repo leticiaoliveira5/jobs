@@ -33,7 +33,7 @@ class CompaniesController < ApplicationController
         @company.update(name: params[:company][:name], 
         domain: params[:company][:domain],
         address: params[:company][:address],
-        cnpj: params[:company][:cnpj],)
+        cnpj: params[:company][:cnpj])
         if @company.save
             redirect_to company_path(@company)
         else

@@ -5,5 +5,6 @@ class JobProposal < ApplicationRecord
 
     validates :message, :start_date, :salary_proposal, presence: true
 
+    enum status: { waiting: 0, accepted: 1, rejected: 2 }
 
 end
