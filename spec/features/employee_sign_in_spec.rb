@@ -29,7 +29,7 @@ feature 'Employee sign in' do
    employee = Employee.create!(email: 'steve@apple.com', password: '123456', 
     firstname: 'Steve', surname:'Jobs')
     company = Company.find_by(domain: 'apple.com')
-    company.update(name: 'Apple', address: 'Los Angeles', cnpj: '1234')
+    company.update(name: 'Apple', address: 'Los Angeles', cnpj: '12345678911234')
 
     visit root_path
     within('.signin') do

@@ -7,7 +7,7 @@ feature 'Visitor searches job opportunities' do
         apple_employee = Employee.create!(email: 'steve@apple.com',
                 password: '123456',firstname: 'Steve', surname:'Jobs')
         apple = Company.find_by(domain:'apple.com')
-        apple.update(name:'Apple', address: 'San Francisco', cnpj: '123456789')
+        apple.update(name:'Apple', address: 'San Francisco', cnpj: '12345678911234')
 
         job_opportunity = JobOpportunity.create!(company: apple, 
         job_title: 'Desenvolvedor',
@@ -33,7 +33,7 @@ feature 'Visitor searches job opportunities' do
         apple_employee = Employee.create!(email: 'steve@apple.com',
                 password: '123456',firstname: 'Steve', surname:'Jobs')
         apple = Company.find_by(domain:'apple.com')
-        apple.update(name:'Apple', address: 'San Francisco', cnpj: '123456789')
+        apple.update(name:'Apple', address: 'San Francisco', cnpj: '12345678911234')
 
         job_opportunity = JobOpportunity.create!(company: apple, 
         job_title: 'Desenvolvedor',

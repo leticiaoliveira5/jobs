@@ -7,12 +7,12 @@ feature 'Visitor views job opportunity details' do
     apple_employee = Employee.create!(email: 'steve@apple.com',
     password: '123456',firstname: 'Steve', surname:'Jobs')
     apple = Company.find_by(domain:'apple.com')
-    apple.update(name:'Apple', address: 'San Francisco', cnpj: '123456789')
+    apple.update(name:'Apple', address: 'San Francisco', cnpj: '12345678911234')
 
     microsoft_employee = Employee.create!(email: 'bill@microsoft.com',
     password: '123456', firstname: 'Bill', surname:'Gates')
     microsoft = Company.find_by(domain: 'microsoft.com')
-    microsoft.update(name: 'Microsoft', address: 'San Francisco', cnpj: '987654321')
+    microsoft.update(name: 'Microsoft', address: 'San Francisco', cnpj: '12345678911235')
 
     JobOpportunity.create!(company: apple, 
     job_title: 'Desenvolvedor',
@@ -39,7 +39,7 @@ feature 'Visitor views job opportunity details' do
     apple_employee = Employee.create!(email: 'steve@apple.com',
     password: '123456',firstname: 'Steve', surname:'Jobs')
     apple = Company.find_by(domain:'apple.com')
-    apple.update(name:'Apple', address: 'San Francisco', cnpj: '123456789')
+    apple.update(name:'Apple', address: 'San Francisco', cnpj: '12345678911234')
     
     JobOpportunity.create!(company: apple, 
     job_title: 'Desenvolvedor',
@@ -66,7 +66,7 @@ feature 'Visitor views job opportunity details' do
     apple_employee = Employee.create!(email: 'steve@apple.com',
     password: '123456',firstname: 'Steve', surname:'Jobs')
     apple = Company.find_by(domain:'apple.com')
-    apple.update(name:'Apple', address: 'San Francisco', cnpj: '123456789')
+    apple.update(name:'Apple', address: 'San Francisco', cnpj: '12345678911234')
     
     job_opportunity = JobOpportunity.create!(company: apple, 
     job_title: 'Desenvolvedor',

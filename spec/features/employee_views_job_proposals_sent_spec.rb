@@ -6,7 +6,7 @@ feature 'Employee views job proposals sent' do
         apple_employee = Employee.create!(email: 'steve@apple.com',
         password: '123456', firstname: 'Steve', surname:'Jobs')
         apple = apple_employee.company
-        apple.update(name:'Apple', address: 'San Francisco', cnpj: '123456789')
+        apple.update(name:'Apple', address: 'San Francisco', cnpj: '12345678911234')
 
         job_opportunity = JobOpportunity.create!(company: apple, 
             job_title: 'Desenvolvedor',

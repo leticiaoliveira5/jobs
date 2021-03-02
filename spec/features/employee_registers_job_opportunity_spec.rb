@@ -11,7 +11,7 @@ feature 'employee registers job opportunity' do
 
         company = Company.find_by(domain: 'globo.com')
         company.update(name: 'Globo', domain:'globo.com', 
-        address: 'Rio de Janeiro', cnpj: '12346')
+        address: 'Rio de Janeiro', cnpj: '12345678911234')
         
         login_as employee, scope: :employee
         
@@ -42,7 +42,7 @@ feature 'employee registers job opportunity' do
         surname:'Silva')
         company = Company.find_by(domain:'globo.com')
         company.update(name: 'Globo', domain:'globo.com', 
-                        address: 'Rio de Janeiro', cnpj: '12346')
+                        address: 'Rio de Janeiro', cnpj: '12345678911234')
 
         another_company_employee = Employee.create!(email: 'rodrigo@record.com',
                                                     password: '123456',
@@ -51,7 +51,7 @@ feature 'employee registers job opportunity' do
         another_company = Company.find_by(domain: 'record.com')
         another_company.update(name: 'Record',
                                     address: 'Rio de Janeiro', 
-                                    cnpj: '1230')
+                                    cnpj: '12345678911235')
         
         login_as company_employee, scope: :employee
         visit root_path
@@ -72,7 +72,7 @@ feature 'employee registers job opportunity' do
         surname:'Silva')
         company = Company.find_by(domain: 'globo.com')
         company = Company.update(name: 'Globo', 
-        address: 'Rio de Janeiro', cnpj: '1234678910')
+        address: 'Rio de Janeiro', cnpj: '12345678911234')
 
         login_as company_employee, scope: :employee
         visit root_path

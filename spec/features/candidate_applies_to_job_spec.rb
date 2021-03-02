@@ -11,7 +11,7 @@ feature 'Candidate applies to job' do
 
         company = Company.find_by(domain: 'globo.com')
         company.update(name: 'Globo', domain:'globo.com', 
-        address: 'Rio de Janeiro', cnpj: '12346')
+        address: 'Rio de Janeiro', cnpj: '12345678911234')
 
         job_opportunity = JobOpportunity.create!(company: company, 
         job_title: 'Dummie',
@@ -53,7 +53,7 @@ feature 'Candidate applies to job' do
 
         company = Company.find_by(domain:'globo.com')
         company.update(name: 'Globo', domain:'globo.com', 
-        address: 'Rio de Janeiro', cnpj: '12346')
+        address: 'Rio de Janeiro', cnpj: '12345678911234')
 
         job_opportunity = JobOpportunity.create!(company: company, 
         job_title: 'Dummie',
@@ -96,7 +96,7 @@ feature 'Candidate applies to job' do
 
         company = Company.find_by(domain:'globo.com')
         company.update(name: 'Globo', domain:'globo.com', 
-        address: 'Rio de Janeiro', cnpj: '12346')
+        address: 'Rio de Janeiro', cnpj: '12345678911234')
 
         job_opportunity = JobOpportunity.create!(company: company, 
         job_title: 'Dummie',

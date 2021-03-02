@@ -17,12 +17,12 @@ feature 'Visitor visits home page' do
     apple_employee = Employee.create!(email: 'steve@apple.com',
     password: '123456',firstname: 'Steve', surname:'Jobs')
     apple = Company.where(domain:'apple.com')
-    apple.update(name:'Apple', address: 'San Francisco', cnpj: '123456789')
+    apple.update(name:'Apple', address: 'San Francisco', cnpj: '12345678911235')
 
     microsoft_employee = Employee.create!(email: 'bill@microsoft.com',
     password: '123456', firstname: 'Bill', surname:'Gates')
     microsoft = Company.where(domain: 'microsoft.com')
-    microsoft.update(name: 'Microsoft', address: 'San Francisco', cnpj: '987654321')
+    microsoft.update(name: 'Microsoft', address: 'San Francisco', cnpj: '12345678911234')
 
     visit root_path
     click_on 'Ver empresas cadastradas'

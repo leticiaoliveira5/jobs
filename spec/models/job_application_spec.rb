@@ -13,7 +13,7 @@ RSpec.describe JobApplication, type: :model do
 
       company = Company.find_by(domain:'globo.com')
       company.update(name: 'Globo', domain:'globo.com', 
-      address: 'Rio de Janeiro', cnpj: '12346')
+      address: 'Rio de Janeiro', cnpj: '1234678911234')
 
       job_opportunity = JobOpportunity.create!(company: company, 
       job_title: 'Dummie', job_level: 'Nível médio', 

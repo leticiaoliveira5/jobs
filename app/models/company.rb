@@ -4,6 +4,7 @@ class Company < ApplicationRecord
     has_many :job_opportunities
   
     validates :name, :address, :cnpj, :domain, presence: true, on: :update
+    validates :cnpj, length: { is: 14 }, on: :update
     validates :domain, presence: true
     validates :domain, :cnpj, uniqueness: true
    

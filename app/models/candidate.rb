@@ -8,6 +8,8 @@ class Candidate < ApplicationRecord
   has_many :job_proposals
   has_one :resume
 
+  validates :cpf, length: { is: 11 }, on: :update, allow_blank: true
+
   after_create :create_resume
 
   def create_resume
