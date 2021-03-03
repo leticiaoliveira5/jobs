@@ -38,3 +38,18 @@
     <% end %>
 
 </div>
+
+<% if @job_proposal.accepted? %>
+    <div class="contentblock">
+        <h2>Data de início</h2>
+        <%= @job_proposal.start_date_confirmation %>
+
+    </div>
+<% end %>
+
+<% if @job_proposal.rejected? %>
+    <div class="contentblock">
+        <h2>Mensagem</h2>
+      <%= @job_proposal.rejection_motive %>
+    </div>
+<% end %>

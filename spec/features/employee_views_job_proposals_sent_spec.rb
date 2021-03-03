@@ -28,7 +28,8 @@ feature 'Employee views job proposals sent' do
         job_application = JobApplication.create!(candidate: candidate, 
                                 job_opportunity: job_opportunity,
                                 status:0)
-        JobProposal.create!(job_application: job_application, 
+        JobProposal.create!(company: apple,
+                            job_application: job_application, 
                             message:'mensagem teste',
                             salary_proposal:'15000',
                             start_date: '01/01/2022',

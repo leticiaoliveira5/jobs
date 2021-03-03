@@ -2,6 +2,7 @@ class JobProposal < ApplicationRecord
 
     belongs_to :job_application
     belongs_to :candidate
+    belongs_to :company
 
     validates :message, :start_date, :salary_proposal, presence: true
 

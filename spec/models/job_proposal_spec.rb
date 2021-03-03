@@ -27,7 +27,8 @@ RSpec.describe JobProposal, type: :model do
                               job_opportunity: job_opportunity,
                               status:0)
 
-      job_proposal = JobProposal.create(job_application: job_application, 
+      job_proposal = JobProposal.create(company: apple,
+                          job_application: job_application, 
                           message:'',
                           salary_proposal:'',
                           start_date: '',

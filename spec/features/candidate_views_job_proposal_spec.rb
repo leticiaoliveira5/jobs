@@ -18,7 +18,7 @@ feature 'Candidate views job proposals' do
             limit_date: '26/10/2021',
             number_of_positions: '5')
 
-        candidate = Candidate.create(email: 'juliette@gmail.com', 
+        candidate = Candidate.create!(email: 'juliette@gmail.com', 
                                     password: '123456', 
                                     firstname: 'Juliette', 
                                     surname: 'Freire',
@@ -29,11 +29,12 @@ feature 'Candidate views job proposals' do
         job_application = JobApplication.create!(candidate: candidate, 
                                 job_opportunity: job_opportunity,
                                 status:0)
-        JobProposal.create!(job_application: job_application, 
+        JobProposal.create!(company: apple,
+                            job_application: job_application, 
                             message:'mensagem teste',
                             salary_proposal:'15000',
                             start_date: '01/01/2022',
-                            candidate:candidate)  
+                            candidate: candidate)  
                             
         login_as candidate, scope: :candidate
         visit root_path
@@ -74,7 +75,8 @@ feature 'Candidate views job proposals' do
                             message:'mensagem teste',
                             salary_proposal:'15000',
                             start_date: '01/01/2022',
-                            candidate:candidate)  
+                            candidate:candidate,
+                            company: apple)  
                             
         login_as candidate, scope: :candidate
         visit root_path
@@ -122,7 +124,8 @@ feature 'Candidate views job proposals' do
                             message:'mensagem teste',
                             salary_proposal:'15000',
                             start_date: '01/01/2022',
-                            candidate:candidate)  
+                            candidate:candidate,
+                            company: apple)  
                             
         login_as candidate, scope: :candidate
         visit root_path

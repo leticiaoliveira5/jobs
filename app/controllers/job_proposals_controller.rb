@@ -15,10 +15,11 @@ class JobProposalsController < ApplicationController
                                                         :start_date, 
                                                         :salary_proposal,
                                                         :job_application,
-                                                        :candidate)
+                                                        :candidate,)
         @job_proposal = JobProposal.new(job_proposal_params)
         @job_proposal.job_application = @job_application
         @job_proposal.candidate = @job_application.candidate
+        @job_proposal.company = current_employee.company
         if @job_proposal.save
             redirect_to company_path(@job_application.job_opportunity.company), notice: t('.success')
         else
