@@ -49,8 +49,12 @@ RSpec.describe JobOpportunity, type: :model do
         description: 'Auxiliar em diversas atividades', limit_date: '26/10/2021',
         place: 'Curicica - RJ', number_of_positions: 10)
 
-        candidate = Candidate.create(email: 'karol@k.com', password: '123456',
-        firstname: 'Karoline', surname: 'dos Santos')
+        candidate = Candidate.create(email: 'karol@k.com', 
+                                    password: '123456',
+                                    firstname: 'Karoline', 
+                                    surname: 'dos Santos',
+                                    cpf: '123456789',
+                                    address: 'Brasil')
 
         login_as candidate
 

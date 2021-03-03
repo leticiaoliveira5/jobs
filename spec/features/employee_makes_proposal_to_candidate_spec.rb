@@ -18,8 +18,12 @@ feature 'Employee makes proposal to candidate' do
         limit_date: '26/10/2021',
         number_of_positions: '5')
 
-        candidate = Candidate.create(email: 'juliette@gmail.com', password: '123456', 
-                                    firstname: 'Juliette', surname: 'Freire')
+        candidate = Candidate.create(email: 'juliette@gmail.com',
+                                    password: '123456', 
+                                    firstname: 'Juliette', 
+                                    surname: 'Freire',
+                                    cpf: '123456789',
+                                    address: 'Brasil')
 
         JobApplication.create!(candidate: candidate, 
                                 job_opportunity: job_opportunity,
