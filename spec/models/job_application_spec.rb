@@ -4,7 +4,7 @@ RSpec.describe JobApplication, type: :model do
 
 
   context 'validation' do
-    it 'candidate_must_have_cpf_and_address_information' do
+    it 'candidate_must_have_basic_information' do
 
       employee = Employee.create!(email: 'faustao@globo.com',
       password: '123456',
@@ -28,7 +28,7 @@ RSpec.describe JobApplication, type: :model do
                                   password: '123456',
                                   firstname: 'Karoline',
                                   surname: 'dos Santos',
-                                  cpf: '123456789')
+                                  about_me: 'testando')
                                   
       job_application = JobApplication.create(job_opportunity: job_opportunity, candidate: candidate, status:0)
 
@@ -65,9 +65,8 @@ RSpec.describe JobApplication, type: :model do
                                   firstname: 'Karoline',
                                   surname: 'dos Santos',
                                   cpf: '123456789',
-                                  address: 'Brasil')
-
-      login_as candidate
+                                  address: 'Brasil',
+                                  about_me: 'testando')
 
       job_application = JobApplication.create(job_opportunity: job_opportunity, candidate: candidate,status:0)
 

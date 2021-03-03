@@ -54,7 +54,8 @@ RSpec.describe JobOpportunity, type: :model do
                                     firstname: 'Karoline', 
                                     surname: 'dos Santos',
                                     cpf: '123456789',
-                                    address: 'Brasil')
+                                    address: 'Brasil',
+                                    about_me: 'testando')
 
         login_as candidate
 

@@ -23,7 +23,8 @@ feature 'Employee makes proposal to candidate' do
                                     firstname: 'Juliette', 
                                     surname: 'Freire',
                                     cpf: '123456789',
-                                    address: 'Brasil')
+                                    address: 'Brasil',
+                                    about_me: 'testando')
 
         JobApplication.create!(candidate: candidate, 
                                 job_opportunity: job_opportunity,

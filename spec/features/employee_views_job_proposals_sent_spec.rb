@@ -22,7 +22,8 @@ feature 'Employee views job proposals sent' do
                                     firstname: 'Juliette', 
                                     surname: 'Freire',
                                     cpf: '123456789',
-                                    address: 'Brasil')
+                                    address: 'Brasil',
+                                    about_me: 'testando')
 
         job_application = JobApplication.create!(candidate: candidate, 
                                 job_opportunity: job_opportunity,

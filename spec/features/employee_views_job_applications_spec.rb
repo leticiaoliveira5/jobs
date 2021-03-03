@@ -23,7 +23,8 @@ feature 'Employee views job applications received' do
                                     firstname: 'Juliette', 
                                     surname: 'Freire',
                                     cpf: '123456789',
-                                    address: 'Brasil')
+                                    address: 'Brasil',
+                                    about_me: 'testando')
 
         JobApplication.create!(candidate: candidate, 
                             job_opportunity: job_opportunity,
@@ -66,7 +67,8 @@ feature 'Employee views job applications received' do
                                     firstname: 'Juliette', 
                                     surname: 'Freire',
                                     cpf: '123456789',
-                                    address: 'Brasil')
+                                    address: 'Brasil',
+                                    about_me: 'testando')
 
         JobApplication.create!(candidate: candidate, 
         job_opportunity: job_opportunity,

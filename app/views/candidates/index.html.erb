@@ -32,7 +32,7 @@
     <h2>Propostas recebidas</h2>
     <% unless current_candidate.job_proposals.count == 0 %>
         <% current_candidate.job_proposals.each do |proposal| %>
-            <%= link_to "#{proposal.job_application.job_opportunity.job_title} - #{proposal.job_application.job_opportunity.company.name}", job_application_job_proposal_path(proposal.job_application, proposal) %>
+            <%= link_to "#{proposal.job_application.job_opportunity.job_title} - #{proposal.job_application.job_opportunity.company.name} (#{proposal.status})", job_application_job_proposal_path(proposal.job_application, proposal) %>
         <% end %>
     <% else %>
         Você ainda não recebeu nenhuma proposta.

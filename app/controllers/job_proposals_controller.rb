@@ -1,7 +1,7 @@
 class JobProposalsController < ApplicationController
 
     before_action :authenticate_employee!, only: %i[:create, :new]
-    before_action :authenticate_candidate!, only: %i[:show]
+    before_action :authenticate_candidate!, only: %i[:show, :accept, :reject]
 
     def new
         @job_application = JobApplication.find(params[:job_application_id])

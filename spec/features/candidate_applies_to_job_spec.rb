@@ -27,7 +27,8 @@ feature 'Candidate applies to job' do
         firstname: 'Karoline', 
         surname: 'dos Santos',
         cpf: '123456789',
-        address: 'Brasil')
+        address: 'Brasil',
+        about_me: 'testando')
 
         visit root_path
         within('.login') do 
@@ -71,7 +72,8 @@ feature 'Candidate applies to job' do
         firstname: 'Karoline', 
         surname: 'dos Santos',
         cpf: '123456789',
-        address: 'Brasil')
+        address: 'Brasil',
+        about_me: 'testando')
 
         visit root_path
         within('.login') do 
@@ -112,11 +114,12 @@ feature 'Candidate applies to job' do
         number_of_positions: '10')
 
         candidate = Candidate.create(email: 'karol@k.com', 
-        password: '123456', 
-        firstname: 'Karoline', 
-        surname: 'dos Santos',
-        cpf: '123456789',
-        address: 'Brasil')
+                                    password: '123456', 
+                                    firstname: 'Karoline', 
+                                    surname: 'dos Santos',
+                                    cpf: '123456789',
+                                    address: 'Brasil',
+                                    about_me: 'testando')
 
         login_as candidate, scope: :candidate
         visit root_path
