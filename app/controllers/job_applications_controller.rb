@@ -1,7 +1,11 @@
 class JobApplicationsController < ApplicationController
 
     before_action :authenticate_candidate!, only: %i[:destroy]
-    before_action :authenticate_employee!, only: %i[:decline]
+    before_action :authenticate_employee!, only: %i[:decline show]
+
+    def show
+        @job_application = JobApplication.find(params[:id])
+    end
 
     def destroy
         @job_application = JobApplication.find(params[:id])
@@ -12,7 +16,7 @@ class JobApplicationsController < ApplicationController
 
     def decline
         @job_application = JobApplication.find(params[:id])
-        @job_application.rejection_motive = params[:motive]
+        @job_application.rejection_motive = params[:rejection_motive]
         @job_application.declined!
         redirect_to company_path(job_application.job_opportunity.company), notice: t('.success')
     end

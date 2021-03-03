@@ -19,7 +19,8 @@ Rails.application.routes.draw do
 
   resources :candidates, only: %i[index] 
   
-  resources :job_applications, only: %i[destroy] do
+  resources :job_applications, only: %i[destroy show] do
+      post 'decline', on: :member
       resources :job_proposals, only: %i[new create show] do
         post 'accept', on: :member
         post 'reject', on: :member

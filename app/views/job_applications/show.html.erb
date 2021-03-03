@@ -1,0 +1,25 @@
+<center>
+<div class="contentblock">
+
+    <h2>Candidatura</h2>
+
+    <%= @job_application.candidate.firstname %>
+    <%= @job_application.candidate.surname %>
+    <%= @job_application.job_opportunity.job_title %>
+    
+    <% if employee_signed_in? %>
+        <h4>Rejeitar candidatura</h4>
+        Dê um motivo para a rejeição da candidatura.
+        
+        <div class= "reject-form">
+            <%= form_tag decline_job_application_path, method: :post do %>
+                <div>
+                    <%= label_tag t('.rejection_motive') %>
+                    <%= text_field_tag :rejection_motive, params[:rejection_motive] %>
+                </div>
+                <%= submit_tag 'Confirmar' %>
+            <% end %>
+        </div>
+    <% end %>
+
+</div>

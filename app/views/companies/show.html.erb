@@ -33,7 +33,7 @@
                 <p><%=o.job_title %> - <%= link_to "#{a.candidate.firstname} #{a.candidate.surname}", resume_path(a.candidate) %> (<%=t("job_applications.status.#{a.status}")%>)</p>
                 <%= link_to "Ver currículo de #{a.candidate.firstname}", resume_path(a.candidate) %> 
                 <%= link_to "Fazer proposta para #{a.candidate.firstname}", new_job_application_job_proposal_path(a) %>
-                <%= link_to "Rejeitar candidatura de #{a.candidate.firstname}", root_path %>
+                <%= link_to "Rejeitar candidatura de #{a.candidate.firstname}", job_application_path(a) %>
             <%end%>
         <%end%>
     </div>
