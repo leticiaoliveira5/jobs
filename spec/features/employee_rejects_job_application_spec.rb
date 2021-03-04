@@ -35,9 +35,11 @@ feature 'Employee rejects job application' do
 
         visit root_path
         click_on 'Área da empresa'
-        click_on 'Rejeitar candidatura de Juliette'
+        click_on 'Desenvolvedor - Juliette Freire'
 
         expect(current_path).to eq job_application_path(job_application)
+        expect(page).to have_text 'Rejeitar candidatura'
+        expect(page).to have_text 'Dê um motivo para a rejeição da candidatura.'
         expect(page).to have_field 'rejection_motive'
 
     end

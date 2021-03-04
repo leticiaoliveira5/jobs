@@ -23,9 +23,6 @@
             <% elsif @job_opportunity.inactive? %>
                 <%=link_to 'Ativar vaga', activate_job_opportunity_job_opportunity_path(@job_opportunity), method: :post%>
             <%end%>
-        <%end%>
-
-        <% if employee_signed_in? %>
             <%= link_to 'Editar vaga', edit_job_opportunity_path(@job_opportunity) %>
         <%end%>
 

@@ -43,5 +43,8 @@ pt-BR:
         waiting: Aguardando resposta
         accepted: Aceita
         rejected: Não aceita
+  job_applications:
+    show:
+      rejection_motive: Motivo
 
     

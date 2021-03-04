@@ -83,6 +83,7 @@ feature 'Employee views job applications received' do
         
         expect(page).not_to have_content 'Candidaturas recebidas para esta vaga:'
         expect(page).not_to have_link 'Inativar vaga'
+        expect(page).not_to have_link 'Editar vaga'
 
     end
 
