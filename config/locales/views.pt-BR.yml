@@ -3,7 +3,7 @@ pt-BR:
     show:
       company: Empresa
       description: Descrição
-      job_level: Nível de escolaridade
+      job_level: Nível 
       job_title: Título da vaga
       limit_date: Data limite
       place: Local

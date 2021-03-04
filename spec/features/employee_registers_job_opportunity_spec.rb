@@ -20,7 +20,9 @@ feature 'employee registers job opportunity' do
         click_on 'Cadastrar nova vaga'
         fill_in 'Título da vaga', with: 'Ator'
         fill_in 'Faixa salarial', with: 'A combinar'
-        fill_in 'Nível de escolaridade', with: 'Nível médio'
+        within '.select_level' do
+        select 'Pleno'
+        end
         fill_in 'Local', with: 'Curicica, Rio de Janeiro'
         fill_in 'Descrição', with: 'Atuar em novelas da emissora.'
         fill_in 'Data limite', with: '26/10/2021'
@@ -83,7 +85,7 @@ feature 'employee registers job opportunity' do
 
         expect(JobOpportunity.count).to eq(0)
         expect(page).to have_content 'Descrição não pode ficar em branco'
-        expect(page).to have_content 'Nível de escolaridade não pode ficar em branco'
+        expect(page).to have_content 'Nível não pode ficar em branco'
         expect(page).to have_content 'Faixa salarial não pode ficar em branco'
         expect(page).to have_content 'Local não pode ficar em branco'
         expect(page).to have_content 'Data limite não pode ficar em branco'

@@ -22,7 +22,7 @@ pt-BR:
         active: Ativa
         description: Descrição
         inactive: Inativa
-        job_level: Nível de escolaridade
+        job_level: Nível
         job_title: Título da vaga
         limit_date: Data limite
         place: Local
@@ -238,7 +238,7 @@ pt-BR:
       active: Ativa
       description: Descrição
       inactive: Inativa
-      job_level: Nível de escolaridade
+      job_level: Nível
       job_title: Título da vaga
       limit_date: Data limite
       place: Local
@@ -247,7 +247,7 @@ pt-BR:
       active: Ativa
       description: Descrição
       inactive: Inativa
-      job_level: Nível de escolaridade
+      job_level: Nível
       job_title: Título da vaga
       limit_date: Data limite
       place: Local

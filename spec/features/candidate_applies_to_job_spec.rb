@@ -15,7 +15,7 @@ feature 'Candidate applies to job' do
 
         job_opportunity = JobOpportunity.create!(company: company, 
         job_title: 'Dummie',
-        job_level: 'Nível médio', 
+        job_level: 'Pleno', 
         salary_range: 'Salário mínimo',
         description: 'Auxiliar em diversas atividades',
         place: 'Curicica - RJ',
@@ -60,7 +60,7 @@ feature 'Candidate applies to job' do
 
         job_opportunity = JobOpportunity.create!(company: company, 
         job_title: 'Dummie',
-        job_level: 'Nível médio', 
+        job_level: 'Pleno', 
         salary_range: 'Salário mínimo',
         description: 'Auxiliar em diversas atividades',
         place: 'Curicica - RJ',
@@ -107,7 +107,7 @@ feature 'Candidate applies to job' do
 
         job_opportunity = JobOpportunity.create!(company: company, 
         job_title: 'Dummie',
-        job_level: 'Nível médio', 
+        job_level: 'Pleno', 
         salary_range: 'Salário mínimo',
         description: 'Auxiliar em diversas atividades',
         place: 'Curicica - RJ',        

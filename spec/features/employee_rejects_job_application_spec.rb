@@ -12,7 +12,7 @@ feature 'Employee rejects job application' do
 
         job_opportunity = JobOpportunity.create!(company: apple, 
         job_title: 'Desenvolvedor',
-        job_level: 'Nível superior', 
+        job_level: 'Pleno', 
         salary_range: 'Inbox',
         description: 'Uma boa oportunidade',
         place: 'home office',

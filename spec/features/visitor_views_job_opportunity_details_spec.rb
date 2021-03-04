@@ -16,7 +16,7 @@ feature 'Visitor views job opportunity details' do
 
     JobOpportunity.create!(company: apple, 
     job_title: 'Desenvolvedor',
-    job_level: 'Nível superior', 
+    job_level: 'Pleno', 
     salary_range: 'Inbox',
     description: 'Uma boa oportunidade',
     place: 'Home Office',
@@ -28,7 +28,7 @@ feature 'Visitor views job opportunity details' do
     
     expect(page).to have_content('Desenvolvedor')
     expect(page).to have_content('Apple')
-    expect(page).to have_content('Nível superior')
+    expect(page).to have_content('Pleno')
     expect(page).to have_content('Apple')
     expect(page).to have_content('Home Office')  
 
@@ -43,7 +43,7 @@ feature 'Visitor views job opportunity details' do
     
     JobOpportunity.create!(company: apple, 
     job_title: 'Desenvolvedor',
-    job_level: 'Nível superior', 
+    job_level: 'Pleno', 
     salary_range: 'Inbox',
     description: 'Uma boa oportunidade',
     place: 'home office',
@@ -70,7 +70,7 @@ feature 'Visitor views job opportunity details' do
     
     job_opportunity = JobOpportunity.create!(company: apple, 
     job_title: 'Desenvolvedor',
-    job_level: 'Nível superior', 
+    job_level: 'Pleno', 
     salary_range: 'Inbox',
     description: 'Uma boa oportunidade',
     place: 'home office',
