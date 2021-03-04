@@ -19,7 +19,7 @@ Under development
 <br> [X] Company employee makes a job proposal to a candidate
 <br> [X] Candidate sees proposals received
 <br> [X] Candidate can accept or reject proposal
-<br> [ ] Employee approves/disapproves candidate's application
+<br> [X] Employee approves/disapproves candidate's application
 <br> [ ] Job opportunity is deactivated when the needed number of candidates are approved
 
 <h1>Ruby version</h1>

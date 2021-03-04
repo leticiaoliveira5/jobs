@@ -75,6 +75,8 @@ feature 'Candidate applies to job' do
         address: 'Brasil',
         about_me: 'testando')
 
+        JobApplication.create(candidate:candidate, job_opportunity:job_opportunity)
+
         visit root_path
         within('.login') do 
             click_on 'Candidato'
@@ -85,11 +87,10 @@ feature 'Candidate applies to job' do
         click_on 'Ver empresas cadastradas'
         click_on 'Globo'
         click_on 'Dummie'
-        click_on 'Inscrever-se nesta vaga'
-        click_on 'Inscrever-se nesta vaga'
 
         expect(JobApplication.count).to eq(1)
-        expect(page).to have_text 'Você já se inscreveu nesta vaga'
+        expect(page).to have_text 'Você está inscrito nesta vaga'
+        expect(page).not_to have_link 'Inscrever-se nesta vaga'
     
     end
 

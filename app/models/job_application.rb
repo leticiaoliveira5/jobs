@@ -1,7 +1,7 @@
 class JobApplication < ApplicationRecord
   belongs_to :job_opportunity
   belongs_to :candidate
-  has_one :job_proposal
+  has_one :job_proposal, dependent: :destroy
 
   validate :candidate_must_have_basic_information
 

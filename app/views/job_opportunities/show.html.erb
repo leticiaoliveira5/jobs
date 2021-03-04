@@ -9,9 +9,12 @@
         <p> <%= t('.place') %>: <%=@job_opportunity.place %></p>
         <p> <%= t('.limit_date') %>: <%=@job_opportunity.limit_date %></p>
 
-
         <% unless employee_signed_in? || @job_opportunity.inactive? %>
-            <h4><%= link_to 'Inscrever-se nesta vaga', create_job_application_job_opportunity_path(@job_opportunity), method: :post %></h4>
+            <% if current_candidate.blank? || current_candidate.job_applications.find_by(job_opportunity: @job_opportunity) == nil %>
+                <h4><%= link_to 'Inscrever-se nesta vaga', create_job_application_job_opportunity_path(@job_opportunity), method: :post %></h4>
+            <% else %>
+                <h4>Você está inscrito nesta vaga.</h4>
+            <% end %>
         <% end %>
 
         <% if employee_signed_in? && current_employee.company == @job_opportunity.company %>

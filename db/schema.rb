@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2021_03_03_141056) do
     t.datetime "updated_at", null: false
     t.integer "candidate_id"
     t.integer "status"
-    t.string "rejection_motive", default: nil
+    t.string "rejection_motive"
     t.index ["candidate_id"], name: "index_job_applications_on_candidate_id"
     t.index ["job_opportunity_id"], name: "index_job_applications_on_job_opportunity_id"
   end
