@@ -2,6 +2,8 @@
 
 The application allows people who work in the same company create and manage job opportunities and find candidates interested in them.
 
+![root_path](root_path.png)
+
 <h1> Status </h1>
 
 Under development
