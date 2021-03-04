@@ -1,13 +1,20 @@
 <center>
 <div class="contentblock">
-
     <h2>Candidatura</h2>
+    <h3>Candidato: <%= @job_application.candidate.firstname %> <%= @job_application.candidate.surname %> 
+    (<%= link_to 'Ver currículo', resume_path(@job_application.candidate) %>)</h3>
+    <h4>CPF: <%= @job_application.candidate.cpf %></h4>
+    <h4>Endereço: <%= @job_application.candidate.address %></h4>
+    <h4>Sobre mim: <%= @job_application.candidate.about_me %></h4>
+    <h3>Vaga: <%= link_to @job_application.job_opportunity.job_title, job_opportunity_path(@job_application.job_opportunity) %></h3>
+    <h3>Empresa: <%= link_to @job_application.job_opportunity.company.name, company_path(@job_application.job_opportunity.company) %></h3>
+    <% if candidate_signed_in? && current_candidate == @job_application.candidate %>
+    <%= button_to 'Cancelar candidatura', job_application_path(@job_application), method: :delete %>
+    <%end%>
+</div>  
 
-    <%= @job_application.candidate.firstname %>
-    <%= @job_application.candidate.surname %>
-    <%= @job_application.job_opportunity.job_title %>
-    
-    <% if employee_signed_in? %>
+<% if employee_signed_in? %>
+    <div class="contentblock">
         <h4>Rejeitar candidatura</h4>
         Dê um motivo para a rejeição da candidatura.
         
@@ -20,6 +27,6 @@
                 <%= submit_tag 'Confirmar' %>
             <% end %>
         </div>
-    <% end %>
+    </div> 
+<% end %>
 
-</div>

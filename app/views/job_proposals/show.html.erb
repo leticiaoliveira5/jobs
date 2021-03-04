@@ -1,6 +1,6 @@
 <center>
 <div class="contentblock">
-    <h2>Proposta (<%=t(".#{@job_proposal.status}")%>)</h2>
+    <h2>Proposta (<%=t(".status.#{@job_proposal.status}")%>)</h2>
 
     <p><%= t('.message') %>:
     <%= @job_proposal.message %></p>
@@ -49,7 +49,7 @@
 
 <% if @job_proposal.rejected? %>
     <div class="contentblock">
-        <h2>Mensagem</h2>
+        <h2><%=t('.rejection_motive')%></h2>
       <%= @job_proposal.rejection_motive %>
     </div>
 <% end %>

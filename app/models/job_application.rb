@@ -9,7 +9,7 @@ class JobApplication < ApplicationRecord
 
   def candidate_must_have_basic_information
     if candidate.cpf == nil || candidate.address == nil || candidate.about_me == nil
-      errors.add(:limit_date, "Candidato precisa ter informações básicas cadastradas") 
+      errors.add(:candidate, "Candidato precisa ter informações básicas cadastradas") 
     end
   end
 

@@ -1,7 +1,7 @@
 class JobApplicationsController < ApplicationController
 
     before_action :authenticate_candidate!, only: %i[:destroy]
-    before_action :authenticate_employee!, only: %i[:decline show]
+    before_action :authenticate_employee!, only: %i[:decline]
 
     def show
         @job_application = JobApplication.find(params[:id])
