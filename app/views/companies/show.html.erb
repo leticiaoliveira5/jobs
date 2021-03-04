@@ -1,7 +1,7 @@
 <center>
 
 <% if employee_signed_in? && current_employee.company == @company %>
-    <div class="employeepanel">
+    <div class="contentblock">
         <h2>Painel colaborador - <%= current_employee.firstname%> (<%=current_employee.role%>) </h2>
 
         <% if current_employee.admin? %>
@@ -14,8 +14,6 @@
 
         <p><%= link_to 'Cadastrar nova vaga', new_job_opportunity_path %></p>
     </div>
-
-
 
     <div class="contentblock">
         <h2>Candidaturas recebidas</h2>
@@ -52,13 +50,13 @@
 
     <div class="contentblock">
         <h2>Dados da empresa</h2>
-        <p class="field"><%= t('.name') %></p>
+        <h3><%= t('.name') %></h3>
         <%= @company.name %> 
-        <p class="field"><%= t('.domain') %></p>
+        <h3><%= t('.domain') %></h3>
         <%= @company.domain %>
-        <p class="field"><%= t('.address') %></p>
+        <h3><%= t('.address') %></h3>
         <%= @company.address %>
-        <p class="field"><%= t('.cnpj') %></p>
+        <h3><%= t('.cnpj') %></h3>
         <%= @company.cnpj %>
     </div>
 
@@ -72,8 +70,5 @@
             <%end%>
         <%end%>
     </div>
-
-
-
 
 

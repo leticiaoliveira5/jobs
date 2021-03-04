@@ -16,23 +16,33 @@
 
  body{
     font-family: Verdana, sans-serif;
-    font-size: 16px;
-    background-color: #c5d5c5;
+    font-size: 14px;
+    background-color: gainsboro;
     margin:0;
  }
+
+ h1 {color: seagreen}
+ h2 {color: seagreen}
+ h3 {color:seagreen}
+ h4 {color: seagreen}
 
  .header {
   padding:10px 20px 10px 20px;
  }
 
  a { 
-   color: darkslategray;
+   color: teal;
    padding: 2px;
+   text-decoration: none;
+ }
+
+ a:hover {
+   text-decoration: underline;
  }
 
  .alert-danger{
    color:red;
-   background-color: whitesmoke;
+   background-color: white;
    width: 30%;
    align-self: center;
    border-radius: 7px 20px 15px;
@@ -43,7 +53,7 @@
 
  .alert-success{
    color:green;
-   background-color: whitesmoke;
+   background-color: white;
    width: 30%;
    align-self: center;
    border-radius: 7px 20px 15px;
@@ -89,7 +99,7 @@
  }
 
  .contentblock {
-   background-color: whitesmoke;
+   background-color: white;
    width: 80%;
    align-self: center;
    border-radius: 10px 45px 25px;
