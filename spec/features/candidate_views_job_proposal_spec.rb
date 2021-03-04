@@ -34,7 +34,8 @@ feature 'Candidate views job proposals' do
                             message:'mensagem teste',
                             salary_proposal:'15000',
                             start_date: '01/01/2022',
-                            candidate: candidate)  
+                            candidate: candidate,
+                            job_opportunity: job_opportunity)  
                             
         login_as candidate, scope: :candidate
         visit root_path
@@ -76,7 +77,8 @@ feature 'Candidate views job proposals' do
                             salary_proposal:'15000',
                             start_date: '01/01/2022',
                             candidate:candidate,
-                            company: apple)  
+                            company: apple,
+                            job_opportunity: job_opportunity)  
                             
         login_as candidate, scope: :candidate
         visit root_path
@@ -125,7 +127,8 @@ feature 'Candidate views job proposals' do
                             salary_proposal:'15000',
                             start_date: '01/01/2022',
                             candidate:candidate,
-                            company: apple)  
+                            company: apple,
+                            job_opportunity: job_opportunity)  
                             
         login_as candidate, scope: :candidate
         visit root_path

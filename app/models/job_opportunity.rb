@@ -1,6 +1,7 @@
 class JobOpportunity < ApplicationRecord
   belongs_to :company
   has_many :job_applications
+  has_many :job_proposals
 
   validates :job_title, :description, :job_level, :salary_range, :place, :limit_date, :number_of_positions, presence: true
   validate :limit_date_cannot_be_in_the_past

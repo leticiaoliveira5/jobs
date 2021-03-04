@@ -32,7 +32,8 @@ RSpec.describe JobProposal, type: :model do
                           message:'',
                           salary_proposal:'',
                           start_date: '',
-                          candidate:candidate) 
+                          candidate:candidate,
+                          job_opportunity: job_opportunity) 
 
       expect(JobProposal.count).to eq(0)
       expect(job_proposal.errors.count).to eq(3)

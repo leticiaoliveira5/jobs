@@ -1,6 +1,6 @@
 <h1> Jobs </h1>
 
-The application lets people who work in the same company create and manage job opportunities and find candidates interested in them.
+The application allows people who work in the same company create and manage job opportunities and find candidates interested in them.
 
 <h1> Status </h1>
 
@@ -20,7 +20,7 @@ Under development
 <br> [X] Candidate sees proposals received
 <br> [X] Candidate can accept or reject proposal
 <br> [X] Employee approves/disapproves candidate's application
-<br> [ ] Job opportunity is deactivated when the needed number of candidates are approved
+<br> [X] Job opportunity is deactivated when the needed number of candidates are approved
 
 <h1>Ruby version</h1>
 

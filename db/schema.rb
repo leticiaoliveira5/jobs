@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_03_141056) do
+ActiveRecord::Schema.define(version: 2021_03_04_121537) do
 
   create_table "candidates", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -93,9 +93,11 @@ ActiveRecord::Schema.define(version: 2021_03_03_141056) do
     t.string "rejection_motive"
     t.string "start_date_confirmation"
     t.integer "company_id"
+    t.integer "job_opportunity_id"
     t.index ["candidate_id"], name: "index_job_proposals_on_candidate_id"
     t.index ["company_id"], name: "index_job_proposals_on_company_id"
     t.index ["job_application_id"], name: "index_job_proposals_on_job_application_id"
+    t.index ["job_opportunity_id"], name: "index_job_proposals_on_job_opportunity_id"
   end
 
   create_table "resumes", force: :cascade do |t|
