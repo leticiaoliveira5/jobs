@@ -127,6 +127,7 @@ feature 'Candidate applies to job' do
         click_on 'Dummie'
         click_on 'Inscrever-se nesta vaga'
         click_on 'Área do candidato'
+        click_on 'Dummie'
         click_on 'Cancelar candidatura'
 
         expect(candidate.job_applications.count).to eq(0)

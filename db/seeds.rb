@@ -14,13 +14,17 @@ address: 'Rio de Janeiro', cnpj: '12346125878')
 
 job_opportunity = JobOpportunity.create!(company: company, 
 job_title: 'Dummie', job_level: 'Nível médio', 
-salary_range: 'Salário mínimo', description: 'Auxiliar em diversas atividades',
-place: 'Curicica - RJ', number_of_positions: '10')
+salary_range: 'Salário mínimo', 
+description: 'Auxiliar em diversas atividades',
+place: 'Curicica - RJ', 
+number_of_positions: '10')
 
 job_opportunity = JobOpportunity.create!(company: company, 
 job_title: 'Atriz', job_level: 'Nível médio', 
-salary_range: 'A combinar', description: 'Atuar nas novelas e séries da emissora',
-place: 'Curicica - RJ', number_of_positions: '1')
+salary_range: 'A combinar', 
+description: 'Atuar nas novelas e séries da emissora',
+place: 'Curicica - RJ', 
+number_of_positions: '1')
 
 ### COMPANY: FLY
 
@@ -31,9 +35,12 @@ another_company.update(name: 'Fly', domain:'fly.com',
 address: 'Brasília', cnpj: '15556945061')
 
 job_opportunity = JobOpportunity.create!(company: another_company, 
-job_title: 'Comissário de bordo', job_level: 'Nível médio', 
-salary_range: 'A combinar', description: 'Cumprir todos os procedimentos de segurança a bordo das aeronaves',
-place: 'São Paulo', number_of_positions: '2')
+job_title: 'Comissário de bordo', 
+job_level: 'Nível médio', 
+salary_range: 'A combinar', 
+description: 'Cumprir todos os procedimentos de segurança a bordo das aeronaves',
+place: 'São Paulo', 
+number_of_positions: '2')
 
 ### CANDIDATES
 
