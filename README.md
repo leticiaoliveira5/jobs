@@ -26,15 +26,19 @@ Under development
 
 <h1>Ruby version</h1>
 
-'2.7.0'
+'3.0.0'
 
 <h1>Rails version</h1>
 
-'~> 5.2.4'
+'~> 6.1.0'
 
 <h1>How to run the application</h1>
 
 In your terminal...<br>
+
+Install Node.js
+
+<p><code>sudo apt-get install nodejs</code></p>
 
 Clone the project:
 
