@@ -1,41 +1,35 @@
 <center>
 
 <% if @company.errors.any? %>
-    <div class="alert-danger">
+  <div class="alert-danger">
     <% @company.errors.full_messages.each do |error| %>
-        <p><%= error %></p>
-      <% end %>
-    </div>
-  <% end %>
+      <p><%= error %></p>
+    <% end %>
+  </div>
+<% end %>
   
 <div class="contentblock">
-<h1>Cadastro de empresa</h1>
+  <h1>Cadastro de empresa</h1>
 
-<%= form_for(@company) do |f| %>
-  
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
+  <%= form_for(@company) do |f| %>
+    <div>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <div>
+      <%= f.label :domain %>
+      <%= f.text_field :domain %>
+    </div>
+    <div>
+      <%= f.label :cnpj %>
+      <%= f.text_field :cnpj %>
+    </div>
+    <div>
+      <%= f.label :address %>
+      <%= f.text_field :address %>
+    </div>
+    <%= f.submit 'Cadastrar empresa' %>
+  <% end %>
 
-  <div>
-    <%= f.label :domain %>
-    <%= f.text_field :domain %>
-  </div>
-
-<div>
-    <%= f.label :cnpj %>
-    <%= f.text_field :cnpj %>
-  </div>
-
-  <div>
-    <%= f.label :address %>
-    <%= f.text_field :address %>
-  </div>
-
-  <%= f.submit 'Cadastrar empresa' %>
-
-<% end %>
 <p><%= link_to 'Voltar', root_path %>
-
 </div>

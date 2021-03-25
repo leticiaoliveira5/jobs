@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Candidate < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -15,5 +17,4 @@ class Candidate < ApplicationRecord
   def create_resume
     Resume.create!(candidate: self)
   end
-
 end

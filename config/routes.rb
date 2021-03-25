@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
+  root 'home#index'
 
- root 'home#index'
-
-  devise_for :employees, controllers: {registrations: "registrations"} 
+  devise_for :employees, controllers: { registrations: 'registrations' }
 
   devise_for :candidates
 
@@ -17,18 +18,17 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :candidates, only: %i[index] 
-  
+  resources :candidates, only: %i[index]
+
   resources :job_applications, only: %i[destroy show] do
-      post 'decline', on: :member
-      resources :job_proposals, only: %i[new create show] do
-        post 'accept', on: :member
-        post 'reject', on: :member
-      end
+    post 'decline', on: :member
+    resources :job_proposals, only: %i[new create show] do
+      post 'accept', on: :member
+      post 'reject', on: :member
+    end
   end
 
   resources :resumes, only: %i[index new create update edit show]
 
   resources :search_results, only: %i[index]
-
 end

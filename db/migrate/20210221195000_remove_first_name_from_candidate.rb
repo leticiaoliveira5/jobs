@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RemoveFirstNameFromCandidate < ActiveRecord::Migration[5.2]
   def change
     remove_column :candidates, :first_name, :string

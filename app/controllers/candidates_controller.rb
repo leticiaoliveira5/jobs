@@ -1,9 +1,7 @@
+# frozen_string_literal: true
+
 class CandidatesController < ApplicationController
-    before_action :authenticate_candidate!
+  before_action :authenticate_candidate!
 
-    def index 
-
-    end
-
-
+  def index; end
 end
