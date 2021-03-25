@@ -1,14 +1,15 @@
 # frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'Candidate applies to job' do
   scenario 'successfully' do
     create(:employee, email: 'fausto@globo.com')
     company = Company.find_by(domain: 'globo.com')
-    company.update(name: 'Globo', 
-                  domain: 'globo.com',
-                  address: 'Rio de Janeiro',
-                  cnpj: '12345678911234')
+    company.update(name: 'Globo',
+                   domain: 'globo.com',
+                   address: 'Rio de Janeiro',
+                   cnpj: '12345678911234')
     create(:job_opportunity, job_title: 'Dummie', company: company)
     candidate = create(:candidate)
 
@@ -29,31 +30,14 @@ feature 'Candidate applies to job' do
   end
 
   scenario 'only once' do
-    employee = Employee.create(email: 'faustao@globo.com',
-                               password: '123456',
-                               firstname: 'Fausto',
-                               surname: 'Silva')
-
+    create(:employee, email: 'fausto@globo.com')
     company = Company.find_by(domain: 'globo.com')
-    company.update(name: 'Globo', domain: 'globo.com',
-                   address: 'Rio de Janeiro', cnpj: '12345678911234')
-
-    job_opportunity = JobOpportunity.create!(company: company,
-                                             job_title: 'Dummie',
-                                             job_level: 'Pleno',
-                                             salary_range: 'Salário mínimo',
-                                             description: 'Auxiliar em diversas atividades',
-                                             place: 'Curicica - RJ',
-                                             limit_date: '26/10/2021',
-                                             number_of_positions: '10')
-
-    candidate = Candidate.create(email: 'karol@k.com',
-                                 password: '123456',
-                                 firstname: 'Karoline',
-                                 surname: 'dos Santos',
-                                 cpf: '123456789',
-                                 address: 'Brasil',
-                                 about_me: 'testando')
+    company.update(name: 'Globo',
+                   domain: 'globo.com',
+                   address: 'Rio de Janeiro',
+                   cnpj: '12345678911234')
+    job_opportunity = create(:job_opportunity, company: company)
+    candidate = create(:candidate)
 
     JobApplication.create(candidate: candidate, job_opportunity: job_opportunity)
 
@@ -74,31 +58,14 @@ feature 'Candidate applies to job' do
   end
 
   scenario 'and cancels application' do
-    Employee.create!(email: 'faustao@globo.com',
-                     password: '123456',
-                     firstname: 'Fausto',
-                     surname: 'Silva')
-
+    create(:employee, email: 'fausto@globo.com')
     company = Company.find_by(domain: 'globo.com')
-    company.update(name: 'Globo', domain: 'globo.com',
-                   address: 'Rio de Janeiro', cnpj: '12345678911234')
-
-    JobOpportunity.create!(company: company,
-                           job_title: 'Dummie',
-                           job_level: 'Pleno',
-                           salary_range: 'Salário mínimo',
-                           description: 'Auxiliar em diversas atividades',
-                           place: 'Curicica - RJ',
-                           limit_date: '26/10/2021',
-                           number_of_positions: '10')
-
-    candidate = Candidate.create(email: 'karol@k.com',
-                                 password: '123456',
-                                 firstname: 'Karoline',
-                                 surname: 'dos Santos',
-                                 cpf: '123456789',
-                                 address: 'Brasil',
-                                 about_me: 'testando')
+    company.update(name: 'Globo',
+                   domain: 'globo.com',
+                   address: 'Rio de Janeiro',
+                   cnpj: '12345678911234')
+    create(:job_opportunity, job_title: 'Dummie', company: company)
+    candidate = create(:candidate)
 
     login_as candidate, scope: :candidate
     visit root_path
