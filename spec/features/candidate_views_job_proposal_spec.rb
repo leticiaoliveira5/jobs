@@ -9,8 +9,8 @@ feature 'Candidate views job proposals' do
     job_opportunity = create(:job_opportunity, company: company, job_title: 'Desenvolvedor')
     candidate = create(:candidate)
     job_application = create(:job_application, candidate: candidate,
-                            job_opportunity: job_opportunity,
-                            status: 0)
+                                               job_opportunity: job_opportunity,
+                                               status: 0)
     create(:job_proposal, company: company,
                           job_application: job_application,
                           candidate: candidate,
@@ -30,13 +30,13 @@ feature 'Candidate views job proposals' do
     job_opportunity = create(:job_opportunity, company: company, job_title: 'Desenvolvedor')
     candidate = create(:candidate)
     job_application = create(:job_application, candidate: candidate,
-                            job_opportunity: job_opportunity,
-                            status: 0)
+                                               job_opportunity: job_opportunity,
+                                               status: 0)
     create(:job_proposal, company: company,
                           job_application: job_application,
                           candidate: candidate,
                           job_opportunity: job_opportunity)
-    #act
+    # act
     login_as candidate, scope: :candidate
     visit root_path
     click_on 'Área do candidato'
@@ -45,7 +45,7 @@ feature 'Candidate views job proposals' do
       fill_in 'start_date_confirmation', with: '01/01/2022'
       click_on 'Confirmar'
     end
-    #assert
+    # assert
     expect(page).to have_content 'Confirmação enviada com sucesso!'
     expect(JobProposal.first.status).to eq('accepted')
   end
@@ -56,8 +56,8 @@ feature 'Candidate views job proposals' do
     job_opportunity = create(:job_opportunity, company: company, job_title: 'Desenvolvedor')
     candidate = create(:candidate)
     job_application = create(:job_application, candidate: candidate,
-                            job_opportunity: job_opportunity,
-                            status: 0)
+                                               job_opportunity: job_opportunity,
+                                               status: 0)
     create(:job_proposal, company: company,
                           job_application: job_application,
                           candidate: candidate,

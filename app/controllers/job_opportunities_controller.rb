@@ -23,17 +23,13 @@ class JobOpportunitiesController < ApplicationController
 
   def create_job_application
     @job_opportunity = JobOpportunity.find(params[:id])
-    if candidate_signed_in?
-      if @job_opportunity.active?
-        job_application = JobApplication.create(job_opportunity: @job_opportunity, candidate: current_candidate)
-        if job_application.valid?
-          redirect_to job_application_path(job_application), notice: t('.success')
-        else
-          redirect_to @job_opportunity, alert: t('.failure')
-        end
+    if @job_opportunity.active?
+      job_application = JobApplication.create(job_opportunity: @job_opportunity, candidate: current_candidate)
+      if job_application.valid?
+        redirect_to job_application_path(job_application), notice: t('.success')
+      else
+        redirect_to @job_opportunity, alert: t('.failure')
       end
-    else
-      redirect_to new_candidate_session_path, notice: 'Você precisa registrar-se para continuar'
     end
   end
 

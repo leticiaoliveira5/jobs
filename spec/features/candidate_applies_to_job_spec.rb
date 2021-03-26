@@ -4,29 +4,29 @@ require 'rails_helper'
 
 feature 'Candidate applies to job' do
   scenario 'successfully' do
-    #arrange
+    # arrange
     company = create(:company, name: 'Globe')
     create(:job_opportunity, job_title: 'Dummie', company: company)
     candidate = create(:candidate)
-    #act
+    # act
     login_as candidate, scope: :candidate
     visit root_path
     click_on 'Ver empresas cadastradas'
     click_on 'Globe'
     click_on 'Dummie'
     click_on 'Inscrever-se nesta vaga'
-    #assert
+    # assert
     expect(page).to have_text 'Inscrição realizada com sucesso!'
     expect(JobApplication.count).to eq(1)
   end
 
   scenario 'only once' do
-    #arrange
+    # arrange
     company = create(:company, name: 'Globe')
     job_opportunity = create(:job_opportunity, company: company, job_title: 'Dummie')
     candidate = create(:candidate)
     JobApplication.create(candidate: candidate, job_opportunity: job_opportunity)
-    #act
+    # act
     login_as candidate, scope: :candidate
     visit root_path
     click_on 'Ver empresas cadastradas'

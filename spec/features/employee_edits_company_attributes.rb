@@ -9,8 +9,11 @@ feature 'Employee edits company' do
     visit root_path
     click_on 'Área da empresa'
     click_on 'Editar dados da empresa'
+    fill_in 'Endereço', with: 'Rua 7, número 10, Glória'
+    click_on 'Cadastrar empresa'
     # assert
-    expect(current_path).to eq edit_company_path(employee.company)
+    expect(current_path).to eq company_path(employee.company)
+    expect(page).to have_content 'Rua 7, número 10, Glória'
   end
   scenario 'if admin' do
     # arrange

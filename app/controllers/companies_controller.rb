@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CompaniesController < ApplicationController
-  #before_action :authenticate_employee!, only: %i[new edit]
+  #before_action :authenticate_employee!, only: %i[create new edit]
 
   def index
     @companies = Company.all
@@ -27,7 +27,10 @@ class CompaniesController < ApplicationController
 
   def update
     @company = Company.find(params[:id])
-    @company.update(company_params)
+    @company.update(name: params[:company][:name],
+                    domain: params[:company][:domain],
+                    address: params[:company][:address],
+                    cnpj: params[:company][:cnpj])
     if @company.save
       redirect_to company_path(@company)
     else
