@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CompaniesController < ApplicationController
-  #before_action :authenticate_employee!, only: %i[create new edit]
+  # before_action :authenticate_employee!, only: %i[create new edit]
 
   def index
     @companies = Company.all

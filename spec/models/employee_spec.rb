@@ -5,11 +5,15 @@ require 'rails_helper'
 RSpec.describe Employee, type: :model do
   context 'company' do
     it 'belongs to existing company if has the same domain' do
-      first_employee = Employee.create!(firstname: 'Ronald', surname: 'McDonald',
-                                        email: 'ronald@mcdonalds.com', password: '123456')
+      first_employee = Employee.create!(firstname: 'Ronald',
+                                        surname: 'McDonald',
+                                        email: 'ronald@mcdonalds.com',
+                                        password: '123456')
 
-      second_employee = Employee.create!(firstname: 'Bob', surname: 'Spy',
-                                         email: 'bob@mcdonalds.com', password: '123456')
+      second_employee = Employee.create!(firstname: 'Bob',
+                                         surname: 'Spy',
+                                         email: 'bob@mcdonalds.com',
+                                         password: '123456')
 
       expect(Company.count).to eq(1)
       expect(second_employee.company).to eq(first_employee.company)
