@@ -4,13 +4,9 @@ require 'rails_helper'
 RSpec.describe JobApplication, type: :model do
   context 'validation' do
     it 'candidate_must_have_basic_information' do
-      create(:employee, email: 'fausto@globo.com')
-      company = Company.find_by(domain: 'globo.com')
-      company.update(name: 'Globo', domain: 'globo.com',
-                     address: 'Rio de Janeiro', cnpj: '1234678911234')
       job_opportunity = create(:job_opportunity)
-      candidate = create(:candidate)
-      create(:job_application, job_opportunity: job_opportunity, candidate: candidate, status: 0)
+      candidate = create(:candidate, cpf: '', address:'', about_me:'')
+      build(:job_application, job_opportunity: job_opportunity, candidate: candidate, status: 0)
 
       expect(candidate.job_applications.count).to eq(0)
       expect(JobApplication.count).to eq(0)

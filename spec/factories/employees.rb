@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :employee do
     firstname { 'Fausto' }
     surname { 'Silva' }
-    email { 'fausto@globo.com' }
+    email { 'fausto@globe.com' }
     password { '123456' }
     company
   end

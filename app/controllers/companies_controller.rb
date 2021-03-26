@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CompaniesController < ApplicationController
-  before_action :authenticate_employee!, only: %i[new create edit update]
+  #before_action :authenticate_employee!, only: %i[new edit]
 
   def index
     @companies = Company.all
@@ -17,10 +17,6 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    company_params = params.permit(:name,
-                                   :domain,
-                                   :address,
-                                   :cnpj)
     @company = Company.new(company_params)
     redirect_to @company
   end
@@ -31,14 +27,17 @@ class CompaniesController < ApplicationController
 
   def update
     @company = Company.find(params[:id])
-    @company.update(name: params[:company][:name],
-                    domain: params[:company][:domain],
-                    address: params[:company][:address],
-                    cnpj: params[:company][:cnpj])
+    @company.update(company_params)
     if @company.save
       redirect_to company_path(@company)
     else
       render 'edit'
     end
+  end
+
+  private
+
+  def company_params
+    params.permit(:name, :domain, :address, :cnpj)
   end
 end
