@@ -55,20 +55,4 @@ feature 'Candidate applies to job' do
     expect(candidate.job_applications.count).to eq(0)
     expect(page).to have_text 'Você não está mais inscrito nesta vaga'
   end
-
-  context '#create_job_application' do
-    it 'should create a job application' do
-      company = create(:company)
-      job_opportunity = create(:job_opportunity, company: company)
-      candidate = create(:candidate)
-
-      login_as candidate
-      job_opportunity.create_job_application
-      # job_application = JobApplication.create!(job_opportunity: job_opportunity, candidate: candidate)
-
-      expect(JobApplication.count).to eq(1)
-      expect(job_application.candidate).to eq(candidate)
-      expect(job_application.job_opportunity).to eq(job_opportunity)
-    end
-  end
 end

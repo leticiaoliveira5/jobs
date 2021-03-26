@@ -5,7 +5,7 @@ require 'rails_helper'
 feature 'candidate edits account details' do
   scenario 'successfully' do
     visit root_path
-    within('.signin') do
+    within('.dropdown-signin') do
       click_on 'Candidato'
     end
     fill_in 'Nome', with: 'Maria'

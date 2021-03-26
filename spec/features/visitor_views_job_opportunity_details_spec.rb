@@ -4,28 +4,17 @@ require 'rails_helper'
 
 feature 'Visitor views job opportunity details' do
   scenario 'successfully' do
-    apple_employee = Employee.create!(email: 'steve@apple.com',
-                                      password: '123456', firstname: 'Steve', surname: 'Jobs')
-    apple = Company.find_by(domain: 'apple.com')
-    apple.update(name: 'Apple', address: 'San Francisco', cnpj: '12345678911234')
-
-    microsoft_employee = Employee.create!(email: 'bill@microsoft.com',
-                                          password: '123456', firstname: 'Bill', surname: 'Gates')
-    microsoft = Company.find_by(domain: 'microsoft.com')
-    microsoft.update(name: 'Microsoft', address: 'San Francisco', cnpj: '12345678911235')
-
-    JobOpportunity.create!(company: apple,
-                           job_title: 'Desenvolvedor',
-                           job_level: 'Pleno',
-                           salary_range: 'Inbox',
-                           description: 'Uma boa oportunidade',
-                           place: 'Home Office',
-                           limit_date: '26/10/2021',
-                           number_of_positions: '5')
-
+    # arrange
+    apple = create(:company, name: 'Apple')
+    create(:job_opportunity, company: apple,
+                            job_title: 'Desenvolvedor',
+                            job_level: 'Pleno',
+                            salary_range: 'Inbox',
+                            place: 'Home Office')
+    # act
     visit root_path
     click_on 'Desenvolvedor'
-
+    # assert
     expect(page).to have_content('Desenvolvedor')
     expect(page).to have_content('Apple')
     expect(page).to have_content('Pleno')
@@ -34,51 +23,34 @@ feature 'Visitor views job opportunity details' do
   end
 
   scenario 'and clicks to apply' do
-    apple_employee = Employee.create!(email: 'steve@apple.com',
-                                      password: '123456', firstname: 'Steve', surname: 'Jobs')
-    apple = Company.find_by(domain: 'apple.com')
-    apple.update(name: 'Apple', address: 'San Francisco', cnpj: '12345678911234')
-
-    JobOpportunity.create!(company: apple,
-                           job_title: 'Desenvolvedor',
-                           job_level: 'Pleno',
-                           salary_range: 'Inbox',
-                           description: 'Uma boa oportunidade',
-                           place: 'home office',
-                           limit_date: '26/10/2021',
-                           number_of_positions: 5)
-
+    # arrange
+    apple = create(:company, name: 'Apple')
+    create(:job_opportunity, company: apple, job_title: 'Desenvolvedor')
+    # act
     visit root_path
     click_on 'Ver empresas cadastradas'
     click_on 'Apple'
     click_on 'Desenvolvedor'
     click_on 'Inscrever-se nesta vaga'
-
+    # assert
     expect(current_path).to eq(new_candidate_session_path)
     expect(page).to have_text('Para continuar, faça login ou registre-se.')
   end
 
   scenario 'only if job opportunity is active' do
-    apple_employee = Employee.create!(email: 'steve@apple.com',
-                                      password: '123456', firstname: 'Steve', surname: 'Jobs')
-    apple = Company.find_by(domain: 'apple.com')
-    apple.update(name: 'Apple', address: 'San Francisco', cnpj: '12345678911234')
-
-    job_opportunity = JobOpportunity.create!(company: apple,
-                                             job_title: 'Desenvolvedor',
-                                             job_level: 'Pleno',
-                                             salary_range: 'Inbox',
-                                             description: 'Uma boa oportunidade',
-                                             place: 'home office',
-                                             limit_date: '26/10/2021',
-                                             number_of_positions: 5)
-
+    # arrange
+    apple = create(:company, name: 'Apple')
+    job_opportunity = create(:job_opportunity, company: apple,
+                                              job_title: 'Desenvolvedor',
+                                              job_level: 'Pleno',
+                                              salary_range: 'Inbox',
+                                              place: 'Home Office')
     job_opportunity.inactive!
-
+    # act
     visit root_path
     click_on 'Ver empresas cadastradas'
     click_on 'Apple'
-
+    # assert
     expect(current_path).to eq(company_path(apple))
     expect(page).not_to have_content('Desenvolvedor')
   end

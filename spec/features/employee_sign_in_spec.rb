@@ -5,7 +5,7 @@ require 'rails_helper'
 feature 'Employee sign in' do
   scenario 'successfully and company is created' do
     visit root_path
-    within('.signin') do
+    within('.dropdown-signin') do
       click_on 'Empresa'
     end
     fill_in 'Nome', with: 'Steve'
@@ -30,7 +30,7 @@ feature 'Employee sign in' do
     company.update(name: 'Apple', address: 'Los Angeles', cnpj: '12345678911234')
 
     visit root_path
-    within('.signin') do
+    within('.dropdown-signin') do
       click_on 'Empresa'
     end
     fill_in 'Nome', with: 'Ronald'
@@ -51,7 +51,7 @@ feature 'Employee sign in' do
                                 surname: 'oliveira')
 
     visit root_path
-    within('.login') do
+    within('.dropdown-login') do
       click_on 'Empresa'
     end
     within('form') do
