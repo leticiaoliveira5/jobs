@@ -6,6 +6,7 @@ class JobApplicationsController < ApplicationController
 
   def show
     @job_application = JobApplication.find(params[:id])
+    @candidate = @job_application.candidate
   end
 
   def destroy
