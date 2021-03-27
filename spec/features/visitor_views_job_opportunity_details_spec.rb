@@ -7,10 +7,10 @@ feature 'Visitor views job opportunity details' do
     # arrange
     apple = create(:company, name: 'Apple')
     create(:job_opportunity, company: apple,
-                            job_title: 'Desenvolvedor',
-                            job_level: 'Pleno',
-                            salary_range: 'Inbox',
-                            place: 'Home Office')
+                             job_title: 'Desenvolvedor',
+                             job_level: 'Pleno',
+                             salary_range: 'Inbox',
+                             place: 'Home Office')
     # act
     visit root_path
     click_on 'Desenvolvedor'
@@ -41,10 +41,10 @@ feature 'Visitor views job opportunity details' do
     # arrange
     apple = create(:company, name: 'Apple')
     job_opportunity = create(:job_opportunity, company: apple,
-                                              job_title: 'Desenvolvedor',
-                                              job_level: 'Pleno',
-                                              salary_range: 'Inbox',
-                                              place: 'Home Office')
+                                               job_title: 'Desenvolvedor',
+                                               job_level: 'Pleno',
+                                               salary_range: 'Inbox',
+                                               place: 'Home Office')
     job_opportunity.inactive!
     # act
     visit root_path

@@ -6,7 +6,7 @@ feature 'employee registers job opportunity' do
   scenario 'successfully' do
     # arrange
     employee = create(:employee)
-    #act
+    # act
     login_as employee, scope: :employee
     visit root_path
     click_on 'Área da empresa'

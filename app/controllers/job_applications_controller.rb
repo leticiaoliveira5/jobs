@@ -9,6 +9,10 @@ class JobApplicationsController < ApplicationController
     @candidate = @job_application.candidate
   end
 
+  def create
+    JobApplication.new(job_application_params)
+  end
+
   def destroy
     @job_application = JobApplication.find(params[:id])
     @candidate = @job_application.candidate
@@ -21,5 +25,11 @@ class JobApplicationsController < ApplicationController
     @job_application.rejection_motive = params[:rejection_motive]
     @job_application.declined!
     redirect_to company_path(job_application.job_opportunity.company), notice: t('.success')
+  end
+
+  private
+
+  def job_application_params
+    params.permit(:candidate, :job_opportunity)
   end
 end

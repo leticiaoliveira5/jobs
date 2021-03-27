@@ -7,7 +7,8 @@ feature 'employee edits job opportunity' do
     # arrange
     employee = create(:employee)
     company = employee.company
-    job_opportunity = create(:job_opportunity, job_title: 'Dummie', description: 'Auxiliar de eventos', company: company)
+    job_opportunity = create(:job_opportunity, job_title: 'Dummie', description: 'Auxiliar de eventos',
+                                               company: company)
     # act
     login_as employee, scope: :employee
     visit root_path

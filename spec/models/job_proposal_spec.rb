@@ -10,8 +10,7 @@ RSpec.describe JobProposal, type: :model do
       candidate = create(:candidate)
       job_application = create(:job_application, candidate: candidate,
                                                  job_opportunity: job_opportunity)
-      job_proposal = JobProposal.create(company: company,
-                                        job_application: job_application,
+      job_proposal = JobProposal.create(job_application: job_application,
                                         message: '',
                                         salary_proposal: '',
                                         start_date: '',

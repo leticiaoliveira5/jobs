@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :job_proposal do
-    company
     job_application
     candidate
     job_opportunity

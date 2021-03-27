@@ -2,8 +2,8 @@
 
 class JobOpportunity < ApplicationRecord
   belongs_to :company
-  has_many :job_applications
-  has_many :job_proposals
+  has_many :job_applications, dependent: :restrict_with_error
+  has_many :job_proposals, through: :job_applications
 
   validates :job_title, :description, :job_level, :salary_range, :place, :limit_date, :number_of_positions,
             presence: true

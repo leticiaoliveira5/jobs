@@ -8,12 +8,6 @@ class ResumesController < ApplicationController
   end
 
   def create
-    resume_params = params.require(:resume).permit(:address,
-                                                   :education,
-                                                   :experience,
-                                                   :languages,
-                                                   :abilities,
-                                                   :courses)
     @resume = Resume.new(resume_params)
   end
 
@@ -23,12 +17,18 @@ class ResumesController < ApplicationController
 
   def update
     @resume = Resume.find(params[:id])
-    @resume.update(address: params[:resume][:address],
-                   education: params[:resume][:education],
-                   experience: params[:resume][:experience],
-                   languages: params[:resume][:languages],
-                   abilities: params[:resume][:abilities],
-                   courses: params[:resume][:courses])
+    @resume.update(resume_params)
     redirect_to resume_path(@resume)
+  end
+
+  private
+
+  def resume_params
+    params.permit(:address,
+                  :education,
+                  :experience,
+                  :languages,
+                  :abilities,
+                  :courses)
   end
 end

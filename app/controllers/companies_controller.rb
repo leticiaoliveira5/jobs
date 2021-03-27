@@ -27,10 +27,7 @@ class CompaniesController < ApplicationController
 
   def update
     @company = Company.find(params[:id])
-    @company.update(name: params[:company][:name],
-                    domain: params[:company][:domain],
-                    address: params[:company][:address],
-                    cnpj: params[:company][:cnpj])
+    @company.update(company_params)
     if @company.save
       redirect_to company_path(@company)
     else

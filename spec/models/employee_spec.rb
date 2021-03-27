@@ -9,7 +9,6 @@ RSpec.describe Employee, type: :model do
                                         surname: 'McDonald',
                                         email: 'ronald@mcdonalds.com',
                                         password: '123456')
-
       second_employee = Employee.create!(firstname: 'Bob',
                                          surname: 'Spy',
                                          email: 'bob@mcdonalds.com',
@@ -38,13 +37,13 @@ RSpec.describe Employee, type: :model do
                                         surname: 'McDonald',
                                         email: 'ronald@mcdonalds.com',
                                         password: '123456')
-
       second_employee = Employee.create!(firstname: 'Bob',
                                          surname: 'Spy',
                                          email: 'bob@mcdonalds.com',
                                          password: '123456')
 
       expect(Company.count).to eq(1)
+      expect(first_employee.admin?).to eq true
       expect(second_employee.admin?).to eq false
       expect(second_employee.regular?).to eq true
       expect(second_employee.role).to eq 'regular'

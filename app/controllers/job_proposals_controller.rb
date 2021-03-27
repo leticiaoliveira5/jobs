@@ -12,16 +12,9 @@ class JobProposalsController < ApplicationController
 
   def create
     @job_application = JobApplication.find(params[:job_application_id])
-    job_proposal_params = params.require(:job_proposal).permit(:message,
-                                                               :start_date,
-                                                               :salary_proposal,
-                                                               :job_application,
-                                                               :candidate,
-                                                               :job_opportunity)
     @job_proposal = JobProposal.new(job_proposal_params)
     @job_proposal.job_application = @job_application
     @job_proposal.candidate = @job_application.candidate
-    @job_proposal.company = current_employee.company
     @job_proposal.job_opportunity = @job_application.job_opportunity
     if @job_proposal.save
       redirect_to company_path(@job_application.job_opportunity.company), notice: t('.success')
@@ -47,5 +40,16 @@ class JobProposalsController < ApplicationController
     @job_proposal.rejection_motive = params[:rejection_motive]
     @job_proposal.rejected!
     redirect_to job_application_job_proposal_path(@job_proposal), notice: t('.success')
+  end
+
+  private
+
+  def job_proposal_params
+    params.require(:job_proposal).permit(:message,
+                                         :start_date,
+                                         :salary_proposal,
+                                         :job_application,
+                                         :candidate,
+                                         :job_opportunity)
   end
 end

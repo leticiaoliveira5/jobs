@@ -9,10 +9,8 @@ feature 'Candidate views job proposals' do
     job_opportunity = create(:job_opportunity, company: company, job_title: 'Desenvolvedor')
     candidate = create(:candidate)
     job_application = create(:job_application, candidate: candidate,
-                                               job_opportunity: job_opportunity,
-                                               status: 0)
-    create(:job_proposal, company: company,
-                          job_application: job_application,
+                                               job_opportunity: job_opportunity)
+    create(:job_proposal, job_application: job_application,
                           candidate: candidate,
                           job_opportunity: job_opportunity)
     # act
@@ -32,8 +30,7 @@ feature 'Candidate views job proposals' do
     job_application = create(:job_application, candidate: candidate,
                                                job_opportunity: job_opportunity,
                                                status: 0)
-    create(:job_proposal, company: company,
-                          job_application: job_application,
+    create(:job_proposal, job_application: job_application,
                           candidate: candidate,
                           job_opportunity: job_opportunity)
     # act
@@ -58,8 +55,7 @@ feature 'Candidate views job proposals' do
     job_application = create(:job_application, candidate: candidate,
                                                job_opportunity: job_opportunity,
                                                status: 0)
-    create(:job_proposal, company: company,
-                          job_application: job_application,
+    create(:job_proposal, job_application: job_application,
                           candidate: candidate,
                           job_opportunity: job_opportunity)
     # act

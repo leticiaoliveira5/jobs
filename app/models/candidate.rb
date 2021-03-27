@@ -6,9 +6,9 @@ class Candidate < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :job_applications
-  has_many :job_proposals
-  has_one :resume
+  has_many :job_applications, dependent: :restrict_with_error
+  has_many :job_proposals, dependent: :restrict_with_error
+  has_one :resume, dependent: :destroy
 
   validates :cpf, length: { is: 11 }, on: :update, allow_blank: true
 

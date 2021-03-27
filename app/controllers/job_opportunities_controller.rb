@@ -23,13 +23,13 @@ class JobOpportunitiesController < ApplicationController
 
   def create_job_application
     @job_opportunity = JobOpportunity.find(params[:id])
-    if @job_opportunity.active?
-      job_application = JobApplication.create(job_opportunity: @job_opportunity, candidate: current_candidate)
-      if job_application.valid?
-        redirect_to job_application_path(job_application), notice: t('.success')
-      else
-        redirect_to @job_opportunity, alert: t('.failure')
-      end
+    return unless @job_opportunity.active?
+
+    job_application = JobApplication.create(job_opportunity: @job_opportunity, candidate: current_candidate)
+    if job_application.save
+      redirect_to job_application_path(job_application), notice: t('.success')
+    else
+      redirect_to @job_opportunity, alert: t('.failure')
     end
   end
 
@@ -51,12 +51,7 @@ class JobOpportunitiesController < ApplicationController
 
   def update
     @job_opportunity = JobOpportunity.find(params[:id])
-    @job_opportunity.update(job_title: params[:job_opportunity][:job_title],
-                            description: params[:job_opportunity][:description],
-                            job_level: params[:job_opportunity][:job_level],
-                            salary_range: params[:job_opportunity][:salary_range],
-                            number_of_positions: params[:job_opportunity][:number_of_positions],
-                            limit_date: params[:job_opportunity][:limit_date])
+    @job_opportunity.update(job_opportunity_params)
     if @job_opportunity.save
       redirect_to job_opportunity_path(@job_opportunity)
     else

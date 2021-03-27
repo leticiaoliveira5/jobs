@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class Company < ApplicationRecord
-  has_many :employees
-  has_many :job_opportunities
-  has_many :job_proposals
+  has_many :employees, dependent: :restrict_with_error
+  has_many :job_opportunities, dependent: :destroy
+  has_many :job_proposals, through: :job_opportunities
 
   validates :name, :address, :cnpj, :domain, presence: true, on: :update
   validates :cnpj, length: { is: 14 }, on: :update
@@ -12,7 +12,5 @@ class Company < ApplicationRecord
 
   def self.search(search)
     where('name LIKE ?', "%#{search}%")
-    # sintaxe SQL para buscas no banco de dados
-    # Like procura o texto independente da posição na string
   end
 end
