@@ -12,8 +12,8 @@ class JobProposal < ApplicationRecord
 
   def check_number_of_positions
     number_of_positions = job_opportunity.number_of_positions
-    number_of_confirmations = JobProposal.where(job_application: JobApplication.find_by(job_opportunity: job_opportunity),
-                                                status: 'accepted').count
-    job_application.job_opportunity.inactive! if number_of_positions == number_of_confirmations
+    number_of_confirms = JobProposal.where(job_application: JobApplication.find_by(job_opportunity: job_opportunity),
+                                           status: 'accepted').count
+    job_application.job_opportunity.inactive! if number_of_positions == number_of_confirms
   end
 end

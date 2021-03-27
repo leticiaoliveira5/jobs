@@ -15,7 +15,6 @@ class JobProposalsController < ApplicationController
     @job_proposal = JobProposal.new(job_proposal_params)
     @job_proposal.job_application = @job_application
     @job_proposal.candidate = @job_application.candidate
-    @job_proposal.job_opportunity = @job_application.job_opportunity
     if @job_proposal.save
       redirect_to company_path(@job_application.job_opportunity.company), notice: t('.success')
     else

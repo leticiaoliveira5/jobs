@@ -13,8 +13,6 @@ class JobOpportunity < ApplicationRecord
 
   def self.search(search)
     joins(:company).where('job_title LIKE ? OR name LIKE ?', "%#{search}%", "%#{search}%")
-    # sintaxe SQL para buscas no banco de dados
-    # Like procura o texto independente da posição na string
   end
 
   def limit_date_cannot_be_in_the_past
