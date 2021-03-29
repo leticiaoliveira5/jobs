@@ -16,4 +16,12 @@ class JobProposal < ApplicationRecord
                                            status: 'accepted').count
     job_application.job_opportunity.inactive! if number_of_positions == number_of_confirms
   end
+
+  def job_title
+    job_application.job_opportunity.job_title
+  end
+
+  def company
+    job_opportunity.company.name
+  end
 end

@@ -23,6 +23,7 @@ Under development
 <br> [X] Candidate can accept or reject proposal
 <br> [X] Employee approves/disapproves candidate's application
 <br> [X] Job opportunity is deactivated when the needed number of candidates are approved
+<br> [ ] System sends email when Job Application is accepted
 
 <h1>Ruby version</h1>
 
