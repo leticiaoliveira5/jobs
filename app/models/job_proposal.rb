@@ -18,7 +18,7 @@ class JobProposal < ApplicationRecord
   end
 
   def job_title
-    job_application.job_opportunity.job_title
+    job_opportunity.job_title
   end
 
   def company

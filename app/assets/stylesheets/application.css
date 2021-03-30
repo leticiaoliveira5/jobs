@@ -140,6 +140,16 @@
   display: inline-block;
 }
 
+.dropdown-login {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-signin {
+  position: relative;
+  display: inline-block;
+}
+
   /*  Dropdown Button */
 .dropbtn {
   background-color: #4CAF50;
@@ -172,6 +182,8 @@
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {display: block;}
+.dropdown-login:hover .dropdown-content {display: block;}
+.dropdown-signin:hover .dropdown-content {display: block;}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {background-color: #3e8e41;} 
