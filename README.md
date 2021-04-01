@@ -8,25 +8,42 @@ O aplicativo permite que pessoas que trabalham na mesma empresa criem e gerencie
 ## Funcionalidades<
 
 :heavy_check_mark: Funcionário cria conta usando e-mail corporativo, criando empresa
+
 :heavy_check_mark: Funcionário preenche os dados da empresa, se for a primeira pessoa da empresa a ingressar
+
 :heavy_check_mark: Visitante visualiza empresas cadastradas
+
 :heavy_check_mark: Visitante vê oportunidades de emprego
+
 :heavy_check_mark: Visitante cria conta candidata para confirmar a inscrição
+
 :heavy_check_mark: Candidato preenche currículo
+
 :heavy_check_mark: Funcionário da empresa vê as inscrições recebidas
+
 :heavy_check_mark: Visitantes, funcionários e candidatos buscam oportunidades de emprego por nome e por empresa
+
 :heavy_check_mark: Funcionário da empresa faz uma proposta de trabalho a um candidato
+
 :heavy_check_mark: O candidato vê as propostas recebidas
+
 :heavy_check_mark: O candidato pode aceitar ou rejeitar a proposta
+
 :heavy_check_mark: Funcionário aprova / desaprova a inscrição do candidato
+
 :heavy_check_mark: A oportunidade de trabalho é desativada quando o número necessário de candidatos é aprovado
+
 :heavy_check_mark: Sistema envia e-mail quando o Formulário de Candidatura é aceito
 
 ## Requisitos:
 
 :warning: Ruby '3.0.0'
+
 :warning: Rails '~> 6.1.0'
-:warnig: Node.js
+
+:warning: Node.js
+
+:warning: SQLite3
 
 ## Como rodar o projeto
 
