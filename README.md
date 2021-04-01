@@ -5,7 +5,7 @@ O aplicativo permite que pessoas que trabalham na mesma empresa criem e gerencie
 ## Status: 
 :warning: em desenvolvimento
 
-## Funcionalidades<
+## Funcionalidades
 
 :heavy_check_mark: Funcionário cria conta usando e-mail corporativo, criando empresa
 
