@@ -67,15 +67,21 @@ Agora você pode ver a aplicação no seu navegador, na url http://localhost:300
 
 ## Seeds
 
-Database populated via file <code>db/seeds.rb</code>
-<br>Pre-saved logins:
-<br>candidates:
-<br>email: 'aline@mail.com', password: '123456'
-<br>email: 'bianca@mail.com', password: '123456'
-<br>employees:
-<br>email: 'fatima@startv.com', password: '123456'
-<br>email: 'monique@startv.com', password '123456'
-<br>email: 'arthur@fly.com', password '123456'
+Logins:
+
+  candidates:
+
+    email: 'aline@mail.com', password: '123456'
+
+    email: 'bianca@mail.com', password: '123456'
+
+  employees:
+
+    email: 'fatima@startv.com', password: '123456'
+
+    email: 'monique@startv.com', password '123456'
+
+    email: 'arthur@fly.com', password '123456'
 
 ## Testes
 
