@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_26_234137) do
+ActiveRecord::Schema.define(version: 2022_04_08_132508) do
 
   create_table "candidates", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 2021_03_26_234137) do
     t.string "name"
     t.string "address"
     t.integer "cnpj"
+    t.index ["cnpj"], name: "index_companies_on_cnpj", unique: true
+    t.index ["domain"], name: "index_companies_on_domain", unique: true
   end
 
   create_table "employees", force: :cascade do |t|
