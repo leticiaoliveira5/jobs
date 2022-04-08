@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class JobApplicationsController < ApplicationController
   before_action :authenticate_candidate!, only: %i[destroy]
   before_action :authenticate_employee!, only: %i[decline]
