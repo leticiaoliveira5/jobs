@@ -1,11 +1,11 @@
 # Jobs
 
-O aplicativo permite que pessoas que trabalham na mesma empresa criem e gerenciem oportunidades de emprego e encontrem candidatos interessados nelas.
+A web application that allows company employees to create and manage job opportunities and find candidates interested in them.
 
 ### :hammer: Status
-_em desenvolvimento_
+_under developement_
 
-### :white_check_mark: Funcionalidades
+### :white_check_mark: Features
 
 * Funcionário cria conta usando e-mail corporativo, criando empresa
 * Funcionário preenche os dados da empresa, se for a primeira pessoa da empresa a ingressar
@@ -22,40 +22,40 @@ _em desenvolvimento_
 * A oportunidade de trabalho é desativada quando o número necessário de candidatos é aprovado
 * Sistema envia e-mail quando o Formulário de Candidatura é aceito
 
-### :gem: Requisitos
+### :gem: Prerequisites
 
 * Ruby '3.0.0'
 * Rails '~> 6.1.0'
 * Node.js
 * SQLite3
 
-### Como rodar o projeto
+### Run locally
 
-Clone o projeto:
+Clone the repository:
 
 ```bash
 git clone https://github.com/leticiaoliveira5/jobs.git
 ```
 
-Na pasta do projeto, instale as dependências:
+In the project folder, install dependencies:
 
 ```bash
 bundle install
 ```
 
-Para popular o banco de dados:
+Set up and populate the database:
 
 ```bash
 rake db:setup
 ```
 
-Comando:
+Start the application:
 
 ```bash
 rails server
 ```
 
-Agora você pode ver a aplicação no seu navegador, em http://localhost:3000/
+Now you can access the application at http://localhost:3000/
 
 ### :key: Logins
 
@@ -73,9 +73,12 @@ Agora você pode ver a aplicação no seu navegador, em http://localhost:3000/
 
   email: 'arthur@fly.com', password '123456'
 
-### Testes
+### :eyeglasses: Testes
 
-Com <code>rspec</code>
+Run
+```bash
+rspec
+```
 
 ### :space_invader: Developer
 
