@@ -1,76 +1,82 @@
-<h1>Jobs</h1>
+# Jobs
 
 O aplicativo permite que pessoas que trabalham na mesma empresa criem e gerenciem oportunidades de emprego e encontrem candidatos interessados nelas.
 
-## Status: 
-:warning: em desenvolvimento
+### :hammer: Status
+_em desenvolvimento_
 
-## Funcionalidades
+### :white_check_mark: Funcionalidades
 
-* [x] Funcionário cria conta usando e-mail corporativo, criando empresa
-* [x] Funcionário preenche os dados da empresa, se for a primeira pessoa da empresa a ingressar
-* [x] Visitante visualiza empresas cadastradas
-* [x] Visitante vê oportunidades de emprego
-* [x] Visitante cria conta candidata para confirmar a inscrição
-* [x] Candidato preenche currículo
-* [x] Funcionário da empresa vê as inscrições recebidas
-* [x] Visitantes, funcionários e candidatos buscam oportunidades de emprego por nome e por empresa
-* [x] Funcionário da empresa faz uma proposta de trabalho a um candidato
-* [x] O candidato vê as propostas recebidas
-* [x] O candidato pode aceitar ou rejeitar a proposta
-* [x] Funcionário aprova / desaprova a inscrição do candidato
-* [x] A oportunidade de trabalho é desativada quando o número necessário de candidatos é aprovado
-* [x] Sistema envia e-mail quando o Formulário de Candidatura é aceito
+* Funcionário cria conta usando e-mail corporativo, criando empresa
+* Funcionário preenche os dados da empresa, se for a primeira pessoa da empresa a ingressar
+* Visitante visualiza empresas cadastradas
+* Visitante vê oportunidades de emprego
+* Visitante cria conta candidata para confirmar a inscrição
+* Candidato preenche currículo
+* Funcionário da empresa vê as inscrições recebidas
+* Visitantes, funcionários e candidatos buscam oportunidades de emprego por nome e por empresa
+* Funcionário da empresa faz uma proposta de trabalho a um candidato
+* O candidato vê as propostas recebidas
+* O candidato pode aceitar ou rejeitar a proposta
+* Funcionário aprova / desaprova a inscrição do candidato
+* A oportunidade de trabalho é desativada quando o número necessário de candidatos é aprovado
+* Sistema envia e-mail quando o Formulário de Candidatura é aceito
 
-## Requisitos:
+### :gem: Requisitos
 
-:warning: Ruby '3.0.0'
+* Ruby '3.0.0'
+* Rails '~> 6.1.0'
+* Node.js
+* SQLite3
 
-:warning: Rails '~> 6.1.0'
-
-:warning: Node.js
-
-:warning: SQLite3
-
-## Como rodar o projeto
+### Como rodar o projeto
 
 Clone o projeto:
 
-<p><code>git clone https://github.com/leticiaoliveira5/jobs.git</code></p>
+```bash
+git clone https://github.com/leticiaoliveira5/jobs.git
+```
 
 Na pasta do projeto, instale as dependências:
 
-<p><code>bundle install</code></p>
+```bash
+bundle install
+```
 
 Para popular o banco de dados:
 
-<p><code>rake db:setup</code></p>
+```bash
+rake db:setup
+```
 
 Comando:
 
-<p><code>rails server</code></p>
+```bash
+rails server
+```
 
-Agora você pode ver a aplicação no seu navegador, na url http://localhost:3000/
+Agora você pode ver a aplicação no seu navegador, em http://localhost:3000/
 
-## Seeds
+### :key: Logins
 
-Logins:
+#### candidates
 
-  candidates:
+  email: 'aline@mail.com', password: '123456'
 
-    email: 'aline@mail.com', password: '123456'
+  email: 'bianca@mail.com', password: '123456'
 
-    email: 'bianca@mail.com', password: '123456'
+#### employees
 
-  employees:
+  email: 'fatima@startv.com', password: '123456'
 
-    email: 'fatima@startv.com', password: '123456'
+  email: 'monique@startv.com', password '123456'
 
-    email: 'monique@startv.com', password '123456'
+  email: 'arthur@fly.com', password '123456'
 
-    email: 'arthur@fly.com', password '123456'
-
-## Testes
+### Testes
 
 Com <code>rspec</code>
 
+### :space_invader: Developer
+
+  [/leticiaoliveira5](https://github.com/leticiaoliveira5)
