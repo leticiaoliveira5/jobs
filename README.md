@@ -1,76 +1,85 @@
-<h1>Jobs</h1>
+# Jobs
 
-O aplicativo permite que pessoas que trabalham na mesma empresa criem e gerenciem oportunidades de emprego e encontrem candidatos interessados nelas.
+A web application that allows company employees to create and manage job opportunities and find candidates interested in them.
 
-## Status: 
-:warning: em desenvolvimento
+## :hammer: Status
+_work in progress_
 
-## Funcionalidades
+## :white_check_mark: Features
 
-* [x] Funcionário cria conta usando e-mail corporativo, criando empresa
-* [x] Funcionário preenche os dados da empresa, se for a primeira pessoa da empresa a ingressar
-* [x] Visitante visualiza empresas cadastradas
-* [x] Visitante vê oportunidades de emprego
-* [x] Visitante cria conta candidata para confirmar a inscrição
-* [x] Candidato preenche currículo
-* [x] Funcionário da empresa vê as inscrições recebidas
-* [x] Visitantes, funcionários e candidatos buscam oportunidades de emprego por nome e por empresa
-* [x] Funcionário da empresa faz uma proposta de trabalho a um candidato
-* [x] O candidato vê as propostas recebidas
-* [x] O candidato pode aceitar ou rejeitar a proposta
-* [x] Funcionário aprova / desaprova a inscrição do candidato
-* [x] A oportunidade de trabalho é desativada quando o número necessário de candidatos é aprovado
-* [x] Sistema envia e-mail quando o Formulário de Candidatura é aceito
+-   **Implemented**
+    -   Employee creates account using corporate email, creating company
+    -   Employee fills in the company data, if he/she is the first person in the company to join
+    -   Visitor views registered companies
+    -   Visitor sees job opportunities
+    -   Guest creates candidate account to confirm registration
+    -   Candidate fills CV
+    -   Company employee sees incoming applications
+    -   Visitors, employees and candidates search for job opportunities by name and by company
+    -   Company employee makes a job offer to a candidate
+    -   The candidate sees the proposals received
+    -   The candidate can accept or reject the proposal
+    -   Employee approves/disapproves candidate application
+    -   The job opportunity is deactivated when the required number of applicants is approved
+    -   System sends email when Application Form is accepted
 
-## Requisitos:
+-   **TBD**
+    -   Frontend
 
-:warning: Ruby '3.0.0'
+## :gem: Prerequisites
 
-:warning: Rails '~> 6.1.0'
+-   Ruby '3.0.0'
+-   Rails '~> 6.1.0'
+-   Node.js
+-   SQLite3
 
-:warning: Node.js
+## :computer: Run locally
 
-:warning: SQLite3
+Clone the repository:
 
-## Como rodar o projeto
+```bash
+git clone https://github.com/leticiaoliveira5/jobs.git
+```
 
-Clone o projeto:
+In the project folder, install dependencies:
 
-<p><code>git clone https://github.com/leticiaoliveira5/jobs.git</code></p>
+```bash
+bundle install
+```
 
-Na pasta do projeto, instale as dependências:
+Set up and populate the database:
 
-<p><code>bundle install</code></p>
+```bash
+rake db:setup
+```
 
-Para popular o banco de dados:
+Start the application:
 
-<p><code>rake db:setup</code></p>
+```bash
+rails server
+```
 
-Comando:
+Now you can access the application at http://localhost:3000/
 
-<p><code>rails server</code></p>
+## :key: Logins
 
-Agora você pode ver a aplicação no seu navegador, na url http://localhost:3000/
+-   **candidates**
+    -   email: 'aline@mail.com', password: '123456'
+    -   email: 'bianca@mail.com', password: '123456'
 
-## Seeds
+-   **employees**
+    -   email: 'fatima@startv.com', password: '123456'
+    -   email: 'monique@startv.com', password '123456'
+    -   email: 'arthur@fly.com', password '123456'
 
-Logins:
+## :eyeglasses: Testing the code
 
-  candidates:
+Simply run
 
-    email: 'aline@mail.com', password: '123456'
+```bash
+rspec
+```
 
-    email: 'bianca@mail.com', password: '123456'
+## :space_invader: Writen and directed by
 
-  employees:
-
-    email: 'fatima@startv.com', password: '123456'
-
-    email: 'monique@startv.com', password '123456'
-
-    email: 'arthur@fly.com', password '123456'
-
-## Testes
-
-Com <code>rspec</code>
-
+  [/leticiaoliveira5](https://github.com/leticiaoliveira5)
