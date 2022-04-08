@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class JobProposalsController < ApplicationController
   before_action :authenticate_employee!, only: %i[create new]
   before_action :authenticate_candidate!, only: %i[show accept reject]
