@@ -2,12 +2,12 @@ require 'rails_helper'
 
 feature 'Employee rejects job application' do
   scenario 'successfully' do
-
     employee = create(:employee)
     company = employee.company
     job_opportunity = create(:job_opportunity, company: company, job_title: 'Desenvolvedor')
     candidate = create(:candidate, firstname: 'Fernanda', surname: 'Braga')
-    job_application = create(:job_application, candidate: candidate, job_opportunity: job_opportunity)
+    job_application = create(:job_application, candidate: candidate,
+                                               job_opportunity: job_opportunity)
 
     login_as employee, scope: :employee
     visit root_path
