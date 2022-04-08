@@ -21,13 +21,13 @@ body{
   margin:0;
 }
 
-h1 {color: seagreen}
-h2 {color: seagreen}
-h3 {color:seagreen}
-h4 {color: seagreen}
+h1 { color: seagreen }
+h2 { color: seagreen }
+h3 { color: seagreen }
+h4 { color: seagreen }
 
 .header {
-padding:10px 20px 10px 20px;
+  padding:10px 20px 10px 20px;
 }
 
 a { 
@@ -70,47 +70,46 @@ a:hover {
   list-style-type: none;  
   padding: 0px;
   vertical-align: middle;
-  
 }
 
 .nav a{ 
-background-color: #4CAF50;
-color: white;
-padding: 16px;
-font-size: 16px;
-border: none;
-text-decoration: none;
-vertical-align: middle;
-display: inline-block;
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  text-decoration: none;
+  vertical-align: middle;
+  display: inline-block;
 }
 
 .nav a:hover{
-background-color: #3e8e41;
+  background-color: #3e8e41;
 }
 
 .navright {
-float:right;
-color: white;
-border: none;
-background-color: #4CAF50;
-font-size: 16px;
-vertical-align: middle;
-display: inline-block;
+  float:right;
+  color: white;
+  border: none;
+  background-color: #4CAF50;
+  font-size: 16px;
+  vertical-align: middle;
+  display: inline-block;
 }
 
 .button {
-background-color: #4CAF50; /* Green */
-border-radius: 5px 10px 7px;
-margin: 10px;
-color: white;
-padding: 15px 32px;
-text-align: center;
-text-decoration: none;
-display: inline-block;
+  background-color: #4CAF50; /* Green */
+  border-radius: 5px 10px 7px;
+  margin: 10px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .button:hover{
-cursor: pointer;
+  cursor: pointer;
 }
 
 .contentblock {
@@ -124,13 +123,13 @@ cursor: pointer;
 }
 
 .employeepanel {
-background-color: whitesmoke;
-width: 80%;
-align-self: center;
-border-radius: 15px 50px 30px;
-padding:10px 25px 20px 25px; /*top right bottom left*/
-margin:15px;
-text-align: left;
+  background-color: whitesmoke;
+  width: 80%;
+  align-self: center;
+  border-radius: 15px 50px 30px;
+  padding:10px 25px 20px 25px; /*top right bottom left*/
+  margin:15px;
+  text-align: left;
 }
  
 /* The container <div> - needed to position the dropdown content */
@@ -149,7 +148,7 @@ text-align: left;
   display: inline-block;
 }
 
-  /*  Dropdown Button */
+/*  Dropdown Button */
 .dropbtn {
   background-color: #4CAF50;
   color: white;
@@ -177,12 +176,12 @@ text-align: left;
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover { background-color: #ddd; }
 
 /* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
-.dropdown-login:hover .dropdown-content {display: block;}
-.dropdown-signin:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content { display: block; }
+.dropdown-login:hover .dropdown-content { display: block; }
+.dropdown-signin:hover .dropdown-content { display: block; }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-color: #3e8e41;} 
+.dropdown:hover .dropbtn { background-color: #3e8e41; } 
