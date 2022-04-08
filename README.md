@@ -3,7 +3,7 @@
 A web application that allows company employees to create and manage job opportunities and find candidates interested in them.
 
 ### :hammer: Status
-_under developement_
+_work in progress__
 
 ### :white_check_mark: Features
 
@@ -35,7 +35,7 @@ _under developement_
 * Node.js
 * SQLite3
 
-### Run locally
+### :computer: Run locally
 
 Clone the repository:
 
@@ -79,13 +79,14 @@ Now you can access the application at http://localhost:3000/
 
   email: 'arthur@fly.com', password '123456'
 
-### :eyeglasses: Testes
+### :eyeglasses: Testing the code
 
-Run
+Simply run
+
 ```bash
 rspec
 ```
 
-### :space_invader: Developer
+### :space_invader: Writen and directed by
 
   [/leticiaoliveira5](https://github.com/leticiaoliveira5)
