@@ -7,12 +7,11 @@ ruby '3.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'coffee-rails', '~> 4.2'
 gem 'devise'
 gem 'faraday'
 gem 'jbuilder', '~> 2.5'
-gem 'puma', '~> 3.11'
-gem 'rails', '~> 6.1'
+gem 'puma', '~> 5.6', '>= 5.6.4'
+gem 'rails', '~> 6.1.5'
 gem 'sqlite3'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
@@ -22,7 +21,7 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot'
   gem 'factory_bot_rails'
-  gem 'rspec-rails', '~> 5.0.0'
+  gem 'rspec-rails', '~> 5.1.0'
   gem 'rubocop-rspec', require: false
 end
 
