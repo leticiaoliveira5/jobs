@@ -14,24 +14,41 @@
  *= require_self
  */
 
+:root {
+  --background_color: gainsboro;
+  --content_blocks_color: white;
+  --title: #4caf50;
+  --text_normal: black;
+  --link: teal;
+  --alert_success: green;
+  --alert_danger: red;
+  --alert_background: white;
+  --nav_link: white;
+  --nav_background_color: #4caf50;
+  --nav_background_color_hover: #3e8e41;
+  --button_link: white;
+  --button_color: #4caf50;
+}
+
 body {
+  color: var(--text_normal);
+  background-color: var(--background_color);
   font-family: Verdana, sans-serif;
   font-size: 14px;
-  background-color: gainsboro;
   margin: 0;
 }
 
-h1 { color: seagreen; }
-h2 { color: seagreen; }
-h3 { color: seagreen; }
-h4 { color: seagreen; }
+h1 { color: var(--title); }
+h2 { color: var(--title); }
+h3 { color: var(--title); }
+h4 { color: var(--title); }
 
 .header {
   padding: 10px 20px 10px 20px;
 }
 
 a {
-  color: teal;
+  color: var(--link);
   padding: 2px;
   text-decoration: none;
 }
@@ -41,8 +58,8 @@ a:hover {
 }
 
 .alert-danger {
-  color: red;
-  background-color: white;
+  color: var(--alert_danger);
+  background-color: var(--alert_background);
   width: 30%;
   align-self: center;
   border-radius: 7px 20px 15px;
@@ -52,8 +69,8 @@ a:hover {
 }
 
 .alert-success {
-  color: green;
-  background-color: white;
+  color: var(--alert_success);
+  background-color: var(--alert_background);
   width: 30%;
   align-self: center;
   border-radius: 7px 20px 15px;
@@ -63,7 +80,7 @@ a:hover {
 }
 
 .nav {
-  background-color: #4caf50;
+  background-color: var(--nav_background_color);
   width: 100%;
   border: none;
   margin: 0;
@@ -73,8 +90,8 @@ a:hover {
 }
 
 .nav a {
-  background-color: #4CAF50;
-  color: white;
+  background-color: var(--nav_background_color);
+  color: var(--nav_link);
   padding: 16px;
   font-size: 16px;
   border: none;
@@ -84,28 +101,28 @@ a:hover {
 }
 
 .nav a:hover {
-  background-color: #3e8e41;
+  background-color: var(--nav_background_color_hover);
 }
 
 .navright {
-  float: right;
-  color: white;
+  background-color: var(--nav_background_color);
+  color: var(--nav_link);
   border: none;
-  background-color: #4CAF50;
   font-size: 16px;
+  float: right;
   vertical-align: middle;
   display: inline-block;
 }
 
 .button {
-  background-color: #4CAF50; /* Green */
+  color: var(--button_link);
+  background-color: var(--button_color);
   border-radius: 5px 10px 7px;
+  display: inline-block;
   margin: 10px;
-  color: white;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
 }
 
 .button:hover {
@@ -113,7 +130,7 @@ a:hover {
 }
 
 .contentblock {
-  background-color: white;
+  background-color: var(--content_blocks_color);
   width: 80%;
   align-self: center;
   border-radius: 10px 45px 25px;
@@ -123,7 +140,7 @@ a:hover {
 }
 
 .employeepanel {
-  background-color: whitesmoke;
+  background-color: var(--content_blocks_color);
   width: 80%;
   align-self: center;
   border-radius: 15px 50px 30px;
@@ -149,8 +166,8 @@ a:hover {
 
 /*  Dropdown Button */
 .dropbtn {
-  background-color: #4caf50;
-  color: white;
+  background-color: var(--button_color);
+  color: var(--button_link);
   padding: 16px;
   font-size: 16px;
   border: none;
