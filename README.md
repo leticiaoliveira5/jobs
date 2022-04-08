@@ -1,11 +1,11 @@
-## Jobs
+# Jobs
 
 A web application that allows company employees to create and manage job opportunities and find candidates interested in them.
 
-### :hammer: Status
+## :hammer: Status
 _work in progress_
 
-### :white_check_mark: Features
+## :white_check_mark: Features
 
 -   **Implemented**
     -   Employee creates account using corporate email, creating company
@@ -26,14 +26,14 @@ _work in progress_
 -   **TBD**
     -   Frontend
 
-### :gem: Prerequisites
+## :gem: Prerequisites
 
 -   Ruby '3.0.0'
 -   Rails '~> 6.1.0'
 -   Node.js
 -   SQLite3
 
-### :computer: Run locally
+## :computer: Run locally
 
 Clone the repository:
 
@@ -61,7 +61,7 @@ rails server
 
 Now you can access the application at http://localhost:3000/
 
-### :key: Logins
+## :key: Logins
 
 -   **candidates**
     -   email: 'aline@mail.com', password: '123456'
@@ -72,7 +72,7 @@ Now you can access the application at http://localhost:3000/
     -   email: 'monique@startv.com', password '123456'
     -   email: 'arthur@fly.com', password '123456'
 
-### :eyeglasses: Testing the code
+## :eyeglasses: Testing the code
 
 Simply run
 
@@ -80,6 +80,6 @@ Simply run
 rspec
 ```
 
-### :space_invader: Writen and directed by
+## :space_invader: Writen and directed by
 
   [/leticiaoliveira5](https://github.com/leticiaoliveira5)
