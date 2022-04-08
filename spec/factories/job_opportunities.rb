@@ -5,7 +5,7 @@ FactoryBot.define do
     description { 'Auxiliar em diversas atividades' }
     salary_range { 'Salário mínimo' }
     place { 'Curicica - RJ' }
-    limit_date { '26/10/2021' }
+    limit_date { 2.months.from_now }
     number_of_positions { '10' }
     company
   end

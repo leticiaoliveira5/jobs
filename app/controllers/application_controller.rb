@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -11,7 +9,8 @@ class ApplicationController < ActionController::Base
     end
 
     devise_parameter_sanitizer.permit(:account_update) do |u|
-      u.permit(:firstname, :surname, :cpf, :about_me, :address, :email, :password, :current_password)
+      u.permit(:firstname, :surname, :cpf, :about_me,
+               :address, :email, :password, :current_password)
     end
   end
 

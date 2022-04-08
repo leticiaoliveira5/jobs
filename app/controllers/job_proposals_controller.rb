@@ -1,17 +1,14 @@
-# frozen_string_literal: true
-
 class JobProposalsController < ApplicationController
   before_action :authenticate_employee!, only: %i[create new]
   before_action :authenticate_candidate!, only: %i[show accept reject]
+  before_action :set_job_application, only: %i[new create]
 
   def new
-    @job_application = JobApplication.find(params[:job_application_id])
     @job_proposal = JobProposal.new
     @job_proposals = JobProposal.all
   end
 
   def create
-    @job_application = JobApplication.find(params[:job_application_id])
     @job_proposal = JobProposal.new(job_proposal_params)
     @job_proposal.job_application = @job_application
     @job_proposal.candidate = @job_application.candidate
@@ -43,6 +40,10 @@ class JobProposalsController < ApplicationController
   end
 
   private
+
+  def set_job_application
+    @job_application = JobApplication.find(params[:job_application_id])
+  end
 
   def job_proposal_params
     params.require(:job_proposal).permit(:message,

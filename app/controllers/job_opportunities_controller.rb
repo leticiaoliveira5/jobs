@@ -23,9 +23,14 @@ class JobOpportunitiesController < ApplicationController
 
   def create_job_application
     @job_opportunity = JobOpportunity.find(params[:id])
+
     return unless @job_opportunity.active?
 
-    job_application = JobApplication.create(job_opportunity: @job_opportunity, candidate: current_candidate)
+    job_application = JobApplication.create(
+      job_opportunity: @job_opportunity,
+      candidate: current_candidate
+    )
+
     if job_application.save
       redirect_to job_application_path(job_application), notice: t('.success')
     else
