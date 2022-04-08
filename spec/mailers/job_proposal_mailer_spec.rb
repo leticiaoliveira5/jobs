@@ -6,7 +6,8 @@ describe JobProposalMailer do
       company = create(:company)
       candidate = create(:candidate, firstname: 'Juliana', email: 'juliana@mail.com')
       job_opportunity = create(:job_opportunity, job_title: 'Desenvolvedor', company: company)
-      job_application = create(:job_application, candidate: candidate, job_opportunity: job_opportunity)
+      job_application = create(:job_application, candidate: candidate,
+                                                 job_opportunity: job_opportunity)
       job_proposal = create(:job_proposal, job_application: job_application, candidate: candidate)
       mail = JobProposalMailer.notify_proposal(job_proposal.id)
 

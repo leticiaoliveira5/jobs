@@ -16,6 +16,9 @@ feature 'Employee edits company' do
   end
   scenario 'if admin' do
     first_employee = create(:employee, role: :admin)
+    employee = create(:employee, role: :regular,
+                                 email: 'ana@globe.com',
+                                 company: first_employee.company)
 
     login_as employee, scope: :employee
     visit root_path
