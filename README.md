@@ -7,20 +7,26 @@ _under developement_
 
 ### :white_check_mark: Features
 
-* Funcionário cria conta usando e-mail corporativo, criando empresa
-* Funcionário preenche os dados da empresa, se for a primeira pessoa da empresa a ingressar
-* Visitante visualiza empresas cadastradas
-* Visitante vê oportunidades de emprego
-* Visitante cria conta candidata para confirmar a inscrição
-* Candidato preenche currículo
-* Funcionário da empresa vê as inscrições recebidas
-* Visitantes, funcionários e candidatos buscam oportunidades de emprego por nome e por empresa
-* Funcionário da empresa faz uma proposta de trabalho a um candidato
-* O candidato vê as propostas recebidas
-* O candidato pode aceitar ou rejeitar a proposta
-* Funcionário aprova / desaprova a inscrição do candidato
-* A oportunidade de trabalho é desativada quando o número necessário de candidatos é aprovado
-* Sistema envia e-mail quando o Formulário de Candidatura é aceito
+#### Implemented:
+
+* Employee creates account using corporate email, creating company
+* Employee fills in the company data, if he/she is the first person in the company to join
+* Visitor views registered companies
+* Visitor sees job opportunities
+* Guest creates candidate account to confirm registration
+* Candidate fills CV
+* Company employee sees incoming applications
+* Visitors, employees and candidates search for job opportunities by name and by company
+* Company employee makes a job offer to a candidate
+* The candidate sees the proposals received
+* The candidate can accept or reject the proposal
+* Employee approves/disapproves candidate application
+* The job opportunity is deactivated when the required number of applicants is approved
+* System sends email when Application Form is accepted
+
+#### TBD
+
+* Frontend
 
 ### :gem: Prerequisites
 
