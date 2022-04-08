@@ -46,7 +46,7 @@ a:hover {
   width: 30%;
   align-self: center;
   border-radius: 7px 20px 15px;
-  padding: 15px 25px 15px 25px; /*top right bottom left*/
+  padding: 15px 25px 15px 25px; /* top right bottom left*/
   margin: 15px;
   text-align: center;
 }
@@ -57,7 +57,7 @@ a:hover {
   width: 30%;
   align-self: center;
   border-radius: 7px 20px 15px;
-  padding: 15px 25px 15px 25px; /*top right bottom left*/
+  padding: 15px 25px 15px 25px; /* top right bottom left*/
   margin: 15px;
   text-align: center;
 }
@@ -68,7 +68,7 @@ a:hover {
   border: none;
   margin: 0;
   list-style-type: none;
-  padding: 0px;
+  padding: 0;
   vertical-align: middle;
 }
 
@@ -117,7 +117,7 @@ a:hover {
   width: 80%;
   align-self: center;
   border-radius: 10px 45px 25px;
-  padding: 10px 25px 20px 25px; /*top right bottom left*/
+  padding: 10px 25px 20px 25px; /* top right bottom left*/
   margin: 15px;
   text-align: left;
 }
@@ -127,7 +127,7 @@ a:hover {
   width: 80%;
   align-self: center;
   border-radius: 15px 50px 30px;
-  padding: 10px 25px 20px 25px; /*top right bottom left*/
+  padding: 10px 25px 20px 25px; /* top right bottom left*/
   margin: 15px;
   text-align: left;
 }
@@ -150,7 +150,7 @@ a:hover {
 
 /*  Dropdown Button */
 .dropbtn {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 16px;
   font-size: 16px;
