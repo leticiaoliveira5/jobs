@@ -9,20 +9,33 @@ _work in progress_
 
 #### Implemented
 
-  * Employee creates account using corporate email, creating company
-  * Employee fills in the company data, if he/she is the first person in the company to join
-  * Visitor views registered companies
-  * Visitor sees job opportunities
-  * Guest creates candidate account to confirm registration
-  * Candidate fills CV
-  * Company employee sees incoming applications
-  * Visitors, employees and candidates search for job opportunities by name and by company
-  * Company employee makes a job offer to a candidate
-  * The candidate sees the proposals received
-  * The candidate can accept or reject the proposal
-  * Employee approves/disapproves candidate application
-  * The job opportunity is deactivated when the required number of applicants is approved
-  * System sends email when Application Form is accepted
+* Employee creates account using corporate email, creating company
+
+* Employee fills in the company data, if he/she is the first person in the company to join
+
+* Visitor views registered companies
+
+* Visitor sees job opportunities
+
+* Guest creates candidate account to confirm registration
+
+* Candidate fills CV
+
+* Company employee sees incoming applications
+
+* Visitors, employees and candidates search for job opportunities by name and by company
+
+* Company employee makes a job offer to a candidate
+
+* The candidate sees the proposals received
+
+* The candidate can accept or reject the proposal
+
+* Employee approves/disapproves candidate application
+
+* The job opportunity is deactivated when the required number of applicants is approved
+
+* System sends email when Application Form is accepted
 
 #### TBD
 
@@ -30,10 +43,13 @@ _work in progress_
 
 ### :gem: Prerequisites
 
-  * Ruby '3.0.0'
-  * Rails '~> 6.1.0'
-  * Node.js
-  * SQLite3
+* Ruby '3.0.0'
+
+* Rails '~> 6.1.0'
+
+* Node.js
+
+* SQLite3
 
 ### :computer: Run locally
 
@@ -67,17 +83,17 @@ Now you can access the application at http://localhost:3000/
 
 #### candidates
 
-  email: 'aline@mail.com', password: '123456'
+- email: 'aline@mail.com', password: '123456'
 
-  email: 'bianca@mail.com', password: '123456'
+- email: 'bianca@mail.com', password: '123456'
 
 #### employees
 
-  email: 'fatima@startv.com', password: '123456'
+- email: 'fatima@startv.com', password: '123456'
 
-  email: 'monique@startv.com', password '123456'
+- email: 'monique@startv.com', password '123456'
 
-  email: 'arthur@fly.com', password '123456'
+- email: 'arthur@fly.com', password '123456'
 
 ### :eyeglasses: Testing the code
 
