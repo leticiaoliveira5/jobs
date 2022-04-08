@@ -3,26 +3,26 @@
 A web application that allows company employees to create and manage job opportunities and find candidates interested in them.
 
 ### :hammer: Status
-_work in progress__
+_work in progress_
 
 ### :white_check_mark: Features
 
-#### Implemented:
+#### Implemented
 
-* Employee creates account using corporate email, creating company
-* Employee fills in the company data, if he/she is the first person in the company to join
-* Visitor views registered companies
-* Visitor sees job opportunities
-* Guest creates candidate account to confirm registration
-* Candidate fills CV
-* Company employee sees incoming applications
-* Visitors, employees and candidates search for job opportunities by name and by company
-* Company employee makes a job offer to a candidate
-* The candidate sees the proposals received
-* The candidate can accept or reject the proposal
-* Employee approves/disapproves candidate application
-* The job opportunity is deactivated when the required number of applicants is approved
-* System sends email when Application Form is accepted
+  * Employee creates account using corporate email, creating company
+  * Employee fills in the company data, if he/she is the first person in the company to join
+  * Visitor views registered companies
+  * Visitor sees job opportunities
+  * Guest creates candidate account to confirm registration
+  * Candidate fills CV
+  * Company employee sees incoming applications
+  * Visitors, employees and candidates search for job opportunities by name and by company
+  * Company employee makes a job offer to a candidate
+  * The candidate sees the proposals received
+  * The candidate can accept or reject the proposal
+  * Employee approves/disapproves candidate application
+  * The job opportunity is deactivated when the required number of applicants is approved
+  * System sends email when Application Form is accepted
 
 #### TBD
 
@@ -30,10 +30,10 @@ _work in progress__
 
 ### :gem: Prerequisites
 
-* Ruby '3.0.0'
-* Rails '~> 6.1.0'
-* Node.js
-* SQLite3
+  * Ruby '3.0.0'
+  * Rails '~> 6.1.0'
+  * Node.js
+  * SQLite3
 
 ### :computer: Run locally
 
