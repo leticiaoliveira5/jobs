@@ -2,24 +2,21 @@ require 'rails_helper'
 
 feature 'employee registers job opportunity' do
   scenario 'successfully' do
-    # arrange
     employee = create(:employee)
-    # act
+
     login_as employee, scope: :employee
     visit root_path
     click_on 'Área da empresa'
     click_on 'Cadastrar nova vaga'
     fill_in 'Título da vaga', with: 'Ator'
     fill_in 'Faixa salarial', with: 'A combinar'
-    within '.select_level' do
-      select 'Pleno'
-    end
+    within '.select_level' { select 'Pleno' }
     fill_in 'Local', with: 'Curicica, Rio de Janeiro'
     fill_in 'Descrição', with: 'Atuar em novelas da emissora.'
     fill_in 'Data limite', with: '26/10/2021'
     fill_in 'Número de vagas', with: '2'
     click_on 'Cadastrar vaga'
-    # assert
+
     expect(page).to have_content 'Globe'
     expect(page).to have_content 'Descrição'
     expect(page).to have_content 'Atuar em novelas da emissora'
@@ -27,33 +24,31 @@ feature 'employee registers job opportunity' do
   end
 
   scenario 'only if belongs to company' do
-    # arrange
     company = create(:company, domain: 'g1.com', cnpj: '12345678911234')
     company_employee = create(:employee, company: company)
     another_company = create(:company, name: 'Record', domain: 'r7.com', cnpj: '12345678911235')
     create(:employee, email: 'andrea@r7.com', company: another_company)
-    # act
+
     login_as company_employee, scope: :employee
     visit root_path
     click_on 'Ver empresas cadastradas'
     click_on 'Record'
-    # assert
+
     expect(page).not_to have_content 'Registrar nova vaga'
     expect(page).not_to have_content 'Editar dados da empresa'
     expect(page).not_to have_content 'Painel do colaborador'
   end
 
   scenario 'only if all fields are filled' do
-    # arrange
     employee = create(:employee)
-    # act
+
     login_as employee, scope: :employee
     visit root_path
     click_on 'Área da empresa'
     click_on 'Cadastrar nova vaga'
     fill_in 'Título da vaga', with: 'Atriz'
     click_on 'Cadastrar vaga'
-    # assert
+
     expect(JobOpportunity.count).to eq(0)
     expect(page).to have_content 'Descrição não pode ficar em branco'
     expect(page).to have_content 'Nível não pode ficar em branco'
