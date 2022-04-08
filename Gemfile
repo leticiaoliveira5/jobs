@@ -7,7 +7,6 @@ ruby '3.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'coffee-rails', '~> 4.2'
 gem 'devise'
 gem 'faraday'
 gem 'jbuilder', '~> 2.5'
