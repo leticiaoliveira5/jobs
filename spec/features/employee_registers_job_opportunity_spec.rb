@@ -10,10 +10,12 @@ feature 'employee registers job opportunity' do
     click_on 'Cadastrar nova vaga'
     fill_in 'Título da vaga', with: 'Ator'
     fill_in 'Faixa salarial', with: 'A combinar'
-    within '.select_level' { select 'Pleno' }
+    within '.select_level' do
+      select 'Pleno'
+    end
     fill_in 'Local', with: 'Curicica, Rio de Janeiro'
-    fill_in 'Descrição', with: 'Atuar em novelas da emissora.'
-    fill_in 'Data limite', with: '26/10/2021'
+    fill_in 'Descrição', with: 'Atuar em novelas da emissora'
+    fill_in 'Data limite', with: 2.months.from_now
     fill_in 'Número de vagas', with: '2'
     click_on 'Cadastrar vaga'
 

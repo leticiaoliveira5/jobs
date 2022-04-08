@@ -14,7 +14,7 @@ feature 'employee edits job opportunity' do
     click_on 'Dummie'
     click_on 'Editar vaga'
     fill_in 'Descrição', with: 'Auxiliar em diversas atividades, como organização de provas'
-    fill_in 'Data limite', with: '26/12/2021'
+    fill_in 'Data limite', with: 2.months.from_now
     click_on 'Atualizar'
 
     expect(current_path).to eq job_opportunity_path(job_opportunity)
