@@ -1,4 +1,4 @@
-# Jobs
+## Jobs
 
 A web application that allows company employees to create and manage job opportunities and find candidates interested in them.
 
