@@ -38,7 +38,7 @@ blocks:
             - chmod +x ./cc-test-reporter
             - ./cc-test-reporter before-build
             - cache restore cc-coverage-$SEMAPHORE_GIT_BRANCH
-            - ./cc-test-reporter format-coverage coverage/.resultset.json --input-type simplecov -p /app -o coverage/codeclimate.json
+            - ./cc-test-reporter format-coverage 'coverage/.resultset.json' --input-type 'simplecov' -p /app -o 'coverage/codeclimate.json'
             - ./cc-test-reporter upload-coverage
             - cache delete cc-coverage-$SEMAPHORE_GIT_BRANCH
             - test-results gen-pipeline-report
