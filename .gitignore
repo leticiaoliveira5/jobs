@@ -18,7 +18,6 @@ vendor/bundle/*
 !/log/.keep
 !/tmp/.keep
 
-
 /node_modules
 /yarn-error.log
 
@@ -30,3 +29,6 @@ vendor/bundle/*
 
 # Ignore coverage assets and page
 /coverage
+
+# Ignore .rubocop.yml
+.rubocop.yml
