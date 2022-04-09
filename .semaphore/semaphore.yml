@@ -24,16 +24,11 @@ blocks:
       jobs:
         - name: Test results
           commands:
-            - checkout
-            - 'curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-0.8.0-linux-amd64 > ./cc-test-reporter'
+            - 'curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter'
             - chmod +x ./cc-test-reporter
             - ./cc-test-reporter before-build
-      prologue:
-        commands:
-          - 'curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-0.10.3-linux-amd64 > ./cc-test-reporter'
-          - chmod +x ./cc-test-reporter
-          - ./cc-test-reporter before-build
-      epilogue:
-        on_pass:
-          commands:
-            - ./cc-test-reporter after-build
+            - export CC_TEST_REPORTER_ID=11390e99ff161ee53c4476bafb1fecfaca3efa634567ff188fcf3a49a3319553
+            - 'exitcode=$(if [ "$SEMAPHORE_THREAD_RESULT" == "passed" ]; then 0; else 1; fi)'
+            - ./cc-test-reporter after-build --exit-code $exitcode
+      secrets:
+        - name: CC_TEST_REPORTER
