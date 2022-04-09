@@ -2,3 +2,20 @@ plugins:
   rubocop:
     enabled: true
     channel: "rubocop-1-9-1" # https://github.com/codeclimate/codeclimate-rubocop/branches/all
+    config:
+      file: ".rubocop.yml"
+  reek:
+    enabled: true
+  csslint:
+    enabled: true
+  coffeelint:
+    enabled: false
+  eslint:
+    enabled: false
+  fixme:
+    enabled: true
+exclude_patterns:
+- config/
+- vendor/
+- bin/
+- app/assets/javascripts/
