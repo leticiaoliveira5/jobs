@@ -34,7 +34,7 @@ blocks:
             - chmod +x ./cc-test-reporter
             - ./cc-test-reporter before-build
             - cache restore cc-coverage-$SEMAPHORE_GIT_BRANCH
-            - ./cc-test-reporter format-coverage cc-coverage-$SEMAPHORE_GIT_BRANCH --input-type 'simplecov'
+            - ./cc-test-reporter format-coverage COVERAGE_FILE --input-type 'simplecov'
             - ./cc-test-reporter upload-coverage
             - cache delete cc-coverage-$SEMAPHORE_GIT_BRANCH
             - test-results gen-pipeline-report
