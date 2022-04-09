@@ -24,7 +24,7 @@ _work in progress_
     -   System sends email when Application Form is accepted
 
 -   **TBD**
-    -   Frontend
+    -   [Frontend](https://github.com/leticiaoliveira5/jobs/milestone/1)
 
 ## :gem: Prerequisites
 
