@@ -6,8 +6,10 @@ agent:
     os_image: ubuntu2004
 blocks:
   - name: RSpec
-    dependencies: []
     task:
+      env_vars:
+        - name: CC_TEST_REPORTER_ID
+          value: 11390e99ff161ee53c4476bafb1fecfaca3efa634567ff188fcf3a49a3319553
       jobs:
         - name: rspec
           commands:
@@ -17,26 +19,7 @@ blocks:
             - bundle config set --local path 'vendor/bundle'
             - bundle install
             - yarn install
-            - bundle exec rspec --format documentation --out result.xml
-            - cache store cc-coverage-$SEMAPHORE_GIT_BRANCH coverage/.resultset.json
-
-  - name: Upload test results
-    dependencies: ['RSpec']
-    task:
-      env_vars:
-        - name: CC_TEST_REPORTER_ID
-          value: 11390e99ff161ee53c4476bafb1fecfaca3efa634567ff188fcf3a49a3319553
-      jobs:
-        - name: Test results
-          commands:
-            - checkout
-            - 'curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-0.8.0-linux-amd64 > ./cc-test-reporter'
+            - bundle exec rspec --format documentation
             - chmod +x ./cc-test-reporter
-            - ./cc-test-reporter before-build
-            - cache restore cc-coverage-$SEMAPHORE_GIT_BRANCH
-            - ./cc-test-reporter format-coverage COVERAGE_FILE --input-type 'simplecov'
+            - ./cc-test-reporter format-coverage coverage/.resultset.json --input-type 'simplecov'
             - ./cc-test-reporter upload-coverage
-            - cache delete cc-coverage-$SEMAPHORE_GIT_BRANCH
-            - test-results gen-pipeline-report
-      secrets:
-        - name: CC_TEST_REPORTER
