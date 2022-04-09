@@ -2,7 +2,8 @@
 version: "2"
 prepare:
   fetch:
-    - file: ".rubocop.yml"
+    - url: "https://github.com/leticiaoliveira5/code-style/master/.rubocop.yml"
+    - path: ".rubocop.yml"
 plugins:
   rubocop:
     enabled: true
