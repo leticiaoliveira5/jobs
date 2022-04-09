@@ -12,7 +12,7 @@ blocks:
         commands:
           - mkdir coverage-$SEMAPHORE_GIT_BRANCH
           - cp coverage/.resultset.json coverage || true
-          - cache store cc-coverage-$SEMAPHORE_GIT_BRANCH coverage-$SEMAPHORE_GIT_BRANCH
+          - cache store cc-coverage-$SEMAPHORE_GIT_BRANCH jobs_coverage
           - test-results publish result.xml
       jobs:
         - name: rspec
@@ -40,7 +40,7 @@ blocks:
             - chmod +x ./cc-test-reporter
             - ./cc-test-reporter before-build
             - cache restore cc-coverage-$SEMAPHORE_GIT_BRANCH
-            - ./cc-test-reporter format-coverage coverage-$SEMAPHORE_GIT_BRANCH/.resultset.json --input-type 'simplecov' -o coverage/codeclimate.json
+            - ./cc-test-reporter format-coverage jobs_coverage/.resultset.json --input-type 'simplecov' -o coverage/codeclimate.json
             - ./cc-test-reporter upload-coverage
             - cache delete cc-coverage-$SEMAPHORE_GIT_BRANCH
             - test-results gen-pipeline-report
