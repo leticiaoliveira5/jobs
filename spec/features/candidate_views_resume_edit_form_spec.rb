@@ -2,6 +2,7 @@ require 'rails_helper'
 
 feature 'candidate views resume edit form' do
   let(:candidate) { create(:candidate) }
+
   scenario 'successfully' do
     login_as candidate, scope: :candidate
     visit root_path
@@ -17,7 +18,7 @@ feature 'candidate views resume edit form' do
     expect(page).to have_link 'Voltar'
   end
 
-  scenario 'is not logged in' do
+  scenario 'candidate is not logged in' do
     visit resume_path(candidate.resume)
 
     expect(current_path).to eq root_path
