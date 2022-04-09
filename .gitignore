@@ -26,3 +26,8 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Ignore coverage assets and page
+/coverage/assets
+/coverage/index.html
+/coverage/.resultset.json.lock
