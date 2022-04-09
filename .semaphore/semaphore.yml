@@ -16,7 +16,7 @@ blocks:
             - bundle config set --local deployment 'true'
             - bundle config set --local path 'vendor/bundle'
             - bundle install
-            - bundle exec rspec --format documentation
+            - bundle exec rspec --format documentation --out result.xml
       epilogue:
         commands:
           - mkdir coverage
