@@ -8,6 +8,12 @@ blocks:
   - name: RSpec
     dependencies: []
     task:
+      epilogue:
+        commands:
+          - mkdir coverage
+          - cp coverage/.resultset.json coverage || true
+          - cache store cc-coverage-$SEMAPHORE_GIT_BRANCH coverage
+          - test-results publish result.xml
       jobs:
         - name: rspec
           commands:
@@ -17,12 +23,7 @@ blocks:
             - bundle config set --local path 'vendor/bundle'
             - bundle install
             - bundle exec rspec --format documentation --out result.xml
-      epilogue:
-        commands:
-          - mkdir coverage
-          - cp coverage/.resultset.json coverage || true
-          - cache store cc-coverage-$SEMAPHORE_GIT_BRANCH coverage
-          - test-results publish result.xml
+
 
   - name: Upload test results
     dependencies: ['RSpec']
