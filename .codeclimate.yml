@@ -1,0 +1,5 @@
+plugins:
+  rubocop:
+    enabled: true
+    channel: "rubocop-1-9-1" 
+    # you can change this to use the version you want, have a look at the different channels here: https://github.com/codeclimate/codeclimate-rubocop/branches/all
