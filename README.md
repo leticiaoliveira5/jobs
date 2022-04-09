@@ -1,5 +1,8 @@
 # Jobs
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/c005119a689e2367251b/maintainability)](https://codeclimate.com/github/leticiaoliveira5/jobs/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/c005119a689e2367251b/test_coverage)](https://codeclimate.com/github/leticiaoliveira5/jobs/test_coverage)
+
 A web application that allows company employees to create and manage job opportunities and find candidates interested in them.
 
 ## :hammer: Status
