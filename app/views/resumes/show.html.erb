@@ -1,5 +1,7 @@
 <center>
 
+<%= render 'shared/errors', object: @resume %>
+
 <div class="contentblock">
 
 <% if candidate_signed_in? && current_candidate == @resume.candidate %>
