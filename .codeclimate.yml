@@ -2,7 +2,7 @@
 version: "2"
 prepare:
   fetch:
-    file: ".rubocop.yml"
+    - file: ".rubocop.yml"
 plugins:
   rubocop:
     enabled: true
