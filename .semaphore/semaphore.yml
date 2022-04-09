@@ -17,6 +17,13 @@ blocks:
             - bundle config set --local path 'vendor/bundle'
             - bundle install
             - bundle exec rspec --format documentation
+      epilogue:
+        commands:
+          - mkdir coverage
+          - cp coverage/.resultset.json coverage || true
+          - cache store cc-coverage-$SEMAPHORE_GIT_BRANCH coverage
+          - test-results publish result.xml
+
   - name: Upload test results
     dependencies: ['RSpec']
     task:
@@ -26,9 +33,14 @@ blocks:
       jobs:
         - name: Test results
           commands:
-            - 'curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter'
+            - checkout
+            - 'curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-0.8.0-linux-amd64 > ./cc-test-reporter'
             - chmod +x ./cc-test-reporter
             - ./cc-test-reporter before-build
-            - ./cc-test-reporter upload-coverage --id '11390e99ff161ee53c4476bafb1fecfaca3efa634567ff188fcf3a49a3319553' --endpoint 'https://api.codeclimate.com/v1/test_reports'
+            - cache restore cc-coverage-$SEMAPHORE_GIT_BRANCH
+            - ./cc-test-reporter format-coverage coverage/.resultset.json --input-type simplecov -p /app -o coverage/codeclimate.json
+            - ./cc-test-reporter upload-coverage
+            - cache delete cc-coverage-$SEMAPHORE_GIT_BRANCH
+            - test-results gen-pipeline-report
       secrets:
         - name: CC_TEST_REPORTER
