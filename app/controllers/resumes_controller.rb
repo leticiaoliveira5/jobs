@@ -21,17 +21,21 @@ class ResumesController < ApplicationController
   def update
     @resume = Resume.find(params[:id])
     @resume.update(resume_params)
-    redirect_to resume_path(@resume)
+    if @resume.save
+      redirect_to resume_path(@resume), notice: 'Currículo atualizado com sucesso'
+    else
+      render 'edit'
+    end
   end
 
   private
 
   def resume_params
-    params.permit(:address,
-                  :education,
-                  :experience,
-                  :languages,
-                  :abilities,
-                  :courses)
+    params.require(:resume).permit(:address,
+                                   :education,
+                                   :experience,
+                                   :languages,
+                                   :abilities,
+                                   :courses)
   end
 end
