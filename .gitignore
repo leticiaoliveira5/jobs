@@ -6,6 +6,7 @@
 
 # Ignore bundler config.
 /.bundle
+vendor/bundle/*
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
@@ -28,6 +29,4 @@
 /config/master.key
 
 # Ignore coverage assets and page
-/coverage/assets
-/coverage/index.html
-/coverage/.resultset.json.lock
+/coverage
