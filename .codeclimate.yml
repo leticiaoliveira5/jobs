@@ -1,10 +1,13 @@
+---
+version: "2"
+prepare:
+  fetch:
+    file: ".rubocop.yml"
 plugins:
   rubocop:
     enabled: true
     channel: "rubocop-1-9-1" # https://github.com/codeclimate/codeclimate-rubocop/branches/all
     config:
-      file: ".rubocop.yml"
-    checks:
       file: ".rubocop.yml"
   reek:
     enabled: true
