@@ -8,7 +8,7 @@ blocks:
   - name: bundle exec rspec
     task:
       jobs:
-        - name: bundle install
+        - name: rspec
           commands:
             - checkout
             - sem-version ruby 3.0.0
