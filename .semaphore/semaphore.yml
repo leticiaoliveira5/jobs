@@ -28,9 +28,5 @@ blocks:
             - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-0.8.0-linux-amd64 > ./cc-test-reporter
             - chmod +x ./cc-test-reporter
             - ./cc-test-reporter before-build
-            - for i in {0..5}; do cache restore cc-coverage-$SEMAPHORE_GIT_BRANCH-$i; done
-            - for i in {0..5}; do ./cc-test-reporter format-coverage coverage-$i/.resultset.json --input-type simplecov -p /app -o coverage/codeclimate-$i.json; done
-            - ./cc-test-reporter sum-coverage $(ls coverage/codeclimate-*.json)
-            - ./cc-test-reporter upload-coverage
-            - for i in {0..5}; do cache delete cc-coverage-$SEMAPHORE_GIT_BRANCH-$i; done
-            - test-results gen-pipeline-report
+            - exitcode=$(if [ "$SEMAPHORE_THREAD_RESULT" == "passed" ]; then echo 0; else echo 1; fi)
+            - ./cc-test-reporter after-build --exit-code $exitcode
