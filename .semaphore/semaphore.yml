@@ -29,6 +29,6 @@ blocks:
             - 'curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter'
             - chmod +x ./cc-test-reporter
             - ./cc-test-reporter before-build
-            - ./cc-test-reporter upload-coverage --input 'coverage/.last_run.json'
+            - ./cc-test-reporter upload-coverage --id '11390e99ff161ee53c4476bafb1fecfaca3efa634567ff188fcf3a49a3319553' --endpoint 'https://api.codeclimate.com/v1/test_reports'
       secrets:
         - name: CC_TEST_REPORTER
