@@ -28,7 +28,7 @@ blocks:
             - chmod +x ./cc-test-reporter
             - ./cc-test-reporter before-build
             - export CC_TEST_REPORTER_ID=11390e99ff161ee53c4476bafb1fecfaca3efa634567ff188fcf3a49a3319553
-            - 'exitcode=$(if [ "$SEMAPHORE_THREAD_RESULT" == "passed" ]; then echo 0; else echo 1; fi)'
+            - 'exitcode=$(if [ "$SEMAPHORE_JOB_RESULT" == "passed" ]; then echo 0; else echo 1; fi)'
             - ./cc-test-reporter after-build --exit-code $exitcode
       secrets:
         - name: CC_TEST_REPORTER
