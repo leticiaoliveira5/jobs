@@ -8,12 +8,6 @@ blocks:
   - name: RSpec
     dependencies: []
     task:
-      epilogue:
-        commands:
-          - mkdir coverage-$SEMAPHORE_GIT_BRANCH
-          - cp coverage/.resultset.json coverage.json || true
-          - cache store cc-coverage-$SEMAPHORE_GIT_BRANCH coverage.json
-          - test-results publish result.xml
       jobs:
         - name: rspec
           commands:
@@ -24,7 +18,7 @@ blocks:
             - bundle install
             - yarn install
             - bundle exec rspec --format documentation --out result.xml
-
+            - cache store cc-coverage-$SEMAPHORE_GIT_BRANCH coverage/.resultset.json
 
   - name: Upload test results
     dependencies: ['RSpec']
@@ -40,7 +34,7 @@ blocks:
             - chmod +x ./cc-test-reporter
             - ./cc-test-reporter before-build
             - cache restore cc-coverage-$SEMAPHORE_GIT_BRANCH
-            - ./cc-test-reporter format-coverage cc-coverage-$SEMAPHORE_GIT_BRANCH --input-type 'simplecov' -o coverage/codeclimate.json
+            - ./cc-test-reporter format-coverage cc-coverage-$SEMAPHORE_GIT_BRANCH --input-type 'simplecov'
             - ./cc-test-reporter upload-coverage
             - cache delete cc-coverage-$SEMAPHORE_GIT_BRANCH
             - test-results gen-pipeline-report
