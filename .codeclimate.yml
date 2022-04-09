@@ -2,7 +2,7 @@
 version: "2"
 prepare:
   fetch:
-    - url: "https://raw.raw.github.com/leticiaoliveira5/code-style/master/.rubocop.yml"
+    - url: "https://raw.github.com/leticiaoliveira5/code-style/master/.rubocop.yml"
       path: ".rubocop.yml"
 plugins:
   rubocop:
