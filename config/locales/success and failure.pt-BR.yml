@@ -13,3 +13,6 @@ pt-BR:
       success: 'Resposta enviada com sucesso'
     accept:
       success: 'Confirmação enviada com sucesso!'
+  resumes:
+    update:
+      success: 'Currículo atualizado com sucesso'

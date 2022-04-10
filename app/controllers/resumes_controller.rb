@@ -22,7 +22,7 @@ class ResumesController < ApplicationController
     @resume = Resume.find(params[:id])
     @resume.update(resume_params)
     if @resume.save
-      redirect_to resume_path(@resume), notice: 'Currículo atualizado com sucesso'
+      redirect_to resume_path(@resume), notice: t('.success')
     else
       render 'edit'
     end
