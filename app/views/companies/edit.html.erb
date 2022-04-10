@@ -1,12 +1,6 @@
 <center>
 
-<% if @company.errors.any? %>
-  <div class="alert-danger">
-    <% @company.errors.full_messages.each do |error| %>
-      <p><%= error %></p>
-    <% end %>
-  </div>
-<% end %>
+<%= render 'shared/errors', object: @company %>
   
 <div class="contentblock">
   <h1>Cadastro de empresa</h1>
