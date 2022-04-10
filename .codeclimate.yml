@@ -5,6 +5,8 @@ prepare:
     - url: "https://raw.githubusercontent.com/leticiaoliveira5/code-style/master/.rubocop.yml"
       path: ".rubocop.yml"
 plugins:
+  duplication:
+    enabled: true
   rubocop:
     enabled: true
     channel: "rubocop-1-9-1" # https://github.com/codeclimate/codeclimate-rubocop/branches/all
@@ -21,3 +23,6 @@ exclude_patterns:
 - vendor/
 - bin/
 - app/assets/javascripts/
+
+
+
