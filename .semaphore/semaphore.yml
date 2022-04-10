@@ -5,8 +5,11 @@ agent:
     type: e1-standard-2
     os_image: ubuntu2004
 blocks:
-  - name: bundle exec rspec
+  - name: RSpec
     task:
+      env_vars:
+        - name: CC_TEST_REPORTER_ID
+          value: 11390e99ff161ee53c4476bafb1fecfaca3efa634567ff188fcf3a49a3319553
       jobs:
         - name: rspec
           commands:
@@ -15,4 +18,8 @@ blocks:
             - bundle config set --local deployment 'true'
             - bundle config set --local path 'vendor/bundle'
             - bundle install
+            - yarn install
             - bundle exec rspec --format documentation
+            - chmod +x ./cc-test-reporter
+            - ./cc-test-reporter format-coverage coverage/.resultset.json --input-type 'simplecov'
+            - ./cc-test-reporter upload-coverage
