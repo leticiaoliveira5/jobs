@@ -21,11 +21,7 @@ class ResumesController < ApplicationController
   def update
     @resume = Resume.find(params[:id])
     @resume.update(resume_params)
-    if @resume.save
-      redirect_to resume_path(@resume), notice: t('.success')
-    else
-      render 'edit'
-    end
+    redirect_to resume_path(@resume), notice: t('.success') if @resume.save
   end
 
   private
