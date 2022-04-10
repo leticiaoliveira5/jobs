@@ -59,7 +59,6 @@ feature 'Resume update' do
   end
 
   def page_has_update_button_and_return_link
-    expect(page).to have_button 'Atualizar currículo'
-    expect(page).to have_link 'Voltar'
+    expect(page).to have_button('Atualizar currículo') && have_link('Voltar')
   end
 end
