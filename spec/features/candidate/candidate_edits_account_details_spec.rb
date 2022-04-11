@@ -1,16 +1,11 @@
 require 'rails_helper'
 
 feature 'candidate edits account details' do
+  let(:candidate) { create(:candidate) }
+
   scenario 'successfully' do
+    login_as candidate, scope: :candidate
     visit root_path
-    within('.dropdown-signin') do
-      click_on 'Candidato'
-    end
-    fill_in 'Nome', with: 'Maria'
-    fill_in 'Sobrenome', with: 'Pereira'
-    fill_in 'E-mail', with: 'mariap@email.com'
-    fill_in 'Senha', with: '123456'
-    click_on 'Sign up'
     click_on 'Área do candidato'
     click_on 'Editar dados da minha conta'
     fill_in 'About me', with: 'Olá, meu nome é Maria'
