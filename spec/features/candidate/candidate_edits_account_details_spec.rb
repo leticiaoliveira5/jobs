@@ -2,8 +2,7 @@ require 'rails_helper'
 
 feature 'candidate edits account details' do
   let(:candidate) do
-    create(:candidate, name: 'Maria',
-                       email: 'mariap@email.com',
+    create(:candidate, email: 'mariap@email.com',
                        password: '123456')
   end
 

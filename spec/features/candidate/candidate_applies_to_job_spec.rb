@@ -25,7 +25,6 @@ feature 'Candidate applies to job' do
     visit root_path
     click_on 'Dummie'
     click_on 'Inscrever-se nesta vaga'
-    visit current_path
 
     expect(page).to have_text 'Você está inscrito nesta vaga'
     expect(page).not_to have_link 'Inscrever-se nesta vaga'
