@@ -2,17 +2,18 @@ require 'rails_helper'
 
 feature 'Candidate applies to job' do
   let(:candidate) { create(:candidate) }
+  let(:company) { create(:company) }
 
   before do
-    job_opportunity = create(:job_opportunity, job_title: 'Dummie')
+    create(:job_opportunity, job_title: 'Dummie', company: company)
   end
 
   scenario 'successfully' do
     login_as candidate, scope: :candidate
     visit root_path
     click_on 'Ver empresas cadastradas'
-    click_on job_opportunity.company.name
-    click_on job_opportunity.job_title
+    click_on company.name
+    click_on 'Dummie'
     click_on 'Inscrever-se nesta vaga'
 
     expect(page).to have_text 'Inscrição realizada com sucesso!'
@@ -22,7 +23,7 @@ feature 'Candidate applies to job' do
   scenario 'only once' do
     login_as candidate, scope: :candidate
     visit root_path
-    click_on job_opportunity.job_title
+    click_on 'Dummie'
     click_on 'Inscrever-se nesta vaga'
     visit current_path
 
@@ -33,10 +34,10 @@ feature 'Candidate applies to job' do
   scenario 'and cancels application' do
     login_as candidate, scope: :candidate
     visit root_path
-    click_on job_opportunity.job_title
+    click_on 'Dummie'
     click_on 'Inscrever-se nesta vaga'
     click_on 'Área do candidato'
-    click_on job_opportunity.job_title
+    click_on 'Dummie'
     click_on 'Cancelar candidatura'
 
     expect(candidate.job_applications.count).to eq(0)
