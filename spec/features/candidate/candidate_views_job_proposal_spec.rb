@@ -11,7 +11,7 @@ feature 'Candidate views job proposals' do
                              job_opportunity: job_opportunity,
                              status: 0)
   end
-  before do
+  let(:job_proposal) do
     create(:job_proposal, job_application: job_application,
                           candidate: candidate,
                           job_opportunity: job_opportunity)
