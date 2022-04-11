@@ -21,6 +21,8 @@ feature 'Candidate applies to job' do
   end
 
   scenario 'only once' do
+    create(:job_application, candidate: candidate, job_opportunity: job_opportunity)
+
     login_as candidate, scope: :candidate
     visit root_path
     click_on 'Ver empresas cadastradas'
@@ -30,7 +32,6 @@ feature 'Candidate applies to job' do
 
     expect(page).to have_text 'Você está inscrito nesta vaga'
     expect(page).not_to have_link 'Inscrever-se nesta vaga'
-    expect(candidate.job_applications.count).to eq 1
   end
 
   scenario 'and cancels application' do
