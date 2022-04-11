@@ -2,7 +2,10 @@ require 'rails_helper'
 
 feature 'Candidate applies to job' do
   let(:candidate) { create(:candidate) }
-  let(:job_opportunity) { create(:job_opportunity, job_title: 'Dummie') }
+
+  before do
+    job_opportunity = create(:job_opportunity, job_title: 'Dummie')
+  end
 
   scenario 'successfully' do
     login_as candidate, scope: :candidate
