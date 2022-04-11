@@ -19,8 +19,8 @@ feature 'Candidate views job proposals' do
 
   scenario 'and accepts it' do
     candidate_is_logged_in_on_candidate_dashboard
-    clicks_on_opportunity_link
     views_received_proposals
+    clicks_on_opportunity_link
     accepts_job_proposal
     views_success_message('Confirmação enviada com sucesso!')
     job_proposal_status_is_changed_to('accepted')
@@ -28,8 +28,8 @@ feature 'Candidate views job proposals' do
 
   scenario 'and rejects it' do
     candidate_is_logged_in_on_candidate_dashboard
-    clicks_on_opportunity_link
     views_received_proposals
+    clicks_on_opportunity_link
     rejects_job_proposal
     views_success_message('Resposta enviada com sucesso')
     job_proposal_status_is_changed_to('rejected')
