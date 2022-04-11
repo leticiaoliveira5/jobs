@@ -66,8 +66,8 @@ feature 'Candidate views job proposals' do
   end
 
   def views_received_proposals
-    expect(page).to have_content 'Propostas recebidas'
-    expect(page).to have_link 'Desenvolvedor - Globe'
+    expect(page).to have_content('Propostas recebidas') &&
+                    have_link('Desenvolvedor - Globe')
   end
 
   def job_proposal_status_is_changed_to(status)
