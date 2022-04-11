@@ -12,6 +12,6 @@ feature 'candidate edits account details' do
     fill_in 'Current password', with: '123456'
     click_on 'Update'
 
-    expect(candidate.reload.about_me).to eq('Olá, meu nome é Maria')
+    expect(Candidate.first.reload.about_me).to eq('Olá, meu nome é Maria')
   end
 end
