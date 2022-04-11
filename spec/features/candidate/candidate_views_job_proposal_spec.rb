@@ -17,6 +17,10 @@ feature 'Candidate views job proposals' do
                           job_opportunity: job_opportunity)
   end
 
+  before do
+    job_proposal
+  end
+
   scenario 'and accepts it' do
     candidate_is_logged_in_on_candidate_dashboard
     views_received_proposals
