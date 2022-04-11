@@ -26,7 +26,6 @@ feature 'Candidate applies to job' do
     click_on 'Ver empresas cadastradas'
     click_on company.name
     click_on 'Dummie'
-    click_on 'Inscrever-se nesta vaga'
 
     expect(page).to have_text 'Você está inscrito nesta vaga'
     expect(page).not_to have_link 'Inscrever-se nesta vaga'
