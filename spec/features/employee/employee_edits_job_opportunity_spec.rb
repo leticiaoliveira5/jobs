@@ -16,10 +16,10 @@ feature 'employee edits job opportunity' do
     click_on 'Área da empresa'
     click_on 'Dummie'
     click_on 'Editar vaga'
-    fill_in 'Descrição', with: 'Auxiliar em diversas atividades, como organização de provas'
+    fill_in 'Descrição', with: 'Auxiliar em organização de provas'
     click_on 'Atualizar'
 
     expect(current_path).to eq job_opportunity_path(JobOpportunity.last)
-    expect(JobOpportunity.last.description).to eq 'Auxiliar em diversas atividades, como organização de provas'
+    expect(JobOpportunity.last.description).to eq 'Auxiliar em organização de provas'
   end
 end

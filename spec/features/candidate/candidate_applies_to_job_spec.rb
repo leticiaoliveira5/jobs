@@ -3,8 +3,8 @@ require 'rails_helper'
 feature 'Candidate applies to job' do
   let(:candidate) { create(:candidate) }
   let!(:company) { create(:company) }
-
   let(:job_opportunity) { create(:job_opportunity, job_title: 'Dummie', company: company) }
+
   before { job_opportunity }
 
   scenario 'successfully' do
