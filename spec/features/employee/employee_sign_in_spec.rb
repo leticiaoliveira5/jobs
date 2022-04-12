@@ -15,17 +15,12 @@ feature 'Employee sign in' do
     expect(page).to have_content('steve@apple.com')
     expect(page).to have_text('Bem vindo! Você realizou seu registro com sucesso.')
     expect(page).to have_text('Cadastro de empresa')
-    expect(page).to have_field('Nome')
-    expect(page).to have_field('Endereço')
-    expect(page).to have_field('CNPJ')
+    expect(page).to have_field('Nome') &&  have_field('Endereço') && have_field('CNPJ')
     expect(Company.count).to eq(1)
   end
 
-  scenario 'and belongs to company' do
-    Employee.create!(email: 'steve@apple.com', password: '123456',
-                     firstname: 'Steve', surname: 'Jobs')
-    company = Company.find_by(domain: 'apple.com')
-    company.update(name: 'Apple', address: 'Los Angeles', cnpj: '12345678911234')
+  scenario 'if company already exists' do
+    apple = create(:company, name: 'Apple', domain: 'apple.com', address: 'Los Angeles')
 
     visit root_path
     within('.dropdown-signin') do
@@ -37,16 +32,13 @@ feature 'Employee sign in' do
     fill_in 'Senha', with: '123456'
     click_on 'Sign up'
 
-    expect(page).to have_content('ronald@apple.com')
+    new_employee = Employee.last
     expect(page).to have_content('Apple')
-    expect(page).to have_content('Los Angeles')
+    expect(new_employee.company).to eq apple
   end
 
   scenario 'and log out' do
-    employee = Employee.create!(email: 'leticia@email.com',
-                                password: '123456',
-                                firstname: 'leticia',
-                                surname: 'oliveira')
+    employee = create(:employee, email: 'leticia@email.com', password: '123456')
 
     visit root_path
     within('.dropdown-login') do
@@ -59,7 +51,6 @@ feature 'Employee sign in' do
     end
     click_on 'Sair'
 
-    expect(Company.count).to eq(1)
     expect(page).not_to have_content employee.email
     expect(page).not_to have_link 'Sair'
   end
