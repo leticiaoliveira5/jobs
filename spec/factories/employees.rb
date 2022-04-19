@@ -1,3 +1,5 @@
+require 'faker'
+
 FactoryBot.define do
   factory :employee do
     firstname { Faker::Name.first_name }
