@@ -8,9 +8,6 @@ feature 'Employee makes proposal to candidate' do
 
   before do
     create(:job_application, candidate: candidate, job_opportunity: job_opportunity)
-  end
-
-  scenario 'successfully' do
     login_as employee, scope: :employee
     visit root_path
     click_on 'Área da empresa'
@@ -20,7 +17,9 @@ feature 'Employee makes proposal to candidate' do
     fill_in 'Proposta salarial', with: '2500'
     fill_in 'Data de início', with: '25/04/2021'
     click_on 'Enviar'
+  end
 
+  scenario 'successfully' do
     expect(JobProposal.count).to eq(1)
     expect(page).to have_content 'A proposta foi enviada para o candidato'
   end
