@@ -12,7 +12,13 @@ feature 'employee registers job opportunity' do
   end
 
   scenario 'successfully' do
-    fill_in_all_fields
+    fill_in 'Título da vaga', with: 'Ator'
+    fill_in 'Faixa salarial', with: 'A combinar'
+    within('.select_level') { select 'Pleno' }
+    fill_in 'Local', with: 'Curicica, Rio de Janeiro'
+    fill_in 'Descrição', with: 'Atuar em novelas da emissora'
+    fill_in 'Data limite', with: 2.months.from_now
+    fill_in 'Número de vagas', with: '2'
     click_on 'Cadastrar vaga'
 
     expect(employee.company.job_opportunities.count).to eq(1)
@@ -32,17 +38,5 @@ feature 'employee registers job opportunity' do
                     have_text('Local não pode ficar em branco') &&
                     have_text('Data limite não pode ficar em branco') &&
                     have_text('Número de vagas não pode ficar em branco')
-  end
-
-  private
-
-  def fill_in_all_fields
-    fill_in 'Título da vaga', with: 'Ator'
-    fill_in 'Faixa salarial', with: 'A combinar'
-    within('.select_level') { select 'Pleno' }
-    fill_in 'Local', with: 'Curicica, Rio de Janeiro'
-    fill_in 'Descrição', with: 'Atuar em novelas da emissora'
-    fill_in 'Data limite', with: 2.months.from_now
-    fill_in 'Número de vagas', with: '2'
   end
 end
