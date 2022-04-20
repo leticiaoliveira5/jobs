@@ -1,9 +1,11 @@
+require 'faker'
+
 FactoryBot.define do
   factory :candidate do
-    email { 'maria@gmail.com' }
+    email { Faker::Internet.email }
     password { '123456' }
-    firstname { 'Maria' }
-    surname { 'José' }
+    firstname { Faker::Name.first_name }
+    surname { Faker::Name.last_name }
     cpf { '12345678911234' }
     address { 'Brasil' }
     about_me { 'Sou um candidato teste' }

@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :job_opportunity do
+    company
     job_title { 'Dummie' }
     job_level { 'Pleno' }
     description { 'Auxiliar em diversas atividades' }
@@ -7,6 +8,5 @@ FactoryBot.define do
     place { 'Curicica - RJ' }
     limit_date { 2.months.from_now }
     number_of_positions { '10' }
-    company
   end
 end
