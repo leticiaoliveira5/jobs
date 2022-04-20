@@ -2,7 +2,6 @@ require 'rails_helper'
 
 feature 'Candidate sign up' do
   scenario 'successfully' do
-    # act
     visit root_path
     within('.dropdown-signin') do
       click_on 'Candidato'
@@ -12,7 +11,7 @@ feature 'Candidate sign up' do
     fill_in 'E-mail', with: 'mariap@email.com'
     fill_in 'Senha', with: '123456'
     click_on 'Sign up'
-    # assert
+
     expect(page).to have_content 'Bem vindo! Você realizou seu registro com sucesso.'
   end
 end
