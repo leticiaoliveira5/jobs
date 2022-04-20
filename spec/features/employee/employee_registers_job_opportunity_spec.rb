@@ -30,7 +30,8 @@ feature 'employee registers job opportunity' do
                     have_text('Nível não pode ficar em branco') &&
                     have_text('Faixa salarial não pode ficar em branco') &&
                     have_text('Local não pode ficar em branco') &&
-                    have_text('Data limite não pode ficar em branco')
+                    have_text('Data limite não pode ficar em branco') &&
+                    have_text('Número de vagas não pode ficar em branco')
   end
 
   private
