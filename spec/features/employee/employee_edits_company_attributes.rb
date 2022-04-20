@@ -1,10 +1,15 @@
 require 'rails_helper'
 
 feature 'Employee edits company' do
-  scenario 'successfully' do
-    employee = create(:employee, role: :admin)
+  let!(:first_employee) { create(:employee, role: :admin) }
+  let(:regular_employee) do
+    create(:employee, role: :regular,
+                      email: 'ana@globe.com',
+                      company: first_employee.company)
+  end
 
-    login_as employee, scope: :employee
+  scenario 'successfully' do
+    login_as first_employee, scope: :employee
     visit root_path
     click_on 'Área da empresa'
     click_on 'Editar dados da empresa'
@@ -14,13 +19,9 @@ feature 'Employee edits company' do
     expect(current_path).to eq company_path(employee.company)
     expect(page).to have_content 'Rua 7, número 10, Glória'
   end
-  scenario 'if admin' do
-    first_employee = create(:employee, role: :admin)
-    employee = create(:employee, role: :regular,
-                                 email: 'ana@globe.com',
-                                 company: first_employee.company)
 
-    login_as employee, scope: :employee
+  scenario 'if admin' do
+    login_as regular_employee, scope: :employee
     visit root_path
     click_on 'Área da empresa'
 
