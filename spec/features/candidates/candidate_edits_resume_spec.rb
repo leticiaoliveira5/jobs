@@ -19,6 +19,8 @@ feature 'Resume update' do
     success_message_is_rendered
   end
 
+  private
+
   def candidate_is_logged_in_on_home_page
     login_as candidate, scope: :candidate
     visit root_path
