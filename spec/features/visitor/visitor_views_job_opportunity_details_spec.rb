@@ -2,13 +2,21 @@ require 'rails_helper'
 
 feature 'Visitor views job opportunity details' do
   let(:apple) { create(:company, name: 'Apple') }
-
-  scenario 'successfully' do
+  let(:create_active_job_opportunity) do
     create(:job_opportunity, company: apple,
                              job_title: 'Desenvolvedor',
                              job_level: 'Pleno',
-                             place: 'Home Office')
+                             place: 'Home Office',
+                             status: :active)
+  end
+  let(:create_inactive_job_opportunity) do
+    create(:job_opportunity, company: apple,
+                             job_title: 'Desenvolvedor',
+                             status: :inactive)
+  end
 
+  scenario 'successfully' do
+    create_active_job_opportunity
     visit root_path
     click_on 'Desenvolvedor'
 
@@ -19,11 +27,7 @@ feature 'Visitor views job opportunity details' do
   end
 
   scenario 'and clicks to apply' do
-    create(:job_opportunity, company: apple,
-                             job_title: 'Desenvolvedor',
-                             job_level: 'Pleno',
-                             place: 'Home Office')
-
+    create_active_job_opportunity
     visit root_path
     click_on 'Ver empresas cadastradas'
     click_on 'Apple'
@@ -35,10 +39,7 @@ feature 'Visitor views job opportunity details' do
   end
 
   scenario 'only if job opportunity is active' do
-    create(:job_opportunity, company: apple,
-                             job_title: 'Desenvolvedor',
-                             status: :inactive)
-
+    create_inactive_job_opportunity
     visit root_path
     click_on 'Ver empresas cadastradas'
     click_on 'Apple'
