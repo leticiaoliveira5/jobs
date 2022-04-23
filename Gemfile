@@ -12,10 +12,10 @@ gem 'faraday'
 gem 'jbuilder', '~> 2.5'
 gem 'puma', '~> 5.6', '>= 5.6.4'
 gem 'rails', '~> 6.1.5'
+gem 'react-rails'
 gem 'sqlite3'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
-gem 'react-rails'
 gem 'webpacker'
 
 group :development, :test do
