@@ -94,8 +94,10 @@ ActiveRecord::Schema.define(version: 2022_04_08_132508) do
     t.integer "status", default: 0
     t.string "rejection_motive"
     t.string "start_date_confirmation"
+    t.integer "job_opportunity_id"
     t.index ["candidate_id"], name: "index_job_proposals_on_candidate_id"
     t.index ["job_application_id"], name: "index_job_proposals_on_job_application_id"
+    t.index ["job_opportunity_id"], name: "index_job_proposals_on_job_opportunity_id"
   end
 
   create_table "resumes", force: :cascade do |t|
@@ -111,4 +113,12 @@ ActiveRecord::Schema.define(version: 2022_04_08_132508) do
     t.index ["candidate_id"], name: "index_resumes_on_candidate_id"
   end
 
+  add_foreign_key "employees", "companies"
+  add_foreign_key "job_applications", "candidates"
+  add_foreign_key "job_applications", "job_opportunities"
+  add_foreign_key "job_opportunities", "companies"
+  add_foreign_key "job_proposals", "candidates"
+  add_foreign_key "job_proposals", "job_applications"
+  add_foreign_key "job_proposals", "job_opportunities"
+  add_foreign_key "resumes", "candidates"
 end
