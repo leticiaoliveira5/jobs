@@ -14,8 +14,8 @@ gem 'puma', '~> 5.6', '>= 5.6.4'
 gem 'rails', '7.0.2.3'
 gem 'sprockets-rails'
 gem 'sqlite3'
-gem 'turbolinks', '~> 5'
 gem 'net-pop', '~> 0.1.1'
+gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
