@@ -12,11 +12,11 @@ gem 'faraday'
 gem 'jbuilder', '~> 2.5'
 gem 'puma', '~> 5.6', '>= 5.6.4'
 gem 'rails', '7.0.2.3'
-gem 'sqlite3'
 gem 'sprockets-rails'
+gem 'sqlite3'
 gem 'turbolinks', '~> 5'
-gem 'uglifier', '>= 1.3.0'
 gem 'net-pop', '~> 0.1.1'
+gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
