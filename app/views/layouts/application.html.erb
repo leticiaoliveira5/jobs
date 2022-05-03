@@ -68,6 +68,8 @@
   <% end %>
   </center>
 
+   <%= react_component("HelloWorld", { greeting: "Hello from react-rails." }, {prerender: true}) %>
+
     <%= yield %>
   </body>
 </html>
