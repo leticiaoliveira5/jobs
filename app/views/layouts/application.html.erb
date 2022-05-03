@@ -68,8 +68,8 @@
   <% end %>
   </center>
 
-   <%= react_component("HelloWorld", { greeting: "Hello from react-rails." }, {prerender: true}) %>
+  <%= yield %>
 
-    <%= yield %>
+  <%= react_component("Footer", { footer_text: "© 2022" }, { prerender: true }) %>
   </body>
 </html>
