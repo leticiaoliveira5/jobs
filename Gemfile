@@ -10,11 +10,11 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 gem 'faraday'
 gem 'jbuilder', '~> 2.5'
+gem 'net-pop', '~> 0.1.1'
 gem 'puma', '~> 5.6', '>= 5.6.4'
 gem 'rails', '7.0.2.3'
 gem 'sprockets-rails'
 gem 'sqlite3'
-gem 'net-pop', '~> 0.1.1'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 
