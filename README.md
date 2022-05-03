@@ -33,7 +33,7 @@ _work in progress_
 ## :gem: Prerequisites
 
 -   Ruby 3.0.0
--   Rails 6.1.0
+-   Rails 7.0.2.3
 -   Node.js
 -   SQLite3
 
