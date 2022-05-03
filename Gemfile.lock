@@ -290,7 +290,7 @@ DEPENDENCIES
   devise
   factory_bot
   factory_bot_rails
-  faker (~> 2.20)
+  faker
   faraday
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
