@@ -9,11 +9,6 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
   end
 
-  def new
-    @company = Company.new
-    @companies = Company.all
-  end
-
   def create
     @company = Company.new(company_params)
     redirect_to @company
@@ -36,6 +31,6 @@ class CompaniesController < ApplicationController
   private
 
   def company_params
-    params.permit(:name, :domain, :address, :cnpj)
+    params.require(:company).permit(:name, :domain, :address, :cnpj)
   end
 end
