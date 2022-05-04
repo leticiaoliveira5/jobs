@@ -24,7 +24,7 @@
     </div> 
   <%end%>
 
-  <% if @current_user&.candidate? %>
+  <% if @current_user&.is_a?(Candidate) %>
     <%= link_to 'Área do candidato', candidates_path(current_candidate) %>
     <%= link_to 'Meu currículo', resume_path(current_candidate.resume) %>
     <div class="navright">
@@ -33,7 +33,7 @@
     </div>
   <% end %>
 
-  <% if @current_user&.employee? %>
+  <% if @current_user&.is_a?(Employee) %>
     <%= link_to 'Área da empresa', company_path(current_employee.company) %>
     <div class="navright">
       <%= current_employee.email %> (<%=current_employee.company.name%> - <%=current_employee.role%>)

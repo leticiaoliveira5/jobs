@@ -22,12 +22,4 @@ class Employee < ApplicationRecord
   def first_employee_is_admin
     admin! if self == @company.employees.first
   end
-  
-  def employee?
-    true
-  end
-
-  def candidate?
-    false
-  end
 end

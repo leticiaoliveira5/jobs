@@ -4,10 +4,10 @@ class NavbarComponent < ViewComponent::Base
   end
 
   def current_employee
-    @current_user.employee? ? @current_user : nil
+    @current_user.is_a?(Employee) ? @current_user : nil
   end
 
   def current_candidate
-    @current_user.candidate? ? @current_user : nil
+    @current_user.is_a?(Candidate) ? @current_user : nil
   end
 end
