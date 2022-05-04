@@ -16,6 +16,7 @@ gem 'sprockets-rails'
 gem 'sqlite3'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
+gem 'view_component', require: 'view_component/engine'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
