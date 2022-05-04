@@ -52,17 +52,10 @@ h1, h2, h3, h4 { color: var(--title); }
   padding: 10px 20px 10px 20px;
 }
 
-.title {
-  color: var(--title);
-  font-size: 44px;
-  text-transform: uppercase;
-  padding: 10px;
-}
-
 a {
+  color: var(--link);
   font-weight: 500;
   letter-spacing: 0.05em;
-  color: var(--link);
   padding: 2px;
   text-decoration: none;
 }
@@ -105,17 +98,21 @@ a:hover {
   padding:5px;
 }
 
+.navtitle {
+  color: var(--title);
+  font-size: 44px;
+  text-transform: uppercase;
+  padding: 10px;
+}
+
 .navleft {
   display: flex;
-  justify-content: left;
   font-size: 16px;
   align-items: center;
 }
 
 .navright {
   display: flex;
-  justify-content: right;
-  font-size: 16px;
   font-size: 16px;
   align-items: center;
 }
