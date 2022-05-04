@@ -4,6 +4,8 @@ feature 'Employee sign in' do
   scenario 'and company already exists' do
     apple = create(:company, name: 'Apple', domain: 'apple.com', address: 'Los Angeles')
 
+    visit root_path
+    within('.dropdown-signin') { click_on 'Empresa' }
     fill_in 'Nome', with: 'Ronald'
     fill_in 'Sobrenome', with: 'Wayne'
     fill_in 'E-mail', with: 'ronald@apple.com'
