@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   devise_for :candidates
 
-  resources :companies, only: %i[index new create update edit show]
+  resources :companies, only: %i[index create update edit show]
 
   resources :job_opportunities, only: %i[index new create update edit show] do
     post 'create_job_application', on: :member
