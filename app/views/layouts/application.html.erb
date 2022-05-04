@@ -10,8 +10,7 @@
   </head>
 
   <body>
-
-  <%= render(NavbarComponent.new(current_user: current_candidate || current_employee || nil)) %>
+    <%= render(NavbarComponent.new(current_user: current_candidate || current_employee || nil)) %>
 
   <center>
   <% if notice %>
