@@ -6,7 +6,8 @@ feature 'Visitor visits home page' do
 
     expect(page).to have_content('Jobs') && have_content('Sua carreira começa aqui')
     expect(page).to have_button('Entrar') && have_button('Cadastre-se')
-    expect(page).to have_button('Ver empresas cadastradas')
+    expect(page).to have_link('Ver empresas cadastradas')
+    expect(page).to have_link('Vagas recentes')
   end
 
   scenario 'and views registered companies' do
