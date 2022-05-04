@@ -2,6 +2,10 @@ class JobOpportunitiesController < ApplicationController
   before_action :authenticate_employee!, only: %i[create new edit]
   before_action :authenticate_candidate!, only: %i[create_job_application]
 
+  def index
+    @job_opportunities = JobOpportunity.last(30)
+  end
+
   def new
     @job_opportunity = JobOpportunity.new
     @job_opportunities = JobOpportunity.all
