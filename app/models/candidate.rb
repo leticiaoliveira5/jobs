@@ -15,4 +15,12 @@ class Candidate < ApplicationRecord
   def create_resume
     Resume.create!(candidate: self)
   end
+
+  def candidate?
+    true
+  end
+
+  def employee?
+    false
+  end
 end
