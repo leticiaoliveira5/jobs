@@ -94,32 +94,36 @@ a:hover {
   height: 60px;
   border: none;
   margin: 0;
-  list-style-type: none;
-  padding: 0;
-  vertical-align: middle;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:5px;
+}
+
+.navleft {
+  display: flex;
+  justify-content: left;
+  font-size: 16px;
+  align-items: center;
+}
+
+.navright {
+  display: flex;
+  justify-content: right;
+  font-size: 16px;
+  font-size: 16px;
+  align-items: center;
 }
 
 .nav a {
   color: var(--nav_link);
-  padding-right:10px;
-  font-size: 16px;
   text-decoration: none;
-  vertical-align: middle;
-  display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .nav a:hover {
-  text-decoration: underline;
-}
-
-.navright {
-  background-color: var(--nav_background_color);
-  color: var(--nav_link);
-  border: none;
-  font-size: 16px;
-  float: right;
-  vertical-align: middle;
-  display: inline-block;
+  text-decoration: none;
 }
 
 .button {
