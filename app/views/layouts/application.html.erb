@@ -11,65 +11,42 @@
 
   <body>
 
-<div class="header">
-  <h1>Jobs</h1>
-  <h2>Sua carreira começa aqui</h2>
-</div>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
-<div class="nav">
+    <%= render(NavbarComponent.new(current_user: current_candidate || current_employee || nil)) %>
 
- <%= link_to 'Página inicial', root_path %>
-
-<% unless employee_signed_in? || candidate_signed_in? %>
-  <div class="dropdown-login">
-    <button class="dropbtn">Entrar</button>
-    <div class="dropdown-content">
-      <%= link_to 'Candidato', new_candidate_session_path %>
-      <%= link_to 'Empresa', new_employee_session_path %>
-    </div>
-  </div> 
-
-  <div class="dropdown-signin">
-    <button class="dropbtn">Cadastre-se</button>
-    <div class="dropdown-content">
-      <%= link_to 'Candidato', new_candidate_registration_path %>
-      <%= link_to 'Empresa', new_employee_registration_path %>
-    </div>
-  </div> 
-<%end%>
-
-<% if candidate_signed_in? %>
-  <%= link_to 'Área do candidato', candidates_path(current_candidate) %>
-  <%= link_to 'Meu currículo', resume_path(current_candidate.resume) %>
-  <div class="navright">
-  <%= current_candidate.email %>
-  <%= link_to 'Sair', destroy_candidate_session_path, method: :delete %>
-  </div>
-<% end %>
-
-
-<% if employee_signed_in? %>
-  <%= link_to 'Área da empresa', company_path(current_employee.company) %>
-  <div class="navright">
-    <%= current_employee.email %> (<%=current_employee.company.name%> - <%=current_employee.role%>)
-    <%= link_to 'Sair', destroy_employee_session_path, method: :delete %>
-  </div>
-<% end %>
-
-  <%= link_to 'Ver empresas cadastradas', companies_path %>
-  <%= link_to 'Vagas recentes', job_opportunities_path %>
-
-  </div>
-  
   <center>
+    <% unless employee_signed_in? || candidate_signed_in? %>
+      <div class="contentblock">
+        <div class="dropdown-login">
+          <button class="dropbtn">Entrar</button>
+          <div class="dropdown-content">
+            <%= link_to 'Candidato', new_candidate_session_path %>
+            <%= link_to 'Empresa', new_employee_session_path %>
+          </div>
+        </div> 
+
+        <div class="dropdown-signin">
+          <button class="dropbtn">Cadastre-se</button>
+          <div class="dropdown-content">
+            <%= link_to 'Candidato', new_candidate_registration_path %>
+            <%= link_to 'Empresa', new_employee_registration_path %>
+          </div>
+        </div>
+      </div> 
+    <%end%>
+
   <% if notice %>
     <p class="alert-success"><%= notice %></p>
   <% end %>
   <% if alert %>
     <p class="alert-danger"><%= alert %></p>
   <% end %>
-  </center>
-
+  
     <%= yield %>
+
+  </center>
   </body>
 </html>

@@ -6,6 +6,7 @@ class HomeController < ApplicationController
       redirect_to company_path(current_employee.company)
     else
       @job_opportunities = JobOpportunity.all
+      @current_user = nil
     end
   end
 end
