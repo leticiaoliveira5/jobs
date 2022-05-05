@@ -9,14 +9,14 @@
   </div>
 
   <div class="navright">
-    <% if @current_user&.is_a?(Candidate) %>
+    <% if current_candidate %>
       <%= link_to 'Área do candidato', candidates_path(current_candidate) %>
       <%= link_to 'Meu currículo', resume_path(current_candidate.resume) %>
       <%= current_candidate.email %>
       <%= link_to 'Sair', destroy_candidate_session_path, method: :delete %>
     <% end %>
 
-    <% if @current_user&.is_a?(Employee) %>
+    <% if current_employee %>
       <%= link_to 'Área da empresa', company_path(current_employee.company) %>
       <%= current_employee.email %> (<%=current_employee.company.name%> - <%=current_employee.role%>)
       <%= link_to 'Sair', destroy_employee_session_path, method: :delete %>
