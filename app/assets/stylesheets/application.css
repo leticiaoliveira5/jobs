@@ -94,14 +94,14 @@ a:hover {
 .navtitle {
   color: var(--title);
   font-size: 44px;
-  text-transform: uppercase;
   padding: 10px;
+  text-transform: uppercase;
 }
 
 .navleft {
+  align-items: center;
   display: flex;
   font-size: 16px;
-  align-items: center;
 }
 
 .navright {
@@ -112,9 +112,9 @@ a:hover {
 
 .nav a {
   color: var(--nav_link);
-  text-decoration: none;
   padding-left: 10px;
   padding-right: 10px;
+  text-decoration: none;
 }
 
 .nav a:hover {
