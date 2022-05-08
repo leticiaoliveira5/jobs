@@ -15,36 +15,36 @@
  */
 
 .dropdown {
-  position: relative;
   display: inline-block;
+  position: relative;
 }
 
 .dropdown-login {
-  position: relative;
   display: inline-block;
+  position: relative;
 }
 
 .dropdown-signin {
-  position: relative;
   display: inline-block;
+  position: relative;
 }
 
 /*  Dropdown Button */
 .dropbtn {
   background-color: var(--button_color);
-  color: var(--button_link);
-  padding: 16px;
-  font-size: 16px;
   border: none;
+  color: var(--button_link);
+  font-size: 16px;
+  padding: 16px;
 }
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-  display: none;
-  position: absolute;
   background-color: #f1f1f1;
-  min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  display: none;
+  min-width: 160px;
+  position: absolute;
   z-index: 1;
 }
 
