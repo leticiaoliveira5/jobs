@@ -15,9 +15,10 @@
  *= require_self
  */
 
- body {
+body {
   font-family: 'Montserrat', sans-serif;
   color: var(--text_normal);
+  background-image: url('<%= asset_path HomeController.random_background_image %>');
   background-color: red;
   font-size: 14px;
   font-weight: 400;

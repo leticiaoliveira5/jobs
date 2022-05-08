@@ -9,4 +9,10 @@ class HomeController < ApplicationController
       @current_user = nil
     end
   end
+
+  def self.random_background_image
+    files = Dir.glob('app/assets/images/bg/*.jpg')
+    file = files.sample
+    "bg/#{File.basename(file)}"
+  end
 end
