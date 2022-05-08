@@ -23,7 +23,7 @@
   justify-content: space-between;
   width: 100%;
   margin: 0;
-  padding:5px;
+  padding:5px 0px 5px 0px; /* top right bottom left */
 }
 
 .navtitle {
@@ -40,9 +40,9 @@
 }
 
 .navright {
+  align-items: center;
   display: flex;
   font-size: 16px;
-  align-items: center;
 }
 
 .nav a {
