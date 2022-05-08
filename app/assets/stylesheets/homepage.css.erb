@@ -18,6 +18,9 @@
 body {
   font-family: 'Montserrat', sans-serif;
   color: var(--text_normal);
+  background-image: url('<%= asset_path HomeController.random_background_image %>');
+  background-repeat: no-repeat;
+  background-size: cover;
   background-color: var(--background_color);
   font-size: 14px;
   font-weight: 400;
@@ -42,28 +45,6 @@ a:hover {
   text-decoration: underline;
 }
 
-.alert-danger {
-  color: var(--alert_danger);
-  background-color: var(--alert_background);
-  width: 30%;
-  align-self: center;
-  border-radius: 7px 20px 15px;
-  padding: 15px 25px 15px 25px; /* top right bottom left */
-  margin: 15px;
-  text-align: center;
-}
-
-.alert-success {
-  color: var(--alert_success);
-  background-color: var(--alert_background);
-  width: 30%;
-  align-self: center;
-  border-radius: 7px 20px 15px;
-  padding: 15px 25px 15px 25px; /* top right bottom left */
-  margin: 15px;
-  text-align: center;
-}
-
 .button {
   color: var(--button_link);
   background-color: var(--button_color);
@@ -84,16 +65,6 @@ a:hover {
   width: 80%;
   align-self: center;
   border-radius: 10px 45px 25px;
-  padding: 10px 25px 20px 25px; /* top right bottom left */
-  margin: 15px;
-  text-align: left;
-}
-
-.employeepanel {
-  background-color: var(--content_blocks_color);
-  width: 80%;
-  align-self: center;
-  border-radius: 15px 50px 30px;
   padding: 10px 25px 20px 25px; /* top right bottom left */
   margin: 15px;
   text-align: left;
