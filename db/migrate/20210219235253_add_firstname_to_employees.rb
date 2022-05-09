@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class AddFirstnameToEmployees < ActiveRecord::Migration[5.2]
   def change
     add_column :employees, :firstname, :string
