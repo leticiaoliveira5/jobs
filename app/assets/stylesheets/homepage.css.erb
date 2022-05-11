@@ -25,13 +25,13 @@ body {
   font-size: 14px;
   font-weight: 400;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
 }
 
 h1, h2, h3, h4 { color: var(--title); }
-
-.header {
-  padding: 10px 20px 10px 20px;
-}
 
 a {
   color: var(--link);
@@ -71,10 +71,10 @@ a:hover {
 }
 
 .flex-container {
+  order: 1;
+  flex-grow: 1;
+  background-color:red;
   display: flex;
   align-items: center;
-}
-
-.flex-container div {
   justify-content: space-evenly;
 }

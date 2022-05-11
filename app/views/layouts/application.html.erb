@@ -21,16 +21,14 @@
 
     <%= render(NavbarComponent.new(current_user: current_candidate || current_employee || nil)) %>
 
-  <center>
-  <% if notice %>
-    <p class="alert-success"><%= notice %></p>
-  <% end %>
-  <% if alert %>
-    <p class="alert-danger"><%= alert %></p>
-  <% end %>
+    <% if notice %>
+      <p class="alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert-danger"><%= alert %></p>
+    <% end %>
   
     <%= yield %>
 
-  </center>
   </body>
 </html>
