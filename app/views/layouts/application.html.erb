@@ -22,26 +22,6 @@
     <%= render(NavbarComponent.new(current_user: current_candidate || current_employee || nil)) %>
 
   <center>
-    <% unless employee_signed_in? || candidate_signed_in? %>
-      <div class="contentblock">
-        <div class="dropdown-login">
-          <button class="dropbtn">Entrar</button>
-          <div class="dropdown-content">
-            <%= link_to 'Candidato', new_candidate_session_path %>
-            <%= link_to 'Empresa', new_employee_session_path %>
-          </div>
-        </div> 
-
-        <div class="dropdown-signin">
-          <button class="dropbtn">Cadastre-se</button>
-          <div class="dropdown-content">
-            <%= link_to 'Candidato', new_candidate_registration_path %>
-            <%= link_to 'Empresa', new_employee_registration_path %>
-          </div>
-        </div>
-      </div> 
-    <%end%>
-
   <% if notice %>
     <p class="alert-success"><%= notice %></p>
   <% end %>
