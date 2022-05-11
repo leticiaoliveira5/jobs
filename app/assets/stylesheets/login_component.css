@@ -13,3 +13,9 @@
  *= require_self
  *= require ./color_theme
  */
+
+.box {
+  width: 400px;
+  height: 500px;
+  background-color: var(--nav_background_color);
+}
