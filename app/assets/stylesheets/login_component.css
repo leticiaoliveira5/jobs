@@ -20,8 +20,33 @@
   background-color: var(--nav_background_color);
 }
 
-.tabs {}
+.tabs {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
 
-.tab {}
+.tab {
+  width: 50%;
+  border-bottom: 3px solid;
+  cursor: pointer;
+  font-size: 27px;
+  font-weight: 500;
+  padding: 15px 0 10px 0;
+  text-align: center;
+
+}
+
+.tabs .tab {
+  color: var(--inactive_link);
+  letter-spacing: 0;
+}
+
+.tabs .active {
+  border-color: var(--link);
+  color: var(--link);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
 
 .tabcontent {}
