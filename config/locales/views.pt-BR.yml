@@ -1,4 +1,7 @@
 pt-BR:
+  home:
+    index:
+      or_create_an_account: Ou crie uma conta
   job_opportunities:
     show:
       company: Empresa
