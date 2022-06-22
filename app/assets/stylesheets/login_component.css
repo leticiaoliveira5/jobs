@@ -14,21 +14,18 @@
  *= require ./color_theme
  */
 
-a {
-  font-weight: 700;
-}
-
-a:hover {
-  text-decoration: none;
-} 
-
 .box {
   width: 400px;
   height: 500px;
   background-color: var(--nav_background_color);
   overflow: hidden;
-  align: center;
 }
+
+.box a,
+.box a:hover {
+  font-weight: 700;
+  text-decoration: none;
+} 
 
 .tabs {
   width: 100%;
@@ -61,7 +58,6 @@ a:hover {
 
 .tabcontent {
   width: 80%;
-  clear: both;
   margin: auto;
 }
 
