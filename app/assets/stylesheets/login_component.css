@@ -15,10 +15,10 @@
  */
 
 .login-component {
-  width: 400px;
-  height: 500px;
   background-color: var(--nav_background_color);
+  height: 500px;
   overflow: hidden;
+  width: 400px;
 }
 
 .login-component a,
@@ -28,25 +28,22 @@
 }
 
 .login-component .tabs {
-  width: 100%;
   display: flex;
   flex-direction: row;
   margin-bottom: 15px;
+  width: 100%;
 }
 
 .login-component .tab {
-  width: 50%;
   border-bottom: 3px solid;
+  color: var(--inactive_link);
   cursor: pointer;
   font-size: 27px;
   font-weight: 500;
+  letter-spacing: 0;
   padding: 15px 0 10px 0;
   text-align: center;
-}
-
-.login-component .tabs .tab {
-  color: var(--inactive_link);
-  letter-spacing: 0;
+  width: 50%;
 }
 
 .login-component .tabs .active {
@@ -57,14 +54,14 @@
 }
 
 .login-component .tabcontent {
-  width: 80%;
   margin: auto;
+  width: 80%;  
 }
 
 .login-component .tabcontent div {
+  font-size: 20px;
   padding: 20px;
   text-align: center;
-  font-size: 20px;
 }
 
 .login-component .btn {
@@ -73,17 +70,17 @@
 }
 
 .login-component input {
-  width: 100%;
-  padding: 15px 20px;
   box-sizing: border-box;
-  margin: 15px 0;
   font-size: 18px;
+  margin: 15px 0;
+  padding: 15px 20px;
+  width: 100%;
 }
 
 .login-component label {
   display: block;
-  text-align: left;
   margin-bottom: -10px;
+  text-align: left;
   text-transform: lowercase;
 }
 
