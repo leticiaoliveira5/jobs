@@ -2,14 +2,39 @@
 
 <div class="box">
   <div class="tabs">
-    <span class="tab">candidato</span> 
-    <span class="tab">empresa</span>
+    <a class="tab" onclick="showTab(event, 'candidate')" id="defaultOpen">candidato</a> 
+    <a class="tab" onclick="showTab(event, 'company')">empresa</a>
   </div>
-  <div class="candidate">
+  <div class="tabcontent" id="candidate">
     login candidato
   </div>
-  <div class="company">
+  <div class="tabcontent" id="company">
     login empresa
   </div>
   Links
 </div>
+
+<script>
+  document.getElementById("defaultOpen").click();
+
+  function showTab(evt, tabName) {
+  // Declare all variables
+  var i, tabcontent, tab;
+
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Get all elements with class="tab" and remove the class "active"
+  tab = document.getElementsByClassName("tab");
+  for (i = 0; i < tab.length; i++) {
+    tab[i].className = tab[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
