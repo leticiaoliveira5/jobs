@@ -34,7 +34,6 @@
   font-weight: 500;
   padding: 15px 0 10px 0;
   text-align: center;
-
 }
 
 .tabs .tab {
@@ -48,5 +47,3 @@
   font-weight: 500;
   letter-spacing: 0.05em;
 }
-
-.tabcontent {}
