@@ -15,7 +15,7 @@
       <input type="email" id="email">
       <label for="password"><%= t('devise.labels.password') %></label>
       <input type="password" id="password">
-      <%= link_to t('devise.passwords.new.forgot_your_password'), new_candidate_session_path, class: 'hint-link' %>
+      <%= link_to t('devise.passwords.new.forgot_your_password'), new_candidate_password_path, class: 'hint-link' %>
     </div>
 
     <div>
@@ -24,7 +24,7 @@
 
     <div>
       <%= t('home.index.or_create_an_account') %><br>
-      <%= link_to t('devise.registrations.new.sign_up'), new_candidate_session_path %>
+      <%= link_to t('devise.registrations.new.sign_up'), new_candidate_registration_path %>
     </div>
   
   </div>
@@ -34,7 +34,7 @@
       <input type="email" id="email">
       <label for="password"><%= t('devise.labels.password') %></label>
       <input type="password" id="password">
-      <%= link_to t('devise.passwords.new.forgot_your_password'), new_employee_session_path, class: 'hint-link' %>
+      <%= link_to t('devise.passwords.new.forgot_your_password'), new_employee_password_path, class: 'hint-link' %>
     </div>
 
     <div>
@@ -43,7 +43,7 @@
 
     <div>
       <%= t('home.index.or_create_an_account') %><br>
-      <%= link_to t('devise.registrations.new.sign_up'), new_employee_session_path %>
+      <%= link_to t('devise.registrations.new.sign_up'), new_employee_registration_path %>
     </div>
   </div>
 </div>
