@@ -14,6 +14,10 @@
  *= require ./color_theme
  */
 
+* {
+  box-sizing: border-box; 
+} /* The box-sizing property allows us to include the padding and border in an element's total width and height. */
+
 .login-component {
   background-color: var(--nav_background_color);
   height: 500px;
@@ -70,7 +74,6 @@
 }
 
 .login-component input {
-  box-sizing: border-box;
   font-size: 18px;
   margin: 15px 0;
   padding: 15px 20px;
