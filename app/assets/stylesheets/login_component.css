@@ -14,16 +14,27 @@
  *= require ./color_theme
  */
 
+a {
+  font-weight: 700;
+}
+
+a:hover {
+  text-decoration: none;
+} 
+
 .box {
   width: 400px;
   height: 500px;
   background-color: var(--nav_background_color);
+  overflow: hidden;
+  align: center;
 }
 
 .tabs {
   width: 100%;
   display: flex;
   flex-direction: row;
+  margin-bottom: 15px;
 }
 
 .tab {
@@ -46,4 +57,42 @@
   color: var(--link);
   font-weight: 500;
   letter-spacing: 0.05em;
+}
+
+.tabcontent {
+  width: 80%;
+  clear: both;
+  margin: auto;
+}
+
+.tabcontent div {
+  padding: 20px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.btn {
+  font-size: 24px;
+  padding: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 15px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  margin: 15px 0;
+  font-size: 18px;
+}
+
+label {
+  display: block;
+  text-align: left;
+  margin-bottom: -10px;
+}
+
+.hint-link {
+  float: right;
+  font-size: 12px;
+  margin-top: -10px;
 }
