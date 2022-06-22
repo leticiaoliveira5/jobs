@@ -13,7 +13,7 @@ pt-BR:
         name: Nome
       employee:
         admin: Admin
-        email: E-mail
+        email: E-mail corporativo
         firstname: Nome
         password: Senha
         regular: Regular
@@ -325,3 +325,4 @@ pt-BR:
       long: "%d de %B de %Y, %H:%M"
       short: "%d de %B, %H:%M"
     pm: ''
+  password: 'Senha'

@@ -2,46 +2,50 @@
 
 <div class="box">
   <div class="tabs">
-    <div class="tab" onclick="showTab(event, 'candidate')" id="defaultOpen">Candidato</div> 
-    <div class="tab" onclick="showTab(event, 'company')">Empresa</div>
+    <div class="tab" onclick="showTab(event, 'candidate')" id="defaultOpen">
+      <%= t('activerecord.models.candidate.one') %>
+    </div> 
+    <div class="tab" onclick="showTab(event, 'company')">
+      <%= t('activerecord.models.company.one') %>
+    </div>
   </div>
   <div class="tabcontent" id="candidate">
     <div id="login-form">
-      <label for="email">e-mail</label>
+      <label for="email"><%= t('devise.labels.email') %></label>
       <input type="email" id="email">
-      <label for="password">password</label>
+      <label for="password"><%= t('devise.labels.password') %></label>
       <input type="password" id="password">
-      <%= link_to 'Forgot my password', new_candidate_session_path, class: 'hint-link' %>
+      <%= link_to t('devise.passwords.new.forgot_your_password'), new_candidate_session_path, class: 'hint-link' %>
     </div>
 
     <div>
-      <%= link_to 'Login', new_candidate_session_path, class: 'btn' %>
+      <%= link_to t('devise.sessions.new.sign_in'), new_candidate_session_path, class: 'btn' %>
     </div>
 
     <div>
       Or create an account
       <br>
-      <%= link_to 'Sign in', new_candidate_session_path %>
+      <%= link_to t('devise.registrations.new.sign_up'), new_candidate_session_path %>
     </div>
   
   </div>
   <div class="tabcontent" id="company">
     <div id="login-form">
-      <label for="email">e-mail</label>
+      <label for="email"><%= t('devise.labels.employee_email') %></label>
       <input type="email" id="email">
-      <label for="password">password</label>
+      <label for="password"><%= t('devise.labels.password') %></label>
       <input type="password" id="password">
-      <%= link_to 'Forgot my password', new_candidate_session_path, class: 'hint-link' %>
+      <%= link_to t('devise.passwords.new.forgot_your_password'), new_employee_session_path, class: 'hint-link' %>
     </div>
 
     <div>
-      <%= link_to 'Login', new_candidate_session_path, class: 'btn' %>
+      <%= link_to t('devise.sessions.new.sign_in'), new_employee_session_path, class: 'btn' %>
     </div>
 
     <div>
       Or create an account
       <br>
-      <%= link_to 'Sign in', new_candidate_session_path %>
+      <%= link_to t('devise.registrations.new.sign_up'), new_employee_session_path %>
     </div>
   </div>
 </div>

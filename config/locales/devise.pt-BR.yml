@@ -32,6 +32,10 @@ pt-BR:
       company: Empresa
       employee: Colaborador
   devise:
+    labels:
+      password: Senha
+      email: E-mail
+      employee_email: E-mail corporativo
     confirmations:
       confirmed: A sua conta foi confirmada com sucesso.
       new:
