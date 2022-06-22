@@ -1,25 +1,39 @@
-<center>
-<div class="contentblock">
+<div class="flex-container">
+  <div>
+    <div class="contentblock">
+      <div class="dropdown-login">
+        <button class="dropbtn">Entrar</button>
+        <div class="dropdown-content">
+          <%= link_to 'Candidato', new_candidate_session_path %>
+          <%= link_to 'Empresa', new_employee_session_path %>
+        </div>
+      </div> 
+      <div class="dropdown-signin">
+        <button class="dropbtn">Cadastre-se</button>
+        <div class="dropdown-content">
+          <%= link_to 'Candidato', new_candidate_registration_path %>
+          <%= link_to 'Empresa', new_employee_registration_path %>
+        </div>
+      </div>
+    </div> 
+    <div class="contentblock">
+      <h2>Busca</h2>
+      <%= form_tag(search_results_path, method: :get) do |f| %>
+        <%= label_tag :search_input, "Busca por empresa ou vaga" %>
+        <%= text_field_tag :search_input, params[:search_input] %>
+        <%= submit_tag 'Buscar', :class => "button" %>
+      <%end%>
+    </div>
+    <div class="contentblock">
+      <h2>Vagas recentes</h2>
+      <% @job_opportunities.each do |job| %>
+        <h4><%= link_to job.job_title, job_opportunity_path(job) %> - <%= job.company.name %></h4>
+        <p>  (<%= job.place %>) </p>
+      <%end%>
+    </div>
+  </div>
 
-<h2>Busca</h2>
-
-<%= form_tag(search_results_path, method: :get) do |f| %>
-  <%= label_tag :search_input, "Busca por empresa ou vaga" %>
-  <%= text_field_tag :search_input, params[:search_input] %>
-  <%= submit_tag 'Buscar', :class => "button" %>
-<%end%>
-
+  <div>
+    <%= render(LoginComponent.new) %>
+  </div>
 </div>
-
-<div class="contentblock">
-<h2>Vagas recentes</h2>
-
-<% @job_opportunities.each do |job| %>
-<h4><%= link_to job.job_title, job_opportunity_path(job) %> - <%= job.company.name %></h4>
-<p>  (<%= job.place %>) </p>
-<%end%>
-
-</div>
-
-
-

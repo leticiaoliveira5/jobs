@@ -18,7 +18,8 @@
   --content_blocks_color: white;
   --title: #10462C;
   --text_normal: black;
-  --link: teal;
+  --link: #276a66;
+  --inactive_link: #818181;
   --alert_success: green;
   --alert_danger: red;
   --alert_background: white;

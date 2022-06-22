@@ -1,0 +1,74 @@
+<%= stylesheet_link_tag "login_component.css" %>
+
+<div class="login-component">
+  <div class="tabs">
+    <div class="tab" onclick="showTab(event, 'candidate')" id="defaultOpen">
+      <%= t('activerecord.models.candidate.one') %>
+    </div> 
+    <div class="tab" onclick="showTab(event, 'company')">
+      <%= t('activerecord.models.company.one') %>
+    </div>
+  </div>
+  <div class="tabcontent" id="candidate">
+    <div id="login-form">
+      <label for="email"><%= t('devise.labels.email') %></label>
+      <input type="email" id="email">
+      <label for="password"><%= t('devise.labels.password') %></label>
+      <input type="password" id="password">
+      <%= link_to t('devise.passwords.new.forgot_your_password'), new_candidate_password_path, class: 'hint-link' %>
+    </div>
+
+    <div>
+      <%= link_to t('devise.sessions.new.sign_in'), new_candidate_session_path, class: 'btn' %>
+    </div>
+
+    <div>
+      <%= t('home.index.or_create_an_account') %><br>
+      <%= link_to t('devise.registrations.new.sign_up'), new_candidate_registration_path %>
+    </div>
+  
+  </div>
+  <div class="tabcontent" id="company">
+    <div id="login-form">
+      <label for="email"><%= t('devise.labels.employee_email') %></label>
+      <input type="email" id="email">
+      <label for="password"><%= t('devise.labels.password') %></label>
+      <input type="password" id="password">
+      <%= link_to t('devise.passwords.new.forgot_your_password'), new_employee_password_path, class: 'hint-link' %>
+    </div>
+
+    <div>
+      <%= link_to t('devise.sessions.new.sign_in'), new_employee_session_path, class: 'btn' %>
+    </div>
+
+    <div>
+      <%= t('home.index.or_create_an_account') %><br>
+      <%= link_to t('devise.registrations.new.sign_up'), new_employee_registration_path %>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById("defaultOpen").click();
+
+  function showTab(evt, tabName) {
+  // Declare all variables
+  var i, tabcontent, tab;
+
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Get all elements with class="tab" and remove the class "active"
+  tab = document.getElementsByClassName("tab");
+  for (i = 0; i < tab.length; i++) {
+    tab[i].className = tab[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>

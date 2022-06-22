@@ -1,0 +1,94 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require ./color_theme
+ */
+
+* {
+  box-sizing: border-box; 
+} /* The box-sizing property allows us to include the padding and border in an element's total width and height. */
+
+.login-component {
+  background-color: var(--nav_background_color);
+  height: 500px;
+  overflow: hidden;
+  width: 400px;
+}
+
+.login-component a,
+.login-component a:hover {
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.login-component .tabs {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.login-component .tab {
+  border-bottom: 3px solid;
+  color: var(--inactive_link);
+  cursor: pointer;
+  font-size: 27px;
+  font-weight: 500;
+  letter-spacing: 0;
+  padding: 15px 0 10px 0;
+  text-align: center;
+  width: 50%;
+}
+
+.login-component .tabs .active {
+  border-color: var(--link);
+  color: var(--link);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+.login-component .tabcontent {
+  margin: auto;
+  width: 80%;  
+}
+
+.login-component .tabcontent div {
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.login-component .btn {
+  font-size: 24px;
+  padding: 5px;
+}
+
+.login-component input {
+  font-size: 18px;
+  margin: 15px 0;
+  padding: 15px 20px;
+  width: 100%;
+}
+
+.login-component label {
+  display: block;
+  margin-bottom: -10px;
+  text-align: left;
+  text-transform: lowercase;
+}
+
+.login-component .hint-link {
+  float: right;
+  font-size: 12px;
+  margin-top: -10px;
+}
