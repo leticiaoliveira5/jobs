@@ -10,41 +10,40 @@
     </div>
   </div>
   <div class="tabcontent" id="candidate">
-    <div id="login-form">
-      <label for="email"><%= t('devise.labels.email') %></label>
-      <input type="email" id="email">
-      <label for="password"><%= t('devise.labels.password') %></label>
-      <input type="password" id="password">
-      <%= link_to t('devise.passwords.new.forgot_your_password'), new_candidate_password_path, class: 'hint-link' %>
-    </div>
-
-    <div>
-      <%= link_to t('devise.sessions.new.sign_in'), new_candidate_session_path, class: 'btn' %>
-    </div>
-
-    <div>
-      <%= t('home.index.or_create_an_account') %><br>
-      <%= link_to t('devise.registrations.new.sign_up'), new_candidate_registration_path %>
-    </div>
-  
+    <%= form_for(:candidate, url: session_path(:candidate)) do |f| %>
+      <div id="login-form">
+        <%= f.label :email, t('devise.labels.email') %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <%= f.label :password, t('devise.labels.password'), autocomplete: "current-password" %>
+        <%= f.password_field :password %>
+        <%= link_to t('devise.passwords.new.forgot_your_password'), new_candidate_password_path, class: 'hint-link' %>
+      </div>
+      <div>
+        <%= f.submit t('devise.sessions.new.sign_in') %>
+      </div>
+      <div>
+        <%= t('home.index.or_create_an_account') %><br>
+        <%= link_to t('devise.registrations.new.sign_up'), new_candidate_registration_path %>
+      </div>
+    <% end %>
   </div>
   <div class="tabcontent" id="company">
-    <div id="login-form">
-      <label for="email"><%= t('devise.labels.employee_email') %></label>
-      <input type="email" id="email">
-      <label for="password"><%= t('devise.labels.password') %></label>
-      <input type="password" id="password">
-      <%= link_to t('devise.passwords.new.forgot_your_password'), new_employee_password_path, class: 'hint-link' %>
-    </div>
-
-    <div>
-      <%= link_to t('devise.sessions.new.sign_in'), new_employee_session_path, class: 'btn' %>
-    </div>
-
-    <div>
-      <%= t('home.index.or_create_an_account') %><br>
-      <%= link_to t('devise.registrations.new.sign_up'), new_employee_registration_path %>
-    </div>
+    <%= form_for(:employee, url: session_path(:employee)) do |f| %>
+      <div id="login-form">
+        <%= f.label :email, t('devise.labels.employee_email') %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <%= f.label :password, t('devise.labels.password'), autocomplete: "current-password" %>
+        <%= f.password_field :password %>
+        <%= link_to t('devise.passwords.new.forgot_your_password'), new_employee_password_path, class: 'hint-link' %>
+      </div>
+      <div>
+        <%= f.submit t('devise.sessions.new.sign_in') %>
+      </div>
+      <div>
+        <%= t('home.index.or_create_an_account') %><br>
+        <%= link_to t('devise.registrations.new.sign_up'), new_employee_registration_path %>
+      </div>
+    <% end %>
   </div>
 </div>
 
