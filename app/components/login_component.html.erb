@@ -2,14 +2,14 @@
 
 <div class="login-component">
   <div class="tabs">
-    <div class="tab" onclick="showTab(event, 'candidate')" id="defaultOpen">
+    <div class="tab" onclick="showTab(event, 'candidate-form')" id="defaultOpen">
       <%= t('activerecord.models.candidate.one') %>
     </div> 
-    <div class="tab" onclick="showTab(event, 'company')">
+    <div class="tab" onclick="showTab(event, 'employee-form')">
       <%= t('activerecord.models.company.one') %>
     </div>
   </div>
-  <div class="tabcontent" id="candidate">
+  <div class="tabcontent" id="candidate-form">
     <%= form_for(:candidate, url: session_path(:candidate)) do |f| %>
       <div id="login-form">
         <%= f.label :email, t('devise.labels.email') %>
@@ -27,7 +27,7 @@
       </div>
     <% end %>
   </div>
-  <div class="tabcontent" id="company">
+  <div class="tabcontent" id="employee-form">
     <%= form_for(:employee, url: session_path(:employee)) do |f| %>
       <div id="login-form">
         <%= f.label :email, t('devise.labels.employee_email') %>
