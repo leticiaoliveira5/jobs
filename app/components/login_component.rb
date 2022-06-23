@@ -1,5 +1,3 @@
 class LoginComponent < ViewComponent::Base
-  def main_app
-      Rails.application.class.routes.url_helpers
-  end
+  include ApplicationHelper
 end
