@@ -11,7 +11,7 @@
   </div>
   <div class="tabcontent" id="candidate-form">
     <%= form_for(:candidate, url: session_path(:candidate)) do |f| %>
-      <div id="login-form">
+      <div>
         <%= f.label :email, t('devise.labels.email') %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
         <%= f.label :password, t('devise.labels.password'), autocomplete: "current-password" %>
@@ -29,7 +29,7 @@
   </div>
   <div class="tabcontent" id="employee-form">
     <%= form_for(:employee, url: session_path(:employee)) do |f| %>
-      <div id="login-form">
+      <div>
         <%= f.label :email, t('devise.labels.employee_email') %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
         <%= f.label :password, t('devise.labels.password'), autocomplete: "current-password" %>
