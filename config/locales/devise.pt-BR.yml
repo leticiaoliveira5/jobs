@@ -36,6 +36,7 @@ pt-BR:
       password: Senha
       email: E-mail
       employee_email: E-mail corporativo
+      remember_me: Mantenha-me conectado
     confirmations:
       confirmed: A sua conta foi confirmada com sucesso.
       new:

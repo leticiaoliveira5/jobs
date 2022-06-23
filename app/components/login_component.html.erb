@@ -19,7 +19,13 @@
         <%= link_to t('devise.passwords.new.forgot_your_password'), new_candidate_password_path, class: 'hint-link' %>
       </div>
       <div>
-        <%= f.submit t('devise.sessions.new.sign_in') %>
+        <%= f.submit t('devise.sessions.new.sign_in') %><br> 
+        <span class='checkbox-field'>
+          <%= f.label(:remember_me) do %>
+            <%= f.check_box(:remember_me) %>
+            <%= t('devise.labels.remember_me') %>
+          <% end %>
+        </span>
       </div>
       <div>
         <%= t('home.index.or_create_an_account') %><br>
@@ -38,6 +44,13 @@
       </div>
       <div>
         <%= f.submit t('devise.sessions.new.sign_in') %>
+        <br> 
+        <span class='checkbox-field'>
+          <%= f.label(:remember_me) do %>
+            <%= f.check_box(:remember_me) %>
+            <%= t('devise.labels.remember_me') %>
+          <% end %>
+        </span>
       </div>
       <div>
         <%= t('home.index.or_create_an_account') %><br>

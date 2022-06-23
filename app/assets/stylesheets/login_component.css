@@ -103,3 +103,11 @@
   font-size: 12px;
   margin-top: -10px;
 }
+
+.login-component .checkbox-field label {
+  font-size: 12px;
+  text-transform: none;
+  display: inline;
+}
+
+[type="checkbox"] { vertical-align:middle; }
