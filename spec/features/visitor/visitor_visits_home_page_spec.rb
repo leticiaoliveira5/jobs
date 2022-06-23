@@ -13,7 +13,7 @@ feature 'Visitor visits home page' do
     visit root_path
 
     expect(page).to have_content('Jobs')
-    expect(page).to have_button('Entrar') && have_button('Cadastre-se')
+    expect(page).to have_button('Login') && have_link('Inscrever-se')
     within('.nav') do
       expect(page).to have_link('Ver empresas cadastradas')
       expect(page).to have_link('Vagas recentes')

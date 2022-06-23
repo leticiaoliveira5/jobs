@@ -5,11 +5,10 @@ feature 'Employee logs in' do
 
   before do
     visit root_path
-    within('.dropdown-login') { click_on 'Empresa' }
-    within('form') do
+    within('#employee-form') do
       fill_in 'E-mail', with: employee.email
       fill_in 'Senha', with: employee.password
-      click_on 'Log in'
+      click_on 'Login'
     end
   end
 

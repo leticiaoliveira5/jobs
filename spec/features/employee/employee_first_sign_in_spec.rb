@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'Employee sign in for the first time' do
   before do
     visit root_path
-    within('.dropdown-signin') { click_on 'Empresa' }
+    within('#employee-form') { click_on 'Inscrever-se' }
     fill_in 'Nome', with: 'Steve'
     fill_in 'Sobrenome', with: 'Jobs'
     fill_in 'E-mail', with: 'steve@apple.com'

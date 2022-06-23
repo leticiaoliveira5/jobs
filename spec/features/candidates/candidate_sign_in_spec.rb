@@ -3,8 +3,8 @@ require 'rails_helper'
 feature 'Candidate sign up' do
   scenario 'successfully' do
     visit root_path
-    within('.dropdown-signin') do
-      click_on 'Candidato'
+    within('#candidate-form') do
+      click_on 'Inscrever-se'
     end
     fill_in 'Nome', with: 'Maria'
     fill_in 'Sobrenome', with: 'Pereira'
