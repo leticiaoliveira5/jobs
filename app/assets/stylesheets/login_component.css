@@ -64,7 +64,7 @@
 
 .login-component .tabcontent div {
   font-size: 20px;
-  padding: 20px;
+  padding: 18px;
   text-align: center;
 }
 
@@ -73,14 +73,25 @@
   padding: 5px;
 }
 
-.login-component input {
+.login-component input[type=email], 
+.login-component input[type=password] {
   font-size: 18px;
   margin: 15px 0;
   padding: 15px 20px;
   width: 100%;
 }
 
+.login-component input[type=submit] {
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--link);
+  font-size: 24px;
+  font-family: 'Montserrat', sans-serif;
+}
+
 .login-component label {
+  font-size: 20px;
   display: block;
   margin-bottom: -10px;
   text-align: left;
