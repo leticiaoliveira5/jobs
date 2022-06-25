@@ -14,7 +14,7 @@ class Employee < ApplicationRecord
   after_create :first_employee_is_admin
 
   def find_or_create_company
-    return if email.empty?
+    return if email.blank?
 
     email_domain = email.split('@').last
     @company = Company.find_or_create_by(domain: email_domain)
