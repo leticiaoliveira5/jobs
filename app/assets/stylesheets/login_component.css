@@ -90,6 +90,8 @@
   font-weight: 700;
 }
 
+.login-component input[type="checkbox"] { vertical-align:middle; }
+
 .login-component label {
   display: block;
   font-size: 20px;
@@ -109,5 +111,3 @@
   font-size: 12px;
   text-transform: none;
 }
-
-.login-component [type="checkbox"] { vertical-align:middle; }
