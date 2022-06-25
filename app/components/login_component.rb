@@ -1,7 +1,4 @@
 class LoginComponent < ViewComponent::Base
-  private
-
-  def main_app
-    Rails.application.class.routes.url_helpers
-  end
+  # to fix error 'undefined_method: main_app'
+  delegate :main_app, to: :helpers
 end
