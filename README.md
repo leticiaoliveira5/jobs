@@ -6,9 +6,6 @@
 
 A web application that allows company employees to create and manage job opportunities and find candidates interested in them.
 
-## :hammer: Status
-_work in progress_
-
 ## :white_check_mark: Implemented Features
 
 -   Employee creates account using corporate email, creating company
@@ -27,7 +24,7 @@ _work in progress_
 -   System sends email when Application Form is accepted
 
 
-## Work in progress
+## :hammer: Work in progress
 
 - Frontend remodel using ViewComponent
 - Bug fixes
