@@ -73,7 +73,7 @@
   padding: 5px;
 }
 
-.login-component input[type=email], 
+.login-component input[type=email],
 .login-component input[type=password] {
   font-size: 18px;
   margin: 15px 0;
@@ -90,7 +90,7 @@
   font-weight: 700;
 }
 
-.login-component input[type="checkbox"] { vertical-align:middle; }
+.login-component input[type="checkbox"] { vertical-align: middle; }
 
 .login-component label {
   display: block;
