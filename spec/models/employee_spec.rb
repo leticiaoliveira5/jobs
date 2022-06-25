@@ -6,11 +6,11 @@ RSpec.describe Employee, type: :model do
 
     it 'is not valid without basic attributes' do
       employee = Employee.new(company_id: nil)
-    
+
       expect(employee).not_to be_valid
-      expect(employee.errors).to include(:email, 
-                                         :password, 
-                                         :firstname, 
+      expect(employee.errors).to include(:email,
+                                         :password,
+                                         :firstname,
                                          :surname,
                                          :company)
     end
