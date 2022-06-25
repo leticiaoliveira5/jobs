@@ -3,7 +3,8 @@ class Company < ApplicationRecord
   has_many :job_opportunities, dependent: :destroy
   has_many :job_proposals, through: :job_opportunities
 
-  validates :name, :address, :cnpj, :domain, presence: true, on: :update
+  validates :domain, presence: true
+  validates :name, :address, :cnpj, presence: true, on: :update
   validates :cnpj, length: { is: 14 }, on: :update
   validates :domain, :cnpj, uniqueness: true
 

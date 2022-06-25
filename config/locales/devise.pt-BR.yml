@@ -9,7 +9,7 @@ pt-BR:
         current_password: Senha atual
         current_sign_in_at: Atualmente logado em
         current_sign_in_ip: IP do acesso atual
-        email: E-mail
+        email: E-mail corporativo
         firstname: Nome 
         surname: Sobrenome
         encrypted_password: Senha criptografada
@@ -33,9 +33,7 @@ pt-BR:
       employee: Colaborador
   devise:
     labels:
-      password: Senha
-      email: E-mail
-      employee_email: E-mail corporativo
+      remember_me: Mantenha-me conectado
     confirmations:
       confirmed: A sua conta foi confirmada com sucesso.
       new:

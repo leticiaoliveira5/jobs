@@ -2,49 +2,18 @@
 
 <div class="login-component">
   <div class="tabs">
-    <div class="tab" onclick="showTab(event, 'candidate')" id="defaultOpen">
+    <div class="tab" onclick="showTab(event, 'candidate-form')" id="defaultOpen">
       <%= t('activerecord.models.candidate.one') %>
     </div> 
-    <div class="tab" onclick="showTab(event, 'company')">
+    <div class="tab" onclick="showTab(event, 'employee-form')">
       <%= t('activerecord.models.company.one') %>
     </div>
   </div>
-  <div class="tabcontent" id="candidate">
-    <div id="login-form">
-      <label for="email"><%= t('devise.labels.email') %></label>
-      <input type="email" id="email">
-      <label for="password"><%= t('devise.labels.password') %></label>
-      <input type="password" id="password">
-      <%= link_to t('devise.passwords.new.forgot_your_password'), new_candidate_password_path, class: 'hint-link' %>
-    </div>
-
-    <div>
-      <%= link_to t('devise.sessions.new.sign_in'), new_candidate_session_path, class: 'btn' %>
-    </div>
-
-    <div>
-      <%= t('home.index.or_create_an_account') %><br>
-      <%= link_to t('devise.registrations.new.sign_up'), new_candidate_registration_path %>
-    </div>
-  
+  <div class="tabcontent" id="candidate-form">
+    <%= render(LoginFormComponent.new(resource_name: 'candidate')) %>
   </div>
-  <div class="tabcontent" id="company">
-    <div id="login-form">
-      <label for="email"><%= t('devise.labels.employee_email') %></label>
-      <input type="email" id="email">
-      <label for="password"><%= t('devise.labels.password') %></label>
-      <input type="password" id="password">
-      <%= link_to t('devise.passwords.new.forgot_your_password'), new_employee_password_path, class: 'hint-link' %>
-    </div>
-
-    <div>
-      <%= link_to t('devise.sessions.new.sign_in'), new_employee_session_path, class: 'btn' %>
-    </div>
-
-    <div>
-      <%= t('home.index.or_create_an_account') %><br>
-      <%= link_to t('devise.registrations.new.sign_up'), new_employee_registration_path %>
-    </div>
+  <div class="tabcontent" id="employee-form">
+    <%= render(LoginFormComponent.new(resource_name: 'employee')) %>
   </div>
 </div>
 
