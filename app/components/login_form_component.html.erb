@@ -1,10 +1,10 @@
-<%= form_for(@user_type, url: session_path(@user_type)) do |f| %>
+<%= form_for(@resource_name, url: session_path(@resource_name)) do |f| %>
   <div>
-    <%= f.label :email, t("activerecord.attributes.#{@user_type}.email") %>
+    <%= f.label :email, t("activerecord.attributes.#{@resource_name}.email") %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    <%= f.label :password, t("activerecord.attributes.#{@user_type}.password"), autocomplete: "current-password" %>
+    <%= f.label :password, t("activerecord.attributes.#{@resource_name}.password"), autocomplete: "current-password" %>
     <%= f.password_field :password %>
-    <%= link_to t('devise.passwords.new.forgot_your_password'), new_password_path(@user_type), class: 'hint-link' %>
+    <%= link_to t('devise.passwords.new.forgot_your_password'), new_password_path(@resource_name), class: 'hint-link' %>
   </div>
   <div>
     <%= f.submit t('devise.sessions.new.sign_in') %><br> 
@@ -17,6 +17,6 @@
   </div>
   <div>
     <%= t('home.index.or_create_an_account') %><br>
-    <%= link_to t('devise.registrations.new.sign_up'), new_registration_path(@user_type) %>
+    <%= link_to t('devise.registrations.new.sign_up'), new_registration_path(@resource_name) %>
   </div>
 <% end %>
