@@ -3,6 +3,7 @@ class LoginFormComponent < ViewComponent::Base
   delegate :main_app, to: :helpers
 
   def initialize(resource_name:)
+    super
     @resource_name = resource_name.to_sym
   end
 end
