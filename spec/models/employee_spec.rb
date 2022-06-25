@@ -1,6 +1,21 @@
 require 'rails_helper'
 
 RSpec.describe Employee, type: :model do
+  describe 'validations' do
+    let(:employee) { build(:employee, company_id: nil) }
+
+    it 'is not valid without basic attributes' do
+      employee = Employee.new(company_id: nil)
+    
+      expect(employee).not_to be_valid
+      expect(employee.errors).to include(:email, 
+                                         :password, 
+                                         :firstname, 
+                                         :surname,
+                                         :company)
+    end
+  end
+
   context 'company' do
     it 'belongs to existing company if has the same domain' do
       first_employee = Employee.create!(firstname: 'Ronald',

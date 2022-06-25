@@ -4,9 +4,9 @@ class Employee < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  belongs_to :company
+  belongs_to :company, required: true
 
-  validates :firstname, :surname, :company_id, presence: true
+  validates :firstname, :surname, presence: true
 
   enum role: { regular: 0, admin: 1 }
 
@@ -14,6 +14,8 @@ class Employee < ApplicationRecord
   after_create :first_employee_is_admin
 
   def find_or_create_company
+    return if email.empty?
+
     email_domain = email.split('@').last
     @company = Company.find_or_create_by(domain: email_domain)
     if @company.present?
