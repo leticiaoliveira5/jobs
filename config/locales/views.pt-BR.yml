@@ -2,6 +2,11 @@ pt-BR:
   home:
     index:
       or_create_an_account: Ou crie uma conta
+      search: Buscar
+      search_label: Busca por empresa ou vaga
+  search_results:
+    index:
+      no_results: A busca não retornou resultados.
   job_opportunities:
     show:
       company: Empresa

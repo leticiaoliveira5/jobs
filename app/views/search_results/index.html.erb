@@ -1,20 +1,13 @@
-<center>
-
 <div class="contentblock">
-
-<h2>Resultados da busca</h2>
-
-<% unless @job_opportunities_search.empty? %>
+  <h2>Resultados da busca</h2>
+  <% if @job_opportunities_search.present? %>
     <% @job_opportunities_search.each do |jo| %>
-    <p>
+      <p>
         <%= link_to jo.job_title, job_opportunity_path(jo) %> <br>
         <%= link_to jo.company.name, company_path(jo.company) %>
-    </p> 
+      </p> 
     <% end %>
-    <%else%>
-    'A busca não retornou resultados'
-<% end %>
-
-
+  <% else %>
+    <%= t('.no_results') %>
+  <% end %>
 </div>
-
