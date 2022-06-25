@@ -67,7 +67,7 @@ Now you can access the application at http://localhost:3000/
 
 ## :key: Logins
 
--   **candidats**
+-   **candidate**
     -   email: 'candidate@email.com', password: '123456'
 
 -   **employee**
