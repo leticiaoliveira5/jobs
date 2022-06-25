@@ -10,53 +10,10 @@
     </div>
   </div>
   <div class="tabcontent" id="candidate-form">
-    <%= form_for(:candidate, url: session_path(:candidate)) do |f| %>
-      <div>
-        <%= f.label :email, t('devise.labels.email') %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-        <%= f.label :password, t('devise.labels.password'), autocomplete: "current-password" %>
-        <%= f.password_field :password %>
-        <%= link_to t('devise.passwords.new.forgot_your_password'), new_candidate_password_path, class: 'hint-link' %>
-      </div>
-      <div>
-        <%= f.submit t('devise.sessions.new.sign_in') %><br> 
-        <span class='checkbox-field'>
-          <%= f.label(:remember_me) do %>
-            <%= f.check_box(:remember_me) %>
-            <%= t('devise.labels.remember_me') %>
-          <% end %>
-        </span>
-      </div>
-      <div>
-        <%= t('home.index.or_create_an_account') %><br>
-        <%= link_to t('devise.registrations.new.sign_up'), new_candidate_registration_path %>
-      </div>
-    <% end %>
+    <%= render(LoginFormComponent.new(resource_name: 'candidate')) %>
   </div>
   <div class="tabcontent" id="employee-form">
-    <%= form_for(:employee, url: session_path(:employee)) do |f| %>
-      <div>
-        <%= f.label :email, t('devise.labels.employee_email') %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-        <%= f.label :password, t('devise.labels.password'), autocomplete: "current-password" %>
-        <%= f.password_field :password %>
-        <%= link_to t('devise.passwords.new.forgot_your_password'), new_employee_password_path, class: 'hint-link' %>
-      </div>
-      <div>
-        <%= f.submit t('devise.sessions.new.sign_in') %>
-        <br> 
-        <span class='checkbox-field'>
-          <%= f.label(:remember_me) do %>
-            <%= f.check_box(:remember_me) %>
-            <%= t('devise.labels.remember_me') %>
-          <% end %>
-        </span>
-      </div>
-      <div>
-        <%= t('home.index.or_create_an_account') %><br>
-        <%= link_to t('devise.registrations.new.sign_up'), new_employee_registration_path %>
-      </div>
-    <% end %>
+    <%= render(LoginFormComponent.new(resource_name: 'employee')) %>
   </div>
 </div>
 
