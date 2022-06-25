@@ -67,14 +67,11 @@ Now you can access the application at http://localhost:3000/
 
 ## :key: Logins
 
--   **candidates**
-    -   email: 'aline@mail.com', password: '123456'
-    -   email: 'bianca@mail.com', password: '123456'
+-   **candidate**
+    -   email: 'candidate@email.com', password: '123456'
 
--   **employees**
-    -   email: 'fatima@startv.com', password: '123456'
-    -   email: 'monique@startv.com', password '123456'
-    -   email: 'arthur@fly.com', password '123456'
+-   **employee**
+    -   email: 'admin@jobs.com', password: '123456'
 
 ## :eyeglasses: Testing the code
 
