@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe LoginFormComponent, type: :component do
-
   let(:rendered_component) do
     render_inline(described_class.new(resource_name: resource_name)).to_html
   end
