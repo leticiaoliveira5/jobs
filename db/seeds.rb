@@ -31,7 +31,7 @@ JobOpportunity.create!(company: company,
                        number_of_positions: '1',
                        limit_date: 1.year.from_now)
 
-### CANDIDATES
+### CANDIDATE
 
 Candidate.create(email: 'candidate@email.com',
                  password: '123456',
