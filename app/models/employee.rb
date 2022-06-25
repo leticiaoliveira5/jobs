@@ -6,7 +6,7 @@ class Employee < ApplicationRecord
 
   belongs_to :company
 
-  validates :firstname, :surname, presence: true
+  validates :firstname, :surname, :company_id, presence: true
 
   enum role: { regular: 0, admin: 1 }
 
@@ -16,7 +16,9 @@ class Employee < ApplicationRecord
   def find_or_create_company
     email_domain = email.split('@').last
     @company = Company.find_or_create_by(domain: email_domain)
-    self.company = @company
+    if @company.present?
+      self.company = @company
+    end
   end
 
   def first_employee_is_admin
