@@ -1,11 +1,11 @@
 <div class="flex-container">
   <div>
     <div class="contentblock">
-      <h2>Busca</h2>
+      <h2><%= t('.search') %></h2>
       <%= form_tag(search_results_path, method: :get) do |f| %>
         <%= label_tag :search_input, t('.search_label') %>
         <%= text_field_tag :search_input, params[:search_input], required: true %>
-        <%= submit_tag t('.search'), class: 'button' %>
+        <%= submit_tag t('.search_button'), class: 'button' %>
       <% end %>
     </div>
     <div class="contentblock">
