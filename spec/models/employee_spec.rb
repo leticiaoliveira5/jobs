@@ -2,8 +2,6 @@ require 'rails_helper'
 
 RSpec.describe Employee, type: :model do
   describe 'validations' do
-    let(:employee) { build(:employee, company_id: nil) }
-
     it 'is not valid without basic attributes' do
       employee = Employee.new(company_id: nil)
 
