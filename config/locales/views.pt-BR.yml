@@ -6,6 +6,7 @@ pt-BR:
       search_label: Busca por empresa ou vaga
   search_results:
     index:
+      title: Resultados da Busca
       no_results: A busca não retornou resultados.
   job_opportunities:
     show:
