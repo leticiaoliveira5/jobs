@@ -2,23 +2,25 @@ require 'rails_helper'
 
 RSpec.describe LoginFormComponent, type: :component do
 
-  def rendered_component(resource_name)
+  let(:rendered_component) do
     render_inline(described_class.new(resource_name: resource_name)).to_html
   end
 
-  it 'renders the candidate form' do
-    view = rendered_component('candidate')
+  context 'renders candidate form' do
+    let(:resource_name) { 'candidate' }
 
-    expect(view).to have_css('label', text: 'Senha', count: 1)
-    expect(view).to have_css('label', exact_text: 'E-mail', count: 1)
-    expect(view).to have_button('Login')
+    it do
+      expect(rendered_component).to have_css('label', text: 'Senha', count: 1)
+      expect(rendered_component).to have_css('label', exact_text: 'E-mail', count: 1)
+      expect(rendered_component).to have_button('Login')
+    end
   end
 
-  it 'renders the employee form' do
-    view = rendered_component('employee')
+  context 'renders employee form' do
+    let(:resource_name) { 'employee' }
 
-    expect(view).to have_css('label', text: 'Senha', count: 1)
-    expect(view).to have_css('label', exact_text: 'E-mail corporativo', count: 1)
-    expect(view).to have_button('Login')
+    it do
+      expect(rendered_component).to have_css('label', exact_text: 'E-mail corporativo', count: 1)
+    end
   end
 end
