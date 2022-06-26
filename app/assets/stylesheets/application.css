@@ -37,27 +37,18 @@ a:hover {
   text-decoration: underline;
 }
 
-.alert-danger {
-  color: var(--alert_danger);
-  background-color: var(--alert_background);
-  width: 30%;
+.alert {
   align-self: center;
+  background-color: var(--alert_background);
   border-radius: 7px;
-  padding: 15px 25px 15px 25px; /* top right bottom left */
   margin: 15px auto;
+  padding: 15px 25px 15px 25px; /* top right bottom left */
   text-align: center;
+  width: 30%;
 }
 
-.alert-success {
-  color: var(--alert_success);
-  background-color: var(--alert_background);
-  width: 30%;
-  align-self: center;
-  border-radius: 7px;
-  padding: 15px 25px 15px 25px; /* top right bottom left */
-  margin: 15px auto;
-  text-align: center;
-}
+.alert.danger { color: var(--alert_danger); }
+.alert.success { color: var(--alert_success); }
 
 .button {
   color: var(--button_link);
