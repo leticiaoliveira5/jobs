@@ -47,8 +47,9 @@ a:hover {
   width: 30%;
 }
 
-.alert.danger { color: var(--alert_danger); }
-.alert.success { color: var(--alert_success); }
+.danger { color: var(--alert_danger); }
+
+.success { color: var(--alert_success); }
 
 .button {
   color: var(--button_link);
