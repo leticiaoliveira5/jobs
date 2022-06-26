@@ -37,27 +37,19 @@ a:hover {
   text-decoration: underline;
 }
 
-.alert-danger {
-  color: var(--alert_danger);
-  background-color: var(--alert_background);
-  width: 30%;
+.alert {
   align-self: center;
+  background-color: var(--alert_background);
   border-radius: 7px;
-  padding: 15px 25px 15px 25px; /* top right bottom left */
   margin: 15px auto;
+  padding: 15px 25px 15px 25px; /* top right bottom left */
   text-align: center;
+  width: 30%;
 }
 
-.alert-success {
-  color: var(--alert_success);
-  background-color: var(--alert_background);
-  width: 30%;
-  align-self: center;
-  border-radius: 7px;
-  padding: 15px 25px 15px 25px; /* top right bottom left */
-  margin: 15px auto;
-  text-align: center;
-}
+.danger { color: var(--alert_danger); }
+
+.success { color: var(--alert_success); }
 
 .button {
   color: var(--button_link);
@@ -75,16 +67,6 @@ a:hover {
 }
 
 .contentblock {
-  background-color: var(--content_blocks_color);
-  width: 80%;
-  align-self: center;
-  border-radius: 7px;
-  padding: 10px 25px 20px 25px; /* top right bottom left */
-  margin: 15px auto;
-  text-align: left;
-}
-
-.employeepanel {
   background-color: var(--content_blocks_color);
   width: 80%;
   align-self: center;

@@ -1,5 +1,5 @@
 <% if @job_opportunity.errors.any? %>
-    <div class="alert-danger">
+    <div class="alert danger">
     <% @job_opportunity.errors.full_messages.each do |error| %>
         <p><%= error %></p>
       <% end %>
