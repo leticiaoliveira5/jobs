@@ -20,6 +20,7 @@
 
 .login-component {
   background-color: var(--nav_background_color);
+  border-radius: 7px;
   height: 500px;
   overflow: hidden;
   width: 400px;
@@ -75,6 +76,7 @@
 
 .login-component input[type=email],
 .login-component input[type=password] {
+  border-radius: 7px;
   font-size: 18px;
   margin: 15px 0;
   padding: 15px 20px;
