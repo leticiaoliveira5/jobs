@@ -14,17 +14,16 @@ feature 'employee registers job opportunity' do
   scenario 'successfully' do
     fill_in 'Título da vaga', with: 'Ator'
     fill_in 'Faixa salarial', with: 'A combinar'
-    within('.select_level') { select 'Pleno' }
+    within('#job_opportunity_job_level') { select 'Pleno' }
     fill_in 'Local', with: 'Curicica, Rio de Janeiro'
-    fill_in 'Descrição', with: 'Atuar em novelas da emissora'
+    fill_in 'Descrição', with: 'Atuar em novelas'
     fill_in 'Data limite', with: 2.months.from_now
     fill_in 'Número de vagas', with: '2'
     click_on 'Cadastrar vaga'
 
     expect(employee.company.job_opportunities.count).to eq(1)
     expect(employee.company.job_opportunities.first.job_title).to eq('Ator')
-    expect(page).to have_text('Ator') && have_text('Descrição') &&
-                    have_text('Atuar em novelas da emissora')
+    expect(page).to have_text('Ator') && have_text('Descrição') && have_text('Atuar em novelas')
   end
 
   scenario 'only if all fields are filled' do
