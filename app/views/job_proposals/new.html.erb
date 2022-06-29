@@ -1,30 +1,14 @@
-<%= render 'shared/errors', object: @job_proposal %>
-
 <div class="contentblock">
-    <h1>Fazer proposta para candidato: </h1>
-    <%=t('.firstname')%>: <%= @job_application.candidate.firstname %><br>
-    <%=t('.job_opportunity')%>: <%= @job_application.job_opportunity.job_title %>
+  <h1>Fazer proposta para candidato: </h1>
+  <%=t('.firstname')%>: <%= @job_application.candidate.firstname %><br>
+  <%=t('.job_opportunity')%>: <%= @job_application.job_opportunity.job_title %>
 
-    <%= form_for([@job_application, @job_proposal]) do |f| %>
-    
-        <div>
-            <%= f.label :message %>
-            <%= f.text_field :message %>
-        </div>
+  <%= simple_form_for([@job_application, @job_proposal]) do |f| %>
+    <%= f.input :message %>
+    <%= f.input :start_date, as: :string %>
+    <%= f.input :salary_proposal %>
+    <%= f.submit 'Enviar' %>
+  <% end %>
 
-        <div>
-            <%= f.label :start_date %>
-            <%= f.text_field :start_date%>
-        </div>
-
-        <div>
-            <%= f.label :salary_proposal %>
-            <%= f.text_field :salary_proposal %>
-        </div>
-
-        <%= f.submit 'Enviar' %>
-
-    <% end %>
-
-    <p><%= link_to 'Voltar', company_path(current_employee.company) %>
+  <p><%= link_to 'Voltar', company_path(current_employee.company) %>
 </div>
