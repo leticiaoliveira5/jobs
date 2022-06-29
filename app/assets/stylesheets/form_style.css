@@ -37,7 +37,7 @@
 }
 
 .form-style input {
-  border-color:rgb(191, 191, 191);
+  border-color: rgb(191, 191, 191);
   border-radius: 7px;
   box-sizing: border-box;
   font-size: 1em;
@@ -67,4 +67,4 @@
   width: 100%;
 }
 
-.form-style input[type=submit]:hover { cursor: pointer }
+.form-style input[type=submit]:hover { cursor: pointer; }
