@@ -1,54 +1,18 @@
-<% if @job_opportunity.errors.any? %>
-    <div class="alert danger">
-    <% @job_opportunity.errors.full_messages.each do |error| %>
-        <p><%= error %></p>
-      <% end %>
-    </div>
-  <% end %>
+<%= render 'shared/errors', object: @job_opportunity %>
 
 <div class="contentblock">
-<h1>Cadastro de vaga - <%= current_employee.company.name %> </h1>
+  <h1>Cadastro de vaga - <%= current_employee.company.name %> </h1>
 
-<%= form_for(@job_opportunity) do |f| %>
-  
-  <div>
-    <%= f.label :job_title %>
-    <%= f.text_field :job_title %>
-  </div>
+  <%= simple_form_for(@job_opportunity) do |f| %>
+    <%= f.input :job_title, as: :text %>
+    <%= f.input :job_level, as: :select, collection: ['','Júnior', 'Pleno', 'Sênior'] %>
+    <%= f.input :salary_range, as: :text %>
+    <%= f.input :place, as: :text %>
+    <%= f.input :description, as: :text %>
+    <%= f.input :limit_date, as: :date %>
+    <%= f.input :number_of_positions, as: :text %>
+    <%= f.submit 'Cadastrar vaga' %>
+  <% end %>
 
-   <div>
-    <%= f.label :job_level %>
-    <div class="select_level"><%= f.select :job_level, ['','Júnior', 'Pleno', 'Sênior'] %></div>
-  </div>
-
-   <div>
-    <%= f.label :salary_range %>
-    <%= f.text_field :salary_range %>
-  </div>
-
-   <div>
-    <%= f.label :place %>
-    <%= f.text_field :place %>
-  </div>
-
-  <div>
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-  </div>
-
-    <div>
-    <%= f.label :limit_date %>
-    <%= f.text_field :limit_date %>
-  </div>
-
-      <div>
-    <%= f.label :number_of_positions %>
-    <%= f.text_field :number_of_positions %>
-  </div>
-
-  <%= f.submit 'Cadastrar vaga' %>
-
-<% end %>
-
-<p><%= link_to 'Voltar', company_path(current_employee.company) %>
+  <p><%= link_to 'Voltar', company_path(current_employee.company) %>
 </div>
