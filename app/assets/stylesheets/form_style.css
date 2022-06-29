@@ -69,3 +69,5 @@
   text-decoration: none;
   width: 100%;
 }
+
+.form-style input[type=submit]:hover { cursor: pointer }
