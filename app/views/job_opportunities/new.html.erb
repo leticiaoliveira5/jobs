@@ -1,16 +1,7 @@
 <div class="contentblock">
   <h1>Cadastro de vaga - <%= current_employee.company.name %> </h1>
 
-  <%= simple_form_for(@job_opportunity) do |f| %>
-    <%= f.input :job_title %>
-    <%= f.input :job_level, as: :select, collection: ['','Júnior', 'Pleno', 'Sênior'] %>
-    <%= f.input :salary_range %>
-    <%= f.input :place %>
-    <%= f.input :description, as: :text %>
-    <%= f.input :limit_date, as: :string %>
-    <%= f.input :number_of_positions %>
-    <%= f.submit 'Cadastrar vaga' %>
-  <% end %>
+  <%= render 'form' %>
 
   <p><%= link_to 'Voltar', company_path(current_employee.company) %>
 </div>
