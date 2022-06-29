@@ -14,7 +14,7 @@ feature 'employee registers job opportunity' do
   scenario 'successfully' do
     fill_in 'Título da vaga', with: 'Ator'
     fill_in 'Faixa salarial', with: 'A combinar'
-    within('.select_level') { select 'Pleno' }
+    within('#job_opportunity_job_level') { select 'Pleno' }
     fill_in 'Local', with: 'Curicica, Rio de Janeiro'
     fill_in 'Descrição', with: 'Atuar em novelas da emissora'
     fill_in 'Data limite', with: 2.months.from_now
