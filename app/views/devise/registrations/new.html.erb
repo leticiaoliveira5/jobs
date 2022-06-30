@@ -2,8 +2,6 @@
 <h2>Sign up</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
     <%= f.input :firstname %>
     <%= f.input :surname %>
     <%= f.input :email, as: :email, autofocus: true, autocomplete: "email" %>
