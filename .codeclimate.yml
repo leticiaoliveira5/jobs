@@ -14,8 +14,14 @@ plugins:
       file: ".rubocop.yml"
   reek:
     enabled: true
+    checks:
+      IrresponsibleModule:
+        enabled: false
   csslint:
     enabled: true
+    checks:
+      known-properties:
+        enabled: false
   fixme:
     enabled: true
 exclude_patterns:
