@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Company, type: :model do
   context 'creation' do
-    before do
+    let!(:first_employee) do
       Employee.create!(firstname: 'Ronald',
                        surname: 'McDonald',
                        email: 'ronald@mcdonalds.com',
