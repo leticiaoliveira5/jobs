@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Employee, type: :model do
   describe '#before_validation' do
-    let(:subject) do
+    let(:employee) do
       described_class.create!(firstname: 'Steve',
                               surname: 'Jobs',
                               email: 'steve@apple.com',
@@ -10,22 +10,22 @@ RSpec.describe Employee, type: :model do
     end
 
     it 'creates company' do
-      expect { subject }.to change(Company, :count).by(1)
+      expect { employee }.to change(Company, :count).by(1)
       expect(Company.first.domain).to eq('apple.com')
     end
 
     it 'first employee is admin' do
-      expect(subject.admin?).to eq true
-      expect(subject.role).to eq 'admin'
+      expect(employee.admin?).to eq true
+      expect(employee.role).to eq 'admin'
     end
   end
 
   describe 'validations' do
-    let(:subject) { described_class.new(company_id: nil) }
+    let(:employee) { described_class.new(company_id: nil) }
 
     it 'is not valid without basic attributes' do
-      expect(subject).not_to be_valid
-      expect(subject.errors).to include(:email,
+      expect(employee).not_to be_valid
+      expect(employee.errors).to include(:email,
                                         :password,
                                         :firstname,
                                         :surname,
