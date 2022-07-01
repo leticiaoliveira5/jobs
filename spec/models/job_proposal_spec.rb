@@ -24,7 +24,6 @@ RSpec.describe JobProposal, type: :model do
     let!(:job_application) { create(:job_application, job_opportunity: job_opportunity) }
     let(:job_proposal) do
       create(:job_proposal, job_application: job_application,
-                            candidate: job_application.candidate,
                             job_opportunity: job_opportunity)
     end
 
