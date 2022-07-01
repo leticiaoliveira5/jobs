@@ -10,7 +10,7 @@ RSpec.describe Employee, type: :model do
     end
 
     it 'creates company' do
-      expect{subject}.to change(Company, :count).by(1)
+      expect { subject }.to change(Company, :count).by(1)
       expect(Company.first.domain).to eq('apple.com')
     end
 
@@ -22,7 +22,7 @@ RSpec.describe Employee, type: :model do
 
   describe 'validations' do
     let(:subject) { described_class.new(company_id: nil) }
-  
+
     it 'is not valid without basic attributes' do
       expect(subject).not_to be_valid
       expect(subject.errors).to include(:email,
