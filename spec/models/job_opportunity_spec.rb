@@ -20,6 +20,7 @@ RSpec.describe JobOpportunity, type: :model do
 
     it 'is deactivated when candidate accepts proposal' do
       job_proposal.accepted!
+      job_opportunity = job_proposal.job_opportunity
       
       expect { job_proposal.check_number_of_positions }.to change(job_opportunity, :status).to('inactive')
     end
