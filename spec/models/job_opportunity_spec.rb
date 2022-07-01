@@ -11,22 +11,15 @@ RSpec.describe JobOpportunity, type: :model do
   end
 
   describe '#check_number_of_positions' do
-    before do
-      job_opportunity = create(:job_opportunity, number_of_positions: 1)
-      candidate = create(:candidate)
-      job_application = create(:job_application, candidate: candidate,
-                                                 job_opportunity: job_opportunity)
-      job_proposal = create(:job_proposal, job_application: job_application,
-                                           candidate: candidate,
-                                           job_opportunity: job_opportunity)
-    end
+    let!(:job_opportunity) { create(:job_opportunity, number_of_positions: 1) }
+    let!(:candidate) { create(:candidate) }
+    let!(:job_application) { create(:job_application, candidate: candidate, job_opportunity: job_opportunity) }
+    let(:job_proposal) { create(:job_proposal, job_application: job_application, candidate: candidate, job_opportunity: job_opportunity) }
 
     it 'is deactivated when candidate accepts proposal' do
       job_proposal.accepted!
       
-      expect { 
-        job_proposal.check_number_of_positions 
-      }.to change(job_opportunity, :status).to('inactive')
+      expect { job_proposal.check_number_of_positions }.to change(job_opportunity, :status).to('inactive')
     end
   end
 end
