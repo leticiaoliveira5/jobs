@@ -20,8 +20,8 @@
     <i>Leave password blank if you don't want to change it</i>
 
     <%= f.input :password, as: :password, 
-                          autocomplete: "new-password", 
-                          hint: "#{@minimum_password_length} characters minimum" if @minimum_password_length %>
+                           autocomplete: "new-password", 
+                           hint: "#{@minimum_password_length} characters minimum" if @minimum_password_length %>
 
     <%= f.input :password_confirmation, as: :password, autocomplete: "new-password" %>
     
