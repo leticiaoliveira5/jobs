@@ -26,10 +26,10 @@ RSpec.describe Employee, type: :model do
     it 'is not valid without basic attributes' do
       expect(employee).not_to be_valid
       expect(employee.errors).to include(:email,
-                                        :password,
-                                        :firstname,
-                                        :surname,
-                                        :company)
+                                         :password,
+                                         :firstname,
+                                         :surname,
+                                         :company)
     end
   end
 
