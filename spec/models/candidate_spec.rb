@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Candidate, type: :model do
-  context '#after_create' do
+  describe '#after_create' do
     it 'creates resume after candidate creation' do
       expect do
         described_class.create(email: 'maria@gmail.com',
