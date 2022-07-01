@@ -10,7 +10,7 @@ RSpec.describe JobOpportunity, type: :model do
     end
   end
 
-  context '#check_number_of_positions' do
+  describe '#check_number_of_positions' do
     before do
       job_opportunity = create(:job_opportunity, number_of_positions: 1)
       candidate = create(:candidate)
