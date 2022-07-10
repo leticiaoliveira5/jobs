@@ -1,25 +1,11 @@
-<%= render 'shared/errors', object: @company %>
-  
 <div class="contentblock">
   <h1>Cadastro de empresa</h1>
 
-  <%= form_for(@company) do |f| %>
-    <div>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-    </div>
-    <div>
-      <%= f.label :domain %>
-      <%= f.text_field :domain %>
-    </div>
-    <div>
-      <%= f.label :cnpj %>
-      <%= f.text_field :cnpj %>
-    </div>
-    <div>
-      <%= f.label :address %>
-      <%= f.text_field :address %>
-    </div>
+  <%= simple_form_for(@company) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :domain %>
+    <%= f.input :cnpj %>
+    <%= f.input :address  %>
     <%= f.submit 'Cadastrar empresa' %>
   <% end %>
 
