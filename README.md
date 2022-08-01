@@ -33,9 +33,12 @@ A web application that allows company employees to create and manage job opportu
 ## :gem: Prerequisites
 
 -   Ruby 3.0.0
--   Rails 7.0.2.3
 -   Node.js
 -   SQLite3
+
+## Rails Version
+
+-   Rails 7.0.2.3
 
 ## :computer: Run locally
 
