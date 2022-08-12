@@ -6,6 +6,7 @@ ruby '3.0.0'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 gem 'faraday'
+gem 'importmap-rails', '~> 1.1'
 gem 'jbuilder', '~> 2.5'
 gem 'puma', '~> 5.6', '>= 5.6.4'
 gem 'rails', '7.0.2.3'
