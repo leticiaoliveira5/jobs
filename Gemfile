@@ -13,7 +13,7 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'sprockets-rails'
 gem 'sqlite3'
-gem 'turbolinks', '~> 5'
+gem 'turbo-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'view_component', require: 'view_component/engine'
 
