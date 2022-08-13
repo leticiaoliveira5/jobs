@@ -10,8 +10,9 @@ feature 'Employee rejects job application' do
                              job_opportunity: job_opportunity)
   end
 
-  scenario 'successfully' do
-    login_as employee, scope: :employee
+  before { login_as employee, scope: :employee }
+
+  scenario 'employee views job application' do
     visit root_path
     click_on 'Área da empresa'
     click_on 'Desenvolvedor - Fernanda Braga'
@@ -20,5 +21,13 @@ feature 'Employee rejects job application' do
     expect(page).to have_text('Rejeitar candidatura') &&
                     have_text('Dê um motivo para a rejeição da candidatura.')
     expect(page).to have_field 'rejection_motive'
+  end
+
+  scenario 'employee declines job application' do
+    visit job_application_path(job_application)
+    within('.reject-form') { click_on('Confirmar') }
+
+    expect(current_path).to eq company_path(job_application.company)
+    expect(job_application.reload.status).to eq 'declined'
   end
 end
