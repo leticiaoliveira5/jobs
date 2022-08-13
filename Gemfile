@@ -9,13 +9,14 @@ gem 'faraday'
 gem 'importmap-rails', '~> 1.1'
 gem 'jbuilder', '~> 2.5'
 gem 'puma', '~> 5.6', '>= 5.6.4'
-gem 'redis', '~> 4.0'
 gem 'rails', '7.0.2.4'
+gem 'redis', '~> 4.0'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'sprockets-rails'
 gem 'sqlite3'
 gem 'turbo-rails'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'uglifier', '>= 1.3.0'
 gem 'view_component', require: 'view_component/engine'
 
@@ -41,5 +42,3 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
 end
-
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
