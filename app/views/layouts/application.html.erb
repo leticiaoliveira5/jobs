@@ -6,11 +6,11 @@
     <%= csp_meta_tag %>
 
     <% if controller_name == "home" %>
-      <%= stylesheet_link_tag    'homepage', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= stylesheet_link_tag 'homepage', media: 'all', 'data-turbo-track': 'reload' %>
     <% else %>
-      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
     <% end %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbo-track': 'reload' %>
     <%= javascript_importmap_tags %>
   </head>
 
