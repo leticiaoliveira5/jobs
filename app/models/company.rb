@@ -2,6 +2,7 @@ class Company < ApplicationRecord
   has_many :employees, dependent: :restrict_with_error
   has_many :job_opportunities, dependent: :destroy
   has_many :job_proposals, through: :job_opportunities
+  has_many :job_applications, through: :job_opportunities
 
   validates :domain, presence: true
   validates :name, :address, :cnpj, presence: true, on: :update

@@ -14,7 +14,7 @@ class JobProposalsController < ApplicationController
     @job_proposal.candidate = @job_application.candidate
     if @job_proposal.save
       JobProposalMailer.notify_proposal(@job_proposal.id).deliver_now
-      redirect_to company_path(@job_application.job_opportunity.company), notice: t('.success')
+      redirect_to company_path(@job_application.company), notice: t('.success')
     else
       render 'new'
     end
