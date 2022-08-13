@@ -70,7 +70,7 @@ Rails.application.config.action_mailer.smtp_timeout = 5
 # =====================================
 
 # Automatically infer `inverse_of` for associations with a scope.
-# Rails.application.config.active_record.automatic_scope_inversing = true
+Rails.application.config.active_record.automatic_scope_inversing = true
 
 # Raise when running tests if fixtures contained foreign key violations
 Rails.application.config.active_record.verify_foreign_keys_for_fixtures = true
