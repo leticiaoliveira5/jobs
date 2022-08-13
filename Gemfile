@@ -13,6 +13,7 @@ gem 'simple_form', '5.1.0'
 gem 'sprockets-rails'
 gem 'sqlite3'
 gem 'turbolinks', '~> 5'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'uglifier', '>= 1.3.0'
 gem 'view_component', '2.66.0'
 
@@ -38,5 +39,3 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
 end
-
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
