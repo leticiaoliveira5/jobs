@@ -56,8 +56,10 @@ feature 'Resume update' do
   end
 
   def page_has_resume_fields
-    expect(page).to have_field(['Formação acadêmica', 'Experiência profissional', 'Idiomas',
-                                'Conhecimentos', 'Conhecimentos', 'Cursos'])
+    ['Formação acadêmica', 'Experiência profissional', 'Idiomas',
+     'Conhecimentos', 'Conhecimentos', 'Cursos'].each do |field|
+      expect(page).to have_field(field)
+    end
   end
 
   def page_has_update_button_and_return_link
