@@ -28,6 +28,7 @@ feature 'Employee rejects job application' do
     within('.reject-form') { click_on('Confirmar') }
 
     expect(current_path).to eq company_path(job_application.company)
+    expect(page).to have_content 'A aplicação de Fernanda foi rejeitada'
     expect(job_application.reload.status).to eq 'declined'
   end
 end

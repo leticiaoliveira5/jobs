@@ -22,7 +22,8 @@ class JobApplicationsController < ApplicationController
     @job_application = JobApplication.find(params[:id])
     @job_application.rejection_motive = params[:rejection_motive]
     @job_application.declined!
-    redirect_to company_path(@job_application.company), notice: t('.success')
+    redirect_to company_path(@job_application.company),
+                notice: t('.success', candidate: @job_application.candidate.firstname)
   end
 
   private
