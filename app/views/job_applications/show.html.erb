@@ -8,7 +8,7 @@
   <h4>Endereço:</h4> <%= @candidate.address %>
   <h4>Sobre mim:</h4> <%= @candidate.about_me %>
   <h4>Vaga:</h4> <%= link_to @job_application.job_opportunity.job_title, job_opportunity_path(@job_application.job_opportunity) %>
-  <h4>Empresa:</h4> <%= link_to @job_application.job_opportunity.company.name, company_path(@job_application.job_opportunity.company) %>
+  <h4>Empresa:</h4> <%= link_to @job_application.company.name, company_path(@job_application.company) %>
   
   <% if employee_signed_in? %>
     <%= link_to "Fazer proposta para #{@job_application.candidate.firstname}", new_job_application_job_proposal_path(@job_application) %>
