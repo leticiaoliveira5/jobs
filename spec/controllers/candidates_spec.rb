@@ -2,8 +2,7 @@
 require 'rails_helper'
 
 RSpec.describe CandidatesController, type: :controller do
-
-  describe "#index" do
+  describe '#index' do
     let(:candidate) { create(:candidate) }
 
     it 'redirects to log in page if candidate not logged in' do
