@@ -4,22 +4,24 @@ RSpec.describe CompaniesController, type: :controller do
   let(:company) { create(:company) }
 
   describe '#show' do
-    before { get :show, params: { id: company.id } }
-
-    it { expect(response).to render_template('show') }
-    it { expect(assigns(:company)).to eq company }
+    it_behaves_like 'controller simple get action',
+                    object: 'company', action: 'show', template: 'show'
   end
 
   describe '#index' do
-    before { get :index }
+    it_behaves_like 'controller simple get action',
+                    object: 'company', action: 'index', template: 'index'
+  end
 
-    it { expect(response).to render_template('index') }
+  describe '#edit' do
+    it_behaves_like 'controller simple get action',
+                    object: 'company', action: 'edit', template: 'edit'
   end
 
   describe '#create' do
     it 'creates a company' do
       expect do
-        post :create, params: { company: { name: 'Apple', domain: 'apple.com', address: 'California' } }
+        post :create, params: { company: { name: 'Apple', domain: 'apple.com', address: 'CA' } }
       end.to change(Company, :count).by(1)
 
       expect(response).to redirect_to(company_path(Company.last))
@@ -42,12 +44,5 @@ RSpec.describe CompaniesController, type: :controller do
       expect(response).to render_template('edit')
       expect(company.reload.address).to eq 'California'
     end
-  end
-
-  describe '#edit' do
-    before { get :edit, params: { id: company.id } }
-
-    it { expect(response).to render_template('edit') }
-    it { expect(assigns(:company)).to eq company }
   end
 end
