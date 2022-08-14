@@ -15,7 +15,8 @@
   <% end %>
 
   <% if candidate_signed_in? && current_candidate == @job_application.candidate %>
-    <%= button_to 'Cancelar candidatura', job_application_path(@job_application), method: :delete, :class => "button" %>
+    <%= button_to 'Cancelar candidatura', job_application_path(@job_application), 
+        method: :delete, data: { turbo_method: :delete }, class: 'button' %>
   <%end%>
 
 </div>  
