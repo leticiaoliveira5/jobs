@@ -1,34 +1,30 @@
 require 'rails_helper'
 
-RSpec.describe JobProposalsController, type: :controller do
+RSpec.describe JobProposalsController, type: :controller, login_metadata: true do
   let(:job_proposal) { create(:job_proposal) }
   let(:candidate) { job_proposal.candidate }
   let(:job_application) { job_proposal.job_application }
   let(:employee) { create(:employee, company: job_application.company) }
 
   describe '#show' do
-    before do
-      sign_in(candidate)
+    it 'renders show', candidate_signed_in: true do
       get :show, params: { id: job_proposal.id, job_application_id: job_application.id }
-    end
 
-    it { expect(response).to render_template('show') }
+      expect(response).to render_template('show')
+    end
   end
 
-  describe '#new' do
-    before do
-      sign_in(employee)
+  describe '#new', employee_signed_in: true do
+    it 'renders new' do
       get :new, params: { id: job_proposal.id, job_application_id: job_application.id }
-    end
 
-    it { expect(response).to render_template('new') }
+      expect(response).to render_template('new')
+    end
   end
 
   describe '#create' do
-    before { sign_in(employee) }
-
     context 'with valid params' do
-      it 'creates job proposal and redirects to company dashboard' do
+      it 'creates job proposal and redirects to company', employee_signed_in: true do
         expect do
           post :create,
                params: { job_application_id: job_application.id,
@@ -43,7 +39,7 @@ RSpec.describe JobProposalsController, type: :controller do
     end
 
     context 'with invalid params' do
-      it 'renders new' do
+      it 'renders new', employee_signed_in: true do
         expect do
           post :create, params: { job_application_id: job_application.id,
                                   job_proposal: { message: 'Hello' } }
@@ -54,26 +50,20 @@ RSpec.describe JobProposalsController, type: :controller do
     end
   end
 
-  describe '#accept' do
-    before do
-      sign_in(candidate)
-      post :accept, params: { id: job_proposal.id, job_application_id: job_application.id }
-    end
-
+  describe '#accept', candidate_signed_in: true do
     it 'updates status and redirects with flash message' do
+      post :accept, params: { id: job_proposal.id, job_application_id: job_application.id }
+
       expect(response).to redirect_to job_application_job_proposal_path(job_proposal)
       expect(job_proposal.reload.status).to eq('accepted')
       expect(flash[:notice]).to be_present
     end
   end
 
-  describe '#reject' do
-    before do
-      sign_in(candidate)
-      post :reject, params: { id: job_proposal.id, job_application_id: job_application.id }
-    end
-
+  describe '#reject', candidate_signed_in: true do
     it 'updates status and redirects with flash message' do
+      post :reject, params: { id: job_proposal.id, job_application_id: job_application.id }
+
       expect(response).to redirect_to job_application_job_proposal_path(job_proposal)
       expect(job_proposal.reload.status).to eq('rejected')
       expect(flash[:notice]).to be_present

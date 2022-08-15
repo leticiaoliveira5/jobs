@@ -1,16 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe ResumesController, type: :controller do
+RSpec.describe ResumesController, type: :controller, login_metadata: true do
   let(:candidate) { create(:candidate) }
   let(:resume) { candidate.resume }
 
-  before do |test|
-    sign_in(candidate) unless test.metadata[:logged_out]
-  end
-
   describe '#show' do
     context 'when candidate is signed in' do
-      it 'renders template show' do
+      it 'renders template show', candidate_signed_in: true do
         get :show, params: { id: resume.id }
 
         expect(response).to render_template('show')
@@ -19,7 +15,7 @@ RSpec.describe ResumesController, type: :controller do
     end
 
     context 'when candidate or employee is not signed in' do
-      it 'redirects to home page', logged_out: true do
+      it 'redirects to home page' do
         get :show, params: { id: resume.id }
 
         expect(response).to redirect_to root_path
@@ -29,7 +25,7 @@ RSpec.describe ResumesController, type: :controller do
   end
 
   describe '#edit' do
-    it 'renders template edit' do
+    it 'renders template edit', candidate_signed_in: true do
       get :edit, params: { id: resume.id }
 
       expect(response).to render_template('edit')
@@ -38,7 +34,7 @@ RSpec.describe ResumesController, type: :controller do
   end
 
   describe '#update' do
-    it 'updates resume and redirects to show' do
+    it 'updates resume and redirects to show', candidate_signed_in: true do
       patch :update, params: { id: resume.id, resume: { address: 'Paraíba' } }
 
       expect(resume.reload.address).to eq 'Paraíba'

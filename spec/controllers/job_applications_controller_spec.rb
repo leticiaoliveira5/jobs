@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe JobApplicationsController, type: :controller do
+RSpec.describe JobApplicationsController, type: :controller, login_metadata: true do
   let(:candidate) { create(:candidate) }
   let(:job_application) { create(:job_application, candidate: candidate) }
   let(:employee) { create(:employee, company: job_application.company) }
@@ -11,10 +11,8 @@ RSpec.describe JobApplicationsController, type: :controller do
   end
 
   describe '#destroy' do
-    it 'deletes job application and redirects' do
+    it 'deletes job application and redirects', candidate_signed_in: true do
       job_application = create(:job_application, candidate: candidate)
-
-      sign_in(candidate)
 
       expect do
         delete :destroy, params: { id: job_application.id }
@@ -26,9 +24,7 @@ RSpec.describe JobApplicationsController, type: :controller do
   end
 
   describe '#decline' do
-    it 'updates status and sends flash message' do
-      sign_in(employee)
-
+    it 'updates status and sends flash message', employee_signed_in: true do
       post :decline, params: { id: job_application.id }
 
       expect(job_application.reload.status).to eq 'declined'

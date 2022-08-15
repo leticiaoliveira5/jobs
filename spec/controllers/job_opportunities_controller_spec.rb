@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe JobOpportunitiesController, type: :controller do
+RSpec.describe JobOpportunitiesController, type: :controller, login_metadata: true do
   let(:employee) { create(:employee) }
   let(:job_opportunity) { create(:job_opportunity, company: employee.company) }
 
@@ -10,12 +10,11 @@ RSpec.describe JobOpportunitiesController, type: :controller do
   end
 
   describe '#new' do
-    before do
-      sign_in(employee)
+    it 'renders new', employee_signed_in: true do
       get :new
-    end
 
-    it { expect(response).to render_template('new') }
+      expect(response).to render_template('new')
+    end
   end
 
   describe '#show' do
@@ -24,21 +23,16 @@ RSpec.describe JobOpportunitiesController, type: :controller do
   end
 
   describe '#edit' do
-    before do
-      sign_in(employee)
+    it 'renders template edit', employee_signed_in: true do
       get :edit, params: { id: job_opportunity.id }
-    end
 
-    it 'renders template edit' do
       expect(response).to render_template('edit')
       expect(assigns(:job_opportunity)).to eq job_opportunity
     end
   end
 
   describe '#create' do
-    before { sign_in(employee) }
-
-    it 'with valid params, creates job_opportunity' do
+    it 'with valid params, creates job_opportunity', employee_signed_in: true do
       expect do
         post :create, params: { job_opportunity: { job_title: 'Cantor',
                                                    description: 'Descrição teste',
@@ -52,7 +46,7 @@ RSpec.describe JobOpportunitiesController, type: :controller do
       expect(response).to redirect_to(job_opportunity_path(JobOpportunity.last))
     end
 
-    it 'with invalid params, renders new' do
+    it 'with invalid params, renders new', employee_signed_in: true do
       post :create, params: { job_opportunity: { job_title: 'Cantor' } }
 
       expect(response).to render_template('new')
@@ -60,16 +54,14 @@ RSpec.describe JobOpportunitiesController, type: :controller do
   end
 
   describe '#update' do
-    before { sign_in(employee) }
-
-    it 'with valid params, updates job_opportunity' do
+    it 'with valid params, updates job_opportunity', employee_signed_in: true do
       patch :update, params: { id: job_opportunity.id, job_opportunity: { job_title: 'Officer' } }
 
       expect(response).to redirect_to(job_opportunity_path(job_opportunity))
       expect(job_opportunity.reload.job_title).to eq 'Officer'
     end
 
-    it 'with invalid params, renders edit' do
+    it 'with invalid params, renders edit', employee_signed_in: true do
       patch :update, params: { id: job_opportunity.id, job_opportunity: { job_title: '' } }
 
       expect(response).to render_template('edit')
@@ -79,10 +71,8 @@ RSpec.describe JobOpportunitiesController, type: :controller do
   describe '#create_job_application' do
     let(:candidate) { create(:candidate) }
 
-    before { sign_in(candidate) }
-
     context 'success' do
-      it 'creates job application' do
+      it 'creates job application', candidate_signed_in: true do
         expect do
           post :create_job_application, params: { id: job_opportunity.id }
         end.to change(JobApplication, :count).by(1)
@@ -96,7 +86,7 @@ RSpec.describe JobOpportunitiesController, type: :controller do
     context 'when candidate information is missing' do
       let(:candidate) { create(:candidate, :without_info) }
 
-      it 'fails' do
+      it 'fails', candidate_signed_in: true do
         expect do
           post :create_job_application, params: { id: job_opportunity.id }
         end.not_to change(JobApplication, :count)
@@ -109,26 +99,20 @@ RSpec.describe JobOpportunitiesController, type: :controller do
   end
 
   describe '#inactivate_job_opportunity' do
-    before do
-      sign_in(employee)
+    it 'updates status and redirects', employee_signed_in: true do
       post :inactivate_job_opportunity, params: { id: job_opportunity.id }
-    end
 
-    it 'updates status and redirects' do
       expect(response).to redirect_to job_opportunity_path(job_opportunity)
       expect(job_opportunity.reload.status).to eq('inactive')
     end
   end
 
-  describe '#activate_job_opportunity' do
+  describe '#activate_job_opportunity', employee_signed_in: true do
     let(:job_opportunity) { create(:job_opportunity, status: :inactive, company: employee.company) }
 
-    before do
-      sign_in(employee)
-      post :activate_job_opportunity, params: { id: job_opportunity.id }
-    end
-
     it 'updates status and redirects' do
+      post :activate_job_opportunity, params: { id: job_opportunity.id }
+
       expect(response).to redirect_to job_opportunity_path(job_opportunity)
       expect(job_opportunity.reload.status).to eq('active')
     end
