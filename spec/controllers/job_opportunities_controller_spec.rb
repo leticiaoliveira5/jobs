@@ -107,8 +107,22 @@ RSpec.describe JobOpportunitiesController, type: :controller do
   end
 
   describe '#inactivate_job_opportunity' do
+    before do
+      sign_in(employee)
+      post :inactivate_job_opportunity, params: { id: job_opportunity.id }
+    end
+
+    it { expect(job_opportunity.reload.status).to eq('inactive') }
   end
 
   describe '#activate_job_opportunity' do
+    let(:job_opportunity) { create(:job_opportunity, status: :inactive, company: employee.company) }
+
+    before do
+      sign_in(employee)
+      post :activate_job_opportunity, params: { id: job_opportunity.id }
+    end
+
+    it { expect(job_opportunity.reload.status).to eq('active') }
   end
 end
