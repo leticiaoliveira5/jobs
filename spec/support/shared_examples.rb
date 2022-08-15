@@ -1,10 +1,12 @@
 shared_examples 'controller simple get action' do |object: '', action: '', template: ''|
-  let(:instance) { create(object.to_sym) }
+  it 'renders template' do
+    instance = create(object.to_sym)
 
-  before { get action.to_sym, params: { id: instance.id } }
+    get action.to_sym, params: { id: instance.id }
 
-  it { expect(response).to render_template(template) }
-  it { expect(assigns(object.to_sym)).to eq instance } unless action.in?(['index', 'new'])
+    expect(response).to render_template(template)
+    expect(assigns(object.to_sym)).to eq instance unless action.in?(%w[index new])
+  end
 end
 
 RSpec.shared_context 'login metadata' do
