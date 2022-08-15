@@ -75,6 +75,33 @@ RSpec.describe JobOpportunitiesController, type: :controller do
   end
 
   describe '#create_job_application' do
+    let(:candidate) { create(:candidate) }
+
+    before { sign_in(candidate) }
+
+    context 'success' do
+      it 'creates job application' do
+        expect do
+          post :create_job_application, params: { id: job_opportunity.id }
+        end.to change(JobApplication, :count).by(1)
+
+        expect(response).to redirect_to(redirect_to(job_application_path(JobApplication.last)))
+        expect(assigns(:job_opportunity)).to eq job_opportunity
+      end
+    end
+
+    context 'failure' do
+      it 'creates job application' do
+        allow_any_instance_of(JobApplication).to receive(:save).and_return(false)
+
+        expect do
+          post :create_job_application, params: { id: job_opportunity.id }
+        end.not_to change(JobApplication, :count)
+
+        expect(response).to redirect_to(redirect_to(job_opportunity_path(job_opportunity)))
+        expect(assigns(:job_opportunity)).to eq job_opportunity
+      end
+    end
   end
 
   describe '#inactivate_job_opportunity' do
