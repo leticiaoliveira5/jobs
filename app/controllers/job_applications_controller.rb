@@ -7,10 +7,6 @@ class JobApplicationsController < ApplicationController
     @candidate = @job_application.candidate
   end
 
-  def create
-    JobApplication.new(job_application_params)
-  end
-
   def destroy
     @job_application = JobApplication.find(params[:id])
     @candidate = @job_application.candidate
