@@ -34,9 +34,9 @@ RSpec.describe JobOpportunitiesController, type: :controller do
   end
 
   describe '#create' do
-    it 'with valid params, creates job_opportunity' do
-      sign_in(employee)
+    before { sign_in(employee) }
 
+    it 'with valid params, creates job_opportunity' do
       expect do
         post :create, params: { job_opportunity: { job_title: 'Cantor',
                                                    description: 'Descrição teste',
@@ -51,11 +51,21 @@ RSpec.describe JobOpportunitiesController, type: :controller do
     end
 
     it 'with invalis params, renders new' do
-      sign_in(employee)
-
       post :create, params: { job_opportunity: { job_title: 'Cantor' } }
 
       expect(response).to render_template('new')
     end
+  end
+
+  describe '#update' do
+  end
+
+  describe '#create_job_application' do
+  end
+
+  describe '#inactivate_job_opportunity' do
+  end
+
+  describe '#activate_job_opportunity' do
   end
 end
