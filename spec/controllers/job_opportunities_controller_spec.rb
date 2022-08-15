@@ -87,6 +87,7 @@ RSpec.describe JobOpportunitiesController, type: :controller do
 
         expect(response).to redirect_to(redirect_to(job_application_path(JobApplication.last)))
         expect(assigns(:job_opportunity)).to eq job_opportunity
+        expect(flash[:notice]).to match('Inscrição realizada com sucesso!')
       end
     end
 
@@ -100,6 +101,7 @@ RSpec.describe JobOpportunitiesController, type: :controller do
 
         expect(response).to redirect_to(redirect_to(job_opportunity_path(job_opportunity)))
         expect(assigns(:job_opportunity)).to eq job_opportunity
+        expect(flash[:alert]).to match('Você precisa cadastrar seus dados para se candidatar')
       end
     end
   end
