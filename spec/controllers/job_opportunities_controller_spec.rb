@@ -112,6 +112,7 @@ RSpec.describe JobOpportunitiesController, type: :controller do
       post :inactivate_job_opportunity, params: { id: job_opportunity.id }
     end
 
+    it { expect(response).to redirect_to job_opportunity_path(job_opportunity) }
     it { expect(job_opportunity.reload.status).to eq('inactive') }
   end
 
@@ -123,6 +124,7 @@ RSpec.describe JobOpportunitiesController, type: :controller do
       post :activate_job_opportunity, params: { id: job_opportunity.id }
     end
 
+    it { expect(response).to redirect_to job_opportunity_path(job_opportunity) }
     it { expect(job_opportunity.reload.status).to eq('active') }
   end
 end
