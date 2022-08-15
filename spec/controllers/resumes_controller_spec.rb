@@ -5,13 +5,24 @@ RSpec.describe ResumesController, type: :controller do
   let(:resume) { candidate.resume }
 
   describe '#show' do
-    before do
-      sign_in(candidate)
-      get :show, params: { id: resume.id }
+    context 'when candidate is signed in' do
+      before do
+        sign_in(candidate)
+        get :show, params: { id: resume.id }
+      end
+
+      it { expect(response).to render_template('show') }
+      it { expect(assigns(:resume)).to eq resume }
     end
 
-    it { expect(response).to render_template('show') }
-    it { expect(assigns(:resume)).to eq resume }
+    context 'when candidate or employee is not signed in' do
+      it 'redirects to home page' do
+        get :show, params: { id: resume.id }
+
+        expect(response).to redirect_to root_path
+        expect(flash[:alert]).to be_present
+      end
+    end
   end
 
   describe '#edit' do
