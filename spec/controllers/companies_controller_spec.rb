@@ -38,7 +38,7 @@ RSpec.describe CompaniesController, type: :controller do
       expect(company.reload.address).to eq 'New York'
     end
 
-    it 'with invalis params, renders edit' do
+    it 'with invalid params, renders edit' do
       patch :update, params: { id: company.id, company: { address: '' } }
 
       expect(response).to render_template('edit')
