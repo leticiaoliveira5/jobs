@@ -9,8 +9,8 @@ RSpec.describe JobOpportunitiesController, type: :controller, login_metadata: tr
                     object: 'job_opportunity', action: 'index', template: 'index'
   end
 
-  describe '#new' do
-    it 'renders new', employee_signed_in: true do
+  describe '#new', employee_signed_in: true do
+    it 'renders new' do
       get :new
 
       expect(response).to render_template('new')
@@ -22,8 +22,8 @@ RSpec.describe JobOpportunitiesController, type: :controller, login_metadata: tr
                     object: 'job_opportunity', action: 'show', template: 'show'
   end
 
-  describe '#edit' do
-    it 'renders template edit', employee_signed_in: true do
+  describe '#edit', employee_signed_in: true do
+    it 'renders template edit' do
       get :edit, params: { id: job_opportunity.id }
 
       expect(response).to render_template('edit')
@@ -31,8 +31,8 @@ RSpec.describe JobOpportunitiesController, type: :controller, login_metadata: tr
     end
   end
 
-  describe '#create' do
-    it 'with valid params, creates job_opportunity', employee_signed_in: true do
+  describe '#create', employee_signed_in: true do
+    it 'with valid params, creates job_opportunity' do
       expect do
         post :create, params: { job_opportunity: { job_title: 'Cantor',
                                                    description: 'Descrição teste',
@@ -46,33 +46,33 @@ RSpec.describe JobOpportunitiesController, type: :controller, login_metadata: tr
       expect(response).to redirect_to(job_opportunity_path(JobOpportunity.last))
     end
 
-    it 'with invalid params, renders new', employee_signed_in: true do
+    it 'with invalid params, renders new' do
       post :create, params: { job_opportunity: { job_title: 'Cantor' } }
 
       expect(response).to render_template('new')
     end
   end
 
-  describe '#update' do
-    it 'with valid params, updates job_opportunity', employee_signed_in: true do
+  describe '#update', employee_signed_in: true do
+    it 'with valid params, updates job_opportunity' do
       patch :update, params: { id: job_opportunity.id, job_opportunity: { job_title: 'Officer' } }
 
       expect(response).to redirect_to(job_opportunity_path(job_opportunity))
       expect(job_opportunity.reload.job_title).to eq 'Officer'
     end
 
-    it 'with invalid params, renders edit', employee_signed_in: true do
+    it 'with invalid params, renders edit' do
       patch :update, params: { id: job_opportunity.id, job_opportunity: { job_title: '' } }
 
       expect(response).to render_template('edit')
     end
   end
 
-  describe '#create_job_application' do
+  describe '#create_job_application', candidate_signed_in: true do
     let(:candidate) { create(:candidate) }
 
     context 'success' do
-      it 'creates job application', candidate_signed_in: true do
+      it 'creates job application' do
         expect do
           post :create_job_application, params: { id: job_opportunity.id }
         end.to change(JobApplication, :count).by(1)
@@ -98,8 +98,8 @@ RSpec.describe JobOpportunitiesController, type: :controller, login_metadata: tr
     end
   end
 
-  describe '#inactivate_job_opportunity' do
-    it 'updates status and redirects', employee_signed_in: true do
+  describe '#inactivate_job_opportunity', employee_signed_in: true do
+    it 'updates status and redirects' do
       post :inactivate_job_opportunity, params: { id: job_opportunity.id }
 
       expect(response).to redirect_to job_opportunity_path(job_opportunity)

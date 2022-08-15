@@ -6,8 +6,8 @@ RSpec.describe JobProposalsController, type: :controller, login_metadata: true d
   let(:job_application) { job_proposal.job_application }
   let(:employee) { create(:employee, company: job_application.company) }
 
-  describe '#show' do
-    it 'renders show', candidate_signed_in: true do
+  describe '#show', candidate_signed_in: true do
+    it 'renders show' do
       get :show, params: { id: job_proposal.id, job_application_id: job_application.id }
 
       expect(response).to render_template('show')
@@ -22,9 +22,9 @@ RSpec.describe JobProposalsController, type: :controller, login_metadata: true d
     end
   end
 
-  describe '#create' do
+  describe '#create', employee_signed_in: true do
     context 'with valid params' do
-      it 'creates job proposal and redirects to company', employee_signed_in: true do
+      it 'creates job proposal and redirects to company' do
         expect do
           post :create,
                params: { job_application_id: job_application.id,
@@ -39,7 +39,7 @@ RSpec.describe JobProposalsController, type: :controller, login_metadata: true d
     end
 
     context 'with invalid params' do
-      it 'renders new', employee_signed_in: true do
+      it 'renders new' do
         expect do
           post :create, params: { job_application_id: job_application.id,
                                   job_proposal: { message: 'Hello' } }

@@ -10,8 +10,8 @@ RSpec.describe JobApplicationsController, type: :controller, login_metadata: tru
                     object: 'job_application', action: 'show', template: 'show'
   end
 
-  describe '#destroy' do
-    it 'deletes job application and redirects', candidate_signed_in: true do
+  describe '#destroy', candidate_signed_in: true do
+    it 'deletes job application and redirects' do
       job_application = create(:job_application, candidate: candidate)
 
       expect do
@@ -23,8 +23,8 @@ RSpec.describe JobApplicationsController, type: :controller, login_metadata: tru
     end
   end
 
-  describe '#decline' do
-    it 'updates status and sends flash message', employee_signed_in: true do
+  describe '#decline', employee_signed_in: true do
+    it 'updates status and sends flash message' do
       post :decline, params: { id: job_application.id }
 
       expect(job_application.reload.status).to eq 'declined'

@@ -24,8 +24,8 @@ RSpec.describe ResumesController, type: :controller, login_metadata: true do
     end
   end
 
-  describe '#edit' do
-    it 'renders template edit', candidate_signed_in: true do
+  describe '#edit', candidate_signed_in: true do
+    it 'renders template edit' do
       get :edit, params: { id: resume.id }
 
       expect(response).to render_template('edit')
@@ -33,8 +33,8 @@ RSpec.describe ResumesController, type: :controller, login_metadata: true do
     end
   end
 
-  describe '#update' do
-    it 'updates resume and redirects to show', candidate_signed_in: true do
+  describe '#update', candidate_signed_in: true do
+    it 'updates resume and redirects to show' do
       patch :update, params: { id: resume.id, resume: { address: 'Paraíba' } }
 
       expect(resume.reload.address).to eq 'Paraíba'
