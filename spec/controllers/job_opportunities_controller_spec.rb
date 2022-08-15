@@ -29,8 +29,10 @@ RSpec.describe JobOpportunitiesController, type: :controller do
       get :edit, params: { id: job_opportunity.id }
     end
 
-    it { expect(response).to render_template('edit') }
-    it { expect(assigns(:job_opportunity)).to eq job_opportunity }
+    it 'renders template edit' do
+      expect(response).to render_template('edit')
+      expect(assigns(:job_opportunity)).to eq job_opportunity
+    end
   end
 
   describe '#create' do
@@ -112,8 +114,10 @@ RSpec.describe JobOpportunitiesController, type: :controller do
       post :inactivate_job_opportunity, params: { id: job_opportunity.id }
     end
 
-    it { expect(response).to redirect_to job_opportunity_path(job_opportunity) }
-    it { expect(job_opportunity.reload.status).to eq('inactive') }
+    it 'updates status and redirects' do
+      expect(response).to redirect_to job_opportunity_path(job_opportunity)
+      expect(job_opportunity.reload.status).to eq('inactive')
+    end
   end
 
   describe '#activate_job_opportunity' do
@@ -124,7 +128,9 @@ RSpec.describe JobOpportunitiesController, type: :controller do
       post :activate_job_opportunity, params: { id: job_opportunity.id }
     end
 
-    it { expect(response).to redirect_to job_opportunity_path(job_opportunity) }
-    it { expect(job_opportunity.reload.status).to eq('active') }
+    it 'updates status and redirects' do
+      expect(response).to redirect_to job_opportunity_path(job_opportunity)
+      expect(job_opportunity.reload.status).to eq('active')
+    end
   end
 end

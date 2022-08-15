@@ -30,7 +30,9 @@ RSpec.describe JobApplicationsController, type: :controller do
       post :decline, params: { id: job_application.id }
     end
 
-    it { expect(job_application.reload.status).to eq 'declined' }
-    it { expect(flash[:notice]).to be_present }
+    it 'updates status and sends flash message' do
+      expect(job_application.reload.status).to eq 'declined'
+      expect(flash[:notice]).to be_present
+    end
   end
 end

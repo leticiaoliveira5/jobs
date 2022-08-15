@@ -60,9 +60,11 @@ RSpec.describe JobProposalsController, type: :controller do
       post :accept, params: { id: job_proposal.id, job_application_id: job_application.id }
     end
 
-    it { expect(response).to redirect_to job_application_job_proposal_path(job_proposal) }
-    it { expect(job_proposal.reload.status).to eq('accepted') }
-    it { expect(flash[:notice]).to be_present }
+    it 'updates status and redirects with flash message' do
+      expect(response).to redirect_to job_application_job_proposal_path(job_proposal)
+      expect(job_proposal.reload.status).to eq('accepted')
+      expect(flash[:notice]).to be_present
+    end
   end
 
   describe '#reject' do
@@ -71,8 +73,10 @@ RSpec.describe JobProposalsController, type: :controller do
       post :reject, params: { id: job_proposal.id, job_application_id: job_application.id }
     end
 
-    it { expect(response).to redirect_to job_application_job_proposal_path(job_proposal) }
-    it { expect(job_proposal.reload.status).to eq('rejected') }
-    it { expect(flash[:notice]).to be_present }
+    it 'updates status and redirects with flash message' do
+      expect(response).to redirect_to job_application_job_proposal_path(job_proposal)
+      expect(job_proposal.reload.status).to eq('rejected')
+      expect(flash[:notice]).to be_present
+    end
   end
 end

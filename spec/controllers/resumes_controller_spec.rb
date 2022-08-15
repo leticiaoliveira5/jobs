@@ -11,8 +11,10 @@ RSpec.describe ResumesController, type: :controller do
         get :show, params: { id: resume.id }
       end
 
-      it { expect(response).to render_template('show') }
-      it { expect(assigns(:resume)).to eq resume }
+      it 'renders template show' do
+        expect(response).to render_template('show')
+        expect(assigns(:resume)).to eq resume
+      end
     end
 
     context 'when candidate or employee is not signed in' do
@@ -31,8 +33,10 @@ RSpec.describe ResumesController, type: :controller do
       get :edit, params: { id: resume.id }
     end
 
-    it { expect(response).to render_template('edit') }
-    it { expect(assigns(:resume)).to eq resume }
+    it 'renders template edit' do
+      expect(response).to render_template('edit')
+      expect(assigns(:resume)).to eq resume
+    end
   end
 
   describe '#update' do
