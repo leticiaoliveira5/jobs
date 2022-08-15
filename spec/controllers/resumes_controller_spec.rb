@@ -45,7 +45,7 @@ RSpec.describe ResumesController, type: :controller do
       patch :update, params: { id: resume.id, resume: { address: 'Paraíba' } }
     end
 
-    it 'updates resume and rediects to show' do
+    it 'updates resume and redirects to show' do
       expect(resume.reload.address).to eq 'Paraíba'
       expect(response).to redirect_to resume_path(resume)
       expect(flash[:notice]).to be_present
