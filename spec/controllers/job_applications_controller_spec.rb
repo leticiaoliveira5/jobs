@@ -25,12 +25,12 @@ RSpec.describe JobApplicationsController, type: :controller do
     let!(:job_application) { create(:job_application) }
     let(:employee) { create(:employee, company: job_application.company) }
 
-    it 'changes the status to declined' do
+    before do
       sign_in(employee)
-
       post :decline, params: { id: job_application.id }
-
-      expect(job_application.reload.status).to eq 'declined'
     end
+
+    it { expect(job_application.reload.status).to eq 'declined' }
+    it { expect(flash[:notice]).to be_present }
   end
 end
