@@ -14,4 +14,9 @@ class JobOpportunity < ApplicationRecord
 
     errors.add(:limit_date, "Can't be in the past!")
   end
+
+  def self.search(input)
+    joins(:company)
+      .where('job_title LIKE ? OR name LIKE ?', "%#{input}%", "%#{input}%")
+  end
 end
