@@ -1,4 +1,3 @@
-# rails generate rspec:controller candidates
 require 'rails_helper'
 
 RSpec.describe CandidatesController, type: :controller, login_metadata: true do
