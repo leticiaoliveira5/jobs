@@ -50,7 +50,7 @@ RSpec.describe JobOpportunitiesController, type: :controller do
       expect(response).to redirect_to(job_opportunity_path(JobOpportunity.last))
     end
 
-    it 'with invalis params, renders new' do
+    it 'with invalid params, renders new' do
       post :create, params: { job_opportunity: { job_title: 'Cantor' } }
 
       expect(response).to render_template('new')
@@ -58,6 +58,20 @@ RSpec.describe JobOpportunitiesController, type: :controller do
   end
 
   describe '#update' do
+    before { sign_in(employee) }
+
+    it 'with valid params, updates job_opportunity' do
+      patch :update, params: { id: job_opportunity.id, job_opportunity: { job_title: 'Officer' } }
+
+      expect(response).to redirect_to(job_opportunity_path(job_opportunity))
+      expect(job_opportunity.reload.job_title).to eq 'Officer'
+    end
+
+    it 'with invalid params, renders edit' do
+      patch :update, params: { id: job_opportunity.id, job_opportunity: { job_title: '' } }
+
+      expect(response).to render_template('edit')
+    end
   end
 
   describe '#create_job_application' do
