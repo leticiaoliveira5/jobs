@@ -92,9 +92,9 @@ RSpec.describe JobOpportunitiesController, type: :controller do
     end
 
     context 'failure' do
-      it 'creates job application' do
-        allow_any_instance_of(JobApplication).to receive(:save).and_return(false)
+      let(:candidate) { create(:candidate, :without_info) }
 
+      it 'creates job application' do
         expect do
           post :create_job_application, params: { id: job_opportunity.id }
         end.not_to change(JobApplication, :count)
