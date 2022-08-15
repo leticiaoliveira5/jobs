@@ -91,10 +91,10 @@ RSpec.describe JobOpportunitiesController, type: :controller do
       end
     end
 
-    context 'failure' do
+    context 'when candidate information is missing' do
       let(:candidate) { create(:candidate, :without_info) }
 
-      it 'creates job application' do
+      it 'fails' do
         expect do
           post :create_job_application, params: { id: job_opportunity.id }
         end.not_to change(JobApplication, :count)
