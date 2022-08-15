@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :resumes, only: %i[index new create update edit show]
+  resources :resumes, only: %i[update edit show]
 
   resources :search_results, only: %i[index]
 end

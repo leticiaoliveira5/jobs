@@ -9,5 +9,11 @@ FactoryBot.define do
     cpf { '12345678911234' }
     address { 'Brasil' }
     about_me { 'Sou um candidato teste' }
+
+    trait :without_info do
+      cpf { nil }
+      address { nil }
+      about_me { nil }
+    end
   end
 end
