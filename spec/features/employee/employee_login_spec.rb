@@ -23,6 +23,7 @@ feature 'Employee logs in' do
   scenario 'and logs out' do
     click_on 'Sair'
 
+    expect(current_path).to eq root_path
     expect(page).not_to have_content 'leticia@email.com'
     expect(page).not_to have_link 'Sair'
   end
