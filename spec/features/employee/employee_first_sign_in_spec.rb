@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Employee sign in for the first time' do
+feature 'First employee sign in for the first time' do
   before do
     visit root_path
     within('#employee-form') { click_on 'Inscrever-se' }

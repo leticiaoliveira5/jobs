@@ -15,7 +15,9 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
 require 'simplecov'
-SimpleCov.start
+SimpleCov.start do
+  add_filter '/spec/'
+end
 require 'capybara/rspec'
 
 RSpec.configure do |config|
