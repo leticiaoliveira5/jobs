@@ -8,8 +8,4 @@ class Company < ApplicationRecord
   validates :name, :address, :cnpj, presence: true, on: :update
   validates :cnpj, length: { is: 14 }, on: :update
   validates :domain, :cnpj, uniqueness: true
-
-  def self.search(search)
-    where('name LIKE ?', "%#{search}%")
-  end
 end
