@@ -23,5 +23,6 @@ feature 'Candidate logs in' do
     end
 
     expect(current_path).to eq new_candidate_session_path
+    expect(page).to have_content 'E-mail ou senha inválidos.'
   end
 end
