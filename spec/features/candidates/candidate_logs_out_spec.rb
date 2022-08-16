@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Candidate sign out' do
+feature 'Candidate logs out' do
   let(:candidate) { create(:candidate) }
 
   scenario 'successfully' do
