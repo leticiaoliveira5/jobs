@@ -13,12 +13,4 @@ class ApplicationController < ActionController::Base
                :address, :email, :password, :current_password)
     end
   end
-
-  def after_sign_up_path_for(_resource)
-    if @employee
-      company_path(@employee.company_id)
-    elsif @candidate
-      resume_path(@candidate.resume)
-    end
-  end
 end
