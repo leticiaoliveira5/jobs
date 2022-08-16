@@ -21,10 +21,4 @@ class JobApplicationsController < ApplicationController
     redirect_to company_path(@job_application.company),
                 notice: t('.success', candidate: @job_application.candidate.firstname)
   end
-
-  private
-
-  def job_application_params
-    params.permit(:candidate, :job_opportunity)
-  end
 end
