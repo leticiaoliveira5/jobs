@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'Candidate logs in' do
   let(:candidate) { create(:candidate) }
 
-  before { visit root_path}
+  before { visit root_path }
 
   scenario 'successfully' do
     within('#candidate-form') do
