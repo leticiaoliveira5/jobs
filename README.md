@@ -55,7 +55,7 @@ docker-compose build
 
 Setup the database:
 ```bash
-docker-compose run --rm web bundle exec rake db:create db:migrate RAILS_ENV=development
+docker-compose run --rm web bundle exec rake db:create db:migrate db:seed RAILS_ENV=development
 ```
 
 And then:
