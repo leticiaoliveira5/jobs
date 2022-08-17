@@ -1,6 +1,7 @@
 FROM ruby:3.0.0
 
-RUN apt-get update -qq && apt-get install -y nodejs sqlite3 libsqlite3-dev yarn 
+RUN apt-get update -qq && apt-get install -y nodejs sqlite3 libsqlite3-dev yarn --no-install-recommends \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN mkdir /jobs
 WORKDIR /jobs
