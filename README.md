@@ -30,7 +30,7 @@ A web application that allows company employees to create and manage job opportu
 - Bug fixes
 - Security fixes
 
-## Current Versions
+## :gem: Current Versions
 
 -   Ruby 3.0.0
 -   Rails 7.0.2.4
@@ -53,15 +53,17 @@ In the project directory:
 docker-compose build
 ```
 
+And then:
+
 ```bash
 docker-compose up
 ```
 
 Now you can access the application at http://localhost:3000/
 
-### without Docker
+### :eyes: without Docker
 
-#### :gem: Prerequisites
+Prerequisites:
 
 -   Ruby 3.0.0
 -   Node.js
