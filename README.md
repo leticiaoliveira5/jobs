@@ -7,7 +7,7 @@
 A web application that allows company employees to create and manage job opportunities and find candidates interested in them.
 
 <details>
-<summary> :white_check_mark: Implemented Features </summary>
+<summary> :white_check_mark: Features </summary>
 
 -   Employee creates account using corporate email, creating company
 -   Employee fills in the company data, if he/she is the first person in the company to join
@@ -25,12 +25,12 @@ A web application that allows company employees to create and manage job opportu
 -   System sends email when Application Form is accepted
 </details>
 
-## :gem: Current Versions
+## Current Versions
 
 -   Ruby 3.0.0
 -   Rails 7.0.2.4
 
-## :computer: Run locally
+## Run locally
 
 <details>
 
@@ -102,18 +102,15 @@ rails server
 Now you can access the application at http://localhost:3000/
 </details>
 
-## :key: Logins
+## Logins :key:
 
--   **candidate**
-    -   email: 'candidate@email.com', password: '123456'
+-   **candidate** => email: candidate@email.com, password: 123456
+-   **employee** => email: admin@jobs.com, password: 123456
 
--   **employee**
-    -   email: 'admin@jobs.com', password: '123456'
-
-## :eyeglasses: Testing the code
+## Testing the code
 
 Simply run
 
 ```bash
-rspec
+bundle exec rspec
 ```
