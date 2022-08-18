@@ -6,7 +6,8 @@
 
 A web application that allows company employees to create and manage job opportunities and find candidates interested in them.
 
-## :white_check_mark: Implemented Features
+<details>
+<summary> :white_check_mark: Implemented Features </summary>
 
 -   Employee creates account using corporate email, creating company
 -   Employee fills in the company data, if he/she is the first person in the company to join
@@ -22,13 +23,7 @@ A web application that allows company employees to create and manage job opportu
 -   Employee approves/disapproves candidate application
 -   The job opportunity is deactivated when the required number of applicants is approved
 -   System sends email when Application Form is accepted
-
-
-## :hammer: Work in progress
-
-- Frontend remodel using ViewComponent
-- Bug fixes
-- Security fixes
+</details>
 
 ## :gem: Current Versions
 
@@ -37,7 +32,9 @@ A web application that allows company employees to create and manage job opportu
 
 ## :computer: Run locally
 
-### :whale: with Docker
+<details>
+
+<summary>with Docker :whale: </summary>
 
 If you have Docker installed, try this:
 
@@ -66,7 +63,11 @@ docker-compose up
 
 Now you can access the application at http://localhost:3000/
 
-### :eyes: without Docker
+</details>
+
+<details>
+
+<summary>without Docker :eyes: </summary>
 
 Prerequisites:
 
@@ -99,6 +100,7 @@ rails server
 ```
 
 Now you can access the application at http://localhost:3000/
+</details>
 
 ## :key: Logins
 
@@ -115,7 +117,3 @@ Simply run
 ```bash
 rspec
 ```
-
-## :space_invader: Writen and directed by
-
-  [/leticiaoliveira5](https://github.com/leticiaoliveira5)
