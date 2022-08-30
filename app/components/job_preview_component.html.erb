@@ -1,1 +1,6 @@
-<div>Add JobPreview template here</div>
+<div>
+  <h4>
+    <%= link_to "#{@job_opportunity.job_title} (#{@job_opportunity.company.name})", job_opportunity_path(@job_opportunity) %>
+   </h4>
+   <p> (<%= @job_opportunity.place %>) </p>
+</div>
