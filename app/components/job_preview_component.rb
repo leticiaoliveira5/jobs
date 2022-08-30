@@ -2,6 +2,6 @@
 
 class JobPreviewComponent < ViewComponent::Base
   def initialize(job_opportunity:)
-    @job_opportunity: job_opportunity
+    @job_opportunity = job_opportunity
   end
 end
