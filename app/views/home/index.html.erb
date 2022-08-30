@@ -11,8 +11,7 @@
     <div class="contentblock">
       <h2>Vagas recentes</h2>
       <% @job_opportunities.each do |job| %>
-        <h4><%= link_to job.job_title, job_opportunity_path(job) %> - <%= job.company.name %></h4>
-        <p>  (<%= job.place %>) </p>
+        <%= render(JobPreviewComponent.new(job_opportunity: job)) %>
       <%end%>
     </div>
   </div>
