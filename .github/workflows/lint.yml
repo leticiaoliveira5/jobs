@@ -1,11 +1,11 @@
-name: "Rubocop"
+name: "Lint"
 on:
   push:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
 jobs:
-  lint:
+  rubocop:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
