@@ -42,4 +42,5 @@ jobs:
       # Add or replace any other lints here
       - name: Rubocop
         uses: andrewmcodes/rubocop-linter-action@v3.0.0.rc2
-        # runs rubocop on diff
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
