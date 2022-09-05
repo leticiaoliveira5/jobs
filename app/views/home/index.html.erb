@@ -10,7 +10,7 @@
     </div>
     <div class="contentblock">
       <h2>Vagas recentes</h2>
-      <%= render(GridComponent.new) do %>
+      <%= render(GridComponent.new(columns: 3)) do %>
         <% @job_opportunities.each do |job| %>
           <%= render(JobPreviewComponent.new(job_opportunity: job)) %>
         <% end %>

@@ -1,5 +1,7 @@
 <div class="contentblock">
-  <% @job_opportunities.each do |job| %>
-    <%= render(JobPreviewComponent.new(job_opportunity: job)) %>
+  <%= render(GridComponent.new(columns: 5)) do %>
+    <% @job_opportunities.each do |job| %>
+      <%= render(JobPreviewComponent.new(job_opportunity: job)) %>
+    <% end %>
   <% end %>
 </div>
