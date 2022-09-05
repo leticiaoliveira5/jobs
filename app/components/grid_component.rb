@@ -10,7 +10,7 @@ class GridComponent < ViewComponent::Base
   def columns_css
     return unless @columns
 
-    'auto ' * @columns.to_i
+    '1fr ' * @columns.to_i
   end
 
   def rows_css
