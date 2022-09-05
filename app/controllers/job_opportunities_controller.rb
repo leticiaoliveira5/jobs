@@ -18,7 +18,8 @@ class JobOpportunitiesController < ApplicationController
       @employee = current_employee.company == @job_opportunity.company
       @job_applications = @job_opportunity.job_applications
     elsif candidate_signed_in?
-      @job_application = current_candidate&.job_applications&.find_by(job_opportunity: @job_opportunity)
+      @job_application = current_candidate.job_applications
+                                          .find_by(job_opportunity: @job_opportunity)
     end
   end
 
