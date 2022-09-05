@@ -2,8 +2,9 @@
 
 <div class="job-preview-box">
   <h4>
-    <%= link_to "#{@job_opportunity.job_title} (#{@job_opportunity.company.name})", job_opportunity_path(@job_opportunity) %>
+    <%= "#{@job_opportunity.job_title} (#{@job_opportunity.company.name})" %>
   </h4>
-  <p> (<%= @job_opportunity.description %>) </p>
-  <p> (<%= @job_opportunity.place %>) </p>
+  <p><%= @job_opportunity.description %></p>
+  <p><%= @job_opportunity.place %></p>
+  <p><%= link_to 'Ver detalhes', job_opportunity_path(@job_opportunity) %></p>
 </div>

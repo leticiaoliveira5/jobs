@@ -17,10 +17,9 @@
 .job-preview-box {
   background: var(--nav_background_color);
   border-color: var(--button_color);
+  border-radius: 7px;
   box-sizing: border-box;
-  display: inline-block;
-  margin: 10px auto;
-  max-width: 100%;
+  width: 100%;
   min-width: 55px;
-  padding: 5px;
+  padding: 10px 20px;
 }
