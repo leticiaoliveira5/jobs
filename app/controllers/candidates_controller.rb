@@ -5,9 +5,9 @@ class CandidatesController < ApplicationController
   def index
     return unless candidate_signed_in?
 
-    icon = current_candidate.icon
-    @avatar = if icon.attached?
-                image_tag(icon, size: '50x50', style: 'border-radius: 50%;')
+    avatar = current_candidate.avatar
+    @avatar = if avatar.attached?
+                image_tag(avatar, size: '50x50', style: 'border-radius: 50%;')
               else
                 image_tag('icon.png', size: '50x50')
               end

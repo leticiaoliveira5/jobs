@@ -7,7 +7,7 @@ class Candidate < ApplicationRecord
   has_many :job_applications, dependent: :restrict_with_error
   has_many :job_proposals, dependent: :restrict_with_error
   has_one :resume, dependent: :destroy
-  has_one_attached :icon
+  has_one_attached :avatar
 
   validates :cpf, length: { is: 11 }, on: :update, allow_blank: true
 

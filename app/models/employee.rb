@@ -6,7 +6,7 @@ class Employee < ApplicationRecord
 
   belongs_to :company, optional: false
 
-  has_one_attached :icon
+  has_one_attached :avatar
   
   validates :firstname, :surname, presence: true
 
