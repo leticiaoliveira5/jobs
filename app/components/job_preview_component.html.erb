@@ -1,10 +1,9 @@
-<%= stylesheet_link_tag "job_preview.css" %>
+<%= stylesheet_link_tag 'job_preview_component.css' %>
 
-<div class="jobs-container">
-  <div class="job-preview-box">
-    <h4>
-      <%= link_to "#{@job_opportunity.job_title} (#{@job_opportunity.company.name})", job_opportunity_path(@job_opportunity) %>
-    </h4>
-    <p> (<%= @job_opportunity.place %>) </p>
-  </div>
+<div class="job-preview-box">
+  <h4>
+    <%= link_to "#{@job_opportunity.job_title} (#{@job_opportunity.company.name})", job_opportunity_path(@job_opportunity) %>
+  </h4>
+  <p> (<%= @job_opportunity.description %>) </p>
+  <p> (<%= @job_opportunity.place %>) </p>
 </div>
