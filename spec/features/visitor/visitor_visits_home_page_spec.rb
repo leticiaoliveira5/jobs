@@ -32,7 +32,7 @@ feature 'Visitor visits home page' do
     visit root_path
     click_on 'Vagas recentes'
 
-    expect(page).to have_link('Desenvolvedor')
+    expect(page).to have_link('Ver detalhes')
     expect(page).to have_text('Pleno') && have_text('Home Office')
   end
 end
