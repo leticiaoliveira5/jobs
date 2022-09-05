@@ -14,13 +14,11 @@
  *= require ./color_theme
  */
 
-* {
-  box-sizing: border-box; 
-} /* The box-sizing property allows us to include the padding and border in an element's total width and height. */
 
 .job-preview-box {
   background: var(--nav_background_color);
   border-color: var(--button_color);
+  box-sizing: border-box;
   display: inline-block;
   margin: 10px auto;
   max-width: 100%;
