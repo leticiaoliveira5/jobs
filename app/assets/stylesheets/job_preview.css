@@ -19,11 +19,11 @@
 } /* The box-sizing property allows us to include the padding and border in an element's total width and height. */
 
 .job-preview-box {
-  display: inline-block;
-  margin: 10px auto;
-  min-width: 55px;
-  max-width: 100%;
-  padding: 5px;
   background: var(--nav_background_color);
   border-color: var(--button_color);
+  display: inline-block;
+  margin: 10px auto;
+  max-width: 100%;
+  min-width: 55px;
+  padding: 5px;
 }
