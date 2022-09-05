@@ -5,7 +5,7 @@ class HomeController < ApplicationController
     elsif employee_signed_in?
       redirect_to company_path(current_employee.company)
     else
-      @job_opportunities = JobOpportunity.first(6)
+      @job_opportunities = JobOpportunity.last(6)
       @current_user = nil
     end
   end
