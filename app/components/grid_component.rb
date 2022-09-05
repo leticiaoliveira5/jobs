@@ -14,7 +14,7 @@ class GridComponent < ViewComponent::Base
   end
 
   def rows_css
-    return unless @row
+    return unless @rows
 
     'auto ' * @rows.to_i
   end
