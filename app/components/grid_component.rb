@@ -1,5 +1,5 @@
 class GridComponent < ViewComponent::Base
-  def initialize(params)
+  def initialize(params = {})
     super
     @column_gap = params[:column_gap]
     @row_gap = params[:row_gap]
