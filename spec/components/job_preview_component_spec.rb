@@ -10,7 +10,7 @@ RSpec.describe JobPreviewComponent, type: :component do
 
   it 'renders the component' do
     expect(rendered_component).to have_css('.job-preview-box')
-    expect(rendered_component).to have_link('Ver detalhes')
+    expect(rendered_component).to have_link('Ver detalhes', href: "/job_opportunities/#{job_opportunity.id}")
     expect(rendered_component).to have_css('h4', text: job_opportunity.job_title)
     expect(rendered_component).to have_css('p', text: job_opportunity.job_level)
     expect(rendered_component).to have_css('p', text: job_opportunity.place)
