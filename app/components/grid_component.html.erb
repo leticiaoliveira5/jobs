@@ -1,0 +1,13 @@
+<style>
+  .grid {
+    display: grid;
+    column-gap: <%= @column_gap || '10' %>px;
+    row-gap: <%= @row_gap || '10' %>px;
+    grid-template-columns: <%= columns_css || 'auto' %>;
+    grid-template-rows: <%= rows_css || 'auto' %>;
+  }
+</style>
+
+<div class="grid">
+  <%= content %>
+</div>

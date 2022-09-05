@@ -1,0 +1,10 @@
+<%= stylesheet_link_tag 'job_preview_component.css' %>
+
+<div class="job-preview-box">
+  <h4>
+    <%= "#{@job_opportunity.job_title} (#{@job_opportunity.company.name})" %>
+  </h4>
+  <p><%= @job_opportunity.job_level %></p>
+  <p><%= @job_opportunity.place %></p>
+  <p><%= link_to 'Ver detalhes', job_opportunity_path(@job_opportunity) %></p>
+</div>
