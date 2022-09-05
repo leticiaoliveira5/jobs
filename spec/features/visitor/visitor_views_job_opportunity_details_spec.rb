@@ -18,7 +18,7 @@ feature 'Visitor views job opportunity details' do
   scenario 'successfully' do
     create_active_job_opportunity
     visit root_path
-    click_on 'Desenvolvedor'
+    click_on 'Ver detalhes'
 
     expect(page).to have_text('Desenvolvedor') &&
                     have_text('Apple') &&
