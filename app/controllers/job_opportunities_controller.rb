@@ -3,7 +3,7 @@ class JobOpportunitiesController < ApplicationController
   before_action :authenticate_candidate!, only: %i[create_job_application]
 
   def index
-    @job_opportunities = JobOpportunity.last(30)
+    @job_opportunities = JobOpportunity.active.last(30)
   end
 
   def new
