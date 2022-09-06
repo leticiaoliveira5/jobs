@@ -6,9 +6,7 @@
     float: right;
   }
 
-  .content {
-    display: <%= @default == :open ? 'block' : 'none' %>
-  }
+  .content { display: <%= default_display %>; }
 </style>
 
 <div class="contentblock">
@@ -18,8 +16,7 @@
 
   <% if @collapsible %>
     <h2 class="collapse-icon" onclick="toggleContent(this)">
-      <%= '+' if @default == :closed %>
-      <%= '-' if @default == :open %>
+      <%= default_symbol %>
     </h2>
   <% end %>
 

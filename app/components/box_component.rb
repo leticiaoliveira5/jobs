@@ -13,4 +13,12 @@ class BoxComponent < ViewComponent::Base
     @default = default
     super
   end
+
+  def default_display
+    @default == :open ? 'block' : 'none'
+  end
+
+  def default_symbol
+    @default == :open ? '-' : '+'
+  end
 end
