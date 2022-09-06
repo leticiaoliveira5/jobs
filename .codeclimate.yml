@@ -29,7 +29,7 @@ exclude_patterns:
 - vendor/
 - bin/
 - app/assets/javascripts/
-- db/migrate/
+- db/
 
 
 
