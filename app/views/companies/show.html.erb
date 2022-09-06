@@ -22,7 +22,7 @@
       <% if @company.job_applications.present? %>
         <% @company.job_applications.each do |a| %>
           <p>
-            <%= link_to "#{o.job_title} - #{a.candidate.firstname} #{a.candidate.surname}", job_application_path(a) %>
+            <%= link_to "#{a.job_opportunity.job_title} - #{a.candidate.firstname} #{a.candidate.surname}", job_application_path(a) %>
             (<%=t("job_applications.status.#{a.status}")%>)
           </p>
         <% end %>
