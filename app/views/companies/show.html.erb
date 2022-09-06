@@ -19,10 +19,15 @@
   <%= render(BoxComponent.new(collapsible: true, default: :closed)) do |component| %>
     <%= component.title { 'Candidaturas recebidas' } %>
     <%= component.body do %>
-      <% @company.job_opportunities.each do |o| %>
-        <% o.job_applications.each do |a| %>
-          <p><%= link_to "#{o.job_title} - #{a.candidate.firstname} #{a.candidate.surname}", job_application_path(a) %> (<%=t("job_applications.status.#{a.status}")%>)</p>
+      <% if @company.job_applications.present? %>
+        <% @company.job_applications.each do |a| %>
+          <p>
+            <%= link_to "#{o.job_title} - #{a.candidate.firstname} #{a.candidate.surname}", job_application_path(a) %>
+            (<%=t("job_applications.status.#{a.status}")%>)
+          </p>
         <% end %>
+      <% else %>
+        <p>Nenhuma candidatura foi recebida ainda.</p>
       <% end %>
     <% end %>
   <% end %>
