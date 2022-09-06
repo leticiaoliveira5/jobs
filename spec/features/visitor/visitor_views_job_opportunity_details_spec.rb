@@ -32,7 +32,7 @@ feature 'Visitor views job opportunity details' do
     click_on 'Ver empresas cadastradas'
     click_on 'Apple'
     click_on 'Desenvolvedor'
-    click_on 'Inscrever-se nesta vaga'
+    click_on 'Faça login para inscrever-se nesta vaga'
 
     expect(current_path).to eq(new_candidate_session_path)
     expect(page).to have_text('Para continuar, faça login ou registre-se.')
