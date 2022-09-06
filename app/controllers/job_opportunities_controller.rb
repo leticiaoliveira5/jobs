@@ -3,7 +3,7 @@ class JobOpportunitiesController < ApplicationController
   before_action :authenticate_candidate!, only: %i[create_job_application]
 
   def index
-    @job_opportunities = JobOpportunity.last(30)
+    @job_opportunities = JobOpportunity.active.last(30)
   end
 
   def new
@@ -13,6 +13,11 @@ class JobOpportunitiesController < ApplicationController
 
   def show
     @job_opportunity = JobOpportunity.find(params[:id])
+
+    return unless employee_signed_in?
+
+    @employee = current_employee.company == @job_opportunity.company
+    @job_applications = @job_opportunity.job_applications
   end
 
   def create
