@@ -43,8 +43,9 @@
   <%= render(BoxComponent.new) do |component| %>
     <%= component.title { 'Vagas inativas' } %>
     <%= component.body do %>
-      <% if @inactve_job_opportunities.present? %>
-        <% @inactve_job_opportunities.each do |job| %>
+      <% inactve_job_opportunities = @job_opportunities.inactive %>
+      <% if inactve_job_opportunities.present? %>
+        <% inactve_job_opportunities.each do |job| %>
           <p><%= link_to "#{job.job_title} (#{job.status})", job_opportunity_path(job) %></p>
         <% end %> 
       <% else %>
@@ -71,10 +72,11 @@
 <%= render(BoxComponent.new) do |component| %>
   <%= component.title { 'Vagas disponíveis' } %>
   <%= component.body do %>
-    <% if @active_job_opportunities.blank? %>
+    <% active_job_opportunities = @job_opportunities.active %>
+    <% if active_job_opportunities.blank? %>
       <p>Nenhuma vaga ativa no momento.</p>
     <% else %>
-      <% @active_job_opportunities.each do |job| %>
+      <% active_job_opportunities.each do |job| %>
         <p><%= link_to "#{job.job_title}", job_opportunity_path(job) %> </p>
       <% end %>
     <% end %>
