@@ -7,8 +7,9 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
-    @active_job_opportunities = @company.job_opportunities.active
-    @inactive_job_opportunities = @company.job_opportunities.inactive
+    @job_opportunities = @company.job_opportunities
+    @active_job_opportunities = @job_opportunities.active
+    @inactive_job_opportunities = @job_opportunities.inactive
   end
 
   def create
