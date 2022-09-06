@@ -5,6 +5,10 @@
     display: inline-flex;
     float: right;
   }
+
+  .content {
+    display: <%= @default == :open ? 'block' : 'none' %>
+  }
 </style>
 
 <div class="contentblock">
@@ -13,7 +17,10 @@
   <% end %>
 
   <% if @collapsible %>
-    <h2 class="collapse-icon" onclick="toggleContent(this)">-</h2>
+    <h2 class="collapse-icon" onclick="toggleContent(this)">
+      <%= '+' if @default == :closed %>
+      <%= '-' if @default == :open %>
+    </h2>
   <% end %>
 
   <div class="content">
