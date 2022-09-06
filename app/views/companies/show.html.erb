@@ -16,7 +16,7 @@
     <% end %>
   <% end %>
 
-  <%= render(BoxComponent.new) do |component| %>
+  <%= render(BoxComponent.new(collapsible: true)) do |component| %>
     <%= component.title { 'Candidaturas recebidas' } %>
     <%= component.body do %>
       <% @company.job_opportunities.each do |o| %>
@@ -27,7 +27,7 @@
     <% end %>
   <% end %>
 
-  <%= render(BoxComponent.new) do |component| %>
+  <%= render(BoxComponent.new(collapsible: true)) do |component| %>
     <%= component.title { 'Propostas enviadas' } %>
     <%= component.body do %>
       <% if @company.job_proposals.size.positive? %>
@@ -40,7 +40,7 @@
     <% end %>
   <% end %>
 
-  <%= render(BoxComponent.new) do |component| %>
+  <%= render(BoxComponent.new(collapsible: true)) do |component| %>
     <%= component.title { 'Vagas inativas' } %>
     <%= component.body do %>
       <% inactve_job_opportunities = @job_opportunities.inactive %>
@@ -69,7 +69,7 @@
   <% end %>
 <% end %>
 
-<%= render(BoxComponent.new) do |component| %>
+<%= render(BoxComponent.new(collapsible: true)) do |component| %>
   <%= component.title { 'Vagas disponíveis' } %>
   <%= component.body do %>
     <% active_job_opportunities = @job_opportunities.active %>

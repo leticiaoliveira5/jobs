@@ -1,9 +1,32 @@
+<style>
+  .collapse-icon {
+    color: gray;
+    cursor: pointer;
+    float: right;
+  }
+</style>
+
 <div class="contentblock">
   <% if title? %>
     <h2><%= title %></h2>
+  <% end %>
+
+  <% if @collapsible %>
+    <h2 class="collapse-icon" onclick="toggleContent(this)">icon</h2>
   <% end %>
 
   <div class="content">
     <%= body %>
   </div>
 </div>
+
+<script>
+  function toggleContent(element) {
+    let content = element.nextElementSibling;
+    if (content.style.display == 'none') {
+      content.style.display = 'block';
+    } else {
+      content.style.display = 'none'
+    }
+  }
+</script>
