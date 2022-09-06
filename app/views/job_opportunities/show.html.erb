@@ -2,26 +2,18 @@
   <h2> <%=@job_opportunity.job_title%> (<%=t(".#{@job_opportunity.status}")%>)  </h2>
 
   <p> <%= t('.company') %>: <%= @job_opportunity.company.name %></p>
-  <p> <%= t('.job_level') %>: <%=@job_opportunity.job_level%></p>
-  <p> <%= t('.description') %>: <%=@job_opportunity.description%></p>
-  <p> <%= t('.salary_range') %>: <%=@job_opportunity.salary_range%></p>
-  <p> <%= t('.place') %>: <%=@job_opportunity.place %></p>
-  <p> <%= t('.limit_date') %>: <%=@job_opportunity.limit_date %></p>
+  <p> <%= t('.job_level') %>: <%= @job_opportunity.job_level %></p>
+  <p> <%= t('.description') %>: <%= @job_opportunity.description %></p>
+  <p> <%= t('.salary_range') %>: <%= @job_opportunity.salary_range %></p>
+  <p> <%= t('.place') %>: <%= @job_opportunity.place %></p>
+  <p> <%= t('.limit_date') %>: <%= @job_opportunity.limit_date %></p>
 
   <% if @employee %>
-    <% if @job_opportunity.active? %>
-      <%= link_to 'Inativar vaga', inactivate_job_opportunity_job_opportunity_path(@job_opportunity), method: :post %>
-    <% elsif @job_opportunity.inactive? %>
-      <%= link_to 'Ativar vaga', activate_job_opportunity_job_opportunity_path(@job_opportunity), method: :post %>
-    <% end %>
-      <%= link_to 'Editar vaga', edit_job_opportunity_path(@job_opportunity) %>
-  <% elsif !employee_signed_in? %>
-    <% if @job_application %>
-      <h4>Você está inscrito nesta vaga.</h4>
-    <% elsif @job_application == nil && @job_opportunity.active? %>
-      <h4><%= link_to 'Inscrever-se nesta vaga', create_job_application_job_opportunity_path(@job_opportunity), method: :post %></h4>
-    <% end %>
+    <%= inactivate_link(@job_opportunity) %>
+    <%= activate_link(@job_opportunity) %>
+    <%= edit_link(@job_opportunity) %>
   <% end %>
+    <%= apply_link(@job_opportunity, current_candidate) %>
 </div>
 
 <% if @employee %>
