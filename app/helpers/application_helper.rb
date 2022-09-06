@@ -21,9 +21,7 @@ module ApplicationHelper
   end
 
   def apply_link(job_opportunity, candidate)
-    return if candidate.blank?
-
-    candidate_applied = job_opportunity.candidates.include?(candidate)
+    candidate_applied = job_opportunity.candidates.include?(candidate) if candidate.present?
 
     if candidate_applied
       'Você está inscrito nesta vaga.'
