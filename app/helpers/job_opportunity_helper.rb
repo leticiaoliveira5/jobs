@@ -29,11 +29,9 @@ module JobOpportunityHelper
   def apply_link(job_opportunity)
     return unless candidate_signed_in?
 
-    candidate_applied = job_opportunity.candidates.include?(current_candidate)
-
     if job_opportunity.candidates.include?(current_candidate)
       'Você está inscrito nesta vaga.'
-    elsif !candidate_applied && job_opportunity.active?
+    elsif job_opportunity.active?
       link_to 'Inscrever-se nesta vaga',
               create_job_application_job_opportunity_path(job_opportunity),
               method: :post
