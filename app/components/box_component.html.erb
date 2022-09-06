@@ -2,17 +2,18 @@
   .collapse-icon {
     color: gray;
     cursor: pointer;
+    display: inline-flex;
     float: right;
   }
 </style>
 
 <div class="contentblock">
   <% if title? %>
-    <h2><%= title %></h2>
+    <h2 style="display: inline-flex;"><%= title %></h2>
   <% end %>
 
   <% if @collapsible %>
-    <h2 class="collapse-icon" onclick="toggleContent(this)">icon</h2>
+    <h2 class="collapse-icon" onclick="toggleContent(this)">-</h2>
   <% end %>
 
   <div class="content">
@@ -25,8 +26,10 @@
     let content = element.nextElementSibling;
     if (content.style.display == 'none') {
       content.style.display = 'block';
+      element.textContent = '-';
     } else {
-      content.style.display = 'none'
+      content.style.display = 'none';
+      element.textContent = '+'
     }
   }
 </script>
