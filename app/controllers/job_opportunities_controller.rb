@@ -14,10 +14,10 @@ class JobOpportunitiesController < ApplicationController
   def show
     @job_opportunity = JobOpportunity.find(params[:id])
 
-    if employee_signed_in?
-      @employee = current_employee.company == @job_opportunity.company
-      @job_applications = @job_opportunity.job_applications
-    end
+    return unless employee_signed_in?
+
+    @employee = current_employee.company == @job_opportunity.company
+    @job_applications = @job_opportunity.job_applications
   end
 
   def create
