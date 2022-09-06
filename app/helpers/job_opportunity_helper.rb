@@ -1,9 +1,8 @@
 module JobOpportunityHelper
   include Devise::Controllers::Helpers
 
-  # crete component for these methods
   def inactivate_link(job_opportunity)
-    return unless employee_signed_in? && current_employee.company == job_opportunity.company
+    return unless current_employee&.company_id == job_opportunity.company_id
     return if job_opportunity.inactive?
 
     link_to 'Inativar vaga',
@@ -12,7 +11,7 @@ module JobOpportunityHelper
   end
 
   def activate_link(job_opportunity)
-    return unless employee_signed_in? && current_employee.company == job_opportunity.company
+    return unless current_employee&.company_id == job_opportunity.company_id
     return if job_opportunity.active?
 
     link_to 'Ativar vaga',
@@ -21,7 +20,7 @@ module JobOpportunityHelper
   end
 
   def edit_link(job_opportunity)
-    return unless employee_signed_in? && current_employee.company == job_opportunity.company
+    return unless current_employee&.company_id == job_opportunity.company_id
 
     link_to 'Editar vaga', edit_job_opportunity_path(job_opportunity)
   end
