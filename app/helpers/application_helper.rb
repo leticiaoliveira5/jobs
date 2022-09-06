@@ -1,5 +1,10 @@
 module ApplicationHelper
-  # crete component for these methods
+  def user_avatar(user)
+    avatar = user.avatar.attached? ? user.avatar : 'icon.png'
+    image_tag(avatar, size: '50x50', style: 'border-radius: 50%;')
+  end
+  
+    # crete component for these methods
   def inactivate_link(job_opportunity)
     return unless job_opportunity.inactive?
 
