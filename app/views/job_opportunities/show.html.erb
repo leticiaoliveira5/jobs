@@ -8,12 +8,11 @@
   <p><%= t('.place') %>: <%= @job_opportunity.place %></p>
   <p><%= t('.limit_date') %>: <%= @job_opportunity.limit_date %></p>
 
-  <% if @employee %>
-    <%= inactivate_link(@job_opportunity) %>
-    <%= activate_link(@job_opportunity) %>
-    <%= edit_link(@job_opportunity) %>
-  <% end %>
-    <%= apply_link(@job_opportunity, current_candidate) %>
+  <%= inactivate_link(@job_opportunity) %>
+  <%= activate_link(@job_opportunity) %>
+  <%= edit_link(@job_opportunity) %>
+  <%= apply_link(@job_opportunity) %>
+  <%= sign_up_and_apply_link(@job_opportunity) %>
 </div>
 
 <% if @employee %>
