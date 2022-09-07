@@ -30,13 +30,11 @@ class CompaniesController < ApplicationController
   end
 
   def employee_panel
-    @company = Company.find(params[:id])
-    redirect_to(root_path) unless @company.employees.include?(current_employee)
-    @job_opportunities = @company.job_opportunities
-    @active_job_opportunities = @job_opportunities.active
-    @inactive_job_opportunities = @job_opportunities.inactive
-    @job_proposals = @company.job_proposals
-    @job_applications = @company.job_applications
+    redirect_to(root_path) unless Company.find(params[:id]).employees.include?(current_employee)
+    @company = Company.includes(:job_proposals,
+                                :job_proposals,
+                                :active_job_opportunities,
+                                :inactive_job_opportunities).find(params[:id])
   end
 
   private
