@@ -20,11 +20,7 @@ feature 'Employee views job applications' do
 
   scenario 'successfully' do
     login_as apple_employee, scope: :employee
-    visit root_path
-    click_on 'Área do colaborador'
-    within(".job-preview-box##{job_opportunity.id}") do
-      click_on 'Ver detalhes'
-    end
+    visit job_opportunity_path(job_opportunity)
 
     expect(page).to have_content 'Candidaturas recebidas para esta vaga:'
     expect(page).to have_content 'Desenvolvedor - Fernanda Braga'

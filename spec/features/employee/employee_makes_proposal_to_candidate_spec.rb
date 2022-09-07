@@ -5,13 +5,11 @@ feature 'Employee makes proposal to candidate' do
   let(:employee) { create(:employee, company: company) }
   let(:job_opportunity) { create(:job_opportunity, job_title: 'Desenvolvedor', company: company) }
   let(:candidate) { create(:candidate, firstname: 'Juliana') }
+  let(:job_application) { create(:job_application, candidate: candidate, job_opportunity: job_opportunity) }
 
   before do
-    create(:job_application, candidate: candidate, job_opportunity: job_opportunity)
     login_as employee, scope: :employee
-    visit root_path
-    click_on 'Área do colaborador'
-    click_on 'Desenvolvedor'
+    visit job_application_path(job_application)
     click_on 'Fazer proposta para Juliana'
     fill_in 'Mensagem', with: 'Mensagem teste'
     fill_in 'Proposta salarial', with: '2500'

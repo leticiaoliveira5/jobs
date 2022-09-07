@@ -23,6 +23,5 @@ feature 'Employee views job proposals sent' do
     click_on 'Área do colaborador'
 
     expect(page).to have_content 'Propostas enviadas'
-    expect(page).to have_link 'Desenvolvedor - Juliana Fagundes'
   end
 end
