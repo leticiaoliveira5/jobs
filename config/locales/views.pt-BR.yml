@@ -45,11 +45,6 @@ pt-BR:
         inactive_job_opportunity: Nenhuma vaga inativa no momento.
         job_proposal: Nenhuma proposta foi enviada.
         job_application: Nenhuma proposta foi enviada.
-      job_applications:
-        status:
-          waiting: Aguardando avaliação
-          accepted: Aceita
-          declined: Não aceita
   job_proposals:
     new:
       firstname: Nome
