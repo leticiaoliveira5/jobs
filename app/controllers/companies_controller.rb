@@ -1,5 +1,4 @@
 class CompaniesController < ApplicationController
-  # before_action :authenticate_employee!, only: %i[create new edit]
   before_action :authenticate_employee!, only: %i[employee_panel edit]
 
   def index
