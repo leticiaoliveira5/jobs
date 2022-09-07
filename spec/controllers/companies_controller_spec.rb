@@ -15,8 +15,11 @@ RSpec.describe CompaniesController, type: :controller, login_metadata: true do
   end
 
   describe '#edit', employee_signed_in: true do
-    it_behaves_like 'controller simple get action',
-                    object: 'company', action: 'edit', template: 'edit'
+    it 'render edit' do
+      get :edit, params: { id: company.id }
+
+      expect(response).to render_template('edit')
+    end
   end
 
   describe '#create' do
