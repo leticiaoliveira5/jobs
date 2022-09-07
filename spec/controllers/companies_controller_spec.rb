@@ -14,11 +14,25 @@ RSpec.describe CompaniesController, type: :controller, login_metadata: true do
                     object: 'company', action: 'index', template: 'index'
   end
 
-  describe '#edit', employee_signed_in: true do
-    it 'render edit' do
-      get :edit, params: { id: company.id }
+  describe '#edit' do
+    context 'with company employee signed in', employee_signed_in: true do
+      it 'render edit' do
+        get :edit, params: { id: company.id }
 
-      expect(response).to render_template('edit')
+        expect(response).to render_template('edit')
+      end
+    end
+
+    context 'when employee is not from the company' do
+      it 'renderirects with alert' do
+        other_company_employee = create(:employee)
+        sign_in(other_company_employee)
+
+        get :edit, params: { id: company.id }
+
+        expect(response).to redirect_to(company_path(other_company_employee.company))
+        expect(flash[:alert]).to be_present
+      end
     end
   end
 

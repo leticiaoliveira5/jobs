@@ -40,7 +40,8 @@ class CompaniesController < ApplicationController
   def company_employee?
     return if Company.find(params[:id]).employees.include?(current_employee)
 
-    redirect_to root_path, alert: 'É necessário ser colaborador da empresa para ver esta página'
+    redirect_to company_path(current_employee.company),
+                alert: 'É necessário ser colaborador da empresa para ver esta página'
   end
 
   private
