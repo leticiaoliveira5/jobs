@@ -20,7 +20,7 @@ feature 'Employee views job proposals sent' do
   scenario 'successfully' do
     login_as employee, scope: :employee
     visit root_path
-    click_on 'Área da empresa'
+    click_on 'Área do colaborador'
 
     expect(page).to have_content 'Propostas enviadas'
     expect(page).to have_link 'Desenvolvedor - Juliana Fagundes'

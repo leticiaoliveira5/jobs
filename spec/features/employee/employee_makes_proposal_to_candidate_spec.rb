@@ -10,7 +10,7 @@ feature 'Employee makes proposal to candidate' do
     create(:job_application, candidate: candidate, job_opportunity: job_opportunity)
     login_as employee, scope: :employee
     visit root_path
-    click_on 'Área da empresa'
+    click_on 'Área do colaborador'
     click_on 'Desenvolvedor'
     click_on 'Fazer proposta para Juliana'
     fill_in 'Mensagem', with: 'Mensagem teste'

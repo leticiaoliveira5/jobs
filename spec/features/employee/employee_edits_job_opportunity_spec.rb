@@ -12,7 +12,7 @@ feature 'Employee edits job opportunity' do
   scenario 'successfully' do
     login_as employee, scope: :employee
     visit root_path
-    click_on 'Área da empresa'
+    click_on 'Área do colaborador'
     click_on 'Dummie'
     click_on 'Editar vaga'
     fill_in 'Descrição', with: 'Auxiliar em organização de provas'

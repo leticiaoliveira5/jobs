@@ -14,7 +14,7 @@ feature 'Employee rejects job application' do
 
   scenario 'employee views job application' do
     visit root_path
-    click_on 'Área da empresa'
+    click_on 'Área do colaborador'
     click_on 'Desenvolvedor - Fernanda Braga'
 
     expect(current_path).to eq job_application_path(job_application)

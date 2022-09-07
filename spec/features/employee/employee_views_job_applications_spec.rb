@@ -21,7 +21,7 @@ feature 'Employee views job applications' do
   scenario 'successfully' do
     login_as apple_employee, scope: :employee
     visit root_path
-    click_on 'Área da empresa'
+    click_on 'Área do colaborador'
     click_on 'Desenvolvedor'
 
     expect(page).to have_content 'Candidaturas recebidas para esta vaga:'
