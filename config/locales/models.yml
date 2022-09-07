@@ -13,12 +13,13 @@ pt-BR:
         domain: Domínio
         name: Nome
       employee:
-        admin: Admin
         email: E-mail
         firstname: Nome
-        password: Senha
-        regular: Regular
         surname: Sobrenome
+        password: Senha
+        role:
+          admin: Admin
+          regular: Regular
       job_opportunity:
         active: Ativa
         description: Descrição
@@ -37,6 +38,11 @@ pt-BR:
         waiting: Aguardando avaliação
         accepted: Aceita
         rejected: Não aceita
+      job_application:
+        status:
+          waiting: Aguardando avaliação
+          accepted: Aceita
+          declined: Não aceita
       resume:
         abilities: Conhecimentos
         education: Formação acadêmica
