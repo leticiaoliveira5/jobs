@@ -1,0 +1,38 @@
+<style>
+  .collapse-icon {
+    color: gray;
+    cursor: pointer;
+    display: inline-flex;
+    float: right;
+  }
+</style>
+
+<div class="contentblock">
+  <% if collapsible? %>
+    <h2 onclick="toggleContent(this)" style="cursor: pointer;">
+      <%= title if title? %>
+      <span class="collapse-icon"><%= default_symbol %></span>
+    </h2>
+  <% else %>
+    <% if title? %>
+      <h2><%= title %></h2> 
+    <% end %>
+  <% end %>
+
+  <div class="content" style="display:<%= default_display || 'block' %>;">
+    <%= body %>
+  </div>
+</div>
+
+<script>
+  function toggleContent(element) {
+    let content = element.nextElementSibling;
+    if (content.style.display == 'none') {
+      content.style.display = 'block';
+      element.children[0].textContent = '-';
+    } else {
+      content.style.display = 'none';
+      element.children[0].textContent = '+'
+    }
+  }
+</script>

@@ -13,11 +13,8 @@ feature 'Employee rejects job application' do
   before { login_as employee, scope: :employee }
 
   scenario 'employee views job application' do
-    visit root_path
-    click_on 'Área da empresa'
-    click_on 'Desenvolvedor - Fernanda Braga'
+    visit job_application_path(job_application)
 
-    expect(current_path).to eq job_application_path(job_application)
     expect(page).to have_text('Rejeitar candidatura') &&
                     have_text('Dê um motivo para a rejeição da candidatura.')
     expect(page).to have_field 'rejection_motive'

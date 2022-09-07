@@ -5,7 +5,7 @@ FactoryBot.define do
     company
     firstname { Faker::Name.first_name }
     surname { Faker::Name.last_name }
-    email { 'fausto@globe.com' }
+    email { Faker::Internet.email(domain: company.domain) }
     password { '123456' }
   end
 end

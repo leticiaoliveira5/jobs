@@ -11,7 +11,7 @@ feature 'Employee edits company' do
   scenario 'successfully' do
     login_as first_employee, scope: :employee
     visit root_path
-    click_on 'Área da empresa'
+    click_on 'Área do colaborador'
     click_on 'Editar dados da empresa'
     fill_in 'Endereço', with: 'Rua 7, número 10, Glória'
     click_on 'Cadastrar empresa'
@@ -23,7 +23,7 @@ feature 'Employee edits company' do
   scenario 'if admin' do
     login_as regular_employee, scope: :employee
     visit root_path
-    click_on 'Área da empresa'
+    click_on 'Área do colaborador'
 
     expect(page).not_to have_content 'Editar dados da empresa'
   end

@@ -1,5 +1,6 @@
 class CompaniesController < ApplicationController
-  # before_action :authenticate_employee!, only: %i[create new edit]
+  before_action :authenticate_employee!, only: %i[employee_panel edit]
+  before_action :company_employee?, only: %i[employee_panel edit]
 
   def index
     @companies = Company.all
@@ -7,6 +8,7 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
+    @job_opportunities = @company.job_opportunities.active
   end
 
   def create
@@ -26,6 +28,20 @@ class CompaniesController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def employee_panel
+    @company = Company.includes(:job_proposals,
+                                :job_proposals,
+                                :active_job_opportunities,
+                                :inactive_job_opportunities).find(params[:id])
+  end
+
+  def company_employee?
+    return if Company.find(params[:id]).employees.include?(current_employee)
+
+    redirect_to company_path(current_employee.company),
+                alert: 'É necessário ser colaborador da empresa para ver esta página'
   end
 
   private

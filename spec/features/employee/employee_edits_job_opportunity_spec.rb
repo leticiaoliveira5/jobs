@@ -11,9 +11,7 @@ feature 'Employee edits job opportunity' do
 
   scenario 'successfully' do
     login_as employee, scope: :employee
-    visit root_path
-    click_on 'Área da empresa'
-    click_on 'Dummie'
+    visit job_opportunity_path(job_opportunity)
     click_on 'Editar vaga'
     fill_in 'Descrição', with: 'Auxiliar em organização de provas'
     click_on 'Atualizar'
