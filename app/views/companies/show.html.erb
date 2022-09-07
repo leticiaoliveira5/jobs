@@ -17,10 +17,10 @@
   <% end %>
 
   <%= render(BoxComponent.new(collapsible: true, default: :closed)) do |component| %>
-    <%= component.title { 'Candidaturas recebidas' } %>
+    <%= component.title { "Candidaturas recebidas (#{@job_applications.size})" } %>
     <%= component.body do %>
-      <% if @company.job_applications.present? %>
-        <% @company.job_applications.each do |a| %>
+      <% if @job_applications.present? %>
+        <% @job_applications.each do |a| %>
           <p>
             <%= link_to "#{a.job_opportunity.job_title} - #{a.candidate.firstname} #{a.candidate.surname}", job_application_path(a) %>
             (<%=t("job_applications.status.#{a.status}")%>)
@@ -33,10 +33,10 @@
   <% end %>
 
   <%= render(BoxComponent.new(collapsible: true, default: :closed)) do |component| %>
-    <%= component.title { 'Propostas enviadas' } %>
+    <%= component.title { "Propostas enviadas (#{@job_proposals.size})" } %>
     <%= component.body do %>
-      <% if @company.job_proposals.size.positive? %>
-        <% @company.job_proposals.each do |a| %>
+      <% if @job_proposals.size.positive? %>
+        <% @job_proposals.each do |a| %>
           <p><%= link_to "#{a.job_application.job_opportunity.job_title} - #{a.job_application.candidate.firstname} #{a.job_application.candidate.surname} [#{a.status}]", job_application_job_proposal_path(a.job_application, a) %></p>
         <% end %>
       <% else %>
@@ -46,9 +46,9 @@
   <% end %>
 
   <%= render(BoxComponent.new(collapsible: true, default: :closed)) do |component| %>
-    <%= component.title { 'Vagas inativas' } %>
+    <% inactive_job_opportunities = @job_opportunities.inactive %>
+    <%= component.title { "Vagas inativas (#{inactive_job_opportunities.size})" } %>
     <%= component.body do %>
-      <% inactive_job_opportunities = @job_opportunities.inactive %>
       <% if inactive_job_opportunities.present? %>
         <%= render(GridComponent.new(columns: 'auto')) do %>
           <% inactive_job_opportunities.each do |job| %>
@@ -77,9 +77,9 @@
 <% end %>
 
 <%= render(BoxComponent.new()) do |component| %>
-  <%= component.title { 'Vagas disponíveis' } %>
+  <% active_job_opportunities = @job_opportunities.active %>
+  <%= component.title { "Vagas disponíveis (#{active_job_opportunities.size})" } %>
   <%= component.body do %>
-    <% active_job_opportunities = @job_opportunities.active %>
     <% if active_job_opportunities.blank? %>
       <p>Nenhuma vaga ativa no momento.</p>
     <% else %>
