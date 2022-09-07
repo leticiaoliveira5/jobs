@@ -48,11 +48,13 @@
   <%= render(BoxComponent.new(collapsible: true, default: :closed)) do |component| %>
     <%= component.title { 'Vagas inativas' } %>
     <%= component.body do %>
-      <% inactve_job_opportunities = @job_opportunities.inactive %>
-      <% if inactve_job_opportunities.present? %>
-        <% inactve_job_opportunities.each do |job| %>
-          <p><%= link_to "#{job.job_title} (#{job.status})", job_opportunity_path(job) %></p>
-        <% end %> 
+      <% inactive_job_opportunities = @job_opportunities.inactive %>
+      <% if inactive_job_opportunities.present? %>
+        <%= render(GridComponent.new(columns: 'auto')) do %>
+          <% inactive_job_opportunities.each do |job| %>
+            <%= render(JobPreviewComponent.new(job_opportunity: job)) %>
+          <% end %>
+        <% end %>
       <% else %>
         <p>Nenhuma vaga inativa no momento.</p>
       <% end %>
@@ -74,15 +76,17 @@
   <% end %>
 <% end %>
 
-<%= render(BoxComponent.new(collapsible: true)) do |component| %>
+<%= render(BoxComponent.new()) do |component| %>
   <%= component.title { 'Vagas disponíveis' } %>
   <%= component.body do %>
     <% active_job_opportunities = @job_opportunities.active %>
     <% if active_job_opportunities.blank? %>
       <p>Nenhuma vaga ativa no momento.</p>
     <% else %>
-      <% active_job_opportunities.each do |job| %>
-        <p><%= link_to "#{job.job_title}", job_opportunity_path(job) %> </p>
+      <%= render(GridComponent.new(columns: 2)) do %>
+        <% active_job_opportunities.each do |job| %>
+          <%= render(JobPreviewComponent.new(job_opportunity: job)) %>
+        <% end %>
       <% end %>
     <% end %>
   <% end %>
