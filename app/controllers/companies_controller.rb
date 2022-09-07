@@ -1,5 +1,6 @@
 class CompaniesController < ApplicationController
   before_action :authenticate_employee!, only: %i[employee_panel edit]
+  before_action :company_employee?, only: %i[employee_panel edit]
 
   def index
     @companies = Company.all
@@ -30,11 +31,16 @@ class CompaniesController < ApplicationController
   end
 
   def employee_panel
-    redirect_to(root_path) unless Company.find(params[:id]).employees.include?(current_employee)
     @company = Company.includes(:job_proposals,
                                 :job_proposals,
                                 :active_job_opportunities,
                                 :inactive_job_opportunities).find(params[:id])
+  end
+
+  def company_employee?
+    return if Company.find(params[:id]).employees.include?(current_employee)
+
+    redirect_to root_path, alert: 'É necessário ser colaborador da empresa para ver esta página'
   end
 
   private
