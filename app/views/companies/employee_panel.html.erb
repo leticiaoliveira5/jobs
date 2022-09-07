@@ -26,7 +26,7 @@
         </p>
       <% end %>
     <% else %>
-      <p>Nenhuma candidatura foi recebida ainda.</p>
+      <p><%= t('.empty_state.job_application') %></p>
     <% end %>
   <% end %>
 <% end %>
@@ -39,7 +39,7 @@
         <p><%= link_to "#{a.job_application.job_opportunity.job_title} - #{a.job_application.candidate.firstname} #{a.job_application.candidate.surname} [#{a.status}]", job_application_job_proposal_path(a.job_application, a) %></p>
       <% end %>
     <% else %>
-      <p>Nenhuma proposta foi enviada.</p>
+      <p><%= t('.empty_state.job_proposal') %></p>
     <% end %>
   <% end %>
 <% end %>
@@ -54,7 +54,7 @@
         <% end %>
       <% end %>
     <% else %>
-      <p>Nenhuma vaga ativa no momento.</p>
+      <p><%= t('.empty_state.active_job_opportunity') %></p>
     <% end %>
   <% end %>
 <% end %>
@@ -69,7 +69,7 @@
         <% end %>
       <% end %>
     <% else %>
-      <p>Nenhuma vaga inativa no momento.</p>
+      <p><%= t('.empty_state.inactive_job_opportunity') %></p>
     <% end %>
   <% end %>
 <% end %>
