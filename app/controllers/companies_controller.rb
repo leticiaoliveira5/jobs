@@ -1,5 +1,6 @@
 class CompaniesController < ApplicationController
   # before_action :authenticate_employee!, only: %i[create new edit]
+  before_action :authenticate_employee!, only: %i[employee_panel]
 
   def index
     @companies = Company.all
@@ -7,9 +8,7 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
-    @job_opportunities = @company.job_opportunities
-    @job_proposals = @company.job_proposals
-    @job_applications = @company.job_applications
+    @job_opportunities = @company.job_opportunities.active
   end
 
   def create

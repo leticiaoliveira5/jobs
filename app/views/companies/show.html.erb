@@ -1,67 +1,3 @@
-<% if employee_signed_in? && current_employee.company == @company %>
-  <%= render(BoxComponent.new) do |component| %>
-    <%= component.title do %>
-      Painel colaborador - <%= current_employee.firstname%> (<%=current_employee.role%>)
-    <% end %>
-
-    <%= component.body do %>
-      <% if current_employee.admin? %>
-        <h3>Funcionários cadastrados:</h3>
-        <% @company.employees.each do |employee| %>
-          <p><%= employee.firstname %> <%= employee.surname %> (<%= employee.role %>)</p>
-        <% end %>
-        <p><%= link_to 'Editar dados da empresa', edit_company_path(@company) %></p>
-      <% end %>
-      <p><%= link_to 'Cadastrar nova vaga', new_job_opportunity_path %></p>
-    <% end %>
-  <% end %>
-
-  <%= render(BoxComponent.new(collapsible: true, default: :closed)) do |component| %>
-    <%= component.title { "Candidaturas recebidas (#{@job_applications.size})" } %>
-    <%= component.body do %>
-      <% if @job_applications.present? %>
-        <% @job_applications.each do |a| %>
-          <p>
-            <%= link_to "#{a.job_opportunity.job_title} - #{a.candidate.firstname} #{a.candidate.surname}", job_application_path(a) %>
-            (<%=t("job_applications.status.#{a.status}")%>)
-          </p>
-        <% end %>
-      <% else %>
-        <p>Nenhuma candidatura foi recebida ainda.</p>
-      <% end %>
-    <% end %>
-  <% end %>
-
-  <%= render(BoxComponent.new(collapsible: true, default: :closed)) do |component| %>
-    <%= component.title { "Propostas enviadas (#{@job_proposals.size})" } %>
-    <%= component.body do %>
-      <% if @job_proposals.size.positive? %>
-        <% @job_proposals.each do |a| %>
-          <p><%= link_to "#{a.job_application.job_opportunity.job_title} - #{a.job_application.candidate.firstname} #{a.job_application.candidate.surname} [#{a.status}]", job_application_job_proposal_path(a.job_application, a) %></p>
-        <% end %>
-      <% else %>
-        <p>Nenhuma proposta foi enviada.</p>
-      <% end %>
-    <% end %>
-  <% end %>
-
-  <%= render(BoxComponent.new(collapsible: true, default: :closed)) do |component| %>
-    <% inactive_job_opportunities = @job_opportunities.inactive %>
-    <%= component.title { "Vagas inativas (#{inactive_job_opportunities.size})" } %>
-    <%= component.body do %>
-      <% if inactive_job_opportunities.present? %>
-        <%= render(GridComponent.new(columns: 'auto')) do %>
-          <% inactive_job_opportunities.each do |job| %>
-            <%= render(JobPreviewComponent.new(job_opportunity: job)) %>
-          <% end %>
-        <% end %>
-      <% else %>
-        <p>Nenhuma vaga inativa no momento.</p>
-      <% end %>
-    <% end %>
-  <% end %>
-<% end %>
-
 <%= render(BoxComponent.new) do |component| %>
   <%= component.title { 'Dados da empresa' } %>
   <%= component.body do %>
@@ -77,17 +13,16 @@
 <% end %>
 
 <%= render(BoxComponent.new()) do |component| %>
-  <% active_job_opportunities = @job_opportunities.active %>
-  <%= component.title { "Vagas disponíveis (#{active_job_opportunities.size})" } %>
+  <%= component.title { "Vagas disponíveis (#{@job_opportunities.size})" } %>
   <%= component.body do %>
-    <% if active_job_opportunities.blank? %>
-      <p>Nenhuma vaga ativa no momento.</p>
-    <% else %>
+    <% if @job_opportunities.exists? %>
       <%= render(GridComponent.new(columns: 2)) do %>
-        <% active_job_opportunities.each do |job| %>
+        <% @job_opportunities.each do |job| %>
           <%= render(JobPreviewComponent.new(job_opportunity: job)) %>
         <% end %>
       <% end %>
+    <% else %>
+      <p>Nenhuma vaga ativa no momento.</p>
     <% end %>
   <% end %>
 <% end %>
