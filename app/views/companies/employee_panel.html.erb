@@ -1,6 +1,6 @@
 <%= render(BoxComponent.new(behavior: :default)) do |component| %>
   <%= component.title do %>
-    Painel colaborador - <%= current_employee.firstname%> (<%=current_employee.role%>)
+    Painel colaborador - <%= current_employee.firstname%> (<%= t_attr("employee.role.#{current_employee.role}") %>)
   <% end %>
 
   <%= component.body do %>
@@ -20,10 +20,7 @@
   <%= component.body do %>
     <% if @company.job_applications.exists? %>
       <% @company.job_applications.each do |a| %>
-        <p>
-          <%= link_to "#{a.job_opportunity.job_title} - #{a.candidate.firstname} #{a.candidate.surname}", job_application_path(a) %>
-          (<%=t("job_applications.status.#{a.status}")%>)
-        </p>
+        <p><%= job_application_link(a) %> (<%= t_attr("job_application.status.#{a.status}") %>)</p>
       <% end %>
     <% else %>
       <p><%= t('.empty_state.job_application') %></p>
@@ -36,7 +33,7 @@
   <%= component.body do %>
     <% if @company.job_proposals.exists? %>
       <% @company.job_proposals.each do |a| %>
-        <p><%= link_to "#{a.job_application.job_opportunity.job_title} - #{a.job_application.candidate.firstname} #{a.job_application.candidate.surname} [#{a.status}]", job_application_job_proposal_path(a.job_application, a) %></p>
+        <p><%= job_proposal_link(a) %></p>
       <% end %>
     <% else %>
       <p><%= t('.empty_state.job_proposal') %></p>

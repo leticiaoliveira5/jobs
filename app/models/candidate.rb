@@ -16,4 +16,8 @@ class Candidate < ApplicationRecord
   def create_resume
     Resume.create!(candidate: self)
   end
+
+  def full_name
+    "#{firstname} #{surname}"
+  end
 end
