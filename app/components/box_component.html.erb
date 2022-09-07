@@ -10,13 +10,14 @@
 </style>
 
 <div class="contentblock">
-  <% if title? %>
-    <h2 style="display: inline-flex;"><%= title %></h2>
-  <% end %>
-
-  <% if @collapsible %>
-    <h2 class="collapse-icon" onclick="toggleContent(this)">
-      <%= default_symbol %>
+  <% if title? || @collapsible %>
+    <h2 onclick="toggleContent(this)">
+      <%= title %>
+      <% if @collapsible%>
+        <span class="collapse-icon">
+          <%= default_symbol %>
+        </span>
+      <% end %>
     </h2>
   <% end %>
 
@@ -30,10 +31,10 @@
     let content = element.nextElementSibling;
     if (content.style.display == 'none') {
       content.style.display = 'block';
-      element.textContent = '-';
+      element.children[0].textContent = '-';
     } else {
       content.style.display = 'none';
-      element.textContent = '+'
+      element.children[0].textContent = '+'
     }
   }
 </script>
