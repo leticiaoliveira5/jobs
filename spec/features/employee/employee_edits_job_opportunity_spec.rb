@@ -13,7 +13,9 @@ feature 'Employee edits job opportunity' do
     login_as employee, scope: :employee
     visit root_path
     click_on 'Área do colaborador'
-    click_on 'Dummie'
+    within(".job-preview-box##{job_opportunity.id}") do
+      click_on 'Ver detalhes'
+    end
     click_on 'Editar vaga'
     fill_in 'Descrição', with: 'Auxiliar em organização de provas'
     click_on 'Atualizar'

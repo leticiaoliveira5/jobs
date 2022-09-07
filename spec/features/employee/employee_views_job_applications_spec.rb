@@ -22,7 +22,9 @@ feature 'Employee views job applications' do
     login_as apple_employee, scope: :employee
     visit root_path
     click_on 'Área do colaborador'
-    click_on 'Desenvolvedor'
+    within(".job-preview-box##{job_opportunity.id}") do
+      click_on 'Ver detalhes'
+    end
 
     expect(page).to have_content 'Candidaturas recebidas para esta vaga:'
     expect(page).to have_content 'Desenvolvedor - Fernanda Braga'
@@ -33,9 +35,11 @@ feature 'Employee views job applications' do
     visit root_path
     click_on 'Ver empresas cadastradas'
     click_on 'Apple'
-    click_on 'Desenvolvedor'
+    within(".job-preview-box##{job_opportunity.id}") do
+      click_on 'Ver detalhes'
+    end
 
-    expect(page).not_to have_content 'Candidaturas recebidas para esta vaga:'
+    expect(page).not_to have_text 'Candidaturas recebidas para esta vaga:'
     expect(page).not_to have_link 'Inativar vaga'
     expect(page).not_to have_link 'Editar vaga'
   end

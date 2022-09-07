@@ -44,6 +44,21 @@
   <% end %>
 <% end %>
 
+<%= render(BoxComponent.new()) do |component| %>
+  <%= component.title { "Vagas disponíveis (#{@active_job_opportunities.size})" } %>
+  <%= component.body do %>
+    <% if @active_job_opportunities.exists? %>
+      <%= render(GridComponent.new(columns: 2)) do %>
+        <% @active_job_opportunities.each do |job| %>
+          <%= render(JobPreviewComponent.new(job_opportunity: job)) %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <p>Nenhuma vaga ativa no momento.</p>
+    <% end %>
+  <% end %>
+<% end %>
+
 <%= render(BoxComponent.new(collapsible: true, default: :closed)) do |component| %>
   <%= component.title { "Vagas inativas (#{@inactive_job_opportunities.size})" } %>
   <%= component.body do %>

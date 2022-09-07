@@ -12,7 +12,9 @@ feature 'Candidate applies to job' do
     visit root_path
     click_on 'Ver empresas cadastradas'
     click_on company.name
-    click_on 'Dummie'
+    within(".job-preview-box##{job_opportunity.id}") do
+      click_on 'Ver detalhes'
+    end
     click_on 'Inscrever-se nesta vaga'
 
     expect(page).to have_text 'Inscrição realizada com sucesso!'
@@ -26,7 +28,9 @@ feature 'Candidate applies to job' do
     visit root_path
     click_on 'Ver empresas cadastradas'
     click_on company.name
-    click_on 'Dummie'
+    within(".job-preview-box##{job_opportunity.id}") do
+      click_on 'Ver detalhes'
+    end
 
     expect(page).to have_text 'Você está inscrito nesta vaga'
     expect(page).not_to have_link 'Inscrever-se nesta vaga'
