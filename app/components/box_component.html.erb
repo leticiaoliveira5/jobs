@@ -8,7 +8,7 @@
 </style>
 
 <div class="contentblock">
-  <% if @collapsible == true %>
+  <% if collapsible? %>
     <h2 onclick="toggleContent(this)" style="cursor: pointer;">
       <%= title if title? %>
       <span class="collapse-icon"><%= default_symbol %></span>

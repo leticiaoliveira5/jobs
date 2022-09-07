@@ -3,20 +3,25 @@ class BoxComponent < ViewComponent::Base
   renders_one :body
 
   # attributes values:
-  # collapsible: boolean
+  # behavior: boolean
+  # behavior: [:collapsible, :default]
   # default: [:open, :closed]
 
-  def initialize(collapsible: false, default: :open)
-    @collapsible = collapsible
+  def initialize(behavior: :default, default: :open)
+    @behavior = behavior
     @default = default
     super
   end
 
   def default_display
-    'none' if @collapsible == true && @default == :closed
+    'none' if @behavior == :collapsible && @default == :closed
   end
 
   def default_symbol
     @default == :open ? '-' : '+'
+  end
+
+  def collapsible?
+    @behavior == :collapsible
   end
 end

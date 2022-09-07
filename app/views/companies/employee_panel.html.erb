@@ -1,4 +1,4 @@
-<%= render(BoxComponent.new(collapsible: false)) do |component| %>
+<%= render(BoxComponent.new(behavior: :default)) do |component| %>
   <%= component.title do %>
     Painel colaborador - <%= current_employee.firstname%> (<%=current_employee.role%>)
   <% end %>
@@ -15,7 +15,7 @@
   <% end %>
 <% end %>
 
-<%= render(BoxComponent.new(collapsible: true, default: :closed)) do |component| %>
+<%= render(BoxComponent.new(behavior: :collapsible, default: :closed)) do |component| %>
   <%= component.title { "Candidaturas recebidas (#{@company.job_applications.size})" } %>
   <%= component.body do %>
     <% if @company.job_applications.exists? %>
@@ -31,7 +31,7 @@
   <% end %>
 <% end %>
 
-<%= render(BoxComponent.new(collapsible: true, default: :closed)) do |component| %>
+<%= render(BoxComponent.new(behavior: :collapsible, default: :closed)) do |component| %>
   <%= component.title { "Propostas enviadas (#{@company.job_proposals.size})" } %>
   <%= component.body do %>
     <% if @company.job_proposals.exists? %>
@@ -44,7 +44,7 @@
   <% end %>
 <% end %>
 
-<%= render(BoxComponent.new(collapsible: true, default: :closed)) do |component| %>
+<%= render(BoxComponent.new(behavior: :collapsible, default: :closed)) do |component| %>
   <%= component.title { "Vagas disponíveis (#{@company.active_job_opportunities.size})" } %>
   <%= component.body do %>
     <% if @company.active_job_opportunities.exists? %>
@@ -59,7 +59,7 @@
   <% end %>
 <% end %>
 
-<%= render(BoxComponent.new(collapsible: true, default: :closed)) do |component| %>
+<%= render(BoxComponent.new(behavior: :collapsible, default: :closed)) do |component| %>
   <%= component.title { "Vagas inativas (#{@company.inactive_job_opportunities.size})" } %>
   <%= component.body do %>
     <% if @company.inactive_job_opportunities.exists? %>
