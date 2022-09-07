@@ -1,4 +1,4 @@
-<%= render(BoxComponent.new) do |component| %>
+<%= render(BoxComponent.new(collapsible: false)) do |component| %>
   <%= component.title do %>
     Painel colaborador - <%= current_employee.firstname%> (<%=current_employee.role%>)
   <% end %>
@@ -44,7 +44,7 @@
   <% end %>
 <% end %>
 
-<%= render(BoxComponent.new()) do |component| %>
+<%= render(BoxComponent.new(collapsible: true, default: :closed)) do |component| %>
   <%= component.title { "Vagas disponíveis (#{@active_job_opportunities.size})" } %>
   <%= component.body do %>
     <% if @active_job_opportunities.exists? %>

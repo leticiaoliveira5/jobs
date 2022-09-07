@@ -15,7 +15,7 @@ class BoxComponent < ViewComponent::Base
   end
 
   def default_display
-    @default == :open ? 'block' : 'none'
+    'none' if @collapsible == true && @default == :closed
   end
 
   def default_symbol

@@ -5,23 +5,21 @@
     display: inline-flex;
     float: right;
   }
-
-  .content { display: <%= default_display %>; }
 </style>
 
 <div class="contentblock">
-  <% if title? || @collapsible %>
-    <h2 onclick="toggleContent(this)">
-      <%= title %>
-      <% if @collapsible%>
-        <span class="collapse-icon">
-          <%= default_symbol %>
-        </span>
-      <% end %>
+  <% if @collapsible == true %>
+    <h2 onclick="toggleContent(this)" style="cursor: pointer;">
+      <%= title if title? %>
+      <span class="collapse-icon"><%= default_symbol %></span>
     </h2>
+  <% else %>
+    <% if title? %>
+      <h2><%= title %></h2> 
+    <% end %>
   <% end %>
 
-  <div class="content">
+  <div class="content" style="display:<%= default_display || 'block' %>;">
     <%= body %>
   </div>
 </div>
