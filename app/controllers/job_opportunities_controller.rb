@@ -37,7 +37,8 @@ class JobOpportunitiesController < ApplicationController
 
     job_application = JobApplication.create(
       job_opportunity: @job_opportunity,
-      candidate: current_candidate
+      candidate: current_candidate,
+      status: :waiting
     )
 
     if job_application.save
