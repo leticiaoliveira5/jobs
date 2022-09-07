@@ -3,7 +3,6 @@ class BoxComponent < ViewComponent::Base
   renders_one :body
 
   # attributes values:
-  # behavior: boolean
   # behavior: [:collapsible, :default]
   # default: [:open, :closed]
 
