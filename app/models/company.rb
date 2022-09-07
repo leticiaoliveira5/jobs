@@ -3,6 +3,8 @@ class Company < ApplicationRecord
   has_many :job_opportunities, dependent: :destroy
   has_many :job_proposals, through: :job_opportunities
   has_many :job_applications, through: :job_opportunities
+  has_many :active_job_opportunities, -> { where(status: :active) }, class_name: 'JobOpportunity'
+  has_many :inactive_job_opportunities, -> { where(status: :inactive) }, class_name: 'JobOpportunity'
 
   validates :domain, presence: true
   validates :name, :address, :cnpj, presence: true, on: :update
