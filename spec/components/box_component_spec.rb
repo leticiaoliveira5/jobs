@@ -3,13 +3,15 @@
 require 'rails_helper'
 
 RSpec.describe BoxComponent, type: :component do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:rendered_component) do
+    render_inline(described_class.new()) do |component|
+      component.title { 'Test' }
+      component.body { 'Body' }
+    end.to_html
+  end
 
-  # it "renders something useful" do
-  #   expect(
-  #     render_inline(described_class.new(attr: "value")) { "Hello, components!" }.css("p").to_html
-  #   ).to include(
-  #     "Hello, components!"
-  #   )
-  # end
+  it 'renders the component' do
+    expect(rendered_component).to have_css('h2', text: 'Test')
+    expect(rendered_component).to have_css('.content', text: 'Body')
+  end
 end
