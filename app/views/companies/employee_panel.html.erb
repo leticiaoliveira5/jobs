@@ -33,7 +33,7 @@
   <%= component.body do %>
     <% if @company.job_proposals.exists? %>
       <% @company.job_proposals.each do |a| %>
-        <p><%= job_proposal_link(a) %> (<%= t_attr('job_proposal.status') %>)</p>
+        <p><%= job_proposal_link(a) %> (<%= t_attr("job_proposal.status.#{a.status}") %>)</p>
       <% end %>
     <% else %>
       <p><%= t('.empty_state.job_proposal') %></p>
