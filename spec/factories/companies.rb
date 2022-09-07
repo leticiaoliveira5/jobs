@@ -8,7 +8,7 @@ FactoryBot.define do
 
   trait :with_employee do
     after(:create) do |company|
-      create(:employee, company: company, 
+      create(:employee, company: company,
                         email: Faker::Internet.email(domain: company.domain))
     end
   end

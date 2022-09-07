@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe BoxComponent, type: :component do
   let(:rendered_component) do
-    render_inline(described_class.new()) do |component|
+    render_inline(described_class.new) do |component|
       component.title { 'Test' }
       component.body { 'Body' }
     end.to_html
