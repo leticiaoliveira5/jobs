@@ -1,7 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe CompaniesController, type: :controller do
-  let(:company) { create(:company) }
+RSpec.describe CompaniesController, type: :controller, login_metadata: true do
+  let(:company) { create(:company, :with_employee) }
+  let(:employee) { company.employees.first }
 
   describe '#show' do
     it_behaves_like 'controller simple get action',
@@ -13,7 +14,7 @@ RSpec.describe CompaniesController, type: :controller do
                     object: 'company', action: 'index', template: 'index'
   end
 
-  describe '#edit' do
+  describe '#edit', employee_signed_in: true do
     it_behaves_like 'controller simple get action',
                     object: 'company', action: 'edit', template: 'edit'
   end
@@ -43,6 +44,14 @@ RSpec.describe CompaniesController, type: :controller do
 
       expect(response).to render_template('edit')
       expect(company.reload.address).to eq 'California'
+    end
+  end
+
+  describe '#employee_panel' do
+    it 'renders employee panel', employee_signed_in: true do
+      get :employee_panel, params: { id: company.id }
+
+      expect(response).to render_template('employee_panel')
     end
   end
 end
