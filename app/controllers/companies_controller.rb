@@ -31,7 +31,7 @@ class CompaniesController < ApplicationController
   end
 
   def employee_panel
-    @company = Company.includes(:job_proposals,
+    @company = Company.includes(:job_applications,
                                 :job_proposals,
                                 :active_job_opportunities,
                                 :inactive_job_opportunities).find(params[:id])
