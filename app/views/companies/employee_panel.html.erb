@@ -19,8 +19,11 @@
   <%= component.title { "Candidaturas recebidas (#{@company.job_applications.size})" } %>
   <%= component.body do %>
     <% if @company.job_applications.exists? %>
-      <% @company.job_applications.each do |a| %>
-        <p><%= job_application_link(a) %> (<%= t_attr("job_application.status.#{a.status}") %>)</p>
+      <% @company.job_applications.each do |job_application| %>
+        <p>
+          <%= "#{job_application.job_opportunity.job_title} - #{job_application.candidate.full_name}" %>
+          (<%= t_attr("job_application.status.#{job_application.status}") %>) <%= job_application_link(job_application) %> 
+        </p>
       <% end %>
     <% else %>
       <p><%= t('.empty_state.job_application') %></p>
@@ -32,8 +35,12 @@
   <%= component.title { "Propostas enviadas (#{@company.job_proposals.size})" } %>
   <%= component.body do %>
     <% if @company.job_proposals.exists? %>
-      <% @company.job_proposals.each do |a| %>
-        <p><%= job_proposal_link(a) %> (<%= t_attr("job_proposal.status.#{a.status}") %>)</p>
+      <% @company.job_proposals.each do |job_proposal| %>
+        <p>
+          <%= "#{job_proposal.job_opportunity.job_title} - #{job_proposal.candidate.full_name}" %>
+          (<%= t_attr("job_proposal.status.#{job_proposal.status}") %>)
+          <%= job_proposal_link(job_proposal) %> 
+        </p>
       <% end %>
     <% else %>
       <p><%= t('.empty_state.job_proposal') %></p>
