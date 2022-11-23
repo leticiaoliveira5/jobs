@@ -41,6 +41,8 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v1
+      - name: Curl rubocop.yml
+        run: curl https://raw.githubusercontent.com/leticiaoliveira5/code-style/master/.rubocop.yml -O
       - uses: ruby/setup-ruby@v1
       - name: rubocop
         uses: reviewdog/action-rubocop@v2
