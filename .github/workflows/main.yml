@@ -19,7 +19,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Set up Ruby 3.0
-        uses: actions/setup-ruby@v1
+        uses: actions/setup-ruby@v1.124.0
         with:
           ruby-version: 3.0.0p0
       - name: Setup cache key and directory for gems cache
