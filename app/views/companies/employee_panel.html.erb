@@ -1,6 +1,6 @@
 <%= render(BoxComponent.new(behavior: :default)) do |component| %>
   <%= component.title do %>
-    Painel colaborador - <%= current_employee.firstname%> (<%=current_employee.role%>)
+    Painel colaborador - <%= current_employee.firstname%> (<%= t_attr("employee.role.#{current_employee.role}") %>)
   <% end %>
 
   <%= component.body do %>
@@ -19,14 +19,14 @@
   <%= component.title { "Candidaturas recebidas (#{@company.job_applications.size})" } %>
   <%= component.body do %>
     <% if @company.job_applications.exists? %>
-      <% @company.job_applications.each do |a| %>
+      <% @company.job_applications.each do |job_application| %>
         <p>
-          <%= link_to "#{a.job_opportunity.job_title} - #{a.candidate.firstname} #{a.candidate.surname}", job_application_path(a) %>
-          (<%=t("job_applications.status.#{a.status}")%>)
+          <%= "#{job_application.job_opportunity.job_title} - #{job_application.candidate.full_name}" %>
+          (<%= t_attr("job_application.status.#{job_application.status}") %>) <%= job_application_link(job_application) %> 
         </p>
       <% end %>
     <% else %>
-      <p>Nenhuma candidatura foi recebida ainda.</p>
+      <p><%= t('.empty_state.job_application') %></p>
     <% end %>
   <% end %>
 <% end %>
@@ -35,11 +35,15 @@
   <%= component.title { "Propostas enviadas (#{@company.job_proposals.size})" } %>
   <%= component.body do %>
     <% if @company.job_proposals.exists? %>
-      <% @company.job_proposals.each do |a| %>
-        <p><%= link_to "#{a.job_application.job_opportunity.job_title} - #{a.job_application.candidate.firstname} #{a.job_application.candidate.surname} [#{a.status}]", job_application_job_proposal_path(a.job_application, a) %></p>
+      <% @company.job_proposals.each do |job_proposal| %>
+        <p>
+          <%= "#{job_proposal.job_opportunity.job_title} - #{job_proposal.candidate.full_name}" %>
+          (<%= t_attr("job_proposal.status.#{job_proposal.status}") %>)
+          <%= job_proposal_link(job_proposal) %> 
+        </p>
       <% end %>
     <% else %>
-      <p>Nenhuma proposta foi enviada.</p>
+      <p><%= t('.empty_state.job_proposal') %></p>
     <% end %>
   <% end %>
 <% end %>
@@ -54,7 +58,7 @@
         <% end %>
       <% end %>
     <% else %>
-      <p>Nenhuma vaga ativa no momento.</p>
+      <p><%= t('.empty_state.active_job_opportunity') %></p>
     <% end %>
   <% end %>
 <% end %>
@@ -69,7 +73,7 @@
         <% end %>
       <% end %>
     <% else %>
-      <p>Nenhuma vaga inativa no momento.</p>
+      <p><%= t('.empty_state.inactive_job_opportunity') %></p>
     <% end %>
   <% end %>
 <% end %>
