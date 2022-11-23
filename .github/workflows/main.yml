@@ -34,7 +34,7 @@ jobs:
       - name: Run tests
         run: |
           bundle exec rake db:schema:load
-          bundle exec rspec --format --require rails_helper
+          bundle exec rspec --format
   rubocop:
     name: rubocop
     runs-on: ubuntu-latest
