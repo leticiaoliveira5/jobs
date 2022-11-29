@@ -38,6 +38,7 @@ blocks:
             - bundle config set --local path 'vendor/bundle'
             - bundle install
             - yarn install
+            - bin/rails db:create
             - bundle exec rake db:schema:load
             - bundle exec rspec --format documentation --require rails_helper
             - chmod +x ./cc-test-reporter
