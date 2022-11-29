@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'Visitor visits home page' do
   before do
     apple = create(:company, name: 'Apple', domain: 'apple.com')
-    create(:company, name: 'Microsoft', domain: 'microsoft.com', cnpj: '12345678911235')
+    create(:company, name: 'Microsoft', domain: 'microsoft.com', document: '12345678911235')
     create(:job_opportunity, company: apple, job_title: 'Desenvolvedor',
                              job_level: 'Pleno', place: 'Home Office',
                              status: :active)
