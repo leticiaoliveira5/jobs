@@ -13,7 +13,7 @@ Employee.create!(email: 'admin@jobs.com',
 company = Company.find_by(domain: 'jobs.com')
 company.update(name: 'Jobs',
                address: 'Rio de Janeiro',
-               cnpj: Faker::Company.brazilian_company_number)
+               document: Faker::Company.brazilian_company_number.to_s)
 
 JobOpportunity.create!(company: company,
                        job_title: 'Dummie',

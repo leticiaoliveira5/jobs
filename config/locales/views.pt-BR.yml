@@ -29,7 +29,7 @@ pt-BR:
   companies:
     show:
       address: Endereço
-      cnpj: CNPJ
+      document: CNPJ
       domain: Domínio
       name: Nome
       job_opportunity: Vaga

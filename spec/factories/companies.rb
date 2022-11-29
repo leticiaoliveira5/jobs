@@ -3,7 +3,7 @@ FactoryBot.define do
     name { Faker::Company.name }
     domain { Faker::Internet.domain_name(domain: name) }
     address { Faker::Address.city }
-    cnpj { Faker::Company.brazilian_company_number }
+    document { Faker::Company.brazilian_company_number.to_s }
   end
 
   trait :with_employee do

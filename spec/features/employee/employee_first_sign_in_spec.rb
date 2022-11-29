@@ -28,6 +28,6 @@ feature 'First employee sign in for the first time' do
     click_on 'Cadastrar empresa'
 
     expect(company.reload.name).to eq 'Apple'
-    expect(company.reload.cnpj).to eq(12_345_678_912_345)
+    expect(company.reload.document).to eq('12345678912345')
   end
 end
