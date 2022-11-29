@@ -6,12 +6,12 @@ ruby '3.0.0'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 gem 'jbuilder', '~> 2.5'
+gem 'pg', '~> 1.3.5'
 gem 'puma', '~> 5.6', '>= 5.6.4'
 gem 'rails', '7.0.2.4'
 gem 'sass-rails'
 gem 'simple_form', '5.1.0'
 gem 'sprockets-rails'
-gem 'sqlite3'
 gem 'turbolinks', '~> 5'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'uglifier', '>= 1.3.0'
