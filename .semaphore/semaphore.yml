@@ -10,14 +10,6 @@ blocks:
       env_vars:
         - name: CC_TEST_REPORTER_ID
           value: 11390e99ff161ee53c4476bafb1fecfaca3efa634567ff188fcf3a49a3319553
-        # - name: RAILS_ENV
-        #   value: test
-        # - name: POSTGRES_USER
-        #   value: postgres
-        # - name: POSTGRES_PASSWORD
-        #   value: postgres
-        # - name: POSTGRES_DB
-        #   value: db_test
         - name: DATABASE_URL
           value: postgres://postgres@localhost:5432/db_test
       jobs:
