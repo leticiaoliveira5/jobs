@@ -10,7 +10,7 @@ RSpec.describe JobApplication, type: :model do
     end
 
     it "is not valid when candidate doesn't have basic information" do
-      candidate = create(:candidate, document: '', address: '', about_me: '')
+      candidate = create(:candidate, :without_info)
       job_application = build(:job_application, candidate: candidate, status: 0)
 
       expect(job_application).not_to be_valid
