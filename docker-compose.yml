@@ -1,10 +1,19 @@
 version: '2'
 services:
   web:
-      build: .
-      command: bundle exec rails s -p 3000 -b '0.0.0.0'
-      container_name: jobs_app
-      volumes:
-          - .:/jobs
-      ports:
-          - "3000:3000"
+    depends_on:
+      - db
+    build: .
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    container_name: jobs_app
+    volumes:
+      - .:/jobs
+    ports:
+      - "3000:3000"
+  db:
+    image: postgres
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    env_file: .env
+    ports:
+      - "5432:5432"
