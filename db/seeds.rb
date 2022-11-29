@@ -10,6 +10,8 @@ Employee.create!(email: 'admin@jobs.com',
                  firstname: 'Admin',
                  surname: 'Admin')
 
+puts "Employee created! login: 'admin@jobs.com' and password: '123456'"
+
 company = Company.find_by(domain: 'jobs.com')
 company.update(name: 'Jobs',
                address: 'Rio de Janeiro',
@@ -43,3 +45,4 @@ Candidate.create(email: 'candidate@email.com',
                  address: 'Av. Pereira',
                  about_me: 'This is Me')
 
+puts "Candidate created! login: 'candidate@email.com' and password: '123456'"
