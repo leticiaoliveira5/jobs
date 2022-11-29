@@ -10,7 +10,7 @@ feature 'Visitor searches job opportunities' do
 
   scenario 'successfully' do
     visit root_path
-    fill_in 'Busca por empresa ou vaga', with: 'Desenvolvedor'
+    fill_in 'Busca por empresa ou vaga', with: 'desenvolvedor'
     click_on 'Buscar'
 
     expect(current_path).to eq(search_results_path)
