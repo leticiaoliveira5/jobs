@@ -18,8 +18,8 @@ blocks:
         #   value: postgres
         # - name: POSTGRES_DB
         #   value: db_test
-        # - name: DATABASE_URL
-        #   value: postgres://postgres@localhost:5432/db_test
+        - name: DATABASE_URL
+          value: postgres://postgres@localhost:5432/db_test
       jobs:
         - name: rspec
           commands:
