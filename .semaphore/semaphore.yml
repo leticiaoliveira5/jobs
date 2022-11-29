@@ -5,6 +5,18 @@ agent:
     type: e1-standard-2
     os_image: ubuntu2004
 blocks:
+  - name: Postgres
+    task:
+      jobs:
+      - name: Postgres Create user
+        commands:
+          - sem-service start postgres
+          - psql -U postgres -h db -c "CREATE USER postgres WITH PASSWORD 'postgres';"
+      - name: Postgres Create admin user
+        commands:
+          - sem-service start postgres
+          - psql -U postgres -h db -c "CREATE USER postgres WITH PASSWORD 'postgres';"
+          - psql -U postgres -h db -c "ALTER USER postgres WITH SUPERUSER;"
   - name: RSpec
     task:
       env_vars:
