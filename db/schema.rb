@@ -43,10 +43,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_201133) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at", precision: nil
-    t.datetime "remember_created_at", precision: nil
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "surname"
     t.string "firstname"
     t.string "about_me"
@@ -57,8 +57,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_201133) do
   end
 
   create_table "companies", force: :cascade do |t|
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "domain"
     t.string "name"
     t.string "address"
@@ -73,10 +73,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_201133) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at", precision: nil
-    t.datetime "remember_created_at", precision: nil
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "firstname"
     t.string "surname"
     t.integer "company_id"
@@ -88,8 +88,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_201133) do
 
   create_table "job_applications", force: :cascade do |t|
     t.integer "job_opportunity_id"
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "candidate_id"
     t.integer "status"
     t.string "rejection_motive"
@@ -99,8 +99,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_201133) do
 
   create_table "job_opportunities", force: :cascade do |t|
     t.integer "company_id"
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "job_title"
     t.string "job_level"
     t.string "description"
@@ -116,23 +116,21 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_201133) do
     t.string "message"
     t.date "start_date"
     t.integer "salary_proposal"
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "candidate_id"
     t.integer "job_application_id"
     t.integer "status", default: 0
     t.string "rejection_motive"
     t.string "start_date_confirmation"
-    t.integer "job_opportunity_id"
     t.index ["candidate_id"], name: "index_job_proposals_on_candidate_id"
     t.index ["job_application_id"], name: "index_job_proposals_on_job_application_id"
-    t.index ["job_opportunity_id"], name: "index_job_proposals_on_job_opportunity_id"
   end
 
   create_table "resumes", force: :cascade do |t|
     t.integer "candidate_id"
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "address"
     t.string "education"
     t.string "experience"
@@ -144,12 +142,4 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_201133) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "employees", "companies"
-  add_foreign_key "job_applications", "candidates"
-  add_foreign_key "job_applications", "job_opportunities"
-  add_foreign_key "job_opportunities", "companies"
-  add_foreign_key "job_proposals", "candidates"
-  add_foreign_key "job_proposals", "job_applications"
-  add_foreign_key "job_proposals", "job_opportunities"
-  add_foreign_key "resumes", "candidates"
 end
