@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_05_181028) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_29_201133) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -63,7 +63,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_05_181028) do
     t.string "name"
     t.string "address"
     t.integer "cnpj"
+    t.string "document"
     t.index ["cnpj"], name: "index_companies_on_cnpj", unique: true
+    t.index ["document"], name: "index_companies_on_document", unique: true
     t.index ["domain"], name: "index_companies_on_domain", unique: true
   end
 
