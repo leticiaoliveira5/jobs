@@ -8,15 +8,11 @@ blocks:
   # - name: Postgres
   #   task:
   #     jobs:
-  #     - name: Postgres Create user
-  #       commands:
-  #         - sem-service start postgres
-  #         - psql -U postgres -h db -c "CREATE USER postgres WITH PASSWORD 'postgres';"
   #     - name: Postgres Create admin user
   #       commands:
   #         - sem-service start postgres
-  #         - psql -U postgres -h db -c "CREATE USER postgres WITH PASSWORD 'postgres';"
-  #         - psql -U postgres -h db -c "ALTER USER postgres WITH SUPERUSER;"
+  #         - psql -U postgres -h 127.0.0.1 -c "CREATE USER postgres WITH PASSWORD 'postgres';"
+  #         - psql -U postgres -h 127.0.0.1 -c "ALTER USER postgres WITH SUPERUSER;"
   - name: RSpec
     task:
       env_vars:
@@ -35,11 +31,13 @@ blocks:
           commands:
             - checkout
             - sem-version ruby 3.0.0
+            - sem-service start postgres
             - bundle config set --local deployment 'true'
             - bundle config set --local path 'vendor/bundle'
             - bundle install
             - yarn install
-            - bundle exec rspec --format documentation
+            - bundle exec rake db:schema:load
+            - bundle exec rspec --format documentation --require rails_helper
             - chmod +x ./cc-test-reporter
             - ./cc-test-reporter format-coverage coverage/.resultset.json --input-type 'simplecov'
             - ./cc-test-reporter upload-coverage
