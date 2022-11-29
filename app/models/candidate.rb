@@ -9,7 +9,7 @@ class Candidate < ApplicationRecord
   has_one :resume, dependent: :destroy
   has_one_attached :avatar
 
-  validates :cpf, length: { is: 11 }, on: :update, allow_blank: true
+  validates :document, length: { is: 11 }, on: :update, allow_blank: true
 
   after_create :create_resume
 

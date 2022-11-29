@@ -2,7 +2,7 @@
   <%= user_avatar(current_candidate) %>
   <h2>Painel de controle - <%= current_candidate.firstname %> <%= current_candidate.surname %> </h2>
   <p>Sobre mim: <%= current_candidate.about_me %></p>
-  <p>CPF: <%= current_candidate.cpf %></p>
+  <p>CPF: <%= current_candidate.document %></p>
   <p>Endereço: <%= current_candidate.address %></p>
   <%= link_to 'Ver currículo', resume_path(current_candidate) %>
   <% if candidate_signed_in? %>
