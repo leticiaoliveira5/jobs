@@ -19,20 +19,4 @@ feature 'Visitor visits home page' do
       expect(page).to have_link('Vagas recentes')
     end
   end
-
-  scenario 'and views registered companies' do
-    visit root_path
-    click_on 'Ver empresas cadastradas'
-
-    expect(page).to have_link('Apple')
-    expect(page).to have_link('Microsoft')
-  end
-
-  scenario 'and views recent job opportunities' do
-    visit root_path
-    click_on 'Vagas recentes'
-
-    expect(page).to have_link('Ver detalhes')
-    expect(page).to have_text('Pleno') && have_text('Home Office')
-  end
 end
