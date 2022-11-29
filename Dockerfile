@@ -1,8 +1,6 @@
 FROM ruby:3.0.0
 
-RUN apt-get update -qq && apt-get install -y postgresql-client
-
-RUN apt-get update -qq && apt-get install --no-install-recommends -y nodejs sqlite3 libsqlite3-dev yarn \
+RUN apt-get update -qq && apt-get install --no-install-recommends -y nodejs sqlite3 libsqlite3-dev yarn postgresql-client \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
