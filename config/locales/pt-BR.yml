@@ -8,7 +8,7 @@ pt-BR:
         surname: Sobrenome
       company:
         address: Endereço
-        cnpj: CNPJ
+        document: CNPJ
         domain: Domínio
         name: Nome
       employee:
@@ -76,13 +76,13 @@ pt-BR:
         one: Currículo
         other: Currículos
   address: Endereço
-  cnpj: CNPJ
+  document: CNPJ
   domain: Domínio
   name: Nome
   companies:
     show:
       address: Endereço
-      cnpj: CNPJ
+      document: CNPJ
       domain: Domínio
       name: Nome
   date:
