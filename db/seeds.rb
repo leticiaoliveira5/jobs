@@ -39,7 +39,7 @@ Candidate.create(email: 'candidate@email.com',
                  password: '123456',
                  firstname: 'Candidate',
                  surname: 'Jobs',
-                 cpf: '46733146037',
+                 document: '46733146037',
                  address: 'Av. Pereira',
                  about_me: 'This is Me')
 
