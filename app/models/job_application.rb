@@ -9,7 +9,7 @@ class JobApplication < ApplicationRecord
   enum status: { waiting: 0, accepted: 1, declined: 2 }
 
   def candidate_must_have_basic_information
-    return unless candidate.document.nil? || candidate.address.nil? || candidate.about_me.nil?
+    return unless candidate.document.blank? || candidate.address.blank? || candidate.about_me.blank?
 
     errors.add(:candidate, 'Candidato precisa ter informações básicas cadastradas')
   end
