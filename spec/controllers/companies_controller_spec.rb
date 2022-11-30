@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+# rubocop:disable Metrics/BlockLength
 RSpec.describe CompaniesController, type: :controller, login_metadata: true do
   let(:company) { create(:company, :with_employee) }
   let(:employee) { company.employees.first }
@@ -62,3 +63,4 @@ RSpec.describe CompaniesController, type: :controller, login_metadata: true do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength
