@@ -15,7 +15,7 @@ feature 'First employee sign in for the first time' do
 
   scenario 'and company is created' do
     expect(Company.count).to eq(1)
-    expect(current_path).to eq edit_company_path(company)
+    expect(current_path).to eq '/company/edit_info'
     expect(page).to have_content('steve@apple.com')
     expect(page).to have_text('Bem vindo! Você realizou seu registro com sucesso.') &&
                     have_text('Cadastro de empresa')
