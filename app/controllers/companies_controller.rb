@@ -1,12 +1,13 @@
 class CompaniesController < ApplicationController
-  before_action :authenticate_employee!, only: %i[dashboard edit]
-  before_action :set_company, except: %i[create index]
+  before_action :authenticate_employee!, only: %i[dashboard edit update]
+  before_action :set_company, only: %i[dashboard edit update]
 
   def index
     @companies = Company.all
   end
 
   def show
+    @company = Company.find(params[:id])
     @job_opportunities = @company.job_opportunities.active
   end
 
@@ -36,7 +37,7 @@ class CompaniesController < ApplicationController
   private
 
   def set_company
-    @company = current_employee.company
+    @company = current_employee&.company
   end
 
   def company_params
