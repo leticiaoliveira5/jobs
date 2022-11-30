@@ -36,6 +36,7 @@ RSpec.describe CompaniesController, type: :controller, login_metadata: true do
 
   describe '#update' do
     let(:company) { create(:company, :with_employee, address: 'California') }
+
     before { sign_in(company.employees.first) }
 
     it 'with valid params, updates company' do
