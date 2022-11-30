@@ -17,21 +17,9 @@ RSpec.describe CompaniesController, type: :controller, login_metadata: true do
   describe '#edit' do
     context 'with company employee signed in', employee_signed_in: true do
       it 'render edit' do
-        get :edit, params: { id: company.id }
+        get :edit
 
         expect(response).to render_template('edit')
-      end
-    end
-
-    context 'when employee is not from the company' do
-      it 'renderirects with alert' do
-        other_company_employee = create(:employee)
-        sign_in(other_company_employee)
-
-        get :edit, params: { id: company.id }
-
-        expect(response).to redirect_to(company_path(other_company_employee.company))
-        expect(flash[:alert]).to be_present
       end
     end
   end
@@ -47,7 +35,8 @@ RSpec.describe CompaniesController, type: :controller, login_metadata: true do
   end
 
   describe '#update' do
-    let(:company) { create(:company, address: 'California') }
+    let(:company) { create(:company, :with_employee, address: 'California') }
+    before { sign_in(company.employees.first) }
 
     it 'with valid params, updates company' do
       patch :update, params: { id: company.id, company: { address: 'New York' } }
@@ -66,7 +55,7 @@ RSpec.describe CompaniesController, type: :controller, login_metadata: true do
 
   describe '#dashboard' do
     it 'renders company dashboard', employee_signed_in: true do
-      get '/company/dashboard'
+      get :dashboard
 
       expect(response).to render_template('dashboard')
     end
