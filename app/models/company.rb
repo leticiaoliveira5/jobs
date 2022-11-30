@@ -16,6 +16,6 @@ class Company < ApplicationRecord
   def to_param
     return nil unless persisted?
 
-    "#{id}-#{name}"
+    "#{id}-#{name.gsub(/[^0-9A-Za-z]/, '')}"
   end
 end
