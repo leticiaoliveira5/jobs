@@ -11,7 +11,7 @@ class JobApplicationsController < ApplicationController
     @job_application = JobApplication.find(params[:id])
     @candidate = @job_application.candidate
     @job_application.destroy
-    redirect_to candidates_path(@candidate), notice: t('.success')
+    redirect_to '/candidate/dashboard', notice: t('.success')
   end
 
   def decline

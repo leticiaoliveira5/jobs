@@ -18,7 +18,14 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :candidates, only: %i[index]
+  scope '/candidate' do
+    get '/dashboard', to: 'candidates#dashboard'
+    get '/resume', to: 'candidate_resumes#show'
+    get '/edit_resume', to: 'candidate_resumes#edit'
+    patch '/resume', to: 'candidate_resumes#update'
+  end
+
+  resources :resumes, only: %i[show]
 
   resources :job_applications, only: %i[destroy show] do
     post 'decline', on: :member
@@ -27,8 +34,6 @@ Rails.application.routes.draw do
       post 'reject', on: :member
     end
   end
-
-  resources :resumes, only: %i[update edit show]
 
   resources :search_results, only: %i[index]
 end
