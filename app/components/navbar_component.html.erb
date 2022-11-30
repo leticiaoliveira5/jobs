@@ -12,8 +12,8 @@
 
   <div class="navright">
     <% if current_candidate %>
-      <%= link_to 'Área do candidato', candidates_path(current_candidate) %>
-      <%= link_to 'Meu currículo', resume_path(current_candidate.resume) %>
+      <%= link_to 'Área do candidato', '/candidate/dashboard' %>
+      <%= link_to 'Meu currículo', '/candidate/resume' %>
       <%= current_candidate.email %>
       <%= link_to 'Sair', destroy_candidate_session_path, method: :delete %>
     <% end %>
