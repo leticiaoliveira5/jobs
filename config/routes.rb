@@ -20,10 +20,12 @@ Rails.application.routes.draw do
 
   scope '/candidate' do
     get '/dashboard', to: 'candidates#dashboard'
-    get '/resume', to: 'resumes#show'
-    get '/edit_resume', to: 'resumes#edit'
-    patch '/resume', to: 'resumes#update'
+    get '/resume', to: 'candidate_resumes#show'
+    get '/edit_resume', to: 'candidate_resumes#edit'
+    patch '/resume', to: 'candidate_resumes#update'
   end
+
+  resources :resumes, only: %i[show]
 
   resources :job_applications, only: %i[destroy show] do
     post 'decline', on: :member
