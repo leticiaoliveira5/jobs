@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_action :authenticate_employee!, only: %i[company_dashboard edit]
+  before_action :authenticate_employee!, only: %i[dashboard edit]
   before_action :set_company, except: %i[create index]
 
   def index

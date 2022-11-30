@@ -64,11 +64,11 @@ RSpec.describe CompaniesController, type: :controller, login_metadata: true do
     end
   end
 
-  describe '#company_dashboard' do
+  describe '#dashboard' do
     it 'renders company dashboard', employee_signed_in: true do
-      get '/company_dashboard'
+      get '/company/dashboard'
 
-      expect(response).to render_template('company_dashboard')
+      expect(response).to render_template('dashboard')
     end
   end
 end

@@ -39,7 +39,7 @@ pt-BR:
           waiting: Aguardando avaliação
           accepted: Aceita
           declined: Não aceita
-    company_dashboard:
+    dashboard:
       empty_state:
         active_job_opportunity: Nenhuma vaga ativa no momento.
         inactive_job_opportunity: Nenhuma vaga inativa no momento.
