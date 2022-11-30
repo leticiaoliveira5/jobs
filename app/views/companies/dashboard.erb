@@ -9,7 +9,7 @@
       <% @company.employees.each do |employee| %>
         <p><%= employee.firstname %> <%= employee.surname %> (<%= employee.role %>)</p>
       <% end %>
-      <p><%= link_to 'Editar dados da empresa', edit_company_path(@company) %></p>
+      <p><%= link_to 'Editar dados da empresa', '/company/edit_info' %></p>
     <% end %>
     <p><%= link_to 'Cadastrar nova vaga', new_job_opportunity_path %></p>
   <% end %>
