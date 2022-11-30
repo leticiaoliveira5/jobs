@@ -18,7 +18,7 @@ RSpec.describe JobApplicationsController, type: :controller, login_metadata: tru
         delete :destroy, params: { id: job_application.id }
       end.to change(JobApplication, :count).by(-1)
 
-      expect(response).to redirect_to(candidates_path(candidate))
+      expect(response).to redirect_to('/candidate/dashboard')
       expect(flash[:notice]).to be_present
     end
   end

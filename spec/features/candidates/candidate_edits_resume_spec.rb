@@ -37,7 +37,7 @@ feature 'Resume update' do
   end
 
   def when_visitor_tries_to_access_resume
-    visit resume_path(candidate.resume)
+    visit "/resumes/#{resume.id}"
   end
 
   def should_be_redirected_to_home_page_with_a_note
@@ -46,7 +46,7 @@ feature 'Resume update' do
   end
 
   def they_see_the_updated_resume
-    expect(current_path).to eq resume_path(candidate.resume)
+    expect(current_path).to eq resume_path
     expect(page).to have_text 'Segundo grau'
     expect(resume.reload.education).to eq 'Segundo grau'
   end
