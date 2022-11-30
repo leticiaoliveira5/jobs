@@ -16,9 +16,11 @@ class CandidateResumesController < ApplicationController
 
   private
 
+  # rubocop:disable Naming/MemoizedInstanceVariableName
   def set_resume
     @resume ||= current_candidate.resume
   end
+  # rubocop:enable Naming/MemoizedInstanceVariableName
 
   def resume_params
     params.require(:resume).permit(:address,
