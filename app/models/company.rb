@@ -12,4 +12,10 @@ class Company < ApplicationRecord
   validates :name, :address, :document, presence: true, on: :update
   validates :document, length: { is: 14 }, on: :update
   validates :domain, :document, uniqueness: true
+
+  def to_param
+    return nil unless persisted?
+
+    "#{name}-#{document.first(3)}"
+  end
 end
