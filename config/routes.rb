@@ -5,10 +5,11 @@ Rails.application.routes.draw do
 
   devise_for :candidates
 
-  resources :companies, only: %i[index create update edit show]
+  resources :companies, only: %i[index create update show]
 
   scope '/company' do
     get '/dashboard', to: 'companies#dashboard'
+    get '/edit_info', to: 'companies#edit'
   end
 
   resources :job_opportunities, only: %i[index new create update edit show] do
