@@ -16,6 +16,6 @@ class Company < ApplicationRecord
   def to_param
     return nil unless persisted?
 
-    "#{name}-#{document.first(3)}"
+    "#{id}-#{name}"
   end
 end
