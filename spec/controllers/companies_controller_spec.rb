@@ -64,11 +64,11 @@ RSpec.describe CompaniesController, type: :controller, login_metadata: true do
     end
   end
 
-  describe '#employee_panel' do
-    it 'renders employee panel', employee_signed_in: true do
-      get :employee_panel, params: { id: company.id }
+  describe '#company_dashboard' do
+    it 'renders company dashboard', employee_signed_in: true do
+      get '/company_dashboard'
 
-      expect(response).to render_template('employee_panel')
+      expect(response).to render_template('company_dashboard')
     end
   end
 end
