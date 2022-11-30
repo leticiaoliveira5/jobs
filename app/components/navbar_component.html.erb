@@ -19,7 +19,7 @@
     <% end %>
 
     <% if current_employee %>
-      <%= link_to 'Área do colaborador', '/company_dashboard' %>
+      <%= link_to 'Área do colaborador', '/company/dashboard' %>
       <%= current_employee.email %> (<%=current_employee.company.name%> - <%=current_employee.role%>)
       <%= link_to 'Sair', destroy_employee_session_path, method: :delete %>
     <% end %>
