@@ -6,12 +6,9 @@ class ResumesController < ApplicationController
       redirect_to root_path, alert: 'Você não tem permissão para ver esta página'
     end
     @resume = current_candidate&.resume || Resume.find(params[:id])
-    render template: 'resumes/show'
   end
 
-  def edit
-    render template: 'resumes/edit'
-  end
+  def edit; end
 
   def update
     @resume.update(resume_params)
