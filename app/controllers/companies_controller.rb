@@ -26,7 +26,7 @@ class CompaniesController < ApplicationController
     end
   end
 
-  def company_dashboard
+  def dashboard
     @company = Company.includes(:job_applications,
                                 :job_proposals,
                                 :active_job_opportunities,
