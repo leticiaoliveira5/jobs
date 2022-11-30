@@ -17,6 +17,8 @@ plugins:
     checks:
       IrresponsibleModule:
         enabled: false
+      InstanceVariableAssumption:
+        enabled: false
   csslint:
     enabled: true
     checks:
