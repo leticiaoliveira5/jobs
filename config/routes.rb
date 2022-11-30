@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 
   resources :resumes, only: %i[show]
 
-  resources :job_applications, path: 'applications' only: %i[destroy show] do
+  resources :job_applications, path: 'applications', only: %i[destroy show] do
     post 'decline', on: :member
     resources :job_proposals, path: 'proposals', only: %i[new create show] do
       post 'accept', on: :member
