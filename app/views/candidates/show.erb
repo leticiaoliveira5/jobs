@@ -1,0 +1,24 @@
+<%= render(BoxComponent.new) do |component| %>
+  <% component.title do %>
+    <%= t(".personal_info") %>
+  <% end %>
+
+  <% component.body do %>
+    <h3><%= t(".full_name") %></h3>
+    <p><%= @candidate.full_name %></p>
+    <h3><%= t(".address") %></h3>
+    <p><%= @candidate.address %></p>
+  <% end %>
+<% end %>
+
+<%= render(BoxComponent.new) do |component| %>
+ <% component.title do %>
+  <%= t('.work_experience') %>
+ <% end %>
+
+  <% component.body do %>
+    <% @candidate.work_experiences.each do |w| %>
+      <p><%= w.job_title %></p>
+    <% end %>
+  <% end %>
+<% end %>

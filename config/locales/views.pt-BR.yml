@@ -71,5 +71,10 @@ pt-BR:
         languages: Idiomas
         courses: Cursos
         experience: Experiência profissional
-
+  candidates:
+    show:
+      personal_info: Dados Pessoais
+      full_name: Nome completo
+      address: Endereço
+      work_experience: Experiência profissional
     
