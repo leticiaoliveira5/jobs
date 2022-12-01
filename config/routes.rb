@@ -41,4 +41,6 @@ Rails.application.routes.draw do
   end
 
   resources :search_results, only: %i[index]
+
+  resources :work_experiences, only: %i[create update destroy]
 end
