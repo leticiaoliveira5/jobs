@@ -4,12 +4,9 @@
   <% end %>
 
   <% component.body do %>
-    <h3><%= t(".full_name") %></h3>
-    <p><%= @candidate.full_name %></p>
-    <h3><%= t(".about_me") %></h3>
-    <p><%= @candidate.about_me %></p>
-    <h3><%= t(".address") %></h3>
-    <p><%= @candidate.address %></p>
+    <p><%= t(".full_name") %><br><b><%= @candidate.full_name %></b></p>
+    <p><%= t(".about_me") %><br><b><%= @candidate.about_me %></b></p>
+    <p><%= t(".address") %><br><b><%= @candidate.address %></b></p>
   <% end %>
 <% end %>
 
