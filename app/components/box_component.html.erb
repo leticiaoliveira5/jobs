@@ -31,10 +31,10 @@
 
 <div class="contentblock" style="background-color:<%= bg %>;">
   <% if collapsible? %>
-    <h2 onclick="toggleContent(this)" style="cursor: pointer;">
+    <div class="title" onclick="toggleContent(this)" style="cursor: pointer;">
       <%= title if title? %>
       <span class="collapse-icon"><%= default_symbol %></span>
-    </h2>
+    </div>
   <% elsif title? %>
     <div class="title"><%= title %></div>
   <% end %>
