@@ -74,6 +74,7 @@ pt-BR:
   candidates:
     show:
       personal_info: Dados Pessoais
+      about_me: Sobre
       full_name: Nome completo
       address: Endereço
       work_experience: Experiência profissional
