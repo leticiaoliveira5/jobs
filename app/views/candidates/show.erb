@@ -1,11 +1,13 @@
 <%= render(BoxComponent.new) do |component| %>
   <% component.title do %>
-    <%= t(".personal_info") %>
+    <%= t(".personal_info") %> <%= link_to 'edit', edit_candidate_registration_path %>
   <% end %>
 
   <% component.body do %>
     <h3><%= t(".full_name") %></h3>
     <p><%= @candidate.full_name %></p>
+    <h3><%= t(".about_me") %></h3>
+    <p><%= @candidate.about_me %></p>
     <h3><%= t(".address") %></h3>
     <p><%= @candidate.address %></p>
   <% end %>
@@ -13,12 +15,19 @@
 
 <%= render(BoxComponent.new) do |component| %>
  <% component.title do %>
-  <%= t('.work_experience') %>
+  <%= t('.work_experience') %> <a href="">add</a>
  <% end %>
 
   <% component.body do %>
     <% @candidate.work_experiences.each do |w| %>
-      <p><%= w.job_title %></p>
+      <%= render(BoxComponent.new(color: :secondary)) do |component| %>
+        <%= component.body do %>
+          <b><%= w.job_title %></b><br>
+          <%= w.company_name || 'blank' %><br>
+          <%= w.start_date %> - <%= w.end_date || 'now' %><br>
+          <%= w.location %>
+        <% end %>
+      <% end %>
     <% end %>
   <% end %>
 <% end %>
