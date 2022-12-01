@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     get '/edit_info', to: 'companies#edit'
   end
 
-  resources :job_opportunities, only: %i[index new create update edit show] do
+  resources :job_opportunities, path: 'jobs', only: %i[index new create update edit show] do
     post 'create_job_application', on: :member
     member do
       post 'create_job_application'
@@ -30,9 +30,9 @@ Rails.application.routes.draw do
 
   resources :resumes, only: %i[show]
 
-  resources :job_applications, only: %i[destroy show] do
+  resources :job_applications, path: 'applications', only: %i[destroy show] do
     post 'decline', on: :member
-    resources :job_proposals, only: %i[new create show] do
+    resources :job_proposals, path: 'proposals', only: %i[new create show] do
       post 'accept', on: :member
       post 'reject', on: :member
     end

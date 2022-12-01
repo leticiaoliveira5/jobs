@@ -7,7 +7,7 @@ RSpec.describe JobPreviewComponent, type: :component do
   let(:rendered_component) do
     render_inline(described_class.new(job_opportunity: job_opportunity)).to_html
   end
-  let(:path) { "/job_opportunities/#{job_opportunity.id}" }
+  let(:path) { "/jobs/#{job_opportunity.id}" }
 
   it 'renders the component' do
     expect(rendered_component).to have_css('.job-preview-box')
