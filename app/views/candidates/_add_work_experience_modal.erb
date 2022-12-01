@@ -1,0 +1,19 @@
+<div style="position: fixed; margin: auto auto; width: 50vw; background:white; padding:10px;">
+  <h2>Nova experiência</h2>
+
+  <%= simple_form_for(:work_experience, url: work_experiences_path, method: :post) do |f| %>
+    <%= f.input :job_title %>
+    <%= render(GridComponent.new(columns: 2)) do %>
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
+    <% end %>
+    <%= f.input :company_name %>
+    <%= render(GridComponent.new(columns: 2)) do %>
+      <%= f.input :sector %>
+      <%= f.input :location %>
+    <% end %>
+
+    <%= f.submit 'Salvar experiência', :class => "button" %>
+  <% end %>
+  <%= link_to 'Cancelar', root_path %>
+</div>
