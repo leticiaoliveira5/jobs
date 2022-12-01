@@ -10,9 +10,22 @@
     box-sizing: border-box;
     width: 100%;
     border-radius: 7px;
-    padding: 10px 25px 20px 25px; /* top right bottom left */
-    margin: 15px auto;
+    padding: 25px; /* top right bottom left */
+    margin: 15px 0;
     text-align: left;
+  }
+
+  /* when there's a content box inside another content box */
+  .contentblock .contentblock {
+    margin: 15px 0 0 0;
+    padding: 20px;
+  }
+
+  .title {
+    color: var(--title);
+    font-size: 1.5em;
+    font-weight:  bold;
+    margin-bottom: 0;
   }
 </style>
 
@@ -22,10 +35,8 @@
       <%= title if title? %>
       <span class="collapse-icon"><%= default_symbol %></span>
     </h2>
-  <% else %>
-    <% if title? %>
-      <h2><%= title %></h2> 
-    <% end %>
+  <% elsif title? %>
+    <div class="title"><%= title %></div>
   <% end %>
 
   <div class="content" style="display:<%= default_display || 'block' %>;">
