@@ -50,6 +50,14 @@ pt-BR:
         languages: Idiomas
         courses: Cursos
         experience: Experiência profissional
+      work_experience:
+        job_title: Título
+        start_date: Data de Início
+        end_date: Data de Término
+        company_name: Empresa
+        description: Descrição
+        location: Localidade
+        sector: Setor
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
@@ -75,6 +83,9 @@ pt-BR:
       resume:
         one: Currículo
         other: Currículos
+      work_experience:
+        one: Experiência
+        other: Experiência
   address: Endereço
   document: CNPJ
   domain: Domínio
