@@ -13,4 +13,15 @@ RSpec.describe WorkExperiencesController, type: :controller, login_metadata: tru
       expect(candidate.work_experiences.count).to eq 1
     end
   end
+
+  describe '#destroy' do
+    it 'with candidate signed in, deletes work experience', candidate_signed_in: true do
+      work_experience = create(:work_experience, candidate: candidate)
+
+      delete :destroy, params: { id: work_experience.id }
+
+      expect(response).to redirect_to candidate_path(candidate)
+      expect(candidate.work_experiences.count).to eq 0
+    end
+  end
 end
