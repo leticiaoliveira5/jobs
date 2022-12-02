@@ -7,11 +7,10 @@
     padding: 25px; /* top right bottom left */
     position: fixed;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    top: 40px;
+    transform: translate(-50%);
     text-align: left;
     max-width: 600px;
-
   }
 
   .backdrop {
@@ -19,20 +18,20 @@
     width: 100vw;
     height: 100vw;
     position: fixed;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
+    opacity: 0;
     display: none;
   }
 </style>
 
-<div class="backdrop">
-  <div id="<%= @modal_id %>" class="modalbox">
+<div class="backdrop" id="backdrop<%= @modal_id %>"></div>
+  <div  class="modalbox" id="<%= @modal_id %>">
     <div class="title">
       <%= @title %> <button onclick="closeModal(this)" style="float: right;">x</button>
     </div>
     <%= body %>
   </div>
-</div>
 
 <script>
   var btn = document.getElementById("<%= @show_button_id %>");
@@ -40,14 +39,44 @@
 
   function showModal() {
     var modal = document.getElementById("<%= @modal_id %>")
-    var backdrop = modal.parentElement
+    var backdrop = document.getElementById("backdrop<%= @modal_id %>")
 
-    backdrop.style.display = 'block'
+    // backdrop.style.display = 'block'
+    fadeIn(backdrop)
     modal.style.display = 'block'
   }
 
   function closeModal(element) {
-    element.parentElement.parentElement.parentElement.style.display = 'none'
-    element.parentElement.parentElement.style.display = 'none'
+    var modal = document.getElementById("<%= @modal_id %>")
+    var backdrop = document.getElementById("backdrop<%= @modal_id %>")
+    // backdrop.style.display = 'none'
+    fadeOut(backdrop)
+    modal.style.display = 'none'
   }
+
+  function fadeIn(element) {
+    var op = 0.1;  // initial opacity
+    element.style.display = 'block';
+    var timer = setInterval(function () {
+        if (op >= 1){
+            clearInterval(timer);
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op += op * 0.1;
+    }, 20);
+  }
+
+  function fadeOut(element) {
+    var op = 1;  // initial opacity
+    var timer = setInterval(function () {
+        if (op <= 0){
+          clearInterval(timer);
+          element.style.display = 'none';
+        }
+      element.style.opacity = op;
+      element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+      op -= 0.1;
+    }, 20);
+   }
 </script>
