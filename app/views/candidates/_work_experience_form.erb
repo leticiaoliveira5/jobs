@@ -1,10 +1,10 @@
 <%= simple_form_for(:work_experience, url: work_experiences_path, method: :post) do |f| %>
-  <%= f.input :job_title %>
+  <%= f.input :job_title, required: true %>
   <%= render(GridComponent.new(columns: 2)) do %>
-    <%= f.input :start_date, as: :date, html5: true %>
+    <%= f.input :start_date, as: :date, html5: true, required: true %>
     <%= f.input :end_date, as: :date, html5: true %>
   <% end %>
-  <%= f.input :company_name %>
+  <%= f.input :company_name, required: true %>
   <%= render(GridComponent.new(columns: 2)) do %>
     <%= f.input :sector %>
     <%= f.input :location %>
