@@ -1,4 +1,4 @@
-<%= simple_form_for(:work_experience, url: work_experiences_path, method: :post) do |f| %>
+<%= simple_form_for(WorkExperience.new, url: work_experiences_path, method: :post) do |f| %>
   <%= f.input :job_title, required: true %>
   <%= render(GridComponent.new(columns: 2)) do %>
     <%= f.input :start_date, as: :date, html5: true, required: true %>
@@ -10,5 +10,5 @@
     <%= f.input :location, required: false %>
   <% end %>
 
-  <%= f.submit 'Salvar experiência', :class => "button" %>
+  <%= f.submit t('simple_form.save'), class: 'button' %>
 <% end %>
