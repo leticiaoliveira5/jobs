@@ -1,11 +1,3 @@
-<% if candidate_signed_in? %>
-  <%= render(ModalBoxComponent.new(title: t('.new_experience'), show_button_id: 'add_work_experience_button', modal_id: 'add_work_experience_modal')) do |component| %>
-    <% component.body do %>
-      <%= render partial: 'work_experience_form' %>
-    <% end %>
-  <% end %>
-<% end %>
-
 <%= render(BoxComponent.new) do |component| %>
   <% component.title do %>
     <%= t(".personal_info") %>
@@ -42,6 +34,14 @@
           <%= w.location %>
         <% end %>
       <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<% if candidate_signed_in? %>
+  <%= render(ModalBoxComponent.new(title: t('.new_experience'), show_button_id: 'add_work_experience_button', modal_id: 'add_work_experience_modal')) do |component| %>
+    <% component.body do %>
+      <%= render partial: 'work_experience_form' %>
     <% end %>
   <% end %>
 <% end %>
