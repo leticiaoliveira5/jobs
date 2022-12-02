@@ -3,23 +3,35 @@
     background: var(--content_blocks_color);
     display: none;
     box-sizing: border-box;
-    width: 100%;
     border-radius: 7px;
     padding: 25px; /* top right bottom left */
-    position: absolute;
+    position: fixed;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     text-align: left;
     max-width: 600px;
+
+  }
+
+  .backdrop {
+    background-color: rgba(0,0,0,0.2);
+    width: 100vw;
+    height: 100vw;
+    position: fixed;
+    top:0;
+    left:0;
+    display: none;
   }
 </style>
 
-<div id="<%= @modal_id %>" class="modalbox">
-  <div class="title">
-    <%= @title %> <button onclick="closeModal(this)" style="float: right;">x</button>
+<div class="backdrop">
+  <div id="<%= @modal_id %>" class="modalbox">
+    <div class="title">
+      <%= @title %> <button onclick="closeModal(this)" style="float: right;">x</button>
+    </div>
+    <%= body %>
   </div>
-  <%= body %>
 </div>
 
 <script>
@@ -27,10 +39,15 @@
   btn.setAttribute('onclick', 'showModal()');
 
   function showModal() {
-    document.getElementById("<%= @modal_id %>").style.display = 'block'
+    var modal = document.getElementById("<%= @modal_id %>")
+    var backdrop = modal.parentElement
+
+    backdrop.style.display = 'block'
+    modal.style.display = 'block'
   }
 
-  function closeModal(element) { 
-    element.parentElement.parentElement.style.display = 'none' 
+  function closeModal(element) {
+    element.parentElement.parentElement.parentElement.style.display = 'none'
+    element.parentElement.parentElement.style.display = 'none'
   }
 </script>
