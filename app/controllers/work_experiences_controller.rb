@@ -2,7 +2,7 @@ class WorkExperiencesController < ApplicationController
   before_action :authenticate_candidate!
 
   def create
-    @work_experience = current_candidate&.work_experiences&.new
+    @work_experience = current_candidate&.work_experiences&.new(work_experience_params)
     redirect_to candidate_path(current_candidate) if @work_experience.save
   end
 

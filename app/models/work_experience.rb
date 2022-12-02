@@ -9,6 +9,8 @@ class WorkExperience < ApplicationRecord
   enum status: { finished: 0, current: 1 }
 
   def set_status
+    return unless end_date.present?
+  
     self.status = 0 if end_date < DateTime.now
   end
 
