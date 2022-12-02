@@ -22,7 +22,7 @@
  <% end %>
 
   <% component.body do %>
-    <% if true %>
+    <% if @candidate.work_experiences.empty? %>
       <div class="empty_state"><%= t('.empty_state.work_experience') %></div>
     <% end %>
     <% @candidate.work_experiences.each do |w| %>
