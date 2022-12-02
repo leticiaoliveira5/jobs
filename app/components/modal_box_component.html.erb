@@ -1,1 +1,36 @@
-<div>Add ModalBox template here</div>
+<style>
+  .modalbox {
+    background: var(--content_blocks_color);
+    display: none;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 7px;
+    padding: 25px; /* top right bottom left */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+    max-width: 600px;
+  }
+</style>
+
+<div id="<%= @modal_id %>" class="modalbox">
+  <div class="title">
+    <%= @title %> <button onclick="closeModal(this)" style="float: right;">x</button>
+  </div>
+  <%= body %>
+</div>
+
+<script>
+  var btn = document.getElementById("<%= @show_button_id %>");
+  btn.setAttribute('onclick', 'showModal()');
+
+  function showModal() {
+    document.getElementById("<%= @modal_id %>").style.display = 'block'
+  }
+
+  function closeModal(element) { 
+    element.parentElement.parentElement.style.display = 'none' 
+  }
+</script>

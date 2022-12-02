@@ -1,4 +1,8 @@
-<%= render partial: 'add_work_experience_modal' %>
+<%= render(ModalBoxComponent.new(title: 'Nova experiência', show_button_id: 'add_work_experience_button', modal_id: 'add_work_experience_modal')) do |component| %>
+  <% component.body do %>
+    <%= render partial: 'work_experience_form' %>
+  <% end %>
+<% end %>
 
 <%= render(BoxComponent.new) do |component| %>
   <% component.title do %>
@@ -14,7 +18,7 @@
 
 <%= render(BoxComponent.new) do |component| %>
  <% component.title do %>
-  <%= t('.work_experience') %> <a href="">add</a>
+  <%= t('.work_experience') %> <button id="add_work_experience_button">add</button>
  <% end %>
 
   <% component.body do %>
