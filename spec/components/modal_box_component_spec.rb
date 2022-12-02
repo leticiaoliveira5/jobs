@@ -1,15 +1,17 @@
-# frozen_string_literal: true
-
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.describe ModalBoxComponent, type: :component do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:rendered_component) do
+    render_inline(described_class.new(title: 'Title Test', modal_id: 'test_id')).to_html
+  end
 
-  # it "renders something useful" do
-  #   expect(
-  #     render_inline(described_class.new(attr: "value")) { "Hello, components!" }.css("p").to_html
-  #   ).to include(
-  #     "Hello, components!"
-  #   )
-  # end
+  context 'renders modal box' do
+    it do
+      expect(rendered_component).to have_css('#test_id')
+      expect(rendered_component).to have_css('.backdrop')
+      expect(rendered_component).to have_css('.modalbox')
+      expect(rendered_component).to have_css('.title', text: 'Title Test')
+      expect(rendered_component).to have_button('x')
+    end
+  end
 end
