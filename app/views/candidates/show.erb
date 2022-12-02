@@ -28,6 +28,9 @@
     <% @work_experiences.each do |w| %>
       <%= render(BoxComponent.new(color: :secondary)) do |component| %>
         <%= component.body do %>
+          <% if candidate_signed_in? %>
+            <%= button_to 'trash', work_experience_path(w.id), method: :delete, style: 'float: right;' %>
+          <% end %>
           <b><%= w.job_title %></b><br>
           <%= w.company_name %><br>
           <%= w.start_date&.strftime("%b/%Y") %> - <%= w.end_date&.strftime("%b/%y") || 'now' %><br>
