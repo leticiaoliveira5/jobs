@@ -3,7 +3,11 @@ class WorkExperiencesController < ApplicationController
 
   def create
     @work_experience = current_candidate&.work_experiences&.new(work_experience_params)
-    redirect_to candidate_path(current_candidate) if @work_experience.save
+    if @work_experience.save
+      redirect_to candidate_path(current_candidate)
+    else
+      redirect_to candidate_path(current_candidate), alert: @work_experience.errors.full_messages
+    end
   end
 
   # def update
