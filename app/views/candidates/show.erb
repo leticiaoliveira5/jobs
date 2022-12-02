@@ -30,15 +30,15 @@
  <% end %>
 
   <% component.body do %>
-    <% if @candidate.work_experiences.empty? %>
+    <% if @work_experiences.empty? %>
       <div class="empty_state"><%= t('.empty_state.work_experience') %></div>
     <% end %>
-    <% @candidate.work_experiences.each do |w| %>
+    <% @work_experiences.each do |w| %>
       <%= render(BoxComponent.new(color: :secondary)) do |component| %>
         <%= component.body do %>
           <b><%= w.job_title %></b><br>
-          <%= w.company_name || 'blank' %><br>
-          <%= w.start_date %> - <%= w.end_date || 'now' %><br>
+          <%= w.company_name %><br>
+          <%= w.start_date&.strftime("%b/%Y") %> - <%= w.end_date&.strftime("%b/%y") || 'now' %><br>
           <%= w.location %>
         <% end %>
       <% end %>
