@@ -78,4 +78,6 @@ pt-BR:
       full_name: Nome completo
       address: Endereço
       work_experience: Experiência profissional
+      empty_state:
+        work_experience: Nenhuma experiência cadastrada para o usuário
     

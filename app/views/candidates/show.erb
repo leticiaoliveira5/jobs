@@ -22,6 +22,9 @@
  <% end %>
 
   <% component.body do %>
+    <% if true %>
+      <div class="empty_state"><%= t('.empty_state.work_experience') %></div>
+    <% end %>
     <% @candidate.work_experiences.each do |w| %>
       <%= render(BoxComponent.new(color: :secondary)) do |component| %>
         <%= component.body do %>

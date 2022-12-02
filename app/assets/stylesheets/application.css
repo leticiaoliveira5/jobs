@@ -76,3 +76,9 @@ a:hover {
   margin: 15px auto;
   text-align: left;
 }
+
+.empty_state{
+  opacity: 0.5;
+  text-align: center;
+  padding: 35px 0 35px 0;
+}
