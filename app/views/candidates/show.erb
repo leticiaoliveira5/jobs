@@ -1,5 +1,5 @@
 <% if candidate_signed_in? %>
-  <%= render(ModalBoxComponent.new(title: 'Nova experiência', show_button_id: 'add_work_experience_button', modal_id: 'add_work_experience_modal')) do |component| %>
+  <%= render(ModalBoxComponent.new(title: t('.new_experience'), show_button_id: 'add_work_experience_button', modal_id: 'add_work_experience_modal')) do |component| %>
     <% component.body do %>
       <%= render partial: 'work_experience_form' %>
     <% end %>
@@ -8,7 +8,10 @@
 
 <%= render(BoxComponent.new) do |component| %>
   <% component.title do %>
-    <%= t(".personal_info") %> <%= link_to 'edit', edit_candidate_registration_path %>
+    <%= t(".personal_info") %>
+    <% if candidate_signed_in? %>
+      <%= link_to 'edit', edit_candidate_registration_path %>
+    <% end %>
   <% end %>
 
   <% component.body do %>
@@ -22,7 +25,7 @@
  <% component.title do %>
   <%= t('.work_experience') %>
   <% if candidate_signed_in? %>
-    <button id="add_work_experience_button">add</button>
+    <button id="add_work_experience_button">+</button>
   <% end %>
  <% end %>
 
