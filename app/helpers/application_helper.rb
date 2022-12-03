@@ -8,13 +8,6 @@ module ApplicationHelper
     t("activerecord.attributes.#{str}")
   end
 
-  def enum_humanized_names(klass = ExampleKlass, enum_name = 'enum_name')
-    enum_plural = enum_name.pluralize
-    klass.send(enum_plural).keys.map do |key|
-      t_attr("#{klass.model_name.param_key}.#{enum_name}.#{key}")
-    end
-  end
-
   def normalize_name(name)
     return if name.blank?
 
