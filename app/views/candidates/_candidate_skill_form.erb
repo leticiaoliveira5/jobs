@@ -1,4 +1,5 @@
 <%= simple_form_for(CandidateSkill.new, url: candidate_skills_path, method: :post) do |f| %>
-  <%= f.input :name, required: true %>
+  <%= f.input :name, required: true, autocomplete_source: Skill.pluck(:name) %>
+  <%= f.input :level, required: true, as: :select, collection: CandidateSkill.levels.keys %>
   <%= f.submit t('simple_form.save'), class: 'button' %>
 <% end %>
