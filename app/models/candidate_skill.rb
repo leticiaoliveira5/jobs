@@ -7,6 +7,6 @@ class CandidateSkill < ApplicationRecord
   enum level: { beginner: 0, intermediate: 1, advanced: 2 }
 
   def self.level_humanized_names
-    levels.keys.map { |key| I18n.t("activerecord.attributes.candidate_skill.level.#{key}") }
+    levels.map { |k, v| [I18n.t("activerecord.attributes.candidate_skill.level.#{k}"), v] }
   end
 end

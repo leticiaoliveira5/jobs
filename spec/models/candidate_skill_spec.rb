@@ -9,7 +9,7 @@ RSpec.describe CandidateSkill, type: :model do
   describe 'level_humanized_names' do
     it 'lists enum values' do
       expect(described_class.level_humanized_names)
-        .to eq %w[Iniciante Intermediário Avançado]
+        .to eq [['Iniciante', 0], ['Intermediário', 1], ['Avançado', 2]]
     end
   end
 end
