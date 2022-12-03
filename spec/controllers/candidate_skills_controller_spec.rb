@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe CandidateSkillsController, type: :controller, login_metadata: true do
   let(:candidate) { create(:candidate) }
+  let(:candidate_skill) { create(:candidate_skill, candidate: candidate) }
 
   describe '#create' do
     it 'with candidate signed in, creates candidate skill', candidate_signed_in: true do
@@ -15,8 +16,6 @@ RSpec.describe CandidateSkillsController, type: :controller, login_metadata: tru
 
   describe '#destroy' do
     it 'with candidate signed in, deletes candidate skill', candidate_signed_in: true do
-      candidate_skill = create(:candidate_skill, candidate: candidate)
-
       delete :destroy, params: { id: candidate_skill.id }
 
       expect(response).to redirect_to candidate_path(candidate)
