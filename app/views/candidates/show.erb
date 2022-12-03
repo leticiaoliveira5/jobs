@@ -52,23 +52,19 @@
 <%= render(BoxComponent.new) do |component| %>
  <% component.title do %>
   <%= t('.candidate_skills') %>
-  <% if candidate_signed_in? %>
-    <button id="add_candidate_skill_button">+</button>
-  <% end %>
+  <%= add_candidate_skill_button %>
  <% end %>
 
   <% component.body do %>
-    <% if @candidate.candidate_skills.empty? %>
+    <% if @candidate_skills.empty? %>
       <div class="empty_state"><%= t('.empty_state.candidate_skill') %></div>
-    <% end %>
-    <% @candidate.candidate_skills.each do |s| %>
-      <div style="padding: 15px 0 15px 0">
-        <b><%= s.skill_name %></b><br>
-        <%= t_attr("candidate_skill.level.#{s.level}") %>
-        <% if candidate_signed_in? %>
-          <%= button_to 'trash', candidate_skill_path(s.id), method: :delete %>
-        <% end %>
-      </div>
+    <% else %>
+      <% @candidate_skills.each do |s| %>
+        <div style="padding: 15px 0 15px 0">
+          <b><%= s.skill_name %></b> <%= delete_candidate_skill_button(s) %><br>
+          <%= t_attr("candidate_skill.level.#{s.level}") %>
+        </div>
+      <% end %>
     <% end %>
   <% end %>
 <% end %>
