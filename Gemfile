@@ -5,6 +5,7 @@ ruby '3.0.0'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
+gem 'enumerate_it'
 gem 'jbuilder', '~> 2.5'
 gem 'pg', '~> 1.3.5'
 gem 'puma', '~> 5.6', '>= 5.6.4'
