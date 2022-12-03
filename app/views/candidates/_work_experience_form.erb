@@ -6,7 +6,7 @@
   <% end %>
   <%= f.input :company_name, required: true %>
   <%= render(GridComponent.new(columns: 2)) do %>
-    <%= f.input :sector, required: false %>
+    <%= f.input :sector, collection: Sectors.to_a, required: false %>
     <%= f.input :location, required: false %>
   <% end %>
 
