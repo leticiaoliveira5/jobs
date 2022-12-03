@@ -64,8 +64,9 @@
     <% @candidate.candidate_skills.each do |s| %>
       <%# tag component?  %>
       <%# mostrar as skills como tags (?) %>
+      <%# <%= render(TagComponent.new) do %> %>
       <div>
-        <%= s.skill.name %>      
+        <%= s.skill.name %> (<%= s.level %>)
         <% if candidate_signed_in? %>
           <%= button_to 'trash', candidate_skill_path(s.id), method: :delete %>
         <% end %>
