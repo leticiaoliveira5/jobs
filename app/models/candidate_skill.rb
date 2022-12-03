@@ -4,6 +4,8 @@ class CandidateSkill < ApplicationRecord
 
   delegate :name, to: :skill, prefix: true
 
+  validates :skill_id, uniqueness: { scope: :candidate_id }
+
   attr_reader :name
 
   enum level: { beginner: 0, intermediate: 1, advanced: 2 }
