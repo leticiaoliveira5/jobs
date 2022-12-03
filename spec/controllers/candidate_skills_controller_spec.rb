@@ -4,7 +4,7 @@ RSpec.describe CandidateSkillsController, type: :controller, login_metadata: tru
   let(:candidate) { create(:candidate) }
 
   describe '#create' do
-    it 'with candidate signed in, creates work experience', candidate_signed_in: true do
+    it 'with candidate signed in, creates candidate skill', candidate_signed_in: true do
       post :create, params: { candidate_skill: { name: 'NaMe' } }
 
       expect(response).to redirect_to candidate_path(candidate)
@@ -14,7 +14,7 @@ RSpec.describe CandidateSkillsController, type: :controller, login_metadata: tru
   end
 
   describe '#destroy' do
-    it 'with candidate signed in, deletes work experience', candidate_signed_in: true do
+    it 'with candidate signed in, deletes candidate skill', candidate_signed_in: true do
       candidate_skill = create(:candidate_skill, candidate: candidate)
 
       delete :destroy, params: { id: candidate_skill.id }
