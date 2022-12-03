@@ -42,5 +42,7 @@ Rails.application.routes.draw do
 
   resources :search_results, only: %i[index]
 
-  resources :work_experiences, only: %i[create update destroy]
+  resources :work_experiences, only: %i[create destroy]
+
+  resources :candidate_skills, only: %i[create destroy]
 end
