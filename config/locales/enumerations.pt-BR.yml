@@ -1,27 +1,27 @@
 pt-BR:
   enumerations:
     sectors:
-      accountacy: Accountancy, banking and finance
-      business: Business, consulting and management
-      charity: Charity and voluntary work
-      creative: Creative arts and design
-      energy: Energy and utilities
-      engineering: Engineering and manufacturing
-      environment: Environment and agriculture
-      healthcare: Healthcare
-      hospitality: Hospitality and events management
-      tech: Information technology
-      law: Law
-      law_enforcement: Law enforcement and security
-      tourism: Leisure, sport and tourism
-      marketing: Marketing, advertising and PR
-      media: Media and internet
-      construction: Property and construction
-      public_services: Public services and administration
-      human_resources: Recruitment and HR
-      retail: Retail
-      sales: Sales
-      pharma: Science and pharmaceuticals
-      social_care: Social care
-      teaching: Teacher training and education
-      logistics: Transport and logistics
+      accountacy: Contabilidade, economia e finanças
+      business: Negócios, consultoria e gestão
+      charity: Caridade e Trabalho voluntário
+      creative: Artes e Design
+      energy: Energia e Utilidade Pública
+      engineering: Engenharia e produção
+      environment: Meio-ambiente e agricultura
+      healthcare: Saúde
+      hospitality: Hospitalidade e gestão de eventos
+      tech: Tecnologia da Informação
+      law: Direito
+      law_enforcement: Cumprimento da Lei e segurança
+      tourism: Lazer, esporte e turismo
+      marketing: Marketing, propaganda e Relações Públicas
+      media: Mídia e Internet
+      construction: Propriedade e construção
+      public_services: Serviço e administração pública
+      human_resources: Recrutamento e Recursos Humanos
+      retail: Verejo
+      sales: Vendas
+      pharma: Ciência e farmacêuticos
+      social_care: Assistência Social
+      teaching: Ensino e educação
+      logistics: Transporte e Logística
