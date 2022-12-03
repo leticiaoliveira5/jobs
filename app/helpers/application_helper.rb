@@ -14,4 +14,10 @@ module ApplicationHelper
       t_attr("#{klass.model_name.param_key}.#{enum_name}.#{key}")
     end
   end
+
+  def normalize_name(name)
+    return if name.blank?
+
+    name[0].capitalize + name[1..].downcase
+  end
 end

@@ -17,12 +17,6 @@ class CandidateSkillsController < ApplicationController
 
   private
 
-  def normalize_name(name)
-    return if name.blank?
-
-    name[0].capitalize + name[1..].downcase
-  end
-
   def skill_params
     params.require(:candidate_skill).permit(:name, :level)
   end
