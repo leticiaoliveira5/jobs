@@ -32,7 +32,7 @@
             <%= button_to 'trash', work_experience_path(w.id), method: :delete, style: 'float: right;' %>
           <% end %>
           <b><%= w.job_title %></b><br>
-          <%= w.company_name %> <%= "- #{Sectors.key_for(w.sector)}" unless w.sector.zero? %><br>
+          <%= w.company_name %> <%= "- #{w.sector_humanize}" unless w.sector.zero? %><br>
           <%= w.start_date&.strftime("%b/%Y") %> - <%= w.end_date&.strftime("%b/%y") || 'now' %><br>
           <%= w.location %>
         <% end %>
