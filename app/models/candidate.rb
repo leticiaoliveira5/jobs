@@ -8,6 +8,7 @@ class Candidate < ApplicationRecord
   has_many :job_proposals, dependent: :restrict_with_error
   has_many :work_experiences, dependent: :destroy
   has_many :candidate_skills, dependent: :destroy
+  has_many :skills, through: :candidate_skills
   has_one :resume, dependent: :destroy
   has_one_attached :avatar
 

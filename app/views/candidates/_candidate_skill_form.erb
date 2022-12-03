@@ -1,0 +1,4 @@
+<%= simple_form_for(CandidateSkill.new, url: candidate_skills_path, method: :post) do |f| %>
+  <%= f.input :name, required: true %>
+  <%= f.submit t('simple_form.save'), class: 'button' %>
+<% end %>
