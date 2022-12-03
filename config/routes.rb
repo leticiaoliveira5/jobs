@@ -28,6 +28,8 @@ Rails.application.routes.draw do
     patch '/resume', to: 'candidate_resumes#update'
   end
 
+  resources :candidates, path: '/u', only: :show
+
   resources :resumes, only: %i[show]
 
   resources :job_applications, path: 'applications', only: %i[destroy show] do
@@ -39,4 +41,6 @@ Rails.application.routes.draw do
   end
 
   resources :search_results, only: %i[index]
+
+  resources :work_experiences, only: %i[create update destroy]
 end

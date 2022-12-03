@@ -1,0 +1,50 @@
+<%= render(BoxComponent.new) do |component| %>
+  <% component.title do %>
+    <%= t(".personal_info") %>
+    <% if candidate_signed_in? %>
+      <%= link_to 'edit', edit_candidate_registration_path %>
+    <% end %>
+  <% end %>
+
+  <% component.body do %>
+    <p><%= t(".full_name") %><br><b><%= @candidate.full_name %></b></p>
+    <p><%= t(".about_me") %><br><b><%= @candidate.about_me %></b></p>
+    <p><%= t(".address") %><br><b><%= @candidate.address %></b></p>
+  <% end %>
+<% end %>
+
+<%= render(BoxComponent.new) do |component| %>
+ <% component.title do %>
+  <%= t('.work_experience') %>
+  <% if candidate_signed_in? %>
+    <button id="add_work_experience_button">+</button>
+  <% end %>
+ <% end %>
+
+  <% component.body do %>
+    <% if @work_experiences.empty? %>
+      <div class="empty_state"><%= t('.empty_state.work_experience') %></div>
+    <% end %>
+    <% @work_experiences.each do |w| %>
+      <%= render(BoxComponent.new(color: :secondary)) do |component| %>
+        <%= component.body do %>
+          <% if candidate_signed_in? %>
+            <%= button_to 'trash', work_experience_path(w.id), method: :delete, style: 'float: right;' %>
+          <% end %>
+          <b><%= w.job_title %></b><br>
+          <%= w.company_name %> <%= "- #{w.sector_humanize}" unless w.sector.zero? %><br>
+          <%= w.start_date&.strftime("%b/%Y") %> - <%= w.end_date&.strftime("%b/%y") || 'now' %><br>
+          <%= w.location %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<% if candidate_signed_in? %>
+  <%= render(ModalBoxComponent.new(title: t('.new_experience'), show_button_id: 'add_work_experience_button', modal_id: 'add_work_experience_modal')) do |component| %>
+    <% component.body do %>
+      <%= render partial: 'work_experience_form' %>
+    <% end %>
+  <% end %>
+<% end %>
