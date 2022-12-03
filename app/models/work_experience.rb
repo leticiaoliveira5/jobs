@@ -8,6 +8,8 @@ class WorkExperience < ApplicationRecord
 
   enum status: { finished: 0, current: 1 }
 
+  has_enumeration_for :sector, with: Sectors
+
   def set_status
     return if end_date.blank?
 
