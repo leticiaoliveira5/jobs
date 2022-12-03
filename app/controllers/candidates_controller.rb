@@ -6,7 +6,7 @@ class CandidatesController < ApplicationController
   def show
     redirect_to root_path unless candidate_signed_in? || employee_signed_in?
 
-    @candidate = Candidate.includes(:work_experiences, :skills).find(params[:id])
+    @candidate = Candidate.includes(:work_experiences, :candidate_skills).find(params[:id])
     @work_experiences = @candidate.work_experiences.order(start_date: :desc)
   end
 end
