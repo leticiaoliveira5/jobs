@@ -26,6 +26,3 @@ class Sectors < EnumerateIt::Base
     logistics: 24
   )
 end
-
-
-
