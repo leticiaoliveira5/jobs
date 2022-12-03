@@ -7,10 +7,4 @@ module ApplicationHelper
   def t_attr(str)
     t("activerecord.attributes.#{str}")
   end
-
-  def normalize_name(name)
-    return if name.blank?
-
-    name[0].capitalize + name[1..].downcase
-  end
 end
