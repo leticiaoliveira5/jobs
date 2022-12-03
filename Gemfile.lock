@@ -95,6 +95,8 @@ GEM
     diff-lcs (1.5.0)
     digest (3.1.0)
     docile (1.1.5)
+    enumerate_it (3.2.4)
+      activesupport (>= 5.0.7.2)
     erubi (1.11.0)
     execjs (2.8.1)
     factory_bot (6.2.1)
@@ -305,6 +307,7 @@ DEPENDENCIES
   byebug
   capybara
   devise
+  enumerate_it
   factory_bot (= 6.2.1)
   factory_bot_rails (= 6.2.0)
   faker
