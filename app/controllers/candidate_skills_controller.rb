@@ -20,7 +20,7 @@ class CandidateSkillsController < ApplicationController
   def normalize_name(name)
     return if name.blank?
 
-    name[0].capitalize + name[1..-1].downcase
+    name[0].capitalize + name[1..].downcase
   end
 
   def skill_params
