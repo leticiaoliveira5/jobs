@@ -1,14 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe Candidate, type: :model do
-  describe '#after_create' do
-    it 'creates resume after candidate creation' do
-      expect do
-        described_class.create(email: 'maria@gmail.com',
-                               password: '123456',
-                               firstname: 'Maria',
-                               surname: 'Costa')
-      end.to change(Resume, :count).by(1)
-    end
+  describe 'associations' do
+    it { is_expected.to have_many(:job_applications) }
+    it { is_expected.to have_many(:job_proposals) }
+    it { is_expected.to have_many(:work_experiences) }
+    it { is_expected.to have_many(:candidate_skills) }
+    it { is_expected.to have_many(:skills) }
+  end
+
+  describe 'validations' do
+    it { is_expected.to validate_length_of(:document) }
   end
 end
