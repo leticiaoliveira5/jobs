@@ -9,7 +9,7 @@ feature 'Candidate views profile page' do
     click_on 'Meu perfil'
 
     expect(page).to have_content 'Dados Pessoais'
-    expect(page).to have_content 'Experiência Profissional'
+    expect(page).to have_content 'Experiência profissional'
     expect(page).to have_content 'Habilidades'
   end
 end
