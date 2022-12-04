@@ -58,6 +58,14 @@ pt-BR:
         description: Descrição
         location: Localidade
         sector: Setor
+      candidate_skill:
+        level:
+          one: Nível
+          beginner: Iniciante
+          intermediate: Intermediário
+          advanced: Avançado
+      skill:
+        name: Nome da Habilidade
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
@@ -85,7 +93,10 @@ pt-BR:
         other: Currículos
       work_experience:
         one: Experiência
-        other: Experiência
+        other: Experiências
+      candidate_skill:
+        one: Habilidade
+        other: Habilidades
   address: Endereço
   document: CNPJ
   domain: Domínio

@@ -42,9 +42,37 @@
 <% end %>
 
 <% if candidate_signed_in? %>
-  <%= render(ModalBoxComponent.new(title: t('.new_experience'), show_button_id: 'add_work_experience_button', modal_id: 'add_work_experience_modal')) do |component| %>
+  <%= render(ModalBoxComponent.new(title: t('.new.experience'), show_button_id: 'add_work_experience_button', modal_id: 'add_work_experience_modal')) do |component| %>
     <% component.body do %>
       <%= render partial: 'work_experience_form' %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= render(BoxComponent.new) do |component| %>
+ <% component.title do %>
+  <%= t('.candidate_skills') %>
+  <%= add_candidate_skill_button %>
+ <% end %>
+
+  <% component.body do %>
+    <% if @candidate_skills.empty? %>
+      <div class="empty_state"><%= t('.empty_state.candidate_skill') %></div>
+    <% else %>
+      <% @candidate_skills.each do |s| %>
+        <div style="padding: 15px 0 15px 0">
+          <b><%= s.skill_name %></b> <%= delete_candidate_skill_button(s) %><br>
+          <%= t_attr("candidate_skill.level.#{s.level}") %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<% if candidate_signed_in? %>
+  <%= render(ModalBoxComponent.new(title: t('.new.skill'), show_button_id: 'add_candidate_skill_button', modal_id: 'add_candidate_skill_modal')) do |component| %>
+    <% component.body do %>
+      <%= render partial: 'candidate_skill_form' %>
     <% end %>
   <% end %>
 <% end %>

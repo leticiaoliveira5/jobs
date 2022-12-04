@@ -1,0 +1,7 @@
+<%= simple_form_for(CandidateSkill.new, url: candidate_skills_path, method: :post) do |f| %>
+  <%= render(GridComponent.new(columns: 2)) do %>
+    <%= f.input :name, required: true, autocomplete: true %>
+    <%= f.input :level, required: true, as: :select, collection: CandidateSkill.level_humanized_names %>
+  <% end %>
+  <%= f.submit t('simple_form.save'), class: 'button' %>
+<% end %>
