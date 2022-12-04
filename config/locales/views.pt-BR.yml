@@ -78,7 +78,11 @@ pt-BR:
       full_name: Nome completo
       address: Endereço
       work_experience: Experiência profissional
-      new_experience: Nova experiência
+      new:
+        experience: Nova experiência
+        skill: Nova Habilidade
+      candidate_skills: Habilidades
       empty_state:
         work_experience: Nenhuma experiência cadastrada pelo usuário
+        candidate_skill: Nenhuma habilidade cadastrada pelo usuário
     
