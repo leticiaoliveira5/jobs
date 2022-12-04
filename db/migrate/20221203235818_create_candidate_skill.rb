@@ -1,4 +1,4 @@
-class CreateCandidateSkills < ActiveRecord::Migration[7.0]
+class CreateCandidateSkill < ActiveRecord::Migration[7.0]
   def change
     create_table :candidate_skills do |t|
       t.bigint :candidate_id
@@ -6,5 +6,7 @@ class CreateCandidateSkills < ActiveRecord::Migration[7.0]
       t.integer :level
       t.timestamps
     end
+
+    add_index :candidate_skills, [:skill_id, :candidate_id], unique: true
   end
 end
