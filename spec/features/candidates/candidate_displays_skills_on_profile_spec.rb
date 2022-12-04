@@ -4,7 +4,8 @@ feature 'Candidate displays skills on profile page' do
   let(:candidate) { create(:candidate) }
 
   before do
-    create(:candidate_skill, candidate: candidate, name: 'Violino', level: :advanced)
+    skill = create(:skill, name: 'Violino')
+    create(:candidate_skill, candidate: candidate, skill: skill, level: :advanced)
   end
 
   scenario 'successfully' do
