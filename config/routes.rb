@@ -23,14 +23,9 @@ Rails.application.routes.draw do
 
   scope '/candidate' do
     get '/dashboard', to: 'candidates#dashboard'
-    get '/resume', to: 'candidate_resumes#show'
-    get '/edit_resume', to: 'candidate_resumes#edit'
-    patch '/resume', to: 'candidate_resumes#update'
   end
 
   resources :candidates, path: '/u', only: :show
-
-  resources :resumes, only: %i[show]
 
   resources :job_applications, path: 'applications', only: %i[destroy show] do
     post 'decline', on: :member

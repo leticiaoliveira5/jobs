@@ -9,16 +9,9 @@ class Candidate < ApplicationRecord
   has_many :work_experiences, dependent: :destroy
   has_many :candidate_skills, dependent: :destroy
   has_many :skills, through: :candidate_skills
-  has_one :resume, dependent: :destroy
   has_one_attached :avatar
 
   validates :document, length: { is: 11 }, on: :update, allow_blank: true
-
-  after_create :create_resume
-
-  def create_resume
-    Resume.create!(candidate: self)
-  end
 
   def full_name
     "#{firstname} #{surname}"
