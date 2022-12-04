@@ -140,19 +140,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_03_235818) do
     t.index ["job_opportunity_id"], name: "index_job_proposals_on_job_opportunity_id"
   end
 
-  create_table "resumes", force: :cascade do |t|
-    t.bigint "candidate_id"
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
-    t.string "address"
-    t.string "education"
-    t.string "experience"
-    t.string "languages"
-    t.string "abilities"
-    t.string "courses"
-    t.index ["candidate_id"], name: "index_resumes_on_candidate_id"
-  end
-
   create_table "skills", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -183,5 +170,4 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_03_235818) do
   add_foreign_key "job_proposals", "candidates"
   add_foreign_key "job_proposals", "job_applications"
   add_foreign_key "job_proposals", "job_opportunities"
-  add_foreign_key "resumes", "candidates"
 end

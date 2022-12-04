@@ -44,12 +44,6 @@ pt-BR:
           waiting: Aguardando avaliação
           accepted: Aceita
           declined: Não aceita
-      resume:
-        abilities: Conhecimentos
-        education: Formação acadêmica
-        languages: Idiomas
-        courses: Cursos
-        experience: Experiência profissional
       work_experience:
         job_title: Título
         start_date: Data de Início
@@ -88,9 +82,6 @@ pt-BR:
       job_opportunity:
         one: Vaga
         other: Vagas
-      resume:
-        one: Currículo
-        other: Currículos
       work_experience:
         one: Experiência
         other: Experiências
@@ -293,8 +284,6 @@ pt-BR:
     precision:
       format:
         delimiter: "."
-  resumes:
-    show: Show
   support:
     array:
       last_word_connector: " e "

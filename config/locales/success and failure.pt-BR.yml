@@ -15,6 +15,4 @@ pt-BR:
       success: 'Resposta enviada com sucesso'
     accept:
       success: 'Confirmação enviada com sucesso!'
-  candidate_resumes:
-    update:
-      success: 'Currículo atualizado com sucesso'
+

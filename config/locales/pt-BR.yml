@@ -41,12 +41,6 @@ pt-BR:
           waiting: Aguardando avaliação
           accepted: Aceita
           rejected: Não aceita
-      resume:
-        abilities: Conhecimentos
-        education: Formação acadêmica
-        languages: Idiomas
-        courses: Cursos
-        experience: Experiência profissional
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
@@ -72,9 +66,6 @@ pt-BR:
       job_opportunity:
         one: Vaga
         other: Vagas
-      resume:
-        one: Currículo
-        other: Currículos
   address: Endereço
   document: CNPJ
   domain: Domínio
@@ -311,8 +302,6 @@ pt-BR:
     precision:
       format:
         delimiter: "."
-  resumes:
-    show: Show
   support:
     array:
       last_word_connector: " e "
