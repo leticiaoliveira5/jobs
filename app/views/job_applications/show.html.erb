@@ -3,7 +3,7 @@
   <h2>Candidatura</h2>
 
   <h3>Candidato: <%= @candidate.firstname %> <%= @candidate.surname %> 
-  (<%= link_to 'Ver currículo', resume_path(@job_application.candidate) %>)</h3>
+  (<%= link_to 'Ver perfil', candidate_path(@job_application.candidate) %>)</h3>
   <h4>CPF:</h4> <%= @candidate.document %>
   <h4>Endereço:</h4> <%= @candidate.address %>
   <h4>Sobre mim:</h4> <%= @candidate.about_me %>

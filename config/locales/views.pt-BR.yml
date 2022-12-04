@@ -62,15 +62,6 @@ pt-BR:
   job_applications:
     show:
       rejection_motive: Motivo
-  resumes:
-    show:
-        full_name: Nome completo
-        address: Endereço
-        abilities: Conhecimentos
-        education: Formação acadêmica
-        languages: Idiomas
-        courses: Cursos
-        experience: Experiência profissional
   candidates:
     show:
       personal_info: Dados Pessoais

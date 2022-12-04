@@ -15,7 +15,6 @@ A web application that allows company employees to create and manage job opportu
 -   Visitor views registered companies
 -   Visitor sees job opportunities
 -   Guest creates candidate account to confirm registration
--   Candidate fills CV
 -   Company employee sees incoming applications
 -   Visitors, employees and candidates search for job opportunities by name and by company
 -   Company employee makes a job offer to a candidate
@@ -24,6 +23,7 @@ A web application that allows company employees to create and manage job opportu
 -   Employee approves/disapproves candidate application
 -   The job opportunity is deactivated when the required number of applicants is approved
 -   System sends email when Application Form is accepted
+-   Candidate has profile page with their skills, experiences, degrees, links etc.
 </details>
 
 ## Current Versions
