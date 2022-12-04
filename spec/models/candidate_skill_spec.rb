@@ -7,7 +7,7 @@ RSpec.describe CandidateSkill, type: :model do
   end
 
   describe 'enum' do
-    it { is_expected.to define_enum_for(:level).with_values([:beginner, :intermediate, :advanced]) }
+    it { is_expected.to define_enum_for(:level).with_values(%i[beginner intermediate advanced]) }
   end
 
   describe 'validation' do
