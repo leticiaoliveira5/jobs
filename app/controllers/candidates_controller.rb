@@ -9,5 +9,6 @@ class CandidatesController < ApplicationController
     @candidate = Candidate.includes(:work_experiences, :candidate_skills).find(params[:id])
     @work_experiences = @candidate.work_experiences.order(start_date: :desc)
     @candidate_skills = @candidate.candidate_skills
+    @courses = @candidate.courses
   end
 end

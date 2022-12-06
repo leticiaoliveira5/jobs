@@ -69,11 +69,15 @@ pt-BR:
       full_name: Nome completo
       address: Endereço
       work_experience: Experiência profissional
+      candidate_skills: Habilidades
+      courses: Cursos e Certificados
+      see_certificate: Ver certificado
       new:
         experience: Nova experiência
         skill: Nova Habilidade
-      candidate_skills: Habilidades
+        course: Novo curso
       empty_state:
         work_experience: Nenhuma experiência cadastrada pelo usuário
         candidate_skill: Nenhuma habilidade cadastrada pelo usuário
+        course: Nenhum curso cadastrado pelo usuário
     
