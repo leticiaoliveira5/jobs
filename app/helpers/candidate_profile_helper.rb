@@ -1,27 +1,14 @@
 module CandidateProfileHelper
-
   def add_item_button(id)
     return unless candidate_signed_in?
 
     tag.button('+', id: id)
   end
 
-  def add_candidate_skill_button
-    return unless candidate_signed_in?
-
-    tag.button('+', id: 'add_candidate_skill_button')
-  end
-
   def delete_candidate_skill_button(skill)
     return unless candidate_signed_in?
 
     link_to tag.button('trash_icon'), candidate_skill_path(skill.id), method: :delete
-  end
-
-  def add_course_button
-    return unless candidate_signed_in?
-
-    tag.button('+', id: 'add_course_button')
   end
 
   def delete_course_button(course_id)

@@ -16,9 +16,7 @@
 <%= render(BoxComponent.new) do |component| %>
  <% component.title do %>
   <%= t('.work_experience') %>
-  <% if candidate_signed_in? %>
-    <button id="add_work_experience_button">+</button>
-  <% end %>
+  <%= add_item_button('add_work_experience_button') %>
  <% end %>
 
   <% component.body do %>
@@ -44,7 +42,7 @@
 <%= render(BoxComponent.new) do |component| %>
  <% component.title do %>
   <%= t('.candidate_skills') %>
-  <%= add_candidate_skill_button %>
+  <%= add_item_button('add_candidate_skill_button') %>
  <% end %>
 
   <% component.body do %>
