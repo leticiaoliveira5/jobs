@@ -15,11 +15,6 @@ RSpec.describe CandidateSkillsController, type: :controller, login_metadata: tru
   end
 
   describe '#destroy' do
-    it 'with candidate signed in, deletes candidate skill', candidate_signed_in: true do
-      delete :destroy, params: { id: candidate_skill.id }
-
-      expect(response).to redirect_to candidate_path(candidate)
-      expect(candidate.candidate_skills.count).to eq 0
-    end
+    it_behaves_like 'candidate profile destroy', object: 'candidate_skill'
   end
 end
