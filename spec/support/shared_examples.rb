@@ -9,6 +9,26 @@ shared_examples 'controller simple get action' do |object: '', action: '', templ
   end
 end
 
+shared_examples 'candidate profile destroy', candidate_signed_in: true do |object: ''|
+  it do
+    instance = create(object.to_sym, candidate: candidate)
+
+    delete :destroy, params: { id: instance.id }
+
+    expect(response).to redirect_to(candidate_path(candidate))
+    expect(candidate.send("#{object}s").count).to eq 0
+  end
+end
+
+shared_examples 'candidate profile create', candidate_signed_in: true do |object: '', params: {}|
+  it do
+    post :create, params: params
+
+    expect(response).to redirect_to(candidate_path(candidate))
+    expect(candidate.send("#{object}s").count).to eq 1
+  end
+end
+
 RSpec.shared_context 'login metadata' do
   before do |test|
     sign_in(employee) if test.metadata[:employee_signed_in]
