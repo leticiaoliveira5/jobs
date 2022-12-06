@@ -29,27 +29,27 @@
 <div class="backdrop" id="backdrop<%= @modal_id %>"></div>
   <div  class="modalbox" id="<%= @modal_id %>">
     <div class="title">
-      <%= @title %> <button onclick="closeModal(this)" style="float: right;">x</button>
+      <%= @title %> <button onclick='closeModal("<%= @modal_id %>")' style="float: right;">x</button>
     </div>
     <%= body %>
   </div>
 
 <script>
   var btn = document.getElementById("<%= @show_button_id %>");
-  btn.setAttribute('onclick', 'showModal()');
+  btn.setAttribute('onclick', 'showModal("<%= @modal_id %>")');
 
-  function showModal() {
-    var modal = document.getElementById("<%= @modal_id %>")
-    var backdrop = document.getElementById("backdrop<%= @modal_id %>")
+  function showModal(id) {
+    var modal = document.getElementById(id)
+    var backdrop = document.getElementById(`backdrop${id}`)
 
     // backdrop.style.display = 'block'
     fadeIn(backdrop)
     modal.style.display = 'block'
   }
 
-  function closeModal(element) {
-    var modal = document.getElementById("<%= @modal_id %>")
-    var backdrop = document.getElementById("backdrop<%= @modal_id %>")
+  function closeModal(id) {
+    var modal = document.getElementById(id)
+    var backdrop = document.getElementById(`backdrop${id}`)
     // backdrop.style.display = 'none'
     fadeOut(backdrop)
     modal.style.display = 'none'
