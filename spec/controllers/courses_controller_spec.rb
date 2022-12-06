@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe CoursesController, type: :controller, login_metadata: true do
   let(:candidate) { create(:candidate) }
-  let(:course) { create(:course, candidate: candidate) }
 
   describe '#create' do
     it 'with candidate signed in, creates course', candidate_signed_in: true do
@@ -16,6 +15,8 @@ RSpec.describe CoursesController, type: :controller, login_metadata: true do
 
   describe '#destroy' do
     it 'with candidate signed in, deletes course', candidate_signed_in: true do
+      course = create(:course, candidate: candidate)
+
       delete :destroy, params: { id: course.id }
 
       expect(response).to redirect_to candidate_path(candidate)
