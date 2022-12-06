@@ -6,6 +6,7 @@ RSpec.describe Candidate, type: :model do
     it { is_expected.to have_many(:job_proposals) }
     it { is_expected.to have_many(:work_experiences) }
     it { is_expected.to have_many(:candidate_skills) }
+    it { is_expected.to have_many(:courses) }
     it { is_expected.to have_many(:skills) }
   end
 

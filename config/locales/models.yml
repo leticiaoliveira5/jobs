@@ -60,6 +60,10 @@ pt-BR:
           advanced: Avançado
       skill:
         name: Nome da Habilidade
+      course:
+        title: Título
+        ceritificate_link: Certificado
+        description: Descrição
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
@@ -88,6 +92,9 @@ pt-BR:
       candidate_skill:
         one: Habilidade
         other: Habilidades
+      course:
+        one: Curso
+        other: Cursos
   address: Endereço
   document: CNPJ
   domain: Domínio

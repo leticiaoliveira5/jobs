@@ -40,4 +40,6 @@ Rails.application.routes.draw do
   resources :work_experiences, only: %i[create destroy]
 
   resources :candidate_skills, only: %i[create destroy]
+
+  resources :courses, only: %i[create destroy]
 end

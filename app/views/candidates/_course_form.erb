@@ -1,0 +1,6 @@
+<%= simple_form_for(Course.new, url: courses_path, method: :post) do |f| %>
+  <%= f.input :title, required: true, autocomplete: true %>
+  <%= f.input :certificate_link %>
+  <%= f.input :description %>  
+  <%= f.submit t('simple_form.save'), class: 'button' %>
+<% end %>
