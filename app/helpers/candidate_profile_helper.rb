@@ -5,16 +5,21 @@ module CandidateProfileHelper
     tag.button('+', id: id)
   end
 
-  def delete_candidate_skill_button(skill)
+  def delete_item_button(item)
     return unless candidate_signed_in?
 
-    link_to tag.button('trash_icon'), candidate_skill_path(skill.id), method: :delete
+    link_to tag.button('trash_icon'), delete_path(item), method: :delete
   end
 
-  def delete_course_button(course_id)
-    return unless candidate_signed_in?
-
-    link_to tag.button('trash_icon'), course_path(course_id), method: :delete
+  def delete_path(item)
+    case item
+    when Course
+      course_path(item)
+    when CandidateSkill
+      candidate_skill_path(item)
+    when WorkExperience
+      work_experience_path(item)
+    end
   end
 
   def course_certificate_link(certificate_link)

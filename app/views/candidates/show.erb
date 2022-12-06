@@ -26,9 +26,7 @@
     <% @work_experiences.each do |w| %>
       <%= render(BoxComponent.new(color: :secondary)) do |component| %>
         <%= component.body do %>
-          <% if candidate_signed_in? %>
-            <%= button_to 'trash', work_experience_path(w.id), method: :delete, style: 'float: right;' %>
-          <% end %>
+          <%= delete_item_button(w) %>
           <b><%= w.job_title %></b><br>
           <%= w.company_name %> <%= "- #{w.sector_humanize}" unless w.sector&.zero? %><br>
           <%= w.start_date&.strftime("%b/%Y") %> - <%= w.end_date&.strftime("%b/%y") || 'now' %><br>
@@ -51,7 +49,7 @@
     <% else %>
       <% @candidate_skills.each do |s| %>
         <div style="padding: 15px 0 15px 0">
-          <b><%= s.skill_name %></b> <%= delete_candidate_skill_button(s) %><br>
+          <b><%= s.skill_name %></b> <%= delete_item_button(s) %><br>
           <%= t_attr("candidate_skill.level.#{s.level}") %>
         </div>
       <% end %>
@@ -71,7 +69,7 @@
     <% else %>
       <% @courses.each do |c| %>
         <div style="padding: 15px 0 15px 0">
-          <b><%= c.title %></b><%= delete_course_button(c.id) %><br>
+          <b><%= c.title %></b><%= delete_item_button(c) %><br>
           <%= course_certificate_link(c.certificate_link) %>
           <%= c.description %>
         </div>
