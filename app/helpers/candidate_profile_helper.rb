@@ -33,7 +33,7 @@ module CandidateProfileHelper
 
   def graduation_year(year)
     return if year.blank?
-  
+
     "#{t_attr('degree.graduation_year')}: #{year}"
   end
 
