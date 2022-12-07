@@ -1,4 +1,6 @@
 module CandidateProfileHelper
+  include ApplicationHelper
+
   def add_item_button(id)
     return unless candidate_signed_in?
 

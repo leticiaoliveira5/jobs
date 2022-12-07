@@ -5,6 +5,6 @@ module ApplicationHelper
   end
 
   def t_attr(str)
-    t("activerecord.attributes.#{str}")
+    I18n.t("activerecord.attributes.#{str}")
   end
 end
