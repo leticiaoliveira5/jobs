@@ -42,4 +42,6 @@ Rails.application.routes.draw do
   resources :candidate_skills, only: %i[create destroy]
 
   resources :courses, only: %i[create destroy]
+
+  resources :languages, only: %i[create destroy]
 end

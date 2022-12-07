@@ -19,6 +19,8 @@ module CandidateProfileHelper
       candidate_skill_path(item)
     when WorkExperience
       work_experience_path(item)
+    when Language
+      language_path(item)
     end
   end
 

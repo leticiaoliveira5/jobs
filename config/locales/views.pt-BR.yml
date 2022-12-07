@@ -72,12 +72,15 @@ pt-BR:
       candidate_skills: Habilidades
       courses: Cursos e Certificados
       see_certificate: Ver certificado
+      languages: Línguas
       new:
         experience: Nova experiência
         skill: Nova Habilidade
         course: Novo curso
+        language: Novo Idioma
       empty_state:
         work_experience: Nenhuma experiência cadastrada pelo usuário
         candidate_skill: Nenhuma habilidade cadastrada pelo usuário
         course: Nenhum curso cadastrado pelo usuário
+        language: Nenhum idioma cadastrado pelo usuário
     

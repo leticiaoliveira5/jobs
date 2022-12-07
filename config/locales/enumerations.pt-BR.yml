@@ -25,3 +25,8 @@ pt-BR:
       social_care: Assistência Social
       teaching: Ensino e educação
       logistics: Transporte e Logística
+    proficiencies:
+          beginner: Iniciante
+          intermediate: Intermediário
+          advanced: Avançado
+          fluent: Fluente
