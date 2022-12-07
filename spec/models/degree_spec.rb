@@ -10,7 +10,8 @@ RSpec.describe Degree, type: :model do
   end
 
   describe 'enum' do
-    it { is_expected.to define_enum_for(:kind)
-    .with_values(%i[diploma bachelor graduate master doctorate]) }
+    let(:values) { %i[diploma bachelor graduate master doctorate] }
+
+    it { is_expected.to define_enum_for(:kind).with_values(values) }
   end
 end
