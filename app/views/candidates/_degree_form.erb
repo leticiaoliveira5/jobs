@@ -1,6 +1,6 @@
 <%= simple_form_for(Degree.new, url: degrees_path, method: :post) do |f| %>
   <%= f.input :title, required: true, autocomplete: true %>
   <%= f.input :graduation_year, required: false %>
-  <%= f.input :type, required: false %>
+  <%= f.input :kind, required: false %>
   <%= f.submit t('simple_form.save'), class: 'button' %>
 <% end %>
