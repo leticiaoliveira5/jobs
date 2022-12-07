@@ -78,6 +78,26 @@
   <% end %>
 <% end %>
 
+<%= render(BoxComponent.new) do |component| %>
+ <% component.title do %>
+  <%= t('.languages') %>
+  <%= add_item_button('add_language_button') %>
+ <% end %>
+
+  <% component.body do %>
+    <% if @languages.empty? %>
+      <div class="empty_state"><%= t('.empty_state.language') %></div>
+    <% else %>
+      <% @languages.each do |l| %>
+        <div style="padding: 15px 0 15px 0">
+          <b><%= l.name %></b><%= delete_item_button(l) %><br>
+          <%= l.proficiency_humanize %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+
 <% if candidate_signed_in? %>
   <%= render(ModalBoxComponent.new(title: t('.new.skill'), show_button_id: 'add_candidate_skill_button', modal_id: 'add_candidate_skill_modal')) do |component| %>
     <% component.body do %>
@@ -94,6 +114,12 @@
   <%= render(ModalBoxComponent.new(title: t('.new.course'), show_button_id: 'add_course_button', modal_id: 'add_course_modal')) do |component| %>
     <% component.body do %>
       <%= render partial: 'course_form' %>
+    <% end %>
+  <% end %>
+
+  <%= render(ModalBoxComponent.new(title: t('.new.language'), show_button_id: 'add_language_button', modal_id: 'add_language_modal')) do |component| %>
+    <% component.body do %>
+      <%= render partial: 'language_form' %>
     <% end %>
   <% end %>
 <% end %>

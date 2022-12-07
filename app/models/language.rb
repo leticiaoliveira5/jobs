@@ -3,5 +3,5 @@ class Language < ApplicationRecord
 
   validates :name, :proficiency, presence: true
 
-  enum proficiency: { beginner: 0, intermediate: 1, advanced: 2, fluent: 3 }
+  has_enumeration_for :proficiency, with: Proficiencies
 end
