@@ -49,7 +49,7 @@
     <% else %>
       <% @candidate.degrees.each do |d| %>
         <div style="padding: 15px 0 15px 0">
-          <%= degree_headline(d) %> <%= delete_item_button(d) %><br>
+          <%= degree_headline(d.title, d.kind) %> <%= delete_item_button(d) %><br>
           <%= graduation_year(d.graduation_year) %>
         </div>
       <% end %>

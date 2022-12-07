@@ -26,9 +26,12 @@ module CandidateProfileHelper
     end
   end
 
-  def degree_headline(degree)
-    type = " (#{degree.type})" if degree.type.present?
-    tag.b(degree.title).concat(type)
+  def degree_headline(title, kind)
+    if kind.present?
+      tag.b(title).concat(" (#{kind})")
+    else
+      tag.b(title)
+    end
   end
 
   def graduation_year(year)
