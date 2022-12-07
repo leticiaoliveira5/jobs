@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe CandidateProfileHelper, type: :helper do
+  helper do
+    def candidate_signed_in?
+      true
+    end
+  end
+
   describe '#delete_path' do
     let(:course) { create(:course) }
     let(:work_experience) { create(:work_experience) }
@@ -22,5 +28,13 @@ RSpec.describe CandidateProfileHelper, type: :helper do
 
   describe '#graduation_year' do
     it { expect(graduation_year(2005)).to eq('Ano de conclusão: 2005') }
+  end
+
+  describe '#course_certificate_link' do
+    let(:expected_link) do
+      '<a target="_blank" title="Ver certificado" rel="noopener" href="http://google.com">Certificate_icon</a><br>'
+    end
+
+    it { expect(course_certificate_link('google.com')).to eq(expected_link) }
   end
 end
