@@ -73,14 +73,17 @@ pt-BR:
       courses: Cursos e Certificados
       see_certificate: Ver certificado
       languages: Línguas
+      degrees: Formação Acadêmica
       new:
         experience: Nova experiência
         skill: Nova Habilidade
         course: Novo curso
         language: Novo Idioma
+        degree: Novo Histórico
       empty_state:
         work_experience: Nenhuma experiência cadastrada pelo usuário
         candidate_skill: Nenhuma habilidade cadastrada pelo usuário
         course: Nenhum curso cadastrado pelo usuário
         language: Nenhum idioma cadastrado pelo usuário
+        degrees: Nenhum histórico cadastrado pelo usuário
     
