@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_04_132450) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_07_163723) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -148,6 +148,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_04_132450) do
     t.index ["candidate_id"], name: "index_job_proposals_on_candidate_id"
     t.index ["job_application_id"], name: "index_job_proposals_on_job_application_id"
     t.index ["job_opportunity_id"], name: "index_job_proposals_on_job_opportunity_id"
+  end
+
+  create_table "languages", force: :cascade do |t|
+    t.bigint "candidate_id", null: false
+    t.integer "proficiency", null: false
+    t.string "name", limit: 255, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "skills", force: :cascade do |t|
