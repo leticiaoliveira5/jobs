@@ -26,7 +26,13 @@ pt-BR:
       teaching: Ensino e educação
       logistics: Transporte e Logística
     proficiencies:
-          beginner: Iniciante
-          intermediate: Intermediário
-          advanced: Avançado
-          fluent: Fluente
+      beginner: Iniciante
+      intermediate: Intermediário
+      advanced: Avançado
+      fluent: Fluente
+    degree_kinds:
+      diploma: Diploma
+      bachelor: Graduação
+      graduate: Pós-graduação
+      master: Mestrado
+      doctorate: Doutorado

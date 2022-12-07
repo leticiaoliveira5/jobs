@@ -11,6 +11,7 @@ class Candidate < ApplicationRecord
   has_many :skills, through: :candidate_skills
   has_many :courses, dependent: :destroy
   has_many :languages, dependent: :destroy
+  has_many :degrees, dependent: :destroy
   has_one_attached :avatar
 
   validates :document, length: { is: 11 }, on: :update, allow_blank: true

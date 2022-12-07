@@ -6,7 +6,7 @@ class CandidatesController < ApplicationController
 
   def show
     @candidate = Candidate.includes(:work_experiences, :candidate_skills,
-                                    :courses, :languages).find(params[:id])
+                                    :courses, :languages, :degrees).find(params[:id])
     @work_experiences = @candidate.work_experiences.order(start_date: :desc)
     @candidate_skills = @candidate.candidate_skills
     @courses = @candidate.courses

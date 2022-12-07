@@ -1,4 +1,6 @@
 module CandidateProfileHelper
+  include ApplicationHelper
+
   def add_item_button(id)
     return unless candidate_signed_in?
 
@@ -21,7 +23,24 @@ module CandidateProfileHelper
       work_experience_path(item)
     when Language
       language_path(item)
+    when Degree
+      degree_path(item)
     end
+  end
+
+  def degree_headline(title, kind)
+    bold_title = tag.b(title)
+    if kind.present?
+      bold_title.concat(" (#{kind})")
+    else
+      bold_title
+    end
+  end
+
+  def graduation_year(year)
+    return if year.blank?
+
+    "#{t_attr('degree.graduation_year')}: #{year}"
   end
 
   def course_certificate_link(certificate_link)
