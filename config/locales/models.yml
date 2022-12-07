@@ -72,6 +72,17 @@ pt-BR:
           intermediate: Intermediário
           advanced: Avançado
           fluent: Fluente
+      degree:
+        title: Título
+        graduation_year: Ano de conclusão
+        institution: Instituição de Ensino
+        kind:
+          one: Tipo
+          diploma: Diploma
+          bachelor: Graduação
+          graduate: Pós-graduação
+          master: Mestrado
+          doctorate: Doutorado
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'

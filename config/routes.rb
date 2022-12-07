@@ -44,4 +44,6 @@ Rails.application.routes.draw do
   resources :courses, only: %i[create destroy]
 
   resources :languages, only: %i[create destroy]
+
+  resources :degrees, only: %i[create destroy]
 end
