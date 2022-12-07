@@ -64,6 +64,14 @@ pt-BR:
         title: Título
         ceritificate_link: Certificado
         description: Descrição
+      language:
+        name: Língua
+        proficiency:
+          one: Proficiência
+          beginner: Iniciante
+          intermediate: Intermediário
+          advanced: Avançado
+          fluent: Fluente
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
