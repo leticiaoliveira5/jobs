@@ -6,7 +6,7 @@ RSpec.describe DegreesController, type: :controller, login_metadata: true do
   describe '#create' do
     it_behaves_like 'candidate profile create', object: 'degree',
                                                 params: { degree: { title: 'English',
-                                                                    type: :graduate } }
+                                                                    kind: 0 } }
   end
 
   describe '#destroy' do

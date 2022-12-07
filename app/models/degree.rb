@@ -3,5 +3,5 @@ class Degree < ApplicationRecord
 
   validates :title, presence: true
 
-  enum type: { diploma: 0, bachelor: 1, graduate: 2, master: 3, doctorate: 4 }
+  enum kind: { diploma: 0, bachelor: 1, graduate: 2, master: 3, doctorate: 4 }
 end

@@ -4,7 +4,7 @@ class CreateDegrees < ActiveRecord::Migration[7.0]
       t.bigint :candidate_id
       t.string :title, null: false
       t.integer :graduation_year
-      t.integer :type
+      t.integer :kind
       t.timestamps
     end
   end

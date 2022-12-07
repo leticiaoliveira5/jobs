@@ -94,7 +94,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_07_193045) do
     t.bigint "candidate_id"
     t.string "title", null: false
     t.integer "graduation_year"
-    t.integer "type"
+    t.integer "kind"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
