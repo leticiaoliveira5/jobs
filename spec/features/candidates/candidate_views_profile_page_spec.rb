@@ -8,6 +8,7 @@ feature 'Candidate views profile page' do
     create(:candidate_skill, candidate: candidate)
     create(:course, candidate: candidate)
     create(:language, candidate: candidate)
+    create(:degree, candidate: candidate)
   end
 
   scenario 'successfully' do
@@ -17,6 +18,7 @@ feature 'Candidate views profile page' do
 
     expect(page).to have_content 'Dados Pessoais'
     expect(page).to have_content 'Experiência profissional'
+    expect(page).to have_content 'Formação Acadêmica'
     expect(page).to have_content 'Habilidades'
     expect(page).to have_content 'Cursos e Certificados'
     expect(page).to have_content 'Línguas'
