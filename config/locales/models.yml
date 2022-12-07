@@ -75,6 +75,7 @@ pt-BR:
       degree:
         title: Título
         graduation_year: Ano de conclusão
+        institution: Instituição de Ensino
         kind:
           one: Tipo
           diploma: Diploma
