@@ -16,6 +16,6 @@ class DegreesController < ApplicationController
   private
 
   def degree_params
-    params.require(:degree).permit(:title, :graduation_year, :kind)
+    params.require(:degree).permit(:title, :graduation_year, :kind, :institution)
   end
 end
