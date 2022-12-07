@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_07_163723) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_07_193045) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -86,6 +86,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_07_163723) do
     t.text "skills", default: [], array: true
     t.string "certificate_link"
     t.string "description", limit: 255
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "degrees", force: :cascade do |t|
+    t.bigint "candidate_id"
+    t.string "title", null: false
+    t.integer "graduation_year"
+    t.integer "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
