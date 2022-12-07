@@ -21,7 +21,20 @@ module CandidateProfileHelper
       work_experience_path(item)
     when Language
       language_path(item)
+    when Degree
+      degree_path(item)
     end
+  end
+
+  def degree_headline(degree)
+    type = " (#{degree.type})" if degree.type.present?
+    tag.b(degree.title).concat(type)
+  end
+
+  def graduation_year(year)
+    return if year.blank?
+  
+    "#{t_attr('degree.graduation_year')}: #{year}"
   end
 
   def course_certificate_link(certificate_link)

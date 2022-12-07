@@ -39,6 +39,26 @@
 
 <%= render(BoxComponent.new) do |component| %>
  <% component.title do %>
+  <%= t('.degrees') %>
+  <%= add_item_button('add_degree_button') %>
+ <% end %>
+
+  <% component.body do %>
+    <% if @candidate.degrees.empty? %>
+      <div class="empty_state"><%= t('.empty_state.degree') %></div>
+    <% else %>
+      <% @candidate.degrees.each do |d| %>
+        <div style="padding: 15px 0 15px 0">
+          <%= degree_headline(d) %> <%= delete_item_button(d) %><br>
+          <%= graduation_year(d.graduation_year) %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= render(BoxComponent.new) do |component| %>
+ <% component.title do %>
   <%= t('.candidate_skills') %>
   <%= add_item_button('add_candidate_skill_button') %>
  <% end %>
@@ -108,6 +128,12 @@
   <%= render(ModalBoxComponent.new(title: t('.new.experience'), show_button_id: 'add_work_experience_button', modal_id: 'add_work_experience_modal')) do |component| %>
     <% component.body do %>
       <%= render partial: 'work_experience_form' %>
+    <% end %>
+  <% end %>
+
+  <%= render(ModalBoxComponent.new(title: t('.new.degree'), show_button_id: 'add_degree_button', modal_id: 'add_degree_modal')) do |component| %>
+    <% component.body do %>
+      <%= render partial: 'degree_form' %>
     <% end %>
   <% end %>
 
