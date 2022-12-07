@@ -85,10 +85,10 @@
  <% end %>
 
   <% component.body do %>
-    <% if @languages.empty? %>
+    <% if @candidate.languages.empty? %>
       <div class="empty_state"><%= t('.empty_state.language') %></div>
     <% else %>
-      <% @languages.each do |l| %>
+      <% @candidate.languages.each do |l| %>
         <div style="padding: 15px 0 15px 0">
           <b><%= l.name %></b><%= delete_item_button(l) %><br>
           <%= l.proficiency_humanize %>

@@ -10,7 +10,6 @@ class CandidatesController < ApplicationController
     @work_experiences = @candidate.work_experiences.order(start_date: :desc)
     @candidate_skills = @candidate.candidate_skills
     @courses = @candidate.courses
-    @languages = @candidate.languages
   end
 
   private
