@@ -11,6 +11,9 @@ RSpec.describe Language, type: :model do
   end
 
   describe 'enum' do
-    it { is_expected.to define_enum_for(:proficiency).with_values(%i[beginner intermediate advanced fluent]) }
+    it do
+      expect(subject).to define_enum_for(:proficiency)
+      .with_values(%i[beginner intermediate advanced fluent])
+    end
   end
 end
