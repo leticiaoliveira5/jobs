@@ -27,11 +27,11 @@ module CandidateProfileHelper
   end
 
   def degree_headline(title, kind)
-    title = tag.b(title)
+    bold_title = tag.b(title)
     if kind.present?
-      title.concat(" (#{kind})")
+      bold_title.concat(" (#{kind})")
     else
-      title.b(title)
+      bold_title
     end
   end
 
