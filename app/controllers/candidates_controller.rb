@@ -3,6 +3,8 @@ class CandidatesController < ApplicationController
 
   def dashboard; end
 
+  # This method smells of :reek:TooManyInstanceVariables
+  # This method smells of :reek:TooManyStatements
   def show
     redirect_to root_path unless candidate_signed_in? || employee_signed_in?
 
