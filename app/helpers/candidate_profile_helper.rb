@@ -13,6 +13,12 @@ module CandidateProfileHelper
     link_to tag.button('trash_icon'), delete_path(item), method: :delete
   end
 
+  def edit_candidate_info_button
+    return unless candidate_signed_in?
+
+    link_to tag.button('edit', id: 'edit_candidate_button'), edit_candidate_registration_path
+  end
+
   def delete_path(item)
     case item
     when Course
@@ -53,8 +59,8 @@ module CandidateProfileHelper
             rel: :noopener).concat(tag.br)
   end
 
-  def sidebar_avatar(candidate)
-    avatar = candidate.avatar.attached? ? candidate.avatar : 'icon.png'
-    image_tag(avatar, width: '200em', style: 'max-width: 100%; border-radius: 50%;')
+  def sidebar_avatar(avatar)
+    img = avatar.attached? ? avatar : 'icon.png'
+    image_tag(img, width: '200em', class: 'sidebar-avatar')
   end
 end
