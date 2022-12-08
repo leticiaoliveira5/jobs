@@ -11,8 +11,8 @@ RSpec.describe PageComponent, type: :component do
   context 'renders page' do
     it do
       expect(rendered_component).to have_css('div.page')
-      expect(rendered_component).to have_css('div.content', text: 'Content')
-      expect(rendered_component).to have_css('div.sidebar', text: 'Sidebar')
+      expect(rendered_component).to have_css('div.page-content', text: 'Content')
+      expect(rendered_component).to have_css('div.page-sidebar', text: 'Sidebar')
     end
   end
 end
