@@ -1,6 +1,7 @@
 <%= render(PageComponent.new) do |component| %>
   <%= component.sidebar do %>
-    <center><%= sidebar_avatar(@candidate) %></center>
+    <%= sidebar_avatar(@candidate) %>
+    <p><%= t(".address") %><b><%= @candidate.address %></b></p>
   <% end %>
 
   <%= component.main_content do %>

@@ -84,19 +84,25 @@ a:hover {
 }
 
 
-@media screen and (min-device-width: 900px) {
+@media screen and (min-device-width: 900px) and (min-width: 900px) {
   .container {
     width: 80%;
     margin: 0 auto;
   }
 
   .page {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
     display: flex;
+    justify-content: space-between;
   }
   
   .page .sidebar {
-    width: 30%;
+    background-color: red;
+    width: 28%;
     padding-top: 20px;
+    /* position: fixed; */
   }
   
   .page .content {
