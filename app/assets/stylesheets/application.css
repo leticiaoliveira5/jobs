@@ -98,14 +98,14 @@ a:hover {
     justify-content: space-between;
   }
   
-  .page .sidebar {
+  .page .page-sidebar {
     background-color: red;
     width: 28%;
     padding-top: 20px;
     /* position: fixed; */
   }
   
-  .page .content {
+  .page .page-content {
     width: 70%;
   }
 }
