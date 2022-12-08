@@ -89,6 +89,19 @@ a:hover {
     width: 80%;
     margin: 0 auto;
   }
+
+  .page {
+    display: flex;
+  }
+  
+  .page .sidebar {
+    width: 30%;
+    padding-top: 20px;
+  }
+  
+  .page .content {
+    width: 70%;
+  }
 }
 
 @media screen and (max-device-width: 700px) {

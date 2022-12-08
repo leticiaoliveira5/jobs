@@ -52,4 +52,9 @@ module CandidateProfileHelper
             title: t('candidates.show.see_certificate'),
             rel: :noopener).concat(tag.br)
   end
+
+  def sidebar_avatar(candidate)
+    avatar = candidate.avatar.attached? ? candidate.avatar : 'icon.png'
+    image_tag(avatar, width: '200em', style: 'max-width: 100%; border-radius: 50%;')
+  end
 end
