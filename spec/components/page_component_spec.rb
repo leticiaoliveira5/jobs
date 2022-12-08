@@ -1,15 +1,18 @@
-# frozen_string_literal: true
-
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.describe PageComponent, type: :component do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:rendered_component) do
+    render_inline(described_class.new) do |component|
+      component.sidebar { 'Sidebar' }
+      component.main_content { 'Content' }
+    end.to_html
+  end
 
-  # it "renders something useful" do
-  #   expect(
-  #     render_inline(described_class.new(attr: "value")) { "Hello, components!" }.css("p").to_html
-  #   ).to include(
-  #     "Hello, components!"
-  #   )
-  # end
+  context 'renders page' do
+    it do
+      expect(rendered_component).to have_css('div.page')
+      expect(rendered_component).to have_css('div.content', text: 'Content')
+      expect(rendered_component).to have_css('div.sidebar', text: 'Sidebar')
+    end
+  end
 end
