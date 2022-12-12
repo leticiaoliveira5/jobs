@@ -6,7 +6,7 @@
     <%= f.input :surname %>
 
     <% if candidate_signed_in? %>
-      <%= f.input :about_me %>
+      <%= f.input :about_me, as: :text %>
       <%= f.input :document %>
       <%= f.input :address %>
       <%= f.input :avatar %>

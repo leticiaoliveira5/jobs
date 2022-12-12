@@ -67,12 +67,16 @@ module CandidateProfileHelper
   def candidate_locale(locale)
     return unless locale
 
-    tag.p(tag.b(locale))
+    tag.i(class: 'locale_icon').concat(
+      tag.p(locale)
+    )
   end
 
   def candidate_website(website)
     return unless website
 
-    tag.p(tag.b(website))
+    tag.i(class: 'url_icon').concat(
+      tag.p(tag.a(website, href: "http://#{website}", target: :_blank))
+    )
   end
 end

@@ -5,7 +5,7 @@
         <%= sidebar_avatar(@candidate.avatar) %>
         <p class="title"><%= @candidate.full_name %></p>
         <%= candidate_locale(@candidate.address) %>
-        <%= candidate_website(@candidate) %>
+        <%= candidate_website(@candidate.website) %>
       <% end %>
     <% end %>
   <% end %>
@@ -19,7 +19,7 @@
       <% end %>
 
       <% component.body do %>
-        <p><%= @candidate.about_me %></p>
+        <p><%= @candidate.about_me.html_safe %></p>
       <% end %>
     <% end %>
 
