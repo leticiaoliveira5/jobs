@@ -13,7 +13,6 @@ RSpec.describe Candidate, type: :model do
   describe 'validations' do
     it { is_expected.to validate_length_of(:document) }
 
-    #
     context 'avatar' do
       it 'validates content type' do
         candidate = build(:candidate, :with_invalid_format_avatar)
