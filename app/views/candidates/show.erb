@@ -3,7 +3,8 @@
     <%= render(BoxComponent.new) do |box| %>
       <%= box.body do %>
         <%= sidebar_avatar(@candidate.avatar) %>
-        <p class="title"><%= @candidate.full_name %></p>
+        <p class="title"><%= @candidate.full_name %>
+        <%= edit_candidate_info_button %></p>
         <%= candidate_locale(@candidate.address) %>
         <%= candidate_website(@candidate.website) %>
       <% end %>

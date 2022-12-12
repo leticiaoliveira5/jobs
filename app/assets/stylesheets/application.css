@@ -86,16 +86,16 @@ a:hover {
 /* large screen */
 @media screen and (min-device-width: 750px) and (min-width: 750px) {
   .container {
-    width: 80%;
     margin: 0 auto;
+    width: 80%;
   }
 
   .page {
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
     display: flex;
     justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
   }
   
   .page .page-sidebar {
