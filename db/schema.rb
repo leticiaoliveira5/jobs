@@ -57,13 +57,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_07_193045) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at", precision: nil
     t.datetime "remember_created_at", precision: nil
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
-    t.string "surname"
-    t.string "firstname"
+    t.string "website"
     t.string "about_me"
+    t.string "firstname"
+    t.string "surname"
     t.string "address"
     t.string "document"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["document"], name: "index_candidates_on_document", unique: true
     t.index ["email"], name: "index_candidates_on_email", unique: true
     t.index ["reset_password_token"], name: "index_candidates_on_reset_password_token", unique: true
