@@ -61,7 +61,7 @@ module CandidateProfileHelper
 
   def sidebar_avatar(avatar)
     img = avatar.attached? ? avatar : 'icon.png'
-    image_tag(img, width: '200em', class: 'sidebar-avatar')
+    image_tag(img, size: '250x250', class: 'sidebar-avatar')
   end
 
   def candidate_locale(locale)
