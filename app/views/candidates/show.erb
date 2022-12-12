@@ -3,8 +3,7 @@
     <%= render(BoxComponent.new) do |box| %>
       <%= box.body do %>
         <%= sidebar_avatar(@candidate.avatar) %>
-        <p><%= t(".full_name") %><br><b><%= @candidate.full_name %></b></p>
-        <p><%= t(".address") %><br><b><%= @candidate.address %></b></p>
+        <p class="title"><%= @candidate.full_name %></p>
       <% end %>
     <% end %>
   <% end %>
@@ -13,12 +12,12 @@
 
     <%= render(BoxComponent.new) do |component| %>
       <% component.title do %>
-        <%= @candidate.full_name %>
+        <%= t(".about_me") %>
         <%= edit_candidate_info_button %>
       <% end %>
 
       <% component.body do %>
-        <p><%= t(".about_me") %><br><b><%= @candidate.about_me %></b></p>
+        <p><%= @candidate.about_me %></p>
       <% end %>
     <% end %>
 
