@@ -15,6 +15,7 @@ class Candidate < ApplicationRecord
   has_one_attached :avatar
 
   validates :document, length: { is: 11 }, on: :update, allow_blank: true
+  validates :avatar, content_type: [:jpg, :jpeg]
 
   def full_name
     "#{firstname} #{surname}"
