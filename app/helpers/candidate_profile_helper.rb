@@ -63,4 +63,16 @@ module CandidateProfileHelper
     img = avatar.attached? ? avatar : 'icon.png'
     image_tag(img, width: '200em', class: 'sidebar-avatar')
   end
+
+  def candidate_locale(locale)
+    return unless locale
+
+    tag.p(tag.b(locale))
+  end
+
+  def candidate_website(website)
+    return unless website
+
+    tag.p(tag.b(website))
+  end
 end

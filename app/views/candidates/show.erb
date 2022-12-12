@@ -4,6 +4,8 @@
       <%= box.body do %>
         <%= sidebar_avatar(@candidate.avatar) %>
         <p class="title"><%= @candidate.full_name %></p>
+        <%= candidate_locale(@candidate.address) %>
+        <%= candidate_website(@candidate) %>
       <% end %>
     <% end %>
   <% end %>
