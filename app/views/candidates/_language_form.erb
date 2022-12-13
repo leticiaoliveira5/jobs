@@ -1,5 +1,0 @@
-<%= simple_form_for(Language.new, url: languages_path, method: :post) do |f| %>
-  <%= f.input :name, required: true, autocomplete: true %>
-  <%= f.input :proficiency, required: true, collection: Proficiencies.to_a %>
-  <%= f.submit t('simple_form.save'), class: 'button' %>
-<% end %>

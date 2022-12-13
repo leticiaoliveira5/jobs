@@ -89,6 +89,8 @@ pt-BR:
         restrict_dependent_destroy:
           has_many: Não é possível excluir o registro pois existem %{record} dependentes
           has_one: Não é possível excluir o registro pois existe um %{record} dependente
+        content_type: Não é um formato válido
+        size: Tamanho inválido
     models:
       candidate:
         one: Candidato

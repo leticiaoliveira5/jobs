@@ -13,6 +13,12 @@ module CandidateProfileHelper
     link_to tag.button('trash_icon'), delete_path(item), method: :delete
   end
 
+  def edit_candidate_info_button
+    return unless candidate_signed_in?
+
+    link_to tag.button('edit', id: 'edit_candidate_button'), edit_candidate_registration_path
+  end
+
   def delete_path(item)
     case item
     when Course
@@ -51,5 +57,26 @@ module CandidateProfileHelper
             target: :_blank,
             title: t('candidates.show.see_certificate'),
             rel: :noopener).concat(tag.br)
+  end
+
+  def sidebar_avatar(avatar)
+    img = avatar.attached? ? avatar : 'icon.png'
+    image_tag(img, size: '250x250', class: 'sidebar-avatar')
+  end
+
+  def candidate_locale(locale)
+    return unless locale
+
+    tag.i(class: 'locale_icon').concat(
+      tag.p(locale)
+    )
+  end
+
+  def candidate_website(website)
+    return unless website
+
+    tag.i(class: 'url_icon').concat(
+      tag.p(tag.a(website, href: "http://#{website}", target: :_blank))
+    )
   end
 end
