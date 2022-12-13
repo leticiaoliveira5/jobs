@@ -35,14 +35,12 @@
           <div class="empty_state"><%= t('.empty_state.work_experience') %></div>
         <% end %>
         <% @work_experiences.each do |w| %>
-          <%= render(BoxComponent.new(color: :secondary)) do |component| %>
-            <%= component.body do %>
-              <%= delete_item_button(w) %>
-              <b><%= w.job_title %></b><br>
-              <%= w.company_name %> <%= "- #{w.sector_humanize}" unless w.sector&.zero? %><br>
-              <%= w.start_date&.strftime("%b/%Y") %> - <%= w.end_date&.strftime("%b/%y") || 'now' %><br>
-              <%= w.location %>
-            <% end %>
+          <%= render(ListItemComponent.new) do |component| %>
+            <% component.button { delete_item_button(w) } %>
+            <b><%= w.job_title %></b><br>
+            <%= candidate_company_line(w.company_name, w.sector_humanize) %><br>
+            <%= w.start_date&.strftime("%b/%Y") %> - <%= w.end_date&.strftime("%b/%y") || t('.now') %><br>
+            <%= w.location %>
           <% end %>
         <% end %>
       <% end %>

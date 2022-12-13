@@ -55,7 +55,7 @@ module CandidateProfileHelper
   def course_certificate_link(certificate_link)
     return unless candidate_signed_in? && certificate_link
 
-    link_to(fa_icon('certificate', title: 'Certificado'),
+    link_to(fa_icon('certificate', title: 'Certificado', style: 'font-size: 1.2em'),
             "http://#{certificate_link}",
             target: :_blank,
             title: t('candidates.show.see_certificate'),
@@ -77,5 +77,9 @@ module CandidateProfileHelper
     return unless website
 
     tag.p(fa_icon('link').concat(link_to(website, "http://#{website}", target: :_blank)))
+  end
+
+  def candidate_company_line(company, sector)
+    sector.present? ? company.concat(" - #{sector}") : company
   end
 end
