@@ -74,8 +74,6 @@ module CandidateProfileHelper
   def candidate_website(website)
     return unless website
 
-    tag.i(class: 'url_icon').concat(
-      tag.p(tag.a(website, href: "http://#{website}", target: :_blank))
-    )
+    tag.p(fa_icon('link').concat(link_to(website, "http://#{website}", target: :_blank)))
   end
 end
