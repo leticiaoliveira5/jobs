@@ -129,7 +129,13 @@ a:hover {
   display: block;
 }
 
-i, i:hover {
+.gray-icon {
   color: var(--background_color);
   cursor: pointer;
+}
+
+.green-icon {
+  color: var(--title);
+  cursor: pointer;
+  margin-left: 5px;
 }

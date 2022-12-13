@@ -4,13 +4,13 @@ module CandidateProfileHelper
   def add_item_button(id)
     return unless candidate_signed_in?
 
-    fa_icon('plus', title: t('candidates.show.actions.add'), id: id)
+    fa_icon('plus', title: t('candidates.show.actions.add'), class: 'gray-icon', id: id)
   end
 
   def delete_item_button(item)
     return unless candidate_signed_in?
 
-    link_to fa_icon('trash', title: t('candidates.show.actions.delete')),
+    link_to fa_icon('trash', title: t('candidates.show.actions.delete'), class: 'gray-icon'),
             delete_path(item),
             method: :delete
   end
@@ -19,7 +19,8 @@ module CandidateProfileHelper
     return unless candidate_signed_in?
 
     link_to fa_icon('pencil', title: t('candidates.show.actions.edit'),
-                              id: 'edit_candidate_button'), edit_candidate_registration_path
+                              id: 'edit_candidate_button', class: 'gray-icon'),
+            edit_candidate_registration_path
   end
 
   def delete_path(item)
@@ -55,7 +56,7 @@ module CandidateProfileHelper
   def course_certificate_link(certificate_link)
     return if certificate_link.blank?
 
-    link_to(fa_icon('certificate', title: 'Certificado'),
+    link_to(fa_icon('certificate', title: 'Certificado', class: 'green-icon'),
             "http://#{certificate_link}",
             target: :_blank,
             title: t('candidates.show.see_certificate'),
@@ -70,15 +71,15 @@ module CandidateProfileHelper
   def candidate_locale(locale)
     return unless locale
 
-    tag.p(fa_icon('map-pin').concat(" #{locale}"))
+    tag.p(fa_icon('map-pin', class: 'green-icon').concat(" #{locale}"))
   end
 
   def candidate_website(website)
     return unless website
 
-    tag.p(fa_icon('link').concat(link_to(website,
-                                         "http://#{website}",
-                                         target: :_blank,
-                                         rel: :noopener)))
+    tag.p(fa_icon('link', class: 'green-icon').concat(link_to(website,
+                                                             "http://#{website}",
+                                                             target: :_blank,
+                                                             rel: :noopener)))
   end
 end
