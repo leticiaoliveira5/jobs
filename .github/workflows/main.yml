@@ -29,18 +29,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Set up Ruby 3.0
-        uses: ruby/setup-ruby@v1.124.0
+        uses: ruby/setup-ruby@v1.127.0
         with:
           ruby-version: 3.0.0
-      - name: Setup cache key and directory for gems cache
-        uses: actions/cache@v1
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gem-use-ruby-${{ hashFiles('**/Gemfile.lock') }}
-      - name: Bundle install
-        run: |
-          bundle config path vendor/bundle
-          bundle install --jobs 4 --retry 3
+          bundler-cache: true
+      # - name: Setup cache key and directory for gems cache
+      #   uses: actions/cache@v1
+      #   with:
+      #     path: vendor/bundle
+      #     key: ${{ runner.os }}-gem-use-ruby-${{ hashFiles('**/Gemfile.lock') }}
+      # - name: Bundle install
+      #   run: |
+      #     bundle config path vendor/bundle
+      #     bundle install --jobs 4 --retry 3
       - name: Run tests
         env:
           RAILS_ENV: test
