@@ -78,8 +78,8 @@ module CandidateProfileHelper
     return unless website
 
     tag.p(fa_icon('link', class: 'green-icon').concat(link_to(website,
-                                                             "http://#{website}",
-                                                             target: :_blank,
-                                                             rel: :noopener)))
+                                                              "http://#{website}",
+                                                              target: :_blank,
+                                                              rel: :noopener)))
   end
 end
