@@ -55,11 +55,11 @@ module CandidateProfileHelper
   def course_certificate_link(certificate_link)
     return if certificate_link.blank?
 
-    link_to(fa_icon('certificate', title: 'Certificado', style: 'font-size: 1.2em'),
+    link_to(fa_icon('certificate', title: 'Certificado'),
             "http://#{certificate_link}",
             target: :_blank,
             title: t('candidates.show.see_certificate'),
-            rel: :noopener).concat(tag.br)
+            rel: :noopener)
   end
 
   def sidebar_avatar(avatar)

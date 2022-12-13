@@ -34,7 +34,7 @@ RSpec.describe CandidateProfileHelper, type: :helper do
     let(:expected_link) do
       '<a target="_blank" title="Ver certificado" ' \
         'rel="noopener" href="http://google.com">' \
-        '<i title="Certificado" class="fa fa-certificate"></i></a><br>'
+        '<i title="Certificado" class="fa fa-certificate"></i></a>'
     end
 
     it { expect(course_certificate_link('google.com')).to eq(expected_link) }
