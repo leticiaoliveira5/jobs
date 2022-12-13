@@ -87,4 +87,8 @@ pt-BR:
         course: Nenhum curso cadastrado pelo usuário
         language: Nenhum idioma cadastrado pelo usuário
         degree: Nenhum histórico cadastrado pelo usuário
+      actions:
+        edit: Editar
+        delete: Excluir
+        add: Adicionar
     

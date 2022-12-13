@@ -4,20 +4,22 @@ module CandidateProfileHelper
   def add_item_button(id)
     return unless candidate_signed_in?
 
-    fa_icon('plus', title: 'Adicionar', id: id)
+    fa_icon('plus', title: t('candidates.show.actions.add'), id: id)
   end
 
   def delete_item_button(item)
     return unless candidate_signed_in?
 
-    link_to fa_icon('trash', title: 'Excluir'), delete_path(item), method: :delete
+    link_to fa_icon('trash', title: t('candidates.show.actions.delete')),
+            delete_path(item),
+            method: :delete
   end
 
   def edit_candidate_info_button
     return unless candidate_signed_in?
 
-    link_to fa_icon('edit', title: 'Editar', id: 'edit_candidate_button'),
-            edit_candidate_registration_path
+    link_to fa_icon('pencil', title: t('candidates.show.actions.edit'),
+                              id: 'edit_candidate_button'), edit_candidate_registration_path
   end
 
   def delete_path(item)
