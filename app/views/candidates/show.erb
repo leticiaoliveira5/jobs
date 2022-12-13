@@ -38,7 +38,7 @@
           <%= render(ListItemComponent.new) do |component| %>
             <% component.button { delete_item_button(w) } %>
             <b><%= w.job_title %></b><br>
-            <%= candidate_company_line(w.company_name, w.sector_humanize) %><br>
+            <%= w.sector.present? ? w.company_name.concat(" - #{w.sector_humanize}") : w.company_name %><br>
             <%= w.start_date&.strftime("%b/%Y") %> - <%= w.end_date&.strftime("%b/%y") || t('.now') %><br>
             <%= w.location %>
           <% end %>

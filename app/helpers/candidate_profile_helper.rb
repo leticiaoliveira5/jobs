@@ -81,8 +81,4 @@ module CandidateProfileHelper
                                          target: :_blank,
                                          rel: :noopener)))
   end
-
-  def candidate_company_line(company, sector)
-    sector.present? ? company.concat(" - #{sector}") : company
-  end
 end
