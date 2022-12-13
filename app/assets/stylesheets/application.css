@@ -82,3 +82,47 @@ a:hover {
   padding: 35px 0 35px 0;
   text-align: center;
 }
+
+/* large screen */
+@media screen and (min-device-width: 750px) and (min-width: 750px) {
+  .container {
+    margin: 0 auto;
+    width: 80%;
+  }
+
+  .page {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+  }
+  
+  .page .page-sidebar {
+    width: 28%;
+  }
+  
+  .page .page-content {
+    width: 70%;
+  }
+
+  .sidebar-avatar {
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+}
+
+/* small screen  */
+@media screen and (max-device-width: 750px) and (max-width: 750px) {
+  .container {
+    width: 95%;
+    margin: 0 auto;
+  }
+}
+
+.sidebar-avatar {
+  border-radius: 50%;
+  display: block;
+}
