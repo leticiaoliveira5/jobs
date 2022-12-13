@@ -1,0 +1,26 @@
+<style>
+.list-item {
+  padding: 15px;
+  margin-top: 2px;
+}
+
+.list-item:hover {
+  background-color: var(--nav_background_color);
+  border-radius: 7px;
+}
+
+.list-item:hover .side-button {
+  display: block;
+}
+
+.side-button {
+  float: right;
+  font-size: 1.5em;
+  display: none;
+}
+</style>
+
+<div class="list-item">
+  <span class="side-button"><%= button %></span>
+  <%= content %>
+</div>
