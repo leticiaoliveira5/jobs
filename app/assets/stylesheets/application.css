@@ -13,6 +13,7 @@
  *= require ./color_theme
  *= require ./form_style
  *= require_self
+ *= require font-awesome
  */
 
 body {
@@ -125,4 +126,9 @@ a:hover {
 .sidebar-avatar {
   border-radius: 50%;
   display: block;
+}
+
+i, i:hover {
+  cursor: pointer;
+  color: rgba(0,0,0,0.2);
 }

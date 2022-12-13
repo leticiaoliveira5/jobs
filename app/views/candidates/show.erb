@@ -101,8 +101,8 @@
         <% else %>
           <% @courses.each do |c| %>
             <div style="padding: 15px 0 15px 0">
-              <b><%= c.title %></b><%= delete_item_button(c) %><br>
-              <%= course_certificate_link(c.certificate_link) %>
+              <b><%= c.title %></b><%= course_certificate_link(c.certificate_link) %>
+              <%= delete_item_button(c) %><br>
               <%= c.description %>
             </div>
           <% end %>

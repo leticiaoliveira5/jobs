@@ -4,19 +4,20 @@ module CandidateProfileHelper
   def add_item_button(id)
     return unless candidate_signed_in?
 
-    tag.button('+', id: id)
+    fa_icon('plus', title: 'Adicionar', id: id)
   end
 
   def delete_item_button(item)
     return unless candidate_signed_in?
 
-    link_to tag.button('trash_icon'), delete_path(item), method: :delete
+    link_to fa_icon('trash', title: 'Excluir'), delete_path(item), method: :delete
   end
 
   def edit_candidate_info_button
     return unless candidate_signed_in?
 
-    link_to tag.button('edit', id: 'edit_candidate_button'), edit_candidate_registration_path
+    link_to fa_icon('edit', title: 'Editar', id: 'edit_candidate_button'),
+            edit_candidate_registration_path
   end
 
   def delete_path(item)
@@ -52,7 +53,7 @@ module CandidateProfileHelper
   def course_certificate_link(certificate_link)
     return unless candidate_signed_in? && certificate_link
 
-    link_to('Certificate_icon',
+    link_to(fa_icon('certificate', title: 'Certificado'),
             "http://#{certificate_link}",
             target: :_blank,
             title: t('candidates.show.see_certificate'),
@@ -67,9 +68,7 @@ module CandidateProfileHelper
   def candidate_locale(locale)
     return unless locale
 
-    tag.i(class: 'locale_icon').concat(
-      tag.p(locale)
-    )
+    tag.p(fa_icon('map-pin').concat(" #{locale}"))
   end
 
   def candidate_website(website)
