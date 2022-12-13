@@ -76,7 +76,10 @@ module CandidateProfileHelper
   def candidate_website(website)
     return unless website
 
-    tag.p(fa_icon('link').concat(link_to(website, "http://#{website}", target: :_blank)))
+    tag.p(fa_icon('link').concat(link_to(website,
+                                         "http://#{website}",
+                                         target: :_blank,
+                                         rel: :noopener)))
   end
 
   def candidate_company_line(company, sector)
