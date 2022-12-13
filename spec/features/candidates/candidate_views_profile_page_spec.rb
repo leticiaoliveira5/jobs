@@ -11,7 +11,6 @@ feature 'Candidate views profile page' do
 
   scenario 'with candidates basic info' do
     expect(current_path).to eq("/u/#{candidate.id}")
-    expect(page).to have_content('Dados Pessoais')
     expect(page).to have_content(candidate.full_name)
     expect(page).to have_content(candidate.about_me)
   end

@@ -12,5 +12,25 @@ RSpec.describe Candidate, type: :model do
 
   describe 'validations' do
     it { is_expected.to validate_length_of(:document) }
+
+    context 'avatar' do
+      it 'validates content type' do
+        candidate = build(:candidate, :with_invalid_format_avatar)
+
+        expect(candidate).to be_invalid
+        expect(candidate.errors).to include(:avatar)
+      end
+
+      # rubocop:disable RSpec/AnyInstance
+      it 'validates size' do
+        candidate = build(:candidate, :with_avatar)
+
+        allow_any_instance_of(ActiveStorage::Blob).to receive(:byte_size).and_return(1.megabyte)
+
+        expect(candidate).to be_invalid
+        expect(candidate.errors).to include(:avatar)
+      end
+      # rubocop:enable RSpec/AnyInstance
+    end
   end
 end

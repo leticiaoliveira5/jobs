@@ -6,10 +6,11 @@
     <%= f.input :surname %>
 
     <% if candidate_signed_in? %>
-      <%= f.input :about_me %>
+      <%= f.input :about_me, as: :text %>
       <%= f.input :document %>
       <%= f.input :address %>
-      <%= f.input :avatar %>
+      <%= f.input :avatar, input_html: { accept: ['image/jpeg'] } %>
+      <%= f.input :website %>
     <% end %>
 
     <%= f.input :email, as: :email, autofocus: true, autocomplete: "email" %>

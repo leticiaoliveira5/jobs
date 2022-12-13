@@ -15,8 +15,16 @@ class Candidate < ApplicationRecord
   has_one_attached :avatar
 
   validates :document, length: { is: 11 }, on: :update, allow_blank: true
+  validate :avatar_validation
 
   def full_name
     "#{firstname} #{surname}"
+  end
+
+  def avatar_validation
+    return if avatar.blank?
+
+    errors.add(:avatar, :content_type) if avatar.content_type != 'image/jpeg'
+    errors.add(:avatar, :size) if avatar.byte_size > 0.5.megabyte
   end
 end
