@@ -1,27 +1,29 @@
 <style>
 .list-item {
-  padding: 15px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
   margin-top: 2px;
-  transition: 0.4s;
+  padding: 15px;
+  transition: 0.4s;  
+  border-radius: 7px;
 }
 
 .list-item:hover {
   background-color: var(--nav_background_color);
-  border-radius: 7px;
 }
 
 .list-item:hover .side-button {
-  display: block;
+  visibility: visible;
 }
 
 .side-button {
-  float: right;
   font-size: 1.3em;
-  display: none;
+  visibility: hidden;
 }
 </style>
 
 <div class="list-item">
+  <span><%= content %></span>
   <span class="side-button"><%= button %></span>
-  <%= content %>
 </div>
