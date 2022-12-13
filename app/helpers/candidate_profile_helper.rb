@@ -53,7 +53,7 @@ module CandidateProfileHelper
   end
 
   def course_certificate_link(certificate_link)
-    return unless candidate_signed_in? && certificate_link
+    return if certificate_link.blank?
 
     link_to(fa_icon('certificate', title: 'Certificado', style: 'font-size: 1.2em'),
             "http://#{certificate_link}",
