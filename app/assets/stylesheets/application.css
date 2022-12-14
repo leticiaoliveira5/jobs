@@ -108,11 +108,7 @@ a:hover {
   }
 
   .sidebar-avatar {
-    border-radius: 50%;
-    display: block;
     margin: 0 auto;
-    max-width: 100%;
-    height: auto;
   }
 }
 
@@ -122,11 +118,16 @@ a:hover {
     width: 95%;
     margin: 0 auto;
   }
+
 }
 
 .sidebar-avatar {
+  aspect-ratio: 1;
   border-radius: 50%;
   display: block;
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
 }
 
 .gray-icon {
