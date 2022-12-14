@@ -10,6 +10,7 @@
         <%= candidate_locale(@candidate.address) %>
         <%= candidate_website(@candidate.website) %>        
         <%= link_to 'Editar meus dados', edit_candidate_registration_path(@candidate) %>
+        <%= link_to 'Meu perfil', candidate_path(@candidate) %>
       <% end %>
     <% end %>
   <% end %>
