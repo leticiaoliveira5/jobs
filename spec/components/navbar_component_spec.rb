@@ -6,6 +6,6 @@ RSpec.describe NavbarComponent, type: :component do
 
     expect(rendered_component).to have_content('Jobs')
     expect(rendered_component).to have_link('Ver empresas cadastradas', href: '/companies')
-    expect(rendered_component).to have_link('Vagas recentes', href: '/job_opportunities')
+    expect(rendered_component).to have_link('Vagas recentes', href: '/jobs')
   end
 end

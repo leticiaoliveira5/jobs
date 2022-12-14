@@ -30,11 +30,19 @@ class DeviseCreateCandidates < ActiveRecord::Migration[5.2]
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
 
+      t.string :website
+      t.string :about_me
+      t.string :firstname
+      t.string :surname
+      t.string :address
+      t.string :document
+
       t.timestamps null: false
     end
 
     add_index :candidates, :email,                unique: true
     add_index :candidates, :reset_password_token, unique: true
+    add_index :candidates, :document, unique: true
     # add_index :candidates, :confirmation_token,   unique: true
     # add_index :candidates, :unlock_token,         unique: true
   end

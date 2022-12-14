@@ -12,14 +12,14 @@
 
   <div class="navright">
     <% if current_candidate %>
-      <%= link_to 'Área do candidato', candidates_path(current_candidate) %>
-      <%= link_to 'Meu currículo', resume_path(current_candidate.resume) %>
+      <%= link_to 'Área do candidato', '/candidate/dashboard' %>
+      <%= link_to 'Meu perfil', "/u/#{current_candidate.id}" %>
       <%= current_candidate.email %>
       <%= link_to 'Sair', destroy_candidate_session_path, method: :delete %>
     <% end %>
 
     <% if current_employee %>
-      <%= link_to 'Área do colaborador', employee_panel_company_path(current_employee.company) %>
+      <%= link_to 'Área do colaborador', '/company/dashboard' %>
       <%= current_employee.email %> (<%=current_employee.company.name%> - <%=current_employee.role%>)
       <%= link_to 'Sair', destroy_employee_session_path, method: :delete %>
     <% end %>

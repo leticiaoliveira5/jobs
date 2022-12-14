@@ -1,6 +1,8 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
+require 'faker'
+
 ### COMPANY: Jobs
 
 Employee.create!(email: 'admin@jobs.com',
@@ -8,10 +10,12 @@ Employee.create!(email: 'admin@jobs.com',
                  firstname: 'Admin',
                  surname: 'Admin')
 
+puts "Employee created! login: 'admin@jobs.com' and password: '123456'"
+
 company = Company.find_by(domain: 'jobs.com')
 company.update(name: 'Jobs',
                address: 'Rio de Janeiro',
-               cnpj: '12346125878')
+               document: Faker::Company.brazilian_company_number.to_s)
 
 JobOpportunity.create!(company: company,
                        job_title: 'Dummie',
@@ -36,4 +40,9 @@ JobOpportunity.create!(company: company,
 Candidate.create(email: 'candidate@email.com',
                  password: '123456',
                  firstname: 'Candidate',
-                 surname: 'Jobs')
+                 surname: 'Jobs',
+                 document: '46733146037',
+                 address: 'Av. Pereira',
+                 about_me: 'This is Me')
+
+puts "Candidate created! login: 'candidate@email.com' and password: '123456'"

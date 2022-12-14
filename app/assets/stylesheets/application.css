@@ -13,6 +13,7 @@
  *= require ./color_theme
  *= require ./form_style
  *= require_self
+ *= require font-awesome
  */
 
 body {
@@ -75,4 +76,67 @@ a:hover {
   padding: 10px 25px 20px 25px; /* top right bottom left */
   margin: 15px auto;
   text-align: left;
+}
+
+.empty_state{
+  opacity: 0.5;
+  padding: 35px 0 35px 0;
+  text-align: center;
+}
+
+/* large screen */
+@media screen and (min-device-width: 750px) and (min-width: 750px) {
+  .container {
+    margin: 0 auto;
+    width: 80%;
+  }
+
+  .page {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+  }
+  
+  .page .page-sidebar {
+    width: 28%;
+  }
+  
+  .page .page-content {
+    width: 70%;
+  }
+
+  .sidebar-avatar {
+    margin: 0 auto;
+  }
+}
+
+/* small screen  */
+@media screen and (max-device-width: 750px) and (max-width: 750px) {
+  .container {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+}
+
+.sidebar-avatar {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: block;
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.gray-icon {
+  color: var(--background_color);
+  cursor: pointer;
+}
+
+.green-icon {
+  color: var(--title);
+  cursor: pointer;
+  margin-left: 5px;
 }

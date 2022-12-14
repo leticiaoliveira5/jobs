@@ -1,0 +1,32 @@
+<div class="contentblock">
+  <%= user_avatar(current_candidate) %>
+  <h2>Painel de controle - <%= current_candidate.firstname %> <%= current_candidate.surname %> </h2>
+  <p>Sobre mim: <%= current_candidate.about_me %></p>
+  <p>CPF: <%= current_candidate.document %></p>
+  <p>Endereço: <%= current_candidate.address %></p>
+  <% if candidate_signed_in? %>
+      <%= link_to 'Editar dados da minha conta', edit_candidate_registration_path(current_candidate) %>
+  <% end %>
+</div>
+
+<div class="contentblock">
+  <h2>Minhas Candidaturas</h2>
+  <% if current_candidate.job_applications.count > 0 %>
+    <% current_candidate.job_applications.each do |job_application| %>
+        <%= link_to job_application.job_opportunity.job_title, job_application_path(job_application) %> 
+    <% end %>
+  <% else %>
+    Você ainda não se inscreveu em nenhuma vaga.
+  <%end%>
+</div>
+
+<div class="contentblock">
+  <h2>Propostas recebidas</h2>
+  <% unless current_candidate.job_proposals.count == 0 %>
+    <% current_candidate.job_proposals.each do |proposal| %>
+        <%= link_to "#{proposal.job_application.job_opportunity.job_title} - #{proposal.job_application.company.name} (#{proposal.status})", job_application_job_proposal_path(proposal.job_application, proposal) %>
+    <% end %>
+  <% else %>
+    Você ainda não recebeu nenhuma proposta.
+  <% end %>
+</div>

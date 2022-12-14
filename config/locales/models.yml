@@ -9,16 +9,17 @@ pt-BR:
         surname: Sobrenome
       company:
         address: Endereço
-        cnpj: CNPJ
+        document: CNPJ
         domain: Domínio
         name: Nome
       employee:
-        admin: Admin
         email: E-mail
         firstname: Nome
-        password: Senha
-        regular: Regular
         surname: Sobrenome
+        password: Senha
+        role:
+          admin: Admin
+          regular: Regular
       job_opportunity:
         active: Ativa
         description: Descrição
@@ -34,21 +35,62 @@ pt-BR:
         start_date: Data de início
         start_date_confirmation: Confirme a data de início
         rejection_motive: Motivo da recusa
-        waiting: Aguardando avaliação
-        accepted: Aceita
-        rejected: Não aceita
-      resume:
-        abilities: Conhecimentos
-        education: Formação acadêmica
-        languages: Idiomas
-        courses: Cursos
-        experience: Experiência profissional
+        status:
+          waiting: Aguardando avaliação
+          accepted: Aceita
+          rejected: Não aceita
+      job_application:
+        status:
+          waiting: Aguardando avaliação
+          accepted: Aceita
+          declined: Não aceita
+      work_experience:
+        job_title: Título
+        start_date: Data de Início
+        end_date: Data de Término
+        company_name: Empresa
+        description: Descrição
+        location: Localidade
+        sector: Setor
+      candidate_skill:
+        level:
+          one: Nível
+          beginner: Iniciante
+          intermediate: Intermediário
+          advanced: Avançado
+      skill:
+        name: Nome da Habilidade
+      course:
+        title: Título
+        ceritificate_link: Certificado
+        description: Descrição
+      language:
+        name: Língua
+        proficiency:
+          one: Proficiência
+          beginner: Iniciante
+          intermediate: Intermediário
+          advanced: Avançado
+          fluent: Fluente
+      degree:
+        title: Título
+        graduation_year: Ano de conclusão
+        institution: Instituição de Ensino
+        kind:
+          one: Tipo
+          diploma: Diploma
+          bachelor: Graduação
+          graduate: Pós-graduação
+          master: Mestrado
+          doctorate: Doutorado
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
         restrict_dependent_destroy:
           has_many: Não é possível excluir o registro pois existem %{record} dependentes
           has_one: Não é possível excluir o registro pois existe um %{record} dependente
+        content_type: Não é um formato válido
+        size: Tamanho inválido
     models:
       candidate:
         one: Candidato
@@ -65,17 +107,23 @@ pt-BR:
       job_opportunity:
         one: Vaga
         other: Vagas
-      resume:
-        one: Currículo
-        other: Currículos
+      work_experience:
+        one: Experiência
+        other: Experiências
+      candidate_skill:
+        one: Habilidade
+        other: Habilidades
+      course:
+        one: Curso
+        other: Cursos
   address: Endereço
-  cnpj: CNPJ
+  document: CNPJ
   domain: Domínio
   name: Nome
   companies:
     show:
       address: Endereço
-      cnpj: CNPJ
+      document: CNPJ
       domain: Domínio
       name: Nome
   date:
@@ -264,8 +312,6 @@ pt-BR:
     precision:
       format:
         delimiter: "."
-  resumes:
-    show: Show
   support:
     array:
       last_word_connector: " e "

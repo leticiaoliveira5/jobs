@@ -1,22 +1,45 @@
 <style>
   .collapse-icon {
-    color: gray;
+    color: var(--inactive_link);
     cursor: pointer;
     display: inline-flex;
     float: right;
+    font-size: 1.3em;
+  }
+
+  .contentblock {
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 7px;
+    padding: 25px; /* top right bottom left */
+    margin: 15px 0;
+    text-align: left;
+  }
+
+  /* when there's a content box inside another content box */
+  .contentblock .contentblock {
+    margin: 15px 0 0 0;
+    padding: 20px;
+  }
+
+  .title {
+    color: var(--title);
+    font-size: 1.5em;
+    font-weight:  bold;
+    margin-bottom: 0;
+    vertical-align: middle;
+    line-height: 1.6em;
   }
 </style>
 
-<div class="contentblock">
+<div class="contentblock" style="background-color:<%= bg %>;">
   <% if collapsible? %>
-    <h2 onclick="toggleContent(this)" style="cursor: pointer;">
+    <div class="title" onclick="toggleContent(this)" style="cursor: pointer;">
       <%= title if title? %>
       <span class="collapse-icon"><%= default_symbol %></span>
-    </h2>
-  <% else %>
-    <% if title? %>
-      <h2><%= title %></h2> 
-    <% end %>
+    </div>
+  <% elsif title? %>
+    <div class="title"><%= title %></div>
   <% end %>
 
   <div class="content" style="display:<%= default_display || 'block' %>;">

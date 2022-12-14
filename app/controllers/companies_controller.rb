@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
-  before_action :authenticate_employee!, only: %i[employee_panel edit]
-  before_action :company_employee?, only: %i[employee_panel edit]
+  before_action :authenticate_employee!, only: %i[dashboard edit update]
+  before_action :set_company, only: %i[dashboard edit update]
 
   def index
     @companies = Company.all
@@ -16,12 +16,9 @@ class CompaniesController < ApplicationController
     redirect_to @company if @company.save
   end
 
-  def edit
-    @company = Company.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @company = Company.find(params[:id])
     @company.update(company_params)
     if @company.save
       redirect_to company_path(@company)
@@ -30,23 +27,20 @@ class CompaniesController < ApplicationController
     end
   end
 
-  def employee_panel
-    @company = Company.includes(:job_proposals,
+  def dashboard
+    @company = Company.includes(:job_applications,
                                 :job_proposals,
                                 :active_job_opportunities,
-                                :inactive_job_opportunities).find(params[:id])
-  end
-
-  def company_employee?
-    return if Company.find(params[:id]).employees.include?(current_employee)
-
-    redirect_to company_path(current_employee.company),
-                alert: 'É necessário ser colaborador da empresa para ver esta página'
+                                :inactive_job_opportunities).find(@company.id)
   end
 
   private
 
+  def set_company
+    @company = current_employee&.company
+  end
+
   def company_params
-    params.require(:company).permit(:name, :domain, :address, :cnpj)
+    params.require(:company).permit(:name, :domain, :address, :document)
   end
 end
