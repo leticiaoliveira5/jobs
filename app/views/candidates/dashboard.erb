@@ -2,18 +2,15 @@
   <%= component.sidebar do %>
     <%= render(BoxComponent.new) do |box| %>
       <%= box.title do %>
-        <%= user_avatar(current_candidate) %>
+        <%= user_avatar(current_candidate, size: '20x20') %>
         <%= @candidate.full_name %>
-        <%= edit_candidate_info_button %>
       <% end %>
       <%= box.body do %>
+        <p><%= t_attr('candidate.document') %>: <%= current_candidate.document %></p>
+        <p><%= t_attr('candidate.address') %>: <%= current_candidate.address %></p>
         <%= candidate_locale(@candidate.address) %>
         <%= candidate_website(@candidate.website) %>        
-        <p>CPF: <%= current_candidate.document %></p>
-        <p>Endereço: <%= current_candidate.address %></p>
-        <% if candidate_signed_in? %>
-            <%= link_to 'Editar dados da minha conta', edit_candidate_registration_path(current_candidate) %>
-        <% end %>
+        <%= link_to 'Editar meus dados', edit_candidate_registration_path(@candidate) %>
       <% end %>
     <% end %>
   <% end %>
@@ -26,7 +23,9 @@
       <% component.body do %>
         <% if current_candidate.job_applications.count > 0 %>
           <% current_candidate.job_applications.each do |job_application| %>
-              <%= link_to job_application.job_opportunity.job_title, job_application_path(job_application) %> 
+            <%= render(ListItemComponent.new) do %>
+              <%= link_to job_application.job_opportunity.job_title, job_application_path(job_application) %>
+            <% end %>
           <% end %>
         <% else %>
           <div class="empty_state"><%= t('.empty_state.job_application') %></div>
@@ -39,9 +38,11 @@
         Propostas recebidas
       <% end %>
       <% component.body do %>
-        <% unless current_candidate.job_proposals.count == 0 %>
-          <% current_candidate.job_proposals.each do |proposal| %>
+        <% unless @candidate.job_proposals.count == 0 %>
+          <% @current_candidate.job_proposals.each do |proposal| %>
+            <%= render(ListItemComponent.new) do %>
               <%= link_to "#{proposal.job_application.job_opportunity.job_title} - #{proposal.job_application.company.name} (#{proposal.status})", job_application_job_proposal_path(proposal.job_application, proposal) %>
+            <% end %>
           <% end %>
         <% else %>
           <div class="empty_state"><%= t('.empty_state.job_proposal') %></div>
