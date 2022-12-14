@@ -16,11 +16,13 @@
   <% end %>
 
   <%= component.main_content do %>
-    <%= render(BoxComponent.new) do |component| %>
+    <%= render(BoxComponent.new(behavior: :collapsible)) do |component| %>
       <% component.title { t('.applications') } %>
       <% component.body do %>
-        <% if @candidate.job_applications.count > 0 %>
-          <% @candidate.job_applications.each do |job_application| %>
+        <% if @job_applications.blank? %>
+          <div class="empty_state"><%= t('.empty_state.job_application') %></div>
+        <% else %>
+          <% @job_applications.each do |job_application| %>
             <%= render(ListItemComponent.new) do |item| %>
               <% item.button { cancel_application_button(job_application.id) } %>
               <b><%= job_application.job_opportunity.job_title %></b> - <%= t_attr("job_application.status.#{job_application.status}") %><br>
@@ -29,23 +31,21 @@
               Se inscreveu em <%= job_application.created_at.strftime("%d/%b/%Y") %>
             <% end %>
           <% end %>
-        <% else %>
-          <div class="empty_state"><%= t('.empty_state.job_application') %></div>
         <% end %>
       <% end %>
     <% end %>
 
-    <%= render(BoxComponent.new) do |component| %>
+    <%= render(BoxComponent.new(behavior: :collapsible)) do |component| %>
       <% component.title { t('.proposals') } %>
       <% component.body do %>
-        <% unless @candidate.job_proposals.count == 0 %>
-          <% @candidate.job_proposals.each do |proposal| %>
+        <% if @job_proposals.blank? %>
+          <div class="empty_state"><%= t('.empty_state.job_proposal') %></div>
+        <% else %>
+          <% @job_proposals.each do |proposal| %>
             <%= render(ListItemComponent.new) do %>
               <%= link_to "#{proposal.job_application.job_opportunity.job_title} - #{proposal.job_application.company.name} (#{proposal.status})", job_application_job_proposal_path(proposal.job_application, proposal) %>
             <% end %>
           <% end %>
-        <% else %>
-          <div class="empty_state"><%= t('.empty_state.job_proposal') %></div>
         <% end %>
       <% end %>
     <% end %>
