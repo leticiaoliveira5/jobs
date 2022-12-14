@@ -16,9 +16,7 @@
 
   <%= component.main_content do %>
     <%= render(BoxComponent.new) do |component| %>
-      <% component.title do %>
-        Minhas Candidaturas
-      <% end %>
+      <% component.title { 'Minhas Candidaturas' } %>
       <% component.body do %>
         <% if @candidate.job_applications.count > 0 %>
           <% @candidate.job_applications.each do |job_application| %>
@@ -33,9 +31,7 @@
     <% end %>
 
     <%= render(BoxComponent.new) do |component| %>
-      <% component.title do %>
-        Propostas recebidas
-      <% end %>
+      <% component.title { 'Propostas recebidas' } %>
       <% component.body do %>
         <% unless @candidate.job_proposals.count == 0 %>
           <% @candidate.job_proposals.each do |proposal| %>
