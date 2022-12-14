@@ -96,3 +96,5 @@ pt-BR:
       empty_state:
         job_proposal: Você ainda não recebeu nenhuma proposta.
         job_application: Você ainda não se inscreveu em nenhuma vaga.
+      applications: Vagas que você se inscreveu
+      proposals: Propostas recebidas
