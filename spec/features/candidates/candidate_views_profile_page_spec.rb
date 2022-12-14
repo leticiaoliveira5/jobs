@@ -6,7 +6,9 @@ feature 'Candidate views profile page' do
   before do
     login_as candidate, scope: :candidate
     visit root_path
-    click_on 'Meu perfil'
+    within('.nav') do
+      click_on 'Meu perfil'
+    end
   end
 
   scenario 'with candidates basic info' do
