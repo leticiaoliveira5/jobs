@@ -2,7 +2,9 @@ class CandidatesController < ApplicationController
   before_action :authenticate_candidate!, only: :dashboard
   before_action :authenticate_user, only: :show
 
-  def dashboard; end
+  def dashboard
+    @candidate = current_candidate
+  end
 
   def show
     @candidate = Candidate.includes(:work_experiences, :candidate_skills,

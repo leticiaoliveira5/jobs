@@ -92,4 +92,7 @@ pt-BR:
         edit: Editar
         delete: Excluir
         add: Adicionar
-    
+    dashboard:
+      empty_state:
+        job_proposal: Você ainda não recebeu nenhuma proposta.
+        job_application: Você ainda não se inscreveu em nenhuma vaga.

@@ -1,44 +1,52 @@
-<%= render(BoxComponent.new) do |component| %>
-  <% component.title do %>
-    Painel de controle - <%= current_candidate.firstname %> <%= current_candidate.surname %>
-  <% end %>
-  <% component.body do %>
-    <%= user_avatar(current_candidate) %>
-    <p>Sobre mim: <%= current_candidate.about_me %></p>
-    <p>CPF: <%= current_candidate.document %></p>
-    <p>Endereço: <%= current_candidate.address %></p>
-    <% if candidate_signed_in? %>
-        <%= link_to 'Editar dados da minha conta', edit_candidate_registration_path(current_candidate) %>
+<%= render(PageComponent.new) do |component| %>
+  <%= component.sidebar do %>
+    <%= render(BoxComponent.new) do |box| %>
+      <%= box.title do %>
+        <%= user_avatar(current_candidate) %>
+        <%= @candidate.full_name %>
+        <%= edit_candidate_info_button %>
+      <% end %>
+      <%= box.body do %>
+        <%= candidate_locale(@candidate.address) %>
+        <%= candidate_website(@candidate.website) %>        
+        <p>CPF: <%= current_candidate.document %></p>
+        <p>Endereço: <%= current_candidate.address %></p>
+        <% if candidate_signed_in? %>
+            <%= link_to 'Editar dados da minha conta', edit_candidate_registration_path(current_candidate) %>
+        <% end %>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
 
-<%= render(BoxComponent.new) do |component| %>
-  <% component.title do %>
-    Minhas Candidaturas
-  <% end %>
-  <% component.body do %>
-    <% if current_candidate.job_applications.count > 0 %>
-      <% current_candidate.job_applications.each do |job_application| %>
-          <%= link_to job_application.job_opportunity.job_title, job_application_path(job_application) %> 
+  <%= component.main_content do %>
+    <%= render(BoxComponent.new) do |component| %>
+      <% component.title do %>
+        Minhas Candidaturas
       <% end %>
-    <% else %>
-      Você ainda não se inscreveu em nenhuma vaga.
+      <% component.body do %>
+        <% if current_candidate.job_applications.count > 0 %>
+          <% current_candidate.job_applications.each do |job_application| %>
+              <%= link_to job_application.job_opportunity.job_title, job_application_path(job_application) %> 
+          <% end %>
+        <% else %>
+          <div class="empty_state"><%= t('.empty_state.job_application') %></div>
+        <% end %>
+      <% end %>
     <% end %>
-  <% end %>
-<% end %>
 
-<%= render(BoxComponent.new) do |component| %>
-  <% component.title do %>
-    Propostas recebidas
-  <% end %>
-  <% component.body do %>
-    <% unless current_candidate.job_proposals.count == 0 %>
-      <% current_candidate.job_proposals.each do |proposal| %>
-          <%= link_to "#{proposal.job_application.job_opportunity.job_title} - #{proposal.job_application.company.name} (#{proposal.status})", job_application_job_proposal_path(proposal.job_application, proposal) %>
+    <%= render(BoxComponent.new) do |component| %>
+      <% component.title do %>
+        Propostas recebidas
       <% end %>
-    <% else %>
-      Você ainda não recebeu nenhuma proposta.
+      <% component.body do %>
+        <% unless current_candidate.job_proposals.count == 0 %>
+          <% current_candidate.job_proposals.each do |proposal| %>
+              <%= link_to "#{proposal.job_application.job_opportunity.job_title} - #{proposal.job_application.company.name} (#{proposal.status})", job_application_job_proposal_path(proposal.job_application, proposal) %>
+          <% end %>
+        <% else %>
+          <div class="empty_state"><%= t('.empty_state.job_proposal') %></div>
+        <% end %>
+      <% end %>
     <% end %>
   <% end %>
 <% end %>
