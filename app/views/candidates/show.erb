@@ -35,14 +35,12 @@
           <div class="empty_state"><%= t('.empty_state.work_experience') %></div>
         <% end %>
         <% @work_experiences.each do |w| %>
-          <%= render(BoxComponent.new(color: :secondary)) do |component| %>
-            <%= component.body do %>
-              <%= delete_item_button(w) %>
-              <b><%= w.job_title %></b><br>
-              <%= w.company_name %> <%= "- #{w.sector_humanize}" unless w.sector&.zero? %><br>
-              <%= w.start_date&.strftime("%b/%Y") %> - <%= w.end_date&.strftime("%b/%y") || 'now' %><br>
-              <%= w.location %>
-            <% end %>
+          <%= render(ListItemComponent.new) do |component| %>
+            <% component.button { delete_item_button(w) } %>
+            <b><%= w.job_title %></b><br>
+            <%= w.sector.present? ? w.company_name.concat(" - #{w.sector_humanize}") : w.company_name %><br>
+            <%= w.start_date&.strftime("%b/%Y") %> - <%= w.end_date&.strftime("%b/%y") || t('.now') %><br>
+            <%= w.location %>
           <% end %>
         <% end %>
       <% end %>
@@ -55,15 +53,16 @@
     <% end %>
 
       <% component.body do %>
-        <% if @candidate.degrees.empty? %>
+        <% if @degrees.empty? %>
           <div class="empty_state"><%= t('.empty_state.degree') %></div>
         <% else %>
-          <% @candidate.degrees.each do |d| %>
-            <div style="padding: 15px 0 15px 0">
-              <%= degree_headline(d.title, d.kind_humanize) %> <%= delete_item_button(d) %><br>
+          <% @degrees.each do |d| %>
+            <%= render(ListItemComponent.new) do |component| %>
+              <% component.button { delete_item_button(d) } %>
+              <%= degree_headline(d.title, d.kind_humanize) %><br>
               <%= d.institution || t('.null_institution') %><br>
               <%= graduation_year(d.graduation_year) %>
-            </div>
+            <% end %>
           <% end %>
         <% end %>
       <% end %>
@@ -76,14 +75,15 @@
     <% end %>
 
       <% component.body do %>
-        <% if @candidate_skills.empty? %>
+        <% if @candidate.candidate_skills.empty? %>
           <div class="empty_state"><%= t('.empty_state.candidate_skill') %></div>
         <% else %>
-          <% @candidate_skills.each do |s| %>
-            <div style="padding: 15px 0 15px 0">
-              <b><%= s.skill_name %></b> <%= delete_item_button(s) %><br>
+          <% @candidate.candidate_skills.each do |s| %>
+            <%= render(ListItemComponent.new) do |component| %>
+              <% component.button { delete_item_button(s) } %>
+              <b><%= s.skill_name %></b><br>
               <%= t_attr("candidate_skill.level.#{s.level}") %>
-            </div>
+            <% end %>
           <% end %>
         <% end %>
       <% end %>
@@ -100,11 +100,11 @@
           <div class="empty_state"><%= t('.empty_state.course') %></div>
         <% else %>
           <% @courses.each do |c| %>
-            <div style="padding: 15px 0 15px 0">
-              <b><%= c.title %></b><%= delete_item_button(c) %><br>
-              <%= course_certificate_link(c.certificate_link) %>
+            <%= render(ListItemComponent.new) do |component| %>
+              <% component.button { delete_item_button(c) } %>
+              <b><%= c.title %></b><%= course_certificate_link(c.certificate_link) %><br>
               <%= c.description %>
-            </div>
+            <% end %>
           <% end %>
         <% end %>
       <% end %>
@@ -121,10 +121,11 @@
           <div class="empty_state"><%= t('.empty_state.language') %></div>
         <% else %>
           <% @candidate.languages.each do |l| %>
-            <div style="padding: 15px 0 15px 0">
-              <b><%= l.name %></b><%= delete_item_button(l) %><br>
+            <%= render(ListItemComponent.new) do |component| %>
+              <% component.button { delete_item_button(l) } %>
+              <b><%= l.name %></b><br>
               <%= l.proficiency_humanize %>
-            </div>
+            <% end %>
           <% end %>
         <% end %>
       <% end %>

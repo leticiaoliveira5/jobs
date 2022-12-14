@@ -13,6 +13,7 @@
  *= require ./color_theme
  *= require ./form_style
  *= require_self
+ *= require font-awesome
  */
 
 body {
@@ -107,10 +108,7 @@ a:hover {
   }
 
   .sidebar-avatar {
-    border-radius: 50%;
-    display: block;
     margin: 0 auto;
-    max-width: 100%;
   }
 }
 
@@ -120,9 +118,25 @@ a:hover {
     width: 95%;
     margin: 0 auto;
   }
+
 }
 
 .sidebar-avatar {
+  aspect-ratio: 1;
   border-radius: 50%;
   display: block;
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.gray-icon {
+  color: var(--background_color);
+  cursor: pointer;
+}
+
+.green-icon {
+  color: var(--title);
+  cursor: pointer;
+  margin-left: 5px;
 }

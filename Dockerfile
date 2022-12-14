@@ -9,7 +9,7 @@ WORKDIR /jobs
 
 COPY Gemfile* package.json yarn.lock /jobs/
 
-RUN gem install bundler -v 2.2.15 && \
+RUN gem install bundler -v 2.3.26 && \
   bundle install --jobs 20
 
 COPY . /jobs

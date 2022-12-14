@@ -11,7 +11,6 @@ RSpec.describe ModalBoxComponent, type: :component do
       expect(rendered_component).to have_css('.backdrop')
       expect(rendered_component).to have_css('.modalbox')
       expect(rendered_component).to have_css('.title', text: 'Title Test')
-      expect(rendered_component).to have_button('x')
     end
   end
 end
