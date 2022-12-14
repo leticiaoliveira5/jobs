@@ -75,6 +75,7 @@ pt-BR:
       languages: Línguas
       degrees: Formação Acadêmica
       null_institution: Instituição de Ensino não informada
+      now: Hoje
       new:
         experience: Nova experiência
         skill: Nova Habilidade
@@ -87,4 +88,8 @@ pt-BR:
         course: Nenhum curso cadastrado pelo usuário
         language: Nenhum idioma cadastrado pelo usuário
         degree: Nenhum histórico cadastrado pelo usuário
+      actions:
+        edit: Editar
+        delete: Excluir
+        add: Adicionar
     

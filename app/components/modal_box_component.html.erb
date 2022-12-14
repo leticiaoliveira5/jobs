@@ -29,7 +29,8 @@
 <div class="backdrop" id="backdrop<%= @modal_id %>"></div>
   <div  class="modalbox" id="<%= @modal_id %>">
     <div class="title">
-      <%= @title %> <button onclick='closeModal("<%= @modal_id %>")' style="float: right;">x</button>
+      <%= @title %>
+      <i onclick='closeModal("<%= @modal_id %>")' class="fa fa-close" style="float: right;"></i>
     </div>
     <%= body %>
   </div>
