@@ -2,12 +2,12 @@
   <%= component.sidebar do %>
     <%= render(BoxComponent.new) do |box| %>
       <%= box.title do %>
-        <%= user_avatar(current_candidate, size: '20x20') %>
+        <%= user_avatar(@candidate, size: '20x20') %>
         <%= @candidate.full_name %>
       <% end %>
       <%= box.body do %>
-        <p><%= t_attr('candidate.document') %>: <%= current_candidate.document %></p>
-        <p><%= t_attr('candidate.address') %>: <%= current_candidate.address %></p>
+        <p><%= t_attr('candidate.document') %>: <%= @candidate.document %></p>
+        <p><%= t_attr('candidate.address') %>: <%= @candidate.address %></p>
         <%= candidate_locale(@candidate.address) %>
         <%= candidate_website(@candidate.website) %>        
         <%= link_to 'Editar meus dados', edit_candidate_registration_path(@candidate) %>
@@ -21,8 +21,8 @@
         Minhas Candidaturas
       <% end %>
       <% component.body do %>
-        <% if current_candidate.job_applications.count > 0 %>
-          <% current_candidate.job_applications.each do |job_application| %>
+        <% if @candidate.job_applications.count > 0 %>
+          <% @candidate.job_applications.each do |job_application| %>
             <%= render(ListItemComponent.new) do %>
               <%= link_to job_application.job_opportunity.job_title, job_application_path(job_application) %>
             <% end %>
@@ -39,7 +39,7 @@
       <% end %>
       <% component.body do %>
         <% unless @candidate.job_proposals.count == 0 %>
-          <% @current_candidate.job_proposals.each do |proposal| %>
+          <% @@candidate.job_proposals.each do |proposal| %>
             <%= render(ListItemComponent.new) do %>
               <%= link_to "#{proposal.job_application.job_opportunity.job_title} - #{proposal.job_application.company.name} (#{proposal.status})", job_application_job_proposal_path(proposal.job_application, proposal) %>
             <% end %>
