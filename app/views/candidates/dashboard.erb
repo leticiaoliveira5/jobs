@@ -39,7 +39,7 @@
       <% end %>
       <% component.body do %>
         <% unless @candidate.job_proposals.count == 0 %>
-          <% @@candidate.job_proposals.each do |proposal| %>
+          <% @candidate.job_proposals.each do |proposal| %>
             <%= render(ListItemComponent.new) do %>
               <%= link_to "#{proposal.job_application.job_opportunity.job_title} - #{proposal.job_application.company.name} (#{proposal.status})", job_application_job_proposal_path(proposal.job_application, proposal) %>
             <% end %>
