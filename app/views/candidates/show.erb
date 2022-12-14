@@ -53,10 +53,10 @@
     <% end %>
 
       <% component.body do %>
-        <% if @candidate.degrees.empty? %>
+        <% if @degrees.empty? %>
           <div class="empty_state"><%= t('.empty_state.degree') %></div>
         <% else %>
-          <% @candidate.degrees.each do |d| %>
+          <% @degrees.each do |d| %>
             <%= render(ListItemComponent.new) do |component| %>
               <% component.button { delete_item_button(d) } %>
               <%= degree_headline(d.title, d.kind_humanize) %><br>
@@ -75,10 +75,10 @@
     <% end %>
 
       <% component.body do %>
-        <% if @candidate_skills.empty? %>
+        <% if @candidate.candidate_skills.empty? %>
           <div class="empty_state"><%= t('.empty_state.candidate_skill') %></div>
         <% else %>
-          <% @candidate_skills.each do |s| %>
+          <% @candidate.candidate_skills.each do |s| %>
             <%= render(ListItemComponent.new) do |component| %>
               <% component.button { delete_item_button(s) } %>
               <b><%= s.skill_name %></b><br>
