@@ -4,6 +4,8 @@ class CandidatesController < ApplicationController
 
   def dashboard
     @candidate = current_candidate
+    @job_proposals = @candidate.job_proposals.order(created_at: :desc)
+    @job_applications = @candidate.job_applications.order(created_at: :desc)
   end
 
   def show
