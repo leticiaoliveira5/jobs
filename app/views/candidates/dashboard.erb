@@ -43,8 +43,8 @@
         <% else %>
           <% @job_proposals.each do |proposal| %>
             <%= render(ListItemComponent.new) do %>
-              <%= "Vaga: #{proposal.job_application.job_opportunity.job_title}" %><br>
-              <%= "Empresa: #{proposal.job_application.company.name}" %><br>
+              Vaga: <%= proposal.job_application.job_opportunity.job_title %><br>
+              Empresa: <%= proposal.job_application.company.name %><br>
               <%= link_to t('.view_proposal'), job_application_job_proposal_path(proposal.job_application, proposal) %>
               (<%= t_attr("job_proposal.status.#{proposal.status}") %>)
             <% end %>
