@@ -27,7 +27,7 @@
               <% item.button { cancel_application_button(job_application.id) } %>
               <b><%= job_application.job_opportunity.job_title %></b> - <%= t_attr("job_application.status.#{job_application.status}") %><br>
               Empresa: <%= job_application.company.name %><br>
-              <%= link_to 'Ver detalhes da vaga', job_application.job_opportunity %><br>
+              <%= link_to t('.view_opportunity'), job_application.job_opportunity %><br>
               Se inscreveu em <%= job_application.created_at.strftime("%d/%b/%Y") %>
             <% end %>
           <% end %>
@@ -43,7 +43,10 @@
         <% else %>
           <% @job_proposals.each do |proposal| %>
             <%= render(ListItemComponent.new) do %>
-              <%= link_to "#{proposal.job_application.job_opportunity.job_title} - #{proposal.job_application.company.name} (#{proposal.status})", job_application_job_proposal_path(proposal.job_application, proposal) %>
+              <%= "Vaga: #{proposal.job_application.job_opportunity.job_title}" %><br>
+              <%= "Empresa: #{proposal.job_application.company.name}" %><br>
+              <%= link_to t('.view_proposal'), job_application_job_proposal_path(proposal.job_application, proposal) %>
+              (<%= t_attr("job_proposal.status.#{proposal.status}") %>)
             <% end %>
           <% end %>
         <% end %>
