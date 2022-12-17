@@ -1,7 +1,22 @@
-<div class="contentblock">
-  <%= render(GridComponent.new(columns: 5)) do %>
-    <% @job_opportunities.each do |job| %>
-      <%= render(JobPreviewComponent.new(job_opportunity: job)) %>
+<%= render(BoxComponent.new) do |component| %>
+  <% component.title { 'Search' } %>
+  <% component.body do %>
+    Search
+  <% end %>
+<% end %>
+
+<%= render(BoxComponent.new) do |component| %>
+  <% component.title { 'Vagas Recentes' } %>
+  <% component.body do %>
+    <%= render(GridComponent.new(columns: 5)) do %>
+      <% @job_opportunities.each do |job| %>
+        <%= render(ListItemComponent.new) do |item| %>
+          <h4><%= "#{job.job_title} (#{job.company.name})" %></h4>
+          <p><%= job.job_level %></p>
+          <p><%= job.place %></p>
+          <p><%= link_to 'Ver detalhes', job_opportunity_path(job) %></p>
+        <% end %>
+      <% end %>
     <% end %>
   <% end %>
-</div>
+<% end %>
