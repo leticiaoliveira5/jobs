@@ -11,7 +11,9 @@ feature 'Candidate displays skills on profile page' do
   scenario 'successfully' do
     login_as candidate, scope: :candidate
     visit root_path
-    click_on 'Meu perfil'
+    within('.nav') do
+      click_on 'Meu perfil'
+    end
 
     expect(page).to have_content 'Violino'
     expect(page).to have_content 'Avançado'
