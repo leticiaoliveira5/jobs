@@ -20,7 +20,8 @@ feature 'Candidate views job proposals' do
     click_on 'Área do candidato'
 
     expect(page).to have_content 'Propostas recebidas'
-    expect(page).to have_link 'Desenvolvedor - Globe'
+    expect(page).to have_text 'Vaga: Desenvolvedor'
+    expect(page).to have_link 'Ver detalhes da proposta'
   end
 
   feature 'Candidate responds to job proposal' do
@@ -28,7 +29,7 @@ feature 'Candidate views job proposals' do
       login_as candidate, scope: :candidate
       visit root_path
       click_on 'Área do candidato'
-      click_on 'Desenvolvedor - Globe'
+      click_on 'Ver detalhes da proposta'
     end
 
     scenario 'accepts it' do
