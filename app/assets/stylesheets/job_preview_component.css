@@ -14,11 +14,3 @@
  *= require ./color_theme.css
  */
 
-.job-preview-box {
-  background: var(--nav_background_color);
-  border-color: var(--button_color);
-  border-radius: 7px;
-  box-sizing: border-box;
-  padding: 10px 20px;
-  width: 100%;
-}
