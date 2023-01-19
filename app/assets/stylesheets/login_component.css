@@ -21,9 +21,16 @@
 .login-component {
   background-color: var(--nav_background_color);
   border-radius: 7px;
-  height: 500px;
   overflow: hidden;
-  width: 400px;
+  margin: 3em;
+}
+
+/* large screen */
+@media screen and (min-device-width: 750px) and (min-width: 750px) {
+  .login-component {
+    width: 100%;
+    margin: auto;
+  }
 }
 
 .login-component a,
@@ -43,10 +50,10 @@
   border-bottom: 3px solid;
   color: var(--inactive_link);
   cursor: pointer;
-  font-size: 27px;
+  font-size: 1.6em;
   font-weight: 500;
   letter-spacing: 0;
-  padding: 15px 0 10px 0;
+  padding: 20px 0 5px 0;
   text-align: center;
   width: 50%;
 }
@@ -60,7 +67,7 @@
 
 .login-component .tabcontent {
   margin: auto;
-  width: 80%;  
+  width: 85%;  
 }
 
 .login-component .tabcontent div {
@@ -112,4 +119,8 @@
   display: inline;
   font-size: 12px;
   text-transform: none;
+}
+
+.login-form-items div {
+  margin: 1em auto;
 }
