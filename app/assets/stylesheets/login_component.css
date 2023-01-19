@@ -28,8 +28,8 @@
 /* large screen */
 @media screen and (min-device-width: 750px) and (min-width: 750px) {
   .login-component {
-    width: 100%;
     margin: auto;
+    width: 100%;
   }
 }
 
