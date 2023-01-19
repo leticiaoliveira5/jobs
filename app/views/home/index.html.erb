@@ -1,21 +1,26 @@
 <div class="flex-container">
   <div>
-    <div class="contentblock">
-      <h2><%= t('.search') %></h2>
-      <%= form_tag(search_results_path, method: :get) do |f| %>
-        <%= label_tag :search_input, t('.search_label') %>
-        <%= text_field_tag :search_input, params[:search_input], required: true %>
-        <%= submit_tag t('.search_button'), class: 'button' %>
-      <% end %>
-    </div>
-    <div class="contentblock">
-      <h2>Vagas recentes</h2>
-      <%= render(GridComponent.new(columns: 3)) do %>
-        <% @job_opportunities.each do |job| %>
-          <%= render(JobPreviewComponent.new(job_opportunity: job)) %>
+    <%= render(BoxComponent.new) do |box| %>
+      <%= box.title { t('.search') } %>
+      <%= box.body do %>
+        <%= form_tag(search_results_path, method: :get) do |f| %>
+          <%= label_tag :search_input, t('.search_label') %>
+          <%= text_field_tag :search_input, params[:search_input], required: true %>
+          <%= submit_tag t('.search_button'), class: 'button' %>
         <% end %>
       <% end %>
-    </div>
+    <% end %>
+
+    <%= render(BoxComponent.new) do |box| %>
+      <%= box.title { 'Vagas Recentes' } %>
+      <%= box.body do %>
+        <%= render(GridComponent.new(columns: 3)) do %>
+          <% @job_opportunities.each do |job| %>
+            <%= render(JobPreviewComponent.new(job_opportunity: job)) %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
   </div>
 
   <div>
