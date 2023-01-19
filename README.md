@@ -3,7 +3,6 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/c005119a689e2367251b/maintainability)](https://codeclimate.com/github/leticiaoliveira5/jobs/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/c005119a689e2367251b/test_coverage)](https://codeclimate.com/github/leticiaoliveira5/jobs/test_coverage)
 [![Build Status](https://leticiaoliveira5.semaphoreci.com/badges/jobs/branches/master.svg?style=shields)](https://leticiaoliveira5.semaphoreci.com/projects/jobs)
-[![Test](https://github.com/leticiaoliveira5/jobs/actions/workflows/test.yml/badge.svg)](https://github.com/leticiaoliveira5/jobs/actions/workflows/test.yml)
 
 A web application that allows company employees to create and manage job opportunities and find candidates interested in them.
 
@@ -29,7 +28,7 @@ A web application that allows company employees to create and manage job opportu
 ## Current Versions
 
 -   Ruby 3.1.3
--   Rails 7.0.3.1
+-   Rails 7.0.4.1
 
 ## Run locally
 
