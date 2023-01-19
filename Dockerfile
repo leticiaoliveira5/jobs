@@ -7,10 +7,10 @@ RUN apt-get update -qq && apt-get install --no-install-recommends -y nodejs yarn
 RUN mkdir /jobs
 WORKDIR /jobs
 
-COPY Gemfile* package.json yarn.lock /jobs/
-
-RUN gem install bundler -v 2.3.26 && \
-  bundle install --jobs 20
+COPY Gemfile /jobs/Gemfile
+COPY Gemfile.lock /jobs/Gemfile.lock
+RUN gem install bundler -v 2.3.26
+RUN bundle install
 
 COPY . /jobs
 
