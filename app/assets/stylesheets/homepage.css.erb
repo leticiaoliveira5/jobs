@@ -73,10 +73,26 @@ a:hover {
   text-align: left;
 }
 
-.flex-container {
-  align-items: center;
-  display: flex;
-  flex-grow: 1;
-  justify-content: space-evenly;
-  order: 1;
+/* large screen */
+@media screen and (min-device-width: 750px) and (min-width: 750px) {
+  .container {
+    margin: auto;
+    width: 80%;
+  }
+
+  .flex-container {
+    align-items: center;
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-evenly;
+    order: 1;
+  }
+}
+
+/* small screen  */
+@media screen and (max-device-width: 750px) and (max-width: 750px) {
+  .container {
+    width: 95%;
+    margin: auto;
+  }
 }
