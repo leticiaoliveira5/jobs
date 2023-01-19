@@ -7,7 +7,7 @@
     font-size: 1.3em;
   }
 
-  .contentblock {
+  .box {
     box-sizing: border-box;
     width: 100%;
     border-radius: 7px;
@@ -17,7 +17,7 @@
   }
 
   /* when there's a content box inside another content box */
-  .contentblock .contentblock {
+  .box .box {
     margin: 15px 0 0 0;
     padding: 20px;
   }
@@ -32,7 +32,7 @@
   }
 </style>
 
-<div class="contentblock" style="background-color:<%= bg %>;">
+<div class="box" style="background-color:<%= bg %>;">
   <% if collapsible? %>
     <div class="title" onclick="toggleContent(this)" style="cursor: pointer;">
       <%= title if title? %>

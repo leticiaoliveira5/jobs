@@ -27,7 +27,11 @@ class BoxComponent < ViewComponent::Base
   end
 
   def bg
-    'var(--content_blocks_color)' if @color == :primary
-    'var(--nav_background_color)' if @color == :secondary
+    case @color
+    when :primary
+      'var(--content_blocks_color)'
+    when :secondary
+      'var(--nav_background_color)'
+    end
   end
 end
