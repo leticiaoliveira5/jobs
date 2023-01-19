@@ -21,8 +21,8 @@
 .login-component {
   background-color: var(--nav_background_color);
   border-radius: 7px;
-  overflow: hidden;
   margin: 3em;
+  overflow: hidden;
 }
 
 /* large screen */
