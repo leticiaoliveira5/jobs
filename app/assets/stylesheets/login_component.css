@@ -67,11 +67,12 @@
 
 .login-component .tabcontent {
   margin: auto;
-  width: 85%;  
+  width: 85%;
 }
 
 .login-component .tabcontent div {
   font-size: 20px;
+  margin: 1em auto;
   padding: 18px;
   text-align: center;
 }
@@ -119,8 +120,4 @@
   display: inline;
   font-size: 12px;
   text-transform: none;
-}
-
-.login-form-items div {
-  margin: 1em auto;
 }

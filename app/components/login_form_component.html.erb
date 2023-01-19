@@ -1,4 +1,4 @@
-<%= form_for(@resource_name, url: session_path(@resource_name), html: { class: 'login-form-items' }) do |f| %>
+<%= form_for(@resource_name, url: session_path(@resource_name)) do |f| %>
   <div>
     <%= f.label :email, t("activerecord.attributes.#{@resource_name}.email") %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
