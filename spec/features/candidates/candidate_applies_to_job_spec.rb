@@ -2,19 +2,18 @@ require 'rails_helper'
 
 feature 'Candidate applies to job' do
   let(:candidate) { create(:candidate) }
-  let!(:company) { create(:company) }
-  let(:job_opportunity) { create(:job_opportunity, job_title: 'Dummie', company: company) }
+  let!(:job_opportunity) { create(:job_opportunity) }
 
-  before { job_opportunity }
-
-  scenario 'successfully' do
+  before do
     login_as candidate, scope: :candidate
     visit root_path
-    click_on 'Empresas'
-    click_on company.name
+    click_on 'Vagas'
     within(".list-item##{job_opportunity.id}") do
       click_on 'Ver detalhes'
     end
+  end
+
+  scenario 'successfully' do
     click_on 'Inscrever-se nesta vaga'
 
     expect(page).to have_text 'Inscrição realizada com sucesso!'
@@ -22,28 +21,16 @@ feature 'Candidate applies to job' do
   end
 
   scenario 'only once' do
-    create(:job_application, candidate: candidate, job_opportunity: job_opportunity)
+    create(:job_application, candidate:, job_opportunity:)
 
-    login_as candidate, scope: :candidate
-    visit root_path
-    click_on 'Empresas'
-    click_on company.name
-    within(".list-item##{job_opportunity.id}") do
-      click_on 'Ver detalhes'
-    end
+    visit current_path
 
-    expect(page).to have_button 'Cancelar candidatura'
     expect(page).not_to have_link 'Inscrever-se nesta vaga'
+    expect(page).to have_button 'Cancelar candidatura'
   end
 
   scenario 'and cancels application' do
-    login_as candidate, scope: :candidate
-    visit root_path
-    click_on 'Vagas'
-    click_on 'Ver detalhes'
     click_on 'Inscrever-se nesta vaga'
-    click_on 'Área do candidato'
-    click_on 'Ver detalhes da vaga'
     click_on 'Cancelar candidatura'
 
     expect(candidate.job_applications.count).to eq(0)
