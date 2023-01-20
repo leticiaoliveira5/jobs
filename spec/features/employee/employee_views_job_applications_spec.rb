@@ -19,7 +19,7 @@ feature 'Employee views job applications' do
     visit root_path
     click_on 'Empresas'
     click_on 'Apple'
-    within(".list-item##{job_opportunity.id}") do
+    within("#job-#{job_opportunity.id}") do
       click_on 'Ver detalhes'
     end
 
