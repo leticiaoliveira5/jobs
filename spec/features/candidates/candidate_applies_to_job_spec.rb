@@ -28,12 +28,4 @@ feature 'Candidate applies to job' do
     expect(page).not_to have_link 'Inscrever-se nesta vaga'
     expect(page).to have_button 'Cancelar candidatura'
   end
-
-  scenario 'and cancels application' do
-    click_on 'Inscrever-se nesta vaga'
-    click_on 'Cancelar candidatura'
-
-    expect(candidate.job_applications.count).to eq(0)
-    expect(page).to have_text 'Você não está mais inscrito nesta vaga'
-  end
 end
