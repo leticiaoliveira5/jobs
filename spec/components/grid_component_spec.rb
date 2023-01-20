@@ -6,13 +6,15 @@ RSpec.describe GridComponent, type: :component do
   let(:rendered_component) { render_inline(subject).to_html }
 
   context 'is responsive' do
+    subject { described_class.new(type: :responsive) }
+
     it 'renders the component' do
       expect(rendered_component).to have_css('.responsive-grid')
     end
   end
 
-  context 'is not responsive' do
-    subject { described_class.new(responsive: false) }
+  context 'is fixed' do
+    subject { described_class.new(type: :fixed) }
 
     it 'renders the component' do
       expect(rendered_component).to have_css('.grid')

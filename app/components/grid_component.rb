@@ -1,11 +1,13 @@
 class GridComponent < ViewComponent::Base
-  def initialize(column_gap: nil, row_gap: nil, columns: nil, rows: nil, responsive: true)
+  TYPES = { responsive: 'responsive-grid', fixed: 'grid' }.freeze
+
+  def initialize(type: :responsive, column_gap: nil, row_gap: nil, columns: nil, rows: nil)
     super
     @column_gap = column_gap
     @row_gap = row_gap
     @columns = columns
     @rows = rows
-    @responsive = responsive
+    @type = type
   end
 
   def columns_css
@@ -33,6 +35,6 @@ class GridComponent < ViewComponent::Base
   end
 
   def class_name
-    @responsive == true ? 'responsive-grid' : 'grid'
+    TYPES[@type]
   end
 end
