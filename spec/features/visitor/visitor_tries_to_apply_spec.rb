@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Visitor views job opportunity details' do
+feature 'Visitor tries to apply' do
   let(:apple) { create(:company, name: 'Apple') }
   let!(:active_job_opportunity) do
     create(:job_opportunity, company: apple,
@@ -10,16 +10,15 @@ feature 'Visitor views job opportunity details' do
                              status: :active)
   end
 
-  scenario 'successfully' do
+  scenario 'and is redirected to new session path' do
     visit root_path
     click_on 'Vagas'
     within(".list-item##{active_job_opportunity.id}") do
       click_on 'Ver detalhes'
     end
+    click_on 'Faça login para inscrever-se nesta vaga'
 
-    expect(page).to have_text('Desenvolvedor') &&
-                    have_text('Apple') &&
-                    have_text('Pleno') &&
-                    have_text('Home Office')
+    expect(current_path).to eq(new_candidate_session_path)
+    expect(page).to have_text('Para continuar, faça login ou registre-se.')
   end
 end
