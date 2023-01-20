@@ -145,18 +145,17 @@ a:hover {
   border: 1px solid var(--button_color);
   border-radius: 7px;
   display: flex;
+  justify-content: space-between;
   margin: 5px auto;
   padding: 10px;
   position: relative;
-  width: 90%;
-  justify-content: space-between;
 }
 
 .search_container input[type='text'],
 .search_container input[type='text']:-webkit-autofill {
+  -webkit-background-clip: text;
   all: unset;
   width: 100%;
-  -webkit-background-clip: text;
 }
 
 .search_container button {
