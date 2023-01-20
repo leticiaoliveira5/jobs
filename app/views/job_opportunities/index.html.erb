@@ -1,7 +1,11 @@
-<%= render(BoxComponent.new) do |component| %>
+<%= render(BoxComponent.new(color: :transparent)) do |component| %>
   <% component.title { 'Search' } %>
   <% component.body do %>
-    Search test
+    <%= form_tag(search_results_path, method: :get) do |f| %>
+      <%= label_tag :search_input, t('.search_label') %>
+      <%= text_field_tag :search_input, params[:search_input], required: true %>
+      <%= submit_tag t('.search_button'), class: 'button' %>
+    <% end %>
   <% end %>
 <% end %>
 
