@@ -10,9 +10,9 @@ feature 'Candidate applies to job' do
   scenario 'successfully' do
     login_as candidate, scope: :candidate
     visit root_path
-    click_on 'Ver empresas cadastradas'
+    click_on 'Empresas'
     click_on company.name
-    within(".job-preview-box##{job_opportunity.id}") do
+    within(".list-item##{job_opportunity.id}") do
       click_on 'Ver detalhes'
     end
     click_on 'Inscrever-se nesta vaga'
@@ -26,9 +26,9 @@ feature 'Candidate applies to job' do
 
     login_as candidate, scope: :candidate
     visit root_path
-    click_on 'Ver empresas cadastradas'
+    click_on 'Empresas'
     click_on company.name
-    within(".job-preview-box##{job_opportunity.id}") do
+    within(".list-item##{job_opportunity.id}") do
       click_on 'Ver detalhes'
     end
 
@@ -39,7 +39,7 @@ feature 'Candidate applies to job' do
   scenario 'and cancels application' do
     login_as candidate, scope: :candidate
     visit root_path
-    click_on 'Vagas recentes'
+    click_on 'Vagas'
     click_on 'Ver detalhes'
     click_on 'Inscrever-se nesta vaga'
     click_on 'Área do candidato'

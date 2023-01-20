@@ -10,7 +10,7 @@ feature 'Visitor viws recent job opportunities' do
 
   scenario 'successfully' do
     visit root_path
-    click_on 'Vagas recentes'
+    click_on 'Vagas'
 
     expect(page).to have_link('Ver detalhes')
     expect(page).to have_text('Pleno') && have_text('Home Office')

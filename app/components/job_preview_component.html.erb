@@ -1,4 +1,4 @@
-<% render(ListItemComponent.new) do %>
+<%= render(ListItemComponent.new(id: @job_opportunity.id)) do %>
   <h4><%= "#{@job_opportunity.job_title} (#{@job_opportunity.company.name})" %></h4>
   <p><%= @job_opportunity.job_level %></p>
   <p><%= @job_opportunity.place %></p>

@@ -12,8 +12,8 @@ feature 'Visitor views job opportunities' do
 
   scenario 'successfully' do
     visit root_path
-    click_on 'Vagas recentes'
-    within(".job-preview-box##{active_job_opportunity.id}") do
+    click_on 'Vagas'
+    within(".list-item##{active_job_opportunity.id}") do
       click_on 'Ver detalhes'
     end
 
@@ -25,8 +25,8 @@ feature 'Visitor views job opportunities' do
 
   scenario 'and clicks to apply' do
     visit root_path
-    click_on 'Vagas recentes'
-    within(".job-preview-box##{active_job_opportunity.id}") do
+    click_on 'Vagas'
+    within(".list-item##{active_job_opportunity.id}") do
       click_on 'Ver detalhes'
     end
     click_on 'Faça login para inscrever-se nesta vaga'
@@ -39,7 +39,7 @@ feature 'Visitor views job opportunities' do
     create(:job_opportunity, company: apple, job_title: 'Tech Lead', status: :inactive)
 
     visit root_path
-    click_on 'Vagas recentes'
+    click_on 'Vagas'
 
     expect(current_path).to eq(job_opportunities_path)
     expect(page).not_to have_content('Tech Lead')
