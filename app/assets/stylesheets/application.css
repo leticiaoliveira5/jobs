@@ -171,13 +171,13 @@ a:hover {
 }
 
 @media (min-width: 0px) {
-  .responsive-grid { grid-template-columns: '1fr'; }
+  .responsive-grid { grid-template-columns: 1fr; }
 }
 
 @media (min-width: 600px) {
-  .responsive-grid { grid-template-columns: '1fr 1fr'; }
+  .responsive-grid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (min-width: 900px) {
-  .responsive-grid { grid-template-columns: '1fr 1fr 1fr'; }
+  .responsive-grid { grid-template-columns: 1fr 1fr 1fr; }
 }
