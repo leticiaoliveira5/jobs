@@ -1,10 +1,11 @@
 class GridComponent < ViewComponent::Base
-  def initialize(params = {})
+  def initialize(column_gap: nil, row_gap: nil, columns: nil, rows: nil, responsive: true)
     super
-    @column_gap = params[:column_gap]
-    @row_gap = params[:row_gap]
-    @columns = params[:columns]
-    @rows = params[:rows]
+    @column_gap = column_gap
+    @row_gap = row_gap
+    @columns = columns
+    @rows = rows
+    @responsive = responsive
   end
 
   def columns_css
@@ -17,5 +18,21 @@ class GridComponent < ViewComponent::Base
     return unless @rows
 
     'auto ' * @rows.to_i
+  end
+
+  def column_gap
+    return '1rem' if @column_gap.blank?
+
+    @column_gap + 'px'
+  end
+
+  def row_gap
+    return '1rem' if @row_gap.blank?
+
+    @column_gap + 'px'
+  end
+
+  def class_name
+    @responsive == true ? 'responsive-grid' : 'grid'
   end
 end
