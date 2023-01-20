@@ -1,5 +1,4 @@
 <%= render(BoxComponent.new(color: :transparent)) do |component| %>
-  <% component.title { 'Search' } %>
   <% component.body do %>
     <%= form_tag(search_results_path, method: :get) do |f| %>
       <div class="search_container">
