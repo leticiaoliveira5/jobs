@@ -23,13 +23,13 @@ class GridComponent < ViewComponent::Base
   def column_gap
     return '1rem' if @column_gap.blank?
 
-    @column_gap + 'px'
+    "#{@column_gap}px"
   end
 
   def row_gap
     return '1rem' if @row_gap.blank?
 
-    @column_gap + 'px'
+    "#{@row_gap}px"
   end
 
   def class_name
