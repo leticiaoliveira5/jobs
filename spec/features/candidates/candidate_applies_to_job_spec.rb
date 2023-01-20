@@ -21,7 +21,7 @@ feature 'Candidate applies to job' do
   end
 
   scenario 'only once' do
-    create(:job_application, candidate:, job_opportunity:)
+    create(:job_application, candidate: candidate, job_opportunity: job_opportunity)
 
     visit current_path
 
