@@ -1,3 +1,4 @@
+# :reek:TooManyInstanceVariables { max_instance_variables: 5 }
 class GridComponent < ViewComponent::Base
   TYPES = { responsive: 'responsive-grid', fixed: 'grid' }.freeze
 
