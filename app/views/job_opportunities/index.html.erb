@@ -15,9 +15,14 @@
 <%= render(BoxComponent.new) do |component| %>
   <% component.title { 'Vagas Recentes' } %>
   <% component.body do %>
-    <%= render(GridComponent.new(columns: 5)) do %>
+    <%= render(GridComponent.new) do %>
       <% @job_opportunities.each do |job| %>
-        <%= render(JobPreviewComponent.new(job_opportunity: job)) %>
+        <%= render(ListItemComponent.new(id: job.id)) do |component| %>
+          <%= render(JobPreviewComponent.new(job_opportunity: job)) %>
+          <% component.button do %>
+            <%= view_job_opportunity_link(job) %>
+          <% end %>
+        <% end %>
       <% end %>
     <% end %>
   <% end %>
