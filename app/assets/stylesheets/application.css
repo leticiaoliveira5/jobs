@@ -152,9 +152,11 @@ a:hover {
   justify-content: space-between;
 }
 
-.search_container input[type='text'] {
+.search_container input[type='text'],
+.search_container input[type='text']:-webkit-autofill {
   all: unset;
   width: 100%;
+  -webkit-background-clip: text;
 }
 
 .search_container button {

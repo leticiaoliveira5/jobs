@@ -3,7 +3,10 @@
   <% component.body do %>
     <%= form_tag(search_results_path, method: :get) do |f| %>
       <div class="search_container">
-        <%= text_field_tag :search_input, params[:search_input], placeholder: t('.search_placeholder'), required: true %>
+        <%= text_field_tag :search_input,
+                           params[:search_input],
+                           placeholder: t('.search_placeholder'),
+                           required: true %>
         <button type="submit"><i class="fa fa-search green-icon"></i></button>
       </div>
     <% end %>
