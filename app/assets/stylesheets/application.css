@@ -140,3 +140,24 @@ a:hover {
   cursor: pointer;
   margin-left: 5px;
 }
+
+.search_container {
+  border: 1px solid var(--button_color);
+  border-radius: 7px;
+  display: flex;
+  margin: 5px auto;
+  padding: 10px;
+  position: relative;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.search_container input[type='text'] {
+  all: unset;
+  width: 100%;
+}
+
+.search_container button {
+  all: unset;
+  padding: 0 10px 0 10px;
+}
