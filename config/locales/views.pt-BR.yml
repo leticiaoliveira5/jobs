@@ -29,6 +29,12 @@ pt-BR:
           accepted: Aceita
           declined: Não aceita
   companies:
+    index:
+      search_placeholder: Digite o que procura...
+      active_opportunities: Vagas ativas
+      companies: Empresas Cadastradas
+      search_result: 'Resultado da Busca: "%{input}"'
+      empty_state: Nenhuma empresa encontrada
     show:
       address: Endereço
       document: CNPJ
