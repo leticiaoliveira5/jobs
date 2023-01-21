@@ -169,10 +169,15 @@ a:hover {
 
 /* GRID COMPONENT */
 
+.grid {
+  display: grid;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
 /* mobile screen */
 .responsive-grid { 
   display: grid;
-  gap: 1rem;
   grid-template-columns: 1fr;
 }
 

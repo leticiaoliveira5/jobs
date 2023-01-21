@@ -12,13 +12,13 @@ class GridComponent < ViewComponent::Base
   end
 
   def columns_css
-    return unless @columns
+    return 'auto' unless @columns
 
     '1fr ' * @columns.to_i
   end
 
   def rows_css
-    return unless @rows
+    return 'auto' unless @rows
 
     'auto ' * @rows.to_i
   end
@@ -26,13 +26,13 @@ class GridComponent < ViewComponent::Base
   def column_gap
     return '1rem' if @column_gap.blank?
 
-    "#{@column_gap}px"
+    "#{@column_gap}rem"
   end
 
   def row_gap
     return '1rem' if @row_gap.blank?
 
-    "#{@row_gap}px"
+    "#{@row_gap}rem"
   end
 
   def class_name

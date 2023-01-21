@@ -8,8 +8,8 @@ RSpec.describe GridComponent, type: :component do
 
     it { expect(rendered_component).to match('grid-template-columns: 1fr 1fr ') }
     it { expect(rendered_component).to match('grid-template-rows: auto auto auto') }
-    it { expect(rendered_component).to match('row-gap: 2px') }
-    it { expect(rendered_component).to match('column-gap: 2px') }
+    it { expect(rendered_component).to match('row-gap: 2rem') }
+    it { expect(rendered_component).to match('column-gap: 2rem') }
   end
 
   context 'builds css with nil attributes' do

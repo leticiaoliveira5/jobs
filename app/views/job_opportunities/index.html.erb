@@ -15,7 +15,7 @@
 <%= render(BoxComponent.new) do |component| %>
   <% component.title { 'Vagas Recentes' } %>
   <% component.body do %>
-    <%= render(GridComponent.new) do %>
+    <%= render(GridComponent.new(row_gap: 1.2)) do %>
       <% @job_opportunities.each do |job| %>
         <%= render(ListItemComponent.new(id: job.id)) do |component| %>
           <%= render(JobPreviewComponent.new(job_opportunity: job)) %>
