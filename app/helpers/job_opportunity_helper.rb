@@ -55,4 +55,9 @@ module JobOpportunityHelper
             create_job_application_job_opportunity_path(job_opportunity),
             method: :post
   end
+
+  def view_job_opportunity_link(job_opportunity)
+    link_to fa_icon('eye', title: 'Ver detalhes da vaga', class: 'green-icon'),
+            job_opportunity_path(job_opportunity)
+  end
 end

@@ -10,6 +10,8 @@ pt-BR:
       title: Resultados da Busca
       no_results: A busca não retornou resultados.
   job_opportunities:
+    index:
+      search_placeholder: Digite o que procura...
     show:
       company: Empresa
       description: Descrição
