@@ -25,7 +25,6 @@ feature 'Visitor searches job opportunities' do
   def expect_to_find_company
     page.find('button[type="submit"]').click
     expect(current_path).to eq(companies_path)
-    expect(page).to have_content 'Resultado da Busca'
-    expect(page).to have_link 'Apple'
+    expect(page).to have_content('Resultado da Busca') && have_link('Apple')
   end
 end
