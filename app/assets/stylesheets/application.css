@@ -319,3 +319,44 @@ a:hover {
   text-decoration: none;
 }
 
+/* NAVBAR COMPONENT */
+
+.nav {
+  align-items: center;
+  background-color: var(--nav_background_color);
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  width: 100%;
+}
+
+.navtitle {
+  color: var(--title);
+  font-size: 44px;
+  padding: 10px;
+  text-transform: uppercase;
+}
+
+.navleft {
+  align-items: center;
+  display: flex;
+  font-size: 16px;
+}
+
+.navright {
+  align-items: center;
+  display: flex;
+  font-size: 16px;
+}
+
+.nav a {
+  color: var(--nav_link);
+  padding-left: 10px;
+  padding-right: 10px;
+  text-decoration: none;
+}
+
+.nav a:hover {
+  text-decoration: none;
+}
