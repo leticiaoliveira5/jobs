@@ -32,6 +32,8 @@ pt-BR:
     index:
       search_placeholder: Digite o que procura...
       active_opportunities: Vagas ativas
+      companies: Empresas Cadastradas
+      search_result: Resultado da Busca
     show:
       address: Endereço
       document: CNPJ

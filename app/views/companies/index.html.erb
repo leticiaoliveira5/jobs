@@ -1,6 +1,6 @@
 <%= render(BoxComponent.new(color: :transparent)) do |component| %>
   <% component.body do %>
-    <%= form_tag(search_results_path, method: :get) do |f| %>
+    <%= form_tag(companies_path, method: :get) do |f| %>
       <div class="search_container">
         <%= text_field_tag :search_input,
                            params[:search_input],
@@ -13,7 +13,7 @@
 <% end %>
 
 <%= render(BoxComponent.new) do |box| %>
-  <%= box.title { 'Empresas Cadastradas' } %>
+  <%= box.title { @search ? t('.search_result') : t('.companies') } %>
   <%= box.body do %>
     <% if @companies.empty? %>
       <p>Nenhuma empresa cadastrada</p>
