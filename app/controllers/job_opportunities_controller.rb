@@ -1,9 +1,15 @@
+# :reek:TooManyInstanceVariables { max_instance_variables: 6 }
 class JobOpportunitiesController < ApplicationController
   before_action :authenticate_employee!, only: %i[create new edit]
   before_action :authenticate_candidate!, only: %i[create_job_application]
 
   def index
-    @job_opportunities = JobOpportunity.active.last(30)
+    @search = params[:search_input]
+    @job_opportunities = if @search
+                           JobOpportunity.search(@search)
+                         else
+                           JobOpportunity.active.last(30)
+                         end
   end
 
   def new

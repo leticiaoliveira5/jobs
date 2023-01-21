@@ -1,6 +1,6 @@
 <%= render(BoxComponent.new(color: :transparent)) do |component| %>
   <% component.body do %>
-    <%= form_tag(search_results_path, method: :get) do |f| %>
+    <%= form_tag(job_opportunities_path, method: :get) do |f| %>
       <div class="search_container">
         <%= text_field_tag :search_input,
                            params[:search_input],
@@ -13,14 +13,18 @@
 <% end %>
 
 <%= render(BoxComponent.new) do |component| %>
-  <% component.title { 'Vagas Recentes' } %>
+  <% component.title { @search ? t('.search_result', input: @search) : t('.jobs') } %>
   <% component.body do %>
-    <%= render(GridComponent.new(row_gap: 1.2)) do %>
-      <% @job_opportunities.each do |job| %>
-        <%= render(ListItemComponent.new) do |component| %>
-          <%= render(JobPreviewComponent.new(job_opportunity: job)) %>
-          <% component.button do %>
-            <%= view_job_opportunity_link(job) %>
+    <% if @job_opportunities.empty? %>
+      <div class="empty_state"><%= t('.empty_state') %></div>
+    <% else %>
+      <%= render(GridComponent.new(row_gap: 1.2)) do %>
+        <% @job_opportunities.each do |job| %>
+          <%= render(ListItemComponent.new) do |component| %>
+            <%= render(JobPreviewComponent.new(job_opportunity: job)) %>
+            <% component.button do %>
+              <%= view_job_opportunity_link(job) %>
+            <% end %>
           <% end %>
         <% end %>
       <% end %>
