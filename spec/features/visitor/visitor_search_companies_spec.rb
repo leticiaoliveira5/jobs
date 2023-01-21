@@ -2,12 +2,12 @@ require 'rails_helper'
 
 feature 'Visitor searches job opportunities' do
   before do
-    create(:company, name: 'Apple', address: 'California')
+    create(:company, name: 'Apple', address: 'California', domain: 'jobs.com')
     visit root_path
     click_on 'Empresas'
   end
 
-  scenario 'successfully' do
+  scenario 'by company name' do
     fill_in :search_input, with: 'app'
     page.find('button[type="submit"]').click
 
@@ -18,6 +18,14 @@ feature 'Visitor searches job opportunities' do
 
   scenario 'by company address' do
     fill_in :search_input, with: 'California'
+    page.find('button[type="submit"]').click
+
+    expect(current_path).to eq(companies_path)
+    expect(page).to have_link 'Apple'
+  end
+
+  scenario 'by company domain' do
+    fill_in :search_input, with: 'jobs'
     page.find('button[type="submit"]').click
 
     expect(current_path).to eq(companies_path)
