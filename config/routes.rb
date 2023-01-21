@@ -35,8 +35,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :search_results, only: %i[index]
-
   resources :work_experiences, only: %i[create destroy]
 
   resources :candidate_skills, only: %i[create destroy]
