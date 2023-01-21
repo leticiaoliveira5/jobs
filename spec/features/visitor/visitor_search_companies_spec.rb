@@ -9,20 +9,21 @@ feature 'Visitor searches job opportunities' do
 
   scenario 'by name' do
     fill_in :search_input, with: 'app'
-    page.find('button[type="submit"]').click
+    expect_to_find_company
   end
 
   scenario 'by address' do
     fill_in :search_input, with: 'California'
-    page.find('button[type="submit"]').click
+    expect_to_find_company
   end
 
   scenario 'by domain' do
     fill_in :search_input, with: 'jobs'
-    page.find('button[type="submit"]').click
+    expect_to_find_company
   end
 
-  after(:each) do
+  def expect_to_find_company
+    page.find('button[type="submit"]').click
     expect(current_path).to eq(companies_path)
     expect(page).to have_content 'Resultado da Busca'
     expect(page).to have_link 'Apple'
