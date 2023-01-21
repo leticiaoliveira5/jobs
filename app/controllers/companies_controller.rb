@@ -3,7 +3,7 @@ class CompaniesController < ApplicationController
   before_action :set_company, only: %i[dashboard edit update]
 
   def index
-    @companies = Company.all
+    @companies = Company.all.includes(:active_job_opportunities)
   end
 
   def show
