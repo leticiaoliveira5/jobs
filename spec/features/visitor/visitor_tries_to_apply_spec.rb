@@ -13,7 +13,7 @@ feature 'Visitor tries to apply' do
   scenario 'and is redirected to new session path' do
     visit root_path
     click_on 'Vagas'
-    within(".list-item##{active_job_opportunity.id}") do
+    within("#job-#{active_job_opportunity.id}") do
       click_on 'Ver detalhes'
     end
     click_on 'Faça login para inscrever-se nesta vaga'

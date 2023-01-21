@@ -8,7 +8,7 @@ feature 'Candidate applies to job' do
     login_as candidate, scope: :candidate
     visit root_path
     click_on 'Vagas'
-    within(".list-item##{job_opportunity.id}") do
+    within("#job-#{job_opportunity.id}") do
       click_on 'Ver detalhes'
     end
   end

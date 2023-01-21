@@ -17,7 +17,7 @@
   <% component.body do %>
     <%= render(GridComponent.new(row_gap: 1.2)) do %>
       <% @job_opportunities.each do |job| %>
-        <%= render(ListItemComponent.new(id: job.id)) do |component| %>
+        <%= render(ListItemComponent.new) do |component| %>
           <%= render(JobPreviewComponent.new(job_opportunity: job)) %>
           <% component.button do %>
             <%= view_job_opportunity_link(job) %>
