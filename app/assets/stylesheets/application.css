@@ -381,3 +381,12 @@ a:hover {
   margin-bottom: 0;
   vertical-align: middle;
 }
+
+/* COMPANY PREVIEW */
+
+.company-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
