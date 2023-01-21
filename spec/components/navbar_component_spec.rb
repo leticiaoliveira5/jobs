@@ -5,7 +5,7 @@ RSpec.describe NavbarComponent, type: :component do
     rendered_component = render_inline(described_class.new(current_user: nil)).to_html
 
     expect(rendered_component).to have_content('Jobs')
-    expect(rendered_component).to have_link('Ver empresas cadastradas', href: '/companies')
-    expect(rendered_component).to have_link('Vagas recentes', href: '/jobs')
+    expect(rendered_component).to have_link('Empresas', href: '/companies')
+    expect(rendered_component).to have_link('Vagas', href: '/jobs')
   end
 end

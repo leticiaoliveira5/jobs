@@ -8,7 +8,7 @@ feature 'Visitor vies registered companies' do
 
   scenario 'successfully' do
     visit root_path
-    click_on 'Ver empresas cadastradas'
+    click_on 'Empresas'
 
     expect(page).to have_link('Apple')
     expect(page).to have_link('Microsoft')

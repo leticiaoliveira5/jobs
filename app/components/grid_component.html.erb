@@ -1,13 +1,17 @@
 <style>
   .grid {
-    display: grid;
-    column-gap: <%= @column_gap || '10' %>px;
-    row-gap: <%= @row_gap || '10' %>px;
-    grid-template-columns: <%= columns_css || 'auto' %>;
-    grid-template-rows: <%= rows_css || 'auto' %>;
+    column-gap: <%= column_gap %>;
+    grid-template-columns: <%= columns_css %>;
+    grid-template-rows: <%= rows_css %>;
+    row-gap: <%= row_gap %>;
+  }
+
+  .responsive-grid {
+    column-gap: <%= column_gap %>;
+    row-gap: <%= row_gap %>;
   }
 </style>
 
-<div class="grid">
+<div class="<%= class_name %>">
   <%= content %>
 </div>
