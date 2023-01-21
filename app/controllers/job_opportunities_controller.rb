@@ -55,15 +55,15 @@ class JobOpportunitiesController < ApplicationController
   end
 
   def inactivate_job_opportunity
-    job_opportunity = JobOpportunity.find(params[:id])
-    job_opportunity.inactive!
-    redirect_to job_opportunity
+    @job_opportunity = JobOpportunity.find(params[:id])
+    @job_opportunity.inactive!
+    redirect_to @job_opportunity
   end
 
   def activate_job_opportunity
-    job_opportunity = JobOpportunity.find(params[:id])
-    job_opportunity.active!
-    redirect_to job_opportunity
+    @job_opportunity = JobOpportunity.find(params[:id])
+    @job_opportunity.active!
+    redirect_to @job_opportunity
   end
 
   def edit
@@ -71,10 +71,10 @@ class JobOpportunitiesController < ApplicationController
   end
 
   def update
-    job_opportunity = JobOpportunity.find(params[:id])
-    job_opportunity.update(job_opportunity_params)
-    if job_opportunity.save
-      redirect_to job_opportunity_path(job_opportunity)
+    @job_opportunity = JobOpportunity.find(params[:id])
+    @job_opportunity.update(job_opportunity_params)
+    if @job_opportunity.save
+      redirect_to job_opportunity_path(@job_opportunity)
     else
       render 'edit'
     end
