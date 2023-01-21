@@ -53,7 +53,7 @@ a:hover {
 
 .success { color: var(--alert_success); }
 
-.button {
+/* .button {
   color: var(--button_link);
   background-color: var(--button_color);
   border-radius: 7px;
@@ -62,7 +62,7 @@ a:hover {
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
-}
+} */
 
 .button:hover {
   cursor: pointer;
@@ -190,3 +190,132 @@ a:hover {
 @media only screen and (min-width: 900px) and (min-device-width: 900px) {
   .responsive-grid { grid-template-columns: 1fr 1fr 1fr; }
 }
+
+
+/* LOGIN COMPONENT */
+
+.login-component * {
+  box-sizing: border-box;
+}
+
+.login-component {
+  background-color: var(--nav_background_color);
+  border-radius: 7px;
+  box-sizing: border-box;
+  margin: 3em;
+  overflow: hidden;
+}
+
+/* large screen */
+@media screen and (min-device-width: 750px) and (min-width: 750px) {
+  .login-component {
+    box-sizing: border-box;
+    margin: auto;
+    width: 100%;
+  }
+}
+
+.login-component a,
+.login-component a:hover {
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.login-component .tabs {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.login-component .tab {
+  border-bottom: 3px solid;
+  color: var(--inactive_link);
+  cursor: pointer;
+  font-size: 1.6em;
+  font-weight: 500;
+  letter-spacing: 0;
+  padding: 20px 0 5px 0;
+  text-align: center;
+  width: 50%;
+}
+
+.login-component .tabs .active {
+  border-color: var(--link);
+  color: var(--link);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+.login-component .tabcontent {
+  margin: auto;
+  width: 85%;
+}
+
+.login-component .tabcontent div {
+  font-size: 20px;
+  margin: 1em auto;
+  padding: 18px;
+  text-align: center;
+}
+
+.login-component .btn {
+  font-size: 24px;
+  padding: 5px;
+}
+
+.login-component input[type=email],
+.login-component input[type=password] {
+  border-radius: 7px;
+  font-size: 18px;
+  margin: 15px 0;
+  padding: 15px 20px;
+  width: 100%;
+}
+
+.login-component input[type=submit] {
+  border: none;
+  color: var(--link);
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.login-component input[type="checkbox"] { vertical-align: middle; }
+
+.login-component label {
+  display: block;
+  font-size: 20px;
+  margin-bottom: -10px;
+  text-align: left;
+  text-transform: lowercase;
+}
+
+.login-component .hint-link {
+  float: right;
+  font-size: 12px;
+  margin-top: -10px;
+}
+
+.login-component .checkbox-field label {
+  display: inline;
+  font-size: 12px;
+  text-transform: none;
+}
+
+.login-component .button {
+  color: var(--button_link);
+  background-color: var(--button_color);
+  border-radius: 7px;
+  border-style: none;
+  display: inline;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 10px;
+  padding: 8px 12px;
+  text-align: center;
+  text-decoration: none;
+}
+
