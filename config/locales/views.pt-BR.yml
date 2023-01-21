@@ -29,6 +29,8 @@ pt-BR:
           accepted: Aceita
           declined: Não aceita
   companies:
+    index:
+      search_placeholder: Digite o que procura...
     show:
       address: Endereço
       document: CNPJ
