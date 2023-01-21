@@ -5,10 +5,6 @@ pt-BR:
       search: Busca
       search_button: Buscar
       search_label: Busca por empresa ou vaga
-  search_results:
-    index:
-      title: Resultados da Busca
-      no_results: A busca não retornou resultados.
   job_opportunities:
     index:
       search_placeholder: Digite o que procura...
