@@ -33,7 +33,7 @@ pt-BR:
       search_placeholder: Digite o que procura...
       active_opportunities: Vagas ativas
       companies: Empresas Cadastradas
-      search_result: Resultado da Busca
+      search_result: 'Resultado da Busca: "%{input}"'
     show:
       address: Endereço
       document: CNPJ

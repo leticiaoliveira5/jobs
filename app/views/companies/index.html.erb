@@ -13,7 +13,7 @@
 <% end %>
 
 <%= render(BoxComponent.new) do |box| %>
-  <%= box.title { @search ? t('.search_result') : t('.companies') } %>
+  <%= box.title { @search ? t('.search_result', input: @search) : t('.companies') } %>
   <%= box.body do %>
     <% if @companies.empty? %>
       <p>Nenhuma empresa cadastrada</p>
