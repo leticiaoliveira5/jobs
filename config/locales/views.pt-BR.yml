@@ -12,6 +12,9 @@ pt-BR:
   job_opportunities:
     index:
       search_placeholder: Digite o que procura...
+      jobs: Vagas Recentes
+      search_result: 'Resultado da Busca: "%{input}"'
+      empty_state: Nenhuma vaga encontrada
     show:
       company: Empresa
       description: Descrição
