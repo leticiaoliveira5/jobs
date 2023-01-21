@@ -16,8 +16,6 @@
  *= require font-awesome
  */
 
-html {font-size:14px;}
-
 body {
   font-family: 'Montserrat', sans-serif;
   color: var(--text_normal);
