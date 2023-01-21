@@ -1,0 +1,27 @@
+en:
+  enumerations:
+    sectors:
+      accountacy: Accountancy, banking and finance
+      business: Business, consulting and management
+      charity: Charity and voluntary work
+      creative: Creative arts and design
+      energy: Energy and utilities
+      engineering: Engineering and manufacturing
+      environment: Environment and agriculture
+      healthcare: Healthcare
+      hospitality: Hospitality and events management
+      tech: Information technology
+      law: Law
+      law_enforcement: Law enforcement and security
+      tourism: Leisure, sport and tourism
+      marketing: Marketing, advertising and PR
+      media: Media and internet
+      construction: Property and construction
+      public_services: Public services and administration
+      human_resources: Recruitment and HR
+      retail: Retail
+      sales: Sales
+      pharma: Science and pharmaceuticals
+      social_care: Social care
+      teaching: Teacher training and education
+      logistics: Transport and logistics

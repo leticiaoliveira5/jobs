@@ -1,0 +1,93 @@
+<style>
+  .modalbox {
+    background: var(--content_blocks_color);
+    display: none;
+    box-sizing: border-box;
+    border-radius: 7px;
+    padding: 25px; /* top right bottom left */
+    position: fixed;
+    left: 50%;
+    top: 40px;
+    transform: translate(-50%);
+    text-align: left;
+    width: 500px;
+    max-width: 80%;
+  }
+
+  .backdrop {
+    background-color: rgba(0,0,0,0.2);
+    width: 100vw;
+    height: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    display: none;
+  }
+
+  .modalbox .title {
+    color: var(--title);
+    font-size: 1.5em;
+    font-weight:  bold;
+    line-height: 1.6em;
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+</style>
+
+<div class="backdrop" id="backdrop<%= @modal_id %>"></div>
+  <div  class="modalbox" id="<%= @modal_id %>">
+    <div class="title">
+      <%= @title %>
+      <i onclick='closeModal("<%= @modal_id %>")' class="fa fa-close" style="float: right;"></i>
+    </div>
+    <%= body %>
+  </div>
+
+<script>
+  var btn = document.getElementById("<%= @show_button_id %>");
+  btn.setAttribute('onclick', 'showModal("<%= @modal_id %>")');
+
+  function showModal(id) {
+    var modal = document.getElementById(id)
+    var backdrop = document.getElementById(`backdrop${id}`)
+
+    // backdrop.style.display = 'block'
+    fadeIn(backdrop)
+    modal.style.display = 'block'
+  }
+
+  function closeModal(id) {
+    var modal = document.getElementById(id)
+    var backdrop = document.getElementById(`backdrop${id}`)
+    // backdrop.style.display = 'none'
+    fadeOut(backdrop)
+    modal.style.display = 'none'
+  }
+
+  function fadeIn(element) {
+    var op = 0.1;  // initial opacity
+    element.style.display = 'block';
+    var timer = setInterval(function () {
+        if (op >= 1){
+            clearInterval(timer);
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op += op * 0.1;
+    }, 10);
+  }
+
+  function fadeOut(element) {
+    var op = 1;  // initial opacity
+    var timer = setInterval(function () {
+        if (op <= 0){
+          clearInterval(timer);
+          element.style.display = 'none';
+        }
+      element.style.opacity = op;
+      element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+      op -= 0.1;
+    }, 10);
+   }
+</script>

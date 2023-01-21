@@ -5,10 +5,18 @@ class BoxComponent < ViewComponent::Base
   # attributes values:
   # behavior: [:collapsible, :default]
   # default: [:open, :closed]
+  # color: [:primary, :secondary, :transparent]
 
-  def initialize(behavior: :default, default: :open)
+  COLOR_OPTIONS = {
+    primary: 'var(--content_blocks_color)',
+    secondary: 'var(--nav_background_color)',
+    transparent: 'transparent'
+  }.freeze
+
+  def initialize(behavior: :default, default: :open, color: :primary)
     @behavior = behavior
     @default = default
+    @color = color
     super
   end
 
@@ -22,5 +30,9 @@ class BoxComponent < ViewComponent::Base
 
   def collapsible?
     @behavior == :collapsible
+  end
+
+  def bg
+    COLOR_OPTIONS[@color]
   end
 end

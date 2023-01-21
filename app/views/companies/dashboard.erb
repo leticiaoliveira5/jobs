@@ -1,0 +1,79 @@
+<%= render(BoxComponent.new(behavior: :default)) do |component| %>
+  <%= component.title do %>
+    Painel colaborador - <%= current_employee.firstname%> (<%= t_attr("employee.role.#{current_employee.role}") %>)
+  <% end %>
+
+  <%= component.body do %>
+    <% if current_employee.admin? %>
+      <h3>Funcionários cadastrados:</h3>
+      <% @company.employees.each do |employee| %>
+        <p><%= employee.firstname %> <%= employee.surname %> (<%= employee.role %>)</p>
+      <% end %>
+      <p><%= link_to 'Editar dados da empresa', '/company/edit_info' %></p>
+    <% end %>
+    <p><%= link_to 'Cadastrar nova vaga', new_job_opportunity_path %></p>
+  <% end %>
+<% end %>
+
+<%= render(BoxComponent.new(behavior: :collapsible, default: :closed)) do |component| %>
+  <%= component.title { "Candidaturas recebidas (#{@company.job_applications.size})" } %>
+  <%= component.body do %>
+    <% if @company.job_applications.exists? %>
+      <% @company.job_applications.each do |job_application| %>
+        <p>
+          <%= "#{job_application.job_opportunity.job_title} - #{job_application.candidate.full_name}" %>
+          (<%= t_attr("job_application.status.#{job_application.status}") %>) <%= job_application_link(job_application) %> 
+        </p>
+      <% end %>
+    <% else %>
+      <p><%= t('.empty_state.job_application') %></p>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= render(BoxComponent.new(behavior: :collapsible, default: :closed)) do |component| %>
+  <%= component.title { "Propostas enviadas (#{@company.job_proposals.size})" } %>
+  <%= component.body do %>
+    <% if @company.job_proposals.exists? %>
+      <% @company.job_proposals.each do |job_proposal| %>
+        <p>
+          <%= "#{job_proposal.job_opportunity.job_title} - #{job_proposal.candidate.full_name}" %>
+          (<%= t_attr("job_proposal.status.#{job_proposal.status}") %>)
+          <%= job_proposal_link(job_proposal) %> 
+        </p>
+      <% end %>
+    <% else %>
+      <p><%= t('.empty_state.job_proposal') %></p>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= render(BoxComponent.new(behavior: :collapsible, default: :closed)) do |component| %>
+  <%= component.title { "Vagas disponíveis (#{@company.active_job_opportunities.size})" } %>
+  <%= component.body do %>
+    <% if @company.active_job_opportunities.exists? %>
+      <%= render(GridComponent.new(columns: 2)) do %>
+        <% @company.active_job_opportunities.each do |job| %>
+          <%= render(JobPreviewComponent.new(job_opportunity: job)) %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <p><%= t('.empty_state.active_job_opportunity') %></p>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= render(BoxComponent.new(behavior: :collapsible, default: :closed)) do |component| %>
+  <%= component.title { "Vagas inativas (#{@company.inactive_job_opportunities.size})" } %>
+  <%= component.body do %>
+    <% if @company.inactive_job_opportunities.exists? %>
+      <%= render(GridComponent.new(columns: 'auto')) do %>
+        <% @company.inactive_job_opportunities.each do |job| %>
+          <%= render(JobPreviewComponent.new(job_opportunity: job)) %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <p><%= t('.empty_state.inactive_job_opportunity') %></p>
+    <% end %>
+  <% end %>
+<% end %>

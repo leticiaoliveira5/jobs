@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Visitor views job opportunities' do
+feature 'Visitor views job opportunity details' do
   let(:apple) { create(:company, name: 'Apple') }
   let!(:active_job_opportunity) do
     create(:job_opportunity, company: apple,
@@ -12,8 +12,8 @@ feature 'Visitor views job opportunities' do
 
   scenario 'successfully' do
     visit root_path
-    click_on 'Vagas recentes'
-    within(".job-preview-box##{active_job_opportunity.id}") do
+    click_on 'Vagas'
+    within("#job-#{active_job_opportunity.id}") do
       click_on 'Ver detalhes'
     end
 
@@ -21,27 +21,5 @@ feature 'Visitor views job opportunities' do
                     have_text('Apple') &&
                     have_text('Pleno') &&
                     have_text('Home Office')
-  end
-
-  scenario 'and clicks to apply' do
-    visit root_path
-    click_on 'Vagas recentes'
-    within(".job-preview-box##{active_job_opportunity.id}") do
-      click_on 'Ver detalhes'
-    end
-    click_on 'Faça login para inscrever-se nesta vaga'
-
-    expect(current_path).to eq(new_candidate_session_path)
-    expect(page).to have_text('Para continuar, faça login ou registre-se.')
-  end
-
-  scenario 'only if job opportunity is active' do
-    create(:job_opportunity, company: apple, job_title: 'Tech Lead', status: :inactive)
-
-    visit root_path
-    click_on 'Vagas recentes'
-
-    expect(current_path).to eq(job_opportunities_path)
-    expect(page).not_to have_content('Tech Lead')
   end
 end

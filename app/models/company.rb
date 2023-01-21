@@ -9,7 +9,13 @@ class Company < ApplicationRecord
            class_name: 'JobOpportunity', inverse_of: :company
 
   validates :domain, presence: true
-  validates :name, :address, :cnpj, presence: true, on: :update
-  validates :cnpj, length: { is: 14 }, on: :update
-  validates :domain, :cnpj, uniqueness: true
+  validates :name, :address, :document, presence: true, on: :update
+  validates :document, length: { is: 14 }, on: :update
+  validates :domain, :document, uniqueness: true
+
+  def to_param
+    return nil unless persisted?
+
+    "#{id}-#{name&.gsub(/[^0-9A-Za-z]/, '')}"
+  end
 end

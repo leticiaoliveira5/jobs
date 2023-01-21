@@ -1,22 +1,11 @@
-<style>
-  .collapse-icon {
-    color: gray;
-    cursor: pointer;
-    display: inline-flex;
-    float: right;
-  }
-</style>
-
-<div class="contentblock">
+<div class="box" style="background-color:<%= bg %>;">
   <% if collapsible? %>
-    <h2 onclick="toggleContent(this)" style="cursor: pointer;">
+    <div class="title" onclick="toggleContent(this)" style="cursor: pointer;">
       <%= title if title? %>
       <span class="collapse-icon"><%= default_symbol %></span>
-    </h2>
-  <% else %>
-    <% if title? %>
-      <h2><%= title %></h2> 
-    <% end %>
+    </div>
+  <% elsif title? %>
+    <div class="title"><%= title %></div>
   <% end %>
 
   <div class="content" style="display:<%= default_display || 'block' %>;">

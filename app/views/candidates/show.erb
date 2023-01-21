@@ -1,0 +1,201 @@
+<%= render(PageComponent.new) do |component| %>
+  <%= component.sidebar do %>
+    <%= render(BoxComponent.new) do |box| %>
+      <%= box.body do %>
+        <%= sidebar_avatar(@candidate.avatar) %>
+        <p class="title"><%= @candidate.full_name %>
+        <%= edit_candidate_info_button %></p>
+        <%= candidate_locale(@candidate.address) %>
+        <%= candidate_website(@candidate.website) %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <%= component.main_content do %>
+
+    <%= render(BoxComponent.new) do |component| %>
+      <% component.title do %>
+        <%= t(".about_me") %>
+        <%= edit_candidate_info_button %>
+      <% end %>
+
+      <% component.body do %>
+        <p><%= @candidate.about_me.html_safe %></p>
+      <% end %>
+    <% end %>
+
+    <%= render(BoxComponent.new) do |component| %>
+    <% component.title do %>
+      <%= t('.work_experience') %>
+      <%= add_item_button('add_work_experience_button') %>
+    <% end %>
+
+      <% component.body do %>
+        <% if @work_experiences.empty? %>
+          <div class="empty_state"><%= t('.empty_state.work_experience') %></div>
+        <% end %>
+        <% @work_experiences.each do |w| %>
+          <%= render(ListItemComponent.new) do |component| %>
+            <% component.button { delete_item_button(w) } %>
+            <b><%= w.job_title %></b><br>
+            <%= w.sector.present? ? w.company_name.concat(" - #{w.sector_humanize}") : w.company_name %><br>
+            <%= w.start_date&.strftime("%b/%Y") %> - <%= w.end_date&.strftime("%b/%y") || t('.now') %><br>
+            <%= w.location %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <%= render(BoxComponent.new) do |component| %>
+    <% component.title do %>
+      <%= t('.degrees') %>
+      <%= add_item_button('add_degree_button') %>
+    <% end %>
+
+      <% component.body do %>
+        <% if @degrees.empty? %>
+          <div class="empty_state"><%= t('.empty_state.degree') %></div>
+        <% else %>
+          <% @degrees.each do |d| %>
+            <%= render(ListItemComponent.new) do |component| %>
+              <% component.button { delete_item_button(d) } %>
+              <%= degree_headline(d.title, d.kind_humanize) %><br>
+              <%= d.institution || t('.null_institution') %><br>
+              <%= graduation_year(d.graduation_year) %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <%= render(BoxComponent.new) do |component| %>
+    <% component.title do %>
+      <%= t('.candidate_skills') %>
+      <%= add_item_button('add_candidate_skill_button') %>
+    <% end %>
+
+      <% component.body do %>
+        <% if @candidate.candidate_skills.empty? %>
+          <div class="empty_state"><%= t('.empty_state.candidate_skill') %></div>
+        <% else %>
+          <% @candidate.candidate_skills.each do |s| %>
+            <%= render(ListItemComponent.new) do |component| %>
+              <% component.button { delete_item_button(s) } %>
+              <b><%= s.skill_name %></b><br>
+              <%= t_attr("candidate_skill.level.#{s.level}") %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <%= render(BoxComponent.new) do |component| %>
+    <% component.title do %>
+      <%= t('.courses') %>
+      <%= add_item_button('add_course_button') %>
+    <% end %>
+
+      <% component.body do %>
+        <% if @courses.empty? %>
+          <div class="empty_state"><%= t('.empty_state.course') %></div>
+        <% else %>
+          <% @courses.each do |c| %>
+            <%= render(ListItemComponent.new) do |component| %>
+              <% component.button { delete_item_button(c) } %>
+              <b><%= c.title %></b><%= course_certificate_link(c.certificate_link) %><br>
+              <%= c.description %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <%= render(BoxComponent.new) do |component| %>
+    <% component.title do %>
+      <%= t('.languages') %>
+      <%= add_item_button('add_language_button') %>
+    <% end %>
+
+      <% component.body do %>
+        <% if @candidate.languages.empty? %>
+          <div class="empty_state"><%= t('.empty_state.language') %></div>
+        <% else %>
+          <% @candidate.languages.each do |l| %>
+            <%= render(ListItemComponent.new) do |component| %>
+              <% component.button { delete_item_button(l) } %>
+              <b><%= l.name %></b><br>
+              <%= l.proficiency_humanize %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <% if candidate_signed_in? %>
+      <%= render(ModalBoxComponent.new(title: t('.new.skill'), show_button_id: 'add_candidate_skill_button', modal_id: 'add_candidate_skill_modal')) do |component| %>
+        <% component.body do %>
+          <%= simple_form_for(CandidateSkill.new, url: candidate_skills_path, method: :post) do |f| %>
+            <%= render(GridComponent.new(columns: 2)) do %>
+              <%= f.input :name, required: true, autocomplete: true %>
+              <%= f.input :level, required: true, as: :select, collection: CandidateSkill.level_humanized_names %>
+            <% end %>
+            <%= f.submit t('simple_form.save'), class: 'button' %>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <%= render(ModalBoxComponent.new(title: t('.new.experience'), show_button_id: 'add_work_experience_button', modal_id: 'add_work_experience_modal')) do |component| %>
+        <% component.body do %>
+          <%= simple_form_for(WorkExperience.new, url: work_experiences_path, method: :post) do |f| %>
+            <%= f.input :job_title, required: true %>
+            <%= render(GridComponent.new(columns: 2)) do %>
+              <%= f.input :start_date, as: :date, html5: true, required: true %>
+              <%= f.input :end_date, as: :date, html5: true, required: false %>
+            <% end %>
+            <%= f.input :company_name, required: true %>
+            <%= render(GridComponent.new(columns: 2)) do %>
+              <%= f.input :sector, collection: Sectors.to_a, required: false %>
+              <%= f.input :location, required: false %>
+            <% end %>
+
+            <%= f.submit t('simple_form.save'), class: 'button' %>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <%= render(ModalBoxComponent.new(title: t('.new.degree'), show_button_id: 'add_degree_button', modal_id: 'add_degree_modal')) do |component| %>
+        <% component.body do %>
+          <%= simple_form_for(Degree.new, url: degrees_path, method: :post) do |f| %>
+            <%= f.input :title, required: true, autocomplete: true %>
+            <%= f.input :graduation_year, required: true, collection: 60.years.ago.year..10.years.from_now.year %>
+            <%= f.input :institution, required: false %>
+            <%= f.input :kind, required: false, collection: DegreeKinds.to_a %>
+            <%= f.submit t('simple_form.save'), class: 'button' %>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <%= render(ModalBoxComponent.new(title: t('.new.course'), show_button_id: 'add_course_button', modal_id: 'add_course_modal')) do |component| %>
+        <% component.body do %>
+          <%= simple_form_for(Course.new, url: courses_path, method: :post) do |f| %>
+            <%= f.input :title, required: true, autocomplete: true %>
+            <%= f.input :certificate_link %>
+            <%= f.input :description %>  
+            <%= f.submit t('simple_form.save'), class: 'button' %>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <%= render(ModalBoxComponent.new(title: t('.new.language'), show_button_id: 'add_language_button', modal_id: 'add_language_modal')) do |component| %>
+        <% component.body do %>
+          <%= simple_form_for(Language.new, url: languages_path, method: :post) do |f| %>
+            <%= f.input :name, required: true, autocomplete: true %>
+            <%= f.input :proficiency, required: true, collection: Proficiencies.to_a %>
+            <%= f.submit t('simple_form.save'), class: 'button' %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+  <% end %>
+<% end %>

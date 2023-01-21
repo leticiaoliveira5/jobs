@@ -70,4 +70,13 @@ RSpec.configure do |config|
 
   # for testing controllers with devise helpers
   config.include Devise::Test::ControllerHelpers, type: :controller
+
+  config.include FontAwesome::Rails::IconHelper
+end
+
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+  end
 end

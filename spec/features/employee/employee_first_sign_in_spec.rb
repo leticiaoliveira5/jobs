@@ -15,7 +15,7 @@ feature 'First employee sign in for the first time' do
 
   scenario 'and company is created' do
     expect(Company.count).to eq(1)
-    expect(current_path).to eq edit_company_path(company)
+    expect(current_path).to eq '/company/edit_info'
     expect(page).to have_content('steve@apple.com')
     expect(page).to have_text('Bem vindo! Você realizou seu registro com sucesso.') &&
                     have_text('Cadastro de empresa')
@@ -28,6 +28,6 @@ feature 'First employee sign in for the first time' do
     click_on 'Cadastrar empresa'
 
     expect(company.reload.name).to eq 'Apple'
-    expect(company.reload.cnpj).to eq(12_345_678_912_345)
+    expect(company.reload.document).to eq('12345678912345')
   end
 end

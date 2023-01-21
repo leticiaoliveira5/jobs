@@ -10,8 +10,9 @@ feature 'Visitor searches job opportunities' do
 
   scenario 'successfully' do
     visit root_path
-    fill_in 'Busca por empresa ou vaga', with: 'desenvolvedor'
-    click_on 'Buscar'
+    click_on 'Vagas'
+    fill_in :search_input, with: 'desenvolvedor'
+    page.find('button[type="submit"]').click
 
     expect(current_path).to eq(search_results_path)
     expect(page).to have_link 'Desenvolvedor'
@@ -20,8 +21,9 @@ feature 'Visitor searches job opportunities' do
 
   scenario 'by company name' do
     visit root_path
-    fill_in 'Busca por empresa ou vaga', with: 'Apple'
-    click_on 'Buscar'
+    click_on 'Vagas'
+    fill_in :search_input, with: 'Apple'
+    page.find('button[type="submit"]').click
 
     expect(current_path).to eq(search_results_path)
     expect(page).to have_link 'Desenvolvedor'

@@ -36,7 +36,8 @@
   text-transform: lowercase;
 }
 
-.form-style input {
+.form-style select,
+input {
   border-color: rgb(191, 191, 191);
   border-radius: 7px;
   box-sizing: border-box;

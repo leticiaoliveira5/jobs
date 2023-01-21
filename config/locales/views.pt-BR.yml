@@ -10,6 +10,8 @@ pt-BR:
       title: Resultados da Busca
       no_results: A busca não retornou resultados.
   job_opportunities:
+    index:
+      search_placeholder: Digite o que procura...
     show:
       company: Empresa
       description: Descrição
@@ -27,9 +29,15 @@ pt-BR:
           accepted: Aceita
           declined: Não aceita
   companies:
+    index:
+      search_placeholder: Digite o que procura...
+      active_opportunities: Vagas ativas
+      companies: Empresas Cadastradas
+      search_result: 'Resultado da Busca: "%{input}"'
+      empty_state: Nenhuma empresa encontrada
     show:
       address: Endereço
-      cnpj: CNPJ
+      document: CNPJ
       domain: Domínio
       name: Nome
       job_opportunity: Vaga
@@ -39,6 +47,12 @@ pt-BR:
           waiting: Aguardando avaliação
           accepted: Aceita
           declined: Não aceita
+    dashboard:
+      empty_state:
+        active_job_opportunity: Nenhuma vaga ativa no momento.
+        inactive_job_opportunity: Nenhuma vaga inativa no momento.
+        job_proposal: Nenhuma proposta foi enviada.
+        job_application: Nenhuma proposta foi enviada.
   job_proposals:
     new:
       firstname: Nome
@@ -56,14 +70,41 @@ pt-BR:
   job_applications:
     show:
       rejection_motive: Motivo
-  resumes:
+  candidates:
     show:
-        full_name: Nome completo
-        address: Endereço
-        abilities: Conhecimentos
-        education: Formação acadêmica
-        languages: Idiomas
-        courses: Cursos
-        experience: Experiência profissional
-
-    
+      personal_info: Dados Pessoais
+      about_me: Sobre
+      full_name: Nome completo
+      address: Endereço
+      work_experience: Experiência profissional
+      candidate_skills: Habilidades
+      courses: Cursos e Certificados
+      see_certificate: Ver certificado
+      languages: Línguas
+      degrees: Formação Acadêmica
+      null_institution: Instituição de Ensino não informada
+      now: Hoje
+      new:
+        experience: Nova experiência
+        skill: Nova Habilidade
+        course: Novo curso
+        language: Novo Idioma
+        degree: Novo Histórico
+      empty_state:
+        work_experience: Nenhuma experiência cadastrada pelo usuário
+        candidate_skill: Nenhuma habilidade cadastrada pelo usuário
+        course: Nenhum curso cadastrado pelo usuário
+        language: Nenhum idioma cadastrado pelo usuário
+        degree: Nenhum histórico cadastrado pelo usuário
+      actions:
+        edit: Editar
+        delete: Excluir
+        add: Adicionar
+    dashboard:
+      empty_state:
+        job_proposal: Você ainda não recebeu nenhuma proposta.
+        job_application: Você ainda não se inscreveu em nenhuma vaga.
+      applications: Vagas que você se inscreveu
+      proposals: Propostas recebidas
+      view_proposal: Ver detalhes da proposta
+      view_opportunity: Ver detalhes da vaga

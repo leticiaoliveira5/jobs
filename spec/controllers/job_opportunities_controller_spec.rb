@@ -77,7 +77,7 @@ RSpec.describe JobOpportunitiesController, type: :controller, login_metadata: tr
           post :create_job_application, params: { id: job_opportunity.id }
         end.to change(JobApplication, :count).by(1)
 
-        expect(response).to redirect_to(redirect_to(job_application_path(JobApplication.last)))
+        expect(response).to redirect_to(job_application_path(JobApplication.last))
         expect(assigns(:job_opportunity)).to eq job_opportunity
         expect(flash[:notice]).to be_present
       end
@@ -91,7 +91,7 @@ RSpec.describe JobOpportunitiesController, type: :controller, login_metadata: tr
           post :create_job_application, params: { id: job_opportunity.id }
         end.not_to change(JobApplication, :count)
 
-        expect(response).to redirect_to(redirect_to(job_opportunity_path(job_opportunity)))
+        expect(response).to redirect_to(job_opportunity_path(job_opportunity))
         expect(assigns(:job_opportunity)).to eq job_opportunity
         expect(flash[:alert]).to be_present
       end

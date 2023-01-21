@@ -1,0 +1,29 @@
+<style>
+.list-item {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2px;
+  padding: 15px;
+  transition: 0.4s;  
+  border-radius: 7px;
+}
+
+.list-item:hover {
+  background-color: var(--nav_background_color);
+}
+
+.list-item:hover .side-button {
+  visibility: visible;
+}
+
+.side-button {
+  font-size: 1.3em;
+  visibility: hidden;
+}
+</style>
+
+<div class="list-item" id="<%= @id %>">
+  <span><%= content %></span>
+  <span class="side-button"><%= button %></span>
+</div>

@@ -27,8 +27,9 @@
     <% if alert %>
       <p class="alert danger"><%= alert %></p>
     <% end %>
-  
-    <%= yield %>
+    <%= render(ContainerComponent.new) do %>
+      <%= yield %>
+    <% end %>
 
   </body>
 </html>

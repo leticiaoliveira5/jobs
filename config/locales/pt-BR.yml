@@ -8,7 +8,7 @@ pt-BR:
         surname: Sobrenome
       company:
         address: Endereço
-        cnpj: CNPJ
+        document: CNPJ
         domain: Domínio
         name: Nome
       employee:
@@ -41,12 +41,6 @@ pt-BR:
           waiting: Aguardando avaliação
           accepted: Aceita
           rejected: Não aceita
-      resume:
-        abilities: Conhecimentos
-        education: Formação acadêmica
-        languages: Idiomas
-        courses: Cursos
-        experience: Experiência profissional
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
@@ -72,17 +66,14 @@ pt-BR:
       job_opportunity:
         one: Vaga
         other: Vagas
-      resume:
-        one: Currículo
-        other: Currículos
   address: Endereço
-  cnpj: CNPJ
+  document: CNPJ
   domain: Domínio
   name: Nome
   companies:
     show:
       address: Endereço
-      cnpj: CNPJ
+      document: CNPJ
       domain: Domínio
       name: Nome
   date:
@@ -311,8 +302,6 @@ pt-BR:
     precision:
       format:
         delimiter: "."
-  resumes:
-    show: Show
   support:
     array:
       last_word_connector: " e "
