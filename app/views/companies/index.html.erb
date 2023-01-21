@@ -18,9 +18,15 @@
     <% if @companies.empty? %>
       <p>Nenhuma empresa cadastrada</p>
     <% else %>
-      <% @companies.each do |company| %>
-        <%= render(ListItemComponent.new) do %>
-          <%= link_to company.name, company_path(company) %>
+      <%= render(GridComponent.new) do %>
+        <% @companies.each do |company| %>
+          <%= render(CompanyPreviewComponent.new) do %>
+            <%= link_to tag.h2(company.name), company_path(company) %>
+            <%= company.address %><br>
+            <%= t('.active_opportunities') %>: <%= company.active_job_opportunities.size %><br>
+            <%= company.domain %>
+            <p><%= see_more(company) %></p>
+          <% end %>
         <% end %>
       <% end %>
     <% end %>
