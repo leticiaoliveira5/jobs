@@ -3,7 +3,13 @@ class CompaniesController < ApplicationController
   before_action :set_company, only: %i[dashboard edit update]
 
   def index
-    @companies = Company.all
+    @search = params[:search_input]
+    @companies = if @search
+                   Company.where('name ILIKE ? OR address ILIKE ? OR domain ILIKE ?',
+                                 "%#{@search}%", "%#{@search}%", "%#{@search}%")
+                 else
+                   Company.all.includes(:active_job_opportunities)
+                 end
   end
 
   def show

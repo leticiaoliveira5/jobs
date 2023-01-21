@@ -1,11 +1,34 @@
-<div class="contentblock">
-  <h2>Empresas Cadastradas:</h2>
-
-  <% if @companies.count == 0 %>
-    <p>Nenhuma empresa cadastrada</p>
+<%= render(BoxComponent.new(color: :transparent)) do |component| %>
+  <% component.body do %>
+    <%= form_tag(companies_path, method: :get) do |f| %>
+      <div class="search_container">
+        <%= text_field_tag :search_input,
+                           params[:search_input],
+                           placeholder: t('.search_placeholder'),
+                           required: true %>
+        <button type="submit"><i class="fa fa-search green-icon"></i></button>
+      </div>
+    <% end %>
   <% end %>
+<% end %>
 
-  <% @companies.each do |company| %>
-    <p><%= link_to company.name, company_path(company) %></p>
+<%= render(BoxComponent.new) do |box| %>
+  <%= box.title { @search ? t('.search_result', input: @search) : t('.companies') } %>
+  <%= box.body do %>
+    <% if @companies.empty? %>
+      <div class="empty_state"><%= t('.empty_state') %></div>
+    <% else %>
+      <%= render(GridComponent.new) do %>
+        <% @companies.each do |company| %>
+          <%= render(CompanyPreviewComponent.new) do %>
+            <%= link_to tag.h2(company.name), company_path(company) %>
+            <%= company.address %><br>
+            <%= t('.active_opportunities') %>: <%= company.active_job_opportunities.size %><br>
+            <%= company.domain %>
+            <p><%= see_more(company) %></p>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
   <% end %>
-</div>
+<% end %>

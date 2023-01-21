@@ -7,4 +7,8 @@ module ApplicationHelper
   def t_attr(str)
     t("activerecord.attributes.#{str}")
   end
+
+  def see_more(instance)
+    link_to fa_icon('eye', title: 'Ver', class: 'green-icon'), instance
+  end
 end
