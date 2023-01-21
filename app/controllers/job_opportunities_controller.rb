@@ -1,3 +1,4 @@
+# :reek:TooManyInstanceVariables { max_instance_variables: 6 }
 class JobOpportunitiesController < ApplicationController
   before_action :authenticate_employee!, only: %i[create new edit]
   before_action :authenticate_candidate!, only: %i[create_job_application]
