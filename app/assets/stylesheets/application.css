@@ -344,3 +344,37 @@ a:hover {
 .nav a:hover {
   text-decoration: none;
 }
+
+/* BOX COMPONENT */
+
+.box .collapse-icon {
+  color: var(--inactive_link);
+  cursor: pointer;
+  display: inline-flex;
+  float: right;
+  font-size: 1.3em;
+}
+
+.box {
+  border-radius: 7px;
+  box-sizing: border-box;
+  margin: 15px auto;
+  padding: 25px; /* top right bottom left */
+  text-align: left;
+  width: 95%;
+}
+
+/* when there's a content box inside another content box */
+.box .box {
+  margin: 15px 0 0 0;
+  padding: 20px;
+}
+
+.box .title {
+  color: var(--title);
+  font-size: 1.5em;
+  font-weight:  bold;
+  margin-bottom: 0;
+  vertical-align: middle;
+  line-height: 1.6em;
+}
