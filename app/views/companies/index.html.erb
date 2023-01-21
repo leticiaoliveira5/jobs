@@ -16,7 +16,7 @@
   <%= box.title { @search ? t('.search_result', input: @search) : t('.companies') } %>
   <%= box.body do %>
     <% if @companies.empty? %>
-      <p>Nenhuma empresa cadastrada</p>
+      <div class="empty_state"><%= t('.empty_state') %></div>
     <% else %>
       <%= render(GridComponent.new) do %>
         <% @companies.each do |company| %>
