@@ -11,7 +11,7 @@
     <p><%= t('.description') %>: <%= @job_opportunity.description %></p>
     <p><%= t('.salary_range') %>: <%= @job_opportunity.salary_range %></p>
     <p><%= t('.place') %>: <%= @job_opportunity.place %></p>
-    <p><%= t('.limit_date') %>: <%= @job_opportunity.limit_date %></p>
+    <p><%= t('.limit_date') %>: <%= @job_opportunity.limit_date.strftime("%d/%b/%Y") %></p>
 
     <%= candidate_links(@job_opportunity) %>
   <% end %>
