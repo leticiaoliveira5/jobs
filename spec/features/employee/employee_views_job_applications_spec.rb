@@ -11,7 +11,7 @@ feature 'Employee views job applications' do
     visit job_opportunity_path(job_opportunity)
 
     expect(page).to have_content 'Candidaturas recebidas para esta vaga:'
-    expect(page).to have_content "Desenvolvedor - #{job_application.candidate.full_name}"
+    expect(page).to have_content job_application.candidate.full_name
   end
 
   scenario 'only if belongs to company' do
