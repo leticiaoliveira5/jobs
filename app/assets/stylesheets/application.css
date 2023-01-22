@@ -70,6 +70,34 @@ a:hover {
   cursor: pointer;
 }
 
+.tag {
+  text-transform: lowercase;
+  padding: 0.4em;
+  font-size: 0.75em;
+  background-color: var(--background_color);
+  border-radius: 20px;
+  line-height: 1.8em;
+  font-weight: 500;
+  color:white;
+  white-space: nowrap;
+}
+
+.bg-gray { background-color: var(--background_color); }
+.bg-red { background-color: var(--alert_danger); }
+.bg-green { background-color: var(--alert_success); }
+
+.bold {
+  font-size: 1.2em;
+  font-weight: 700;
+  color: var(--title);
+}
+
+ul.no-bullets {
+  list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margins */
+}
+
 .contentblock {
   background-color: var(--content_blocks_color);
   width: 80%;
