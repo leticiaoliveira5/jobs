@@ -92,7 +92,6 @@ module JobOpportunityHelper
 
     tag.span(t(".status.#{status}"), class: "tag #{color}")
   end
-  end
 
   def basic_info(salary_range, job_level, limit_date, positions)
     format_date = limit_date&.strftime('%d/%b/%Y')
