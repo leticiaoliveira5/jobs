@@ -10,7 +10,7 @@ feature 'Employee views job applications' do
     login_as apple.employees.first, scope: :employee
     visit job_opportunity_path(job_opportunity)
 
-    expect(page).to have_content 'Candidaturas recebidas para esta vaga:'
+    expect(page).to have_content 'Candidaturas recebidas'
     expect(page).to have_content job_application.candidate.full_name
   end
 
@@ -23,7 +23,7 @@ feature 'Employee views job applications' do
       click_on 'Ver detalhes'
     end
 
-    expect(page).not_to have_text 'Candidaturas recebidas para esta vaga:'
+    expect(page).not_to have_text 'Candidaturas recebidas'
     expect(page).not_to have_link 'Inativar vaga'
     expect(page).not_to have_link 'Editar vaga'
   end

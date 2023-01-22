@@ -14,13 +14,13 @@ module JobOpportunityHelper
   def inactivate_link(job_opportunity)
     link_to fa_icon('toggle-on', title: 'Inativar vaga', class: 'gray-icon'),
             inactivate_job_opportunity_job_opportunity_path(job_opportunity),
-            method: :post
+            title: 'Inativar vaga', method: :post
   end
 
   def activate_link(job_opportunity)
     link_to fa_icon('toggle-off', title: 'Ativar vaga', class: 'gray-icon'),
             activate_job_opportunity_job_opportunity_path(job_opportunity),
-            method: :post
+            title: 'Ativar vaga', method: :post
   end
 
   def edit_link(job_opportunity)
