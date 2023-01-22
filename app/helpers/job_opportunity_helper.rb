@@ -90,7 +90,8 @@ module JobOpportunityHelper
               'bg-green'
             end
 
-    content_tag(:span, t(".status.#{status}"), class: "tag #{color}")
+    tag.span(t(".status.#{status}"), class: "tag #{color}")
+  end
   end
 
   def basic_info(salary_range, job_level, limit_date, positions)
