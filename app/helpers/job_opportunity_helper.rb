@@ -60,4 +60,24 @@ module JobOpportunityHelper
     link_to fa_icon('eye', title: 'Ver detalhes da vaga', class: 'green-icon'),
             job_opportunity_path(job_opportunity)
   end
+
+  def job_application_links(job_application)
+    return unless job_application.waiting?
+
+    id = job_application.id
+    make_proposal_icon(id).concat(reject_application_icon(id))
+  end
+
+  def make_proposal_icon(id)
+    link_to(fa_icon('eye'),
+            new_job_application_job_proposal_path(id),
+            class: 'green-icon', title: 'Fazer proposta')
+  end
+
+  def reject_application_icon(id)
+    link_to(fa_icon('close'),
+            decline_job_application_path(id),
+            class: 'green-icon',
+            title: 'Rejeitar candidatura', method: :post)
+  end
 end
