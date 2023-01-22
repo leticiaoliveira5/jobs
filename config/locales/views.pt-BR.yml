@@ -23,6 +23,7 @@ pt-BR:
         active: Ativa
         inactive: Inativa
       job_applications:
+        title: Candidaturas recebidas
         status:
           waiting: Aguardando avaliação
           accepted: Aceita

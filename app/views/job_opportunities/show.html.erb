@@ -18,9 +18,7 @@
 
 <% if @employee %>
   <%= render(BoxComponent.new) do |box| %>
-    <% box.title do %>
-      Candidaturas recebidas para esta vaga:
-    <% end %>
+    <% box.title { t('.job_applications.title') }%>
     
     <% box.body do %>
       <% if @job_applications.size.positive? %>
