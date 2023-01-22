@@ -24,13 +24,12 @@
           <%= render(ListItemComponent.new) do |component| %>
             <% component.button { see_more(a.candidate) } %>
             <div class="flexrow">
-              <%= user_avatar(a.candidate, size: '45x45', link: candidate_path(a.candidate)) %>
+              <%= user_avatar(a.candidate, size: '45x45', link: a.candidate) %>
               <div>
-                <b><%= a.candidate.full_name %> (<%= t(".job_applications.status.#{a.status}") %>)</b><br>
-                <%= link_to("Ver perfil", candidate_path(a.candidate)) %>
+                <span class="bold"><%= a.candidate.full_name %></span><br>
+                <%= job_application_status_tag(a.status) %>
               </div>
             </div>
-            
           <% end %>
         <% end %>
       <% else %>
