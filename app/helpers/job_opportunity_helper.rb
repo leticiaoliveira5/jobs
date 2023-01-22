@@ -62,26 +62,6 @@ module JobOpportunityHelper
             job_opportunity_path(job_opportunity)
   end
 
-  def job_application_links(job_application)
-    return unless job_application.waiting?
-
-    id = job_application.id
-    make_proposal_icon(id).concat(reject_application_icon(id))
-  end
-
-  def make_proposal_icon(id)
-    link_to(fa_icon('eye'),
-            new_job_application_job_proposal_path(id),
-            class: 'green-icon', title: 'Fazer proposta')
-  end
-
-  def reject_application_icon(id)
-    link_to(fa_icon('close'),
-            decline_job_application_path(id),
-            class: 'green-icon',
-            title: 'Rejeitar candidatura', method: :post)
-  end
-
   def job_opportunity_status_tag(status)
     color = case status
             when 'inactive'
@@ -93,14 +73,27 @@ module JobOpportunityHelper
     tag.span(t(".status.#{status}"), class: "tag #{color}")
   end
 
-  def basic_info(salary_range, job_level, limit_date, positions)
-    format_date = limit_date&.strftime('%d/%b/%Y')
+  def basic_info(job_opportunity)
+    attributes = {
+      salary_range: job_opportunity.salary_range,
+      job_level: job_opportunity.job_level,
+      limit_date: job_opportunity.limit_date&.strftime('%d/%b/%Y'),
+      positions: job_opportunity.number_of_positions
+    }
 
     tag.ul(class: 'no-bullets green-icon') do
-      concat tag.li(fa_icon('money', title: t('.salary_range'), text: salary_range)) if salary_range
-      concat tag.li(fa_icon('info', title: t('.job_level'), text: job_level)) if job_level
-      concat tag.li(fa_icon('calendar', title: t('.limit_date'), text: format_date)) if limit_date
-      concat tag.li(fa_icon('user', title: t('.positions'), text: positions)) if positions
+      attributes.each do |key, value|
+        concat tag.li(fa_icon(info_icons[key], title: t(".#{key}"), text: value)) if value
+      end
     end
+  end
+
+  def info_icons
+    {
+      salary_range: 'money',
+      job_level: 'info',
+      limit_date: 'calendar',
+      positions: 'user'
+    }
   end
 end
