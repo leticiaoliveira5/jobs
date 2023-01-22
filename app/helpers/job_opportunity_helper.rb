@@ -83,12 +83,12 @@ module JobOpportunityHelper
 
     tag.ul(class: 'no-bullets green-icon') do
       attributes.each do |key, value|
-        concat tag.li(fa_icon(info_icons[key], title: t(".#{key}"), text: value)) if value
+        concat tag.li(fa_icon(basic_info_icons[key], title: t(".#{key}"), text: value)) if value
       end
     end
   end
 
-  def info_icons
+  def basic_info_icons
     {
       salary_range: 'money',
       job_level: 'info',
