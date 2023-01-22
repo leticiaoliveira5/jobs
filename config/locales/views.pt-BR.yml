@@ -27,6 +27,7 @@ pt-BR:
           waiting: Aguardando avaliação
           accepted: Aceita
           declined: Não aceita
+        empty_state: Nenhum candidato se inscreveu para esta vaga
   companies:
     index:
       search_placeholder: Digite o que procura...

@@ -25,13 +25,20 @@
     <% box.body do %>
       <% if @job_applications.size.positive? %>
         <% @job_applications.each do |a| %>
-          <h4><%=@job_opportunity.job_title %> - <%= a.candidate.firstname %> <%= a.candidate.surname %> (<%= t(".job_applications.status.#{a.status}") %>)</h4>
-          <%= link_to "Ver perfil de #{a.candidate.firstname}", candidate_path(a.candidate) %> 
-          <%= link_to "Fazer proposta para #{a.candidate.firstname}", new_job_application_job_proposal_path(a) %>
-          <%= link_to "Rejeitar candidatura de #{a.candidate.firstname}", root_path %>
+          <%= render(ListItemComponent.new) do |component| %>
+            <% component.button { job_application_links(a) } %>
+            <div class="flexrow">
+              <%= link_to(user_avatar(a.candidate, size: '45x45'), candidate_path(a.candidate)) %>
+              <div>
+                <b><%= a.candidate.full_name %> (<%= t(".job_applications.status.#{a.status}") %>)</b><br>
+                <%= link_to("Ver perfil", candidate_path(a.candidate)) %>
+              </div>
+            </div>
+            
+          <% end %>
         <% end %>
       <% else %>
-        Nenhum candidato se inscreveu para esta vaga
+        <div class="empty_state"><%= t('.job_applications.empty_state') %></div>
       <% end %>
     <% end %>
   <% end %>
