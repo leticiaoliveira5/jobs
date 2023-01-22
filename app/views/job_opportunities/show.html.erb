@@ -1,6 +1,8 @@
 <%= render(BoxComponent.new) do |box| %>
   <% box.title do %>
-    <%= @job_opportunity.job_title %> (<%= t(".#{@job_opportunity.status}") %>)
+    <%= @job_opportunity.job_title %>
+    <%= job_opportunity_status_tag(@job_opportunity.status) %>
+    <%= employee_links(@job_opportunity) %>
   <% end %>
 
   <% box.body do %>
@@ -11,7 +13,6 @@
     <p><%= t('.place') %>: <%= @job_opportunity.place %></p>
     <p><%= t('.limit_date') %>: <%= @job_opportunity.limit_date %></p>
 
-    <%= employee_links(@job_opportunity) %>
     <%= candidate_links(@job_opportunity) %>
   <% end %>
 <% end %>

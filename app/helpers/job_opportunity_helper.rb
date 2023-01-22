@@ -12,19 +12,20 @@ module JobOpportunityHelper
   end
 
   def inactivate_link(job_opportunity)
-    link_to 'Inativar vaga',
+    link_to fa_icon('toggle-on', title: 'Inativar vaga', class: 'gray-icon'),
             inactivate_job_opportunity_job_opportunity_path(job_opportunity),
             method: :post
   end
 
   def activate_link(job_opportunity)
-    link_to 'Ativar vaga',
+    link_to fa_icon('toggle-off', title: 'Ativar vaga', class: 'gray-icon'),
             activate_job_opportunity_job_opportunity_path(job_opportunity),
             method: :post
   end
 
   def edit_link(job_opportunity)
-    link_to 'Editar vaga', edit_job_opportunity_path(job_opportunity)
+    link_to fa_icon('pencil', title: 'Editar vaga', class: 'gray-icon'),
+            edit_job_opportunity_path(job_opportunity), title: 'Editar vaga'
   end
 
   def candidate_links(job_opportunity)
@@ -79,5 +80,16 @@ module JobOpportunityHelper
             decline_job_application_path(id),
             class: 'green-icon',
             title: 'Rejeitar candidatura', method: :post)
+  end
+
+  def job_opportunity_status_tag(status)
+    color = case status
+            when 'inactive'
+              'bg-gray'
+            when 'active'
+              'bg-green'
+            end
+
+    content_tag(:span, t(".status.#{status}"), class: "tag #{color}")
   end
 end
