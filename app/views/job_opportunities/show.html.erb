@@ -25,9 +25,9 @@
       <% if @job_applications.size.positive? %>
         <% @job_applications.each do |a| %>
           <%= render(ListItemComponent.new) do |component| %>
-            <% component.button { job_application_links(a) } %>
+            <% component.button { see_more(a.candidate) } %>
             <div class="flexrow">
-              <%= link_to(user_avatar(a.candidate, size: '45x45'), candidate_path(a.candidate)) %>
+              <%= user_avatar(a.candidate, size: '45x45', link: candidate_path(a.candidate)) %>
               <div>
                 <b><%= a.candidate.full_name %> (<%= t(".job_applications.status.#{a.status}") %>)</b><br>
                 <%= link_to("Ver perfil", candidate_path(a.candidate)) %>
