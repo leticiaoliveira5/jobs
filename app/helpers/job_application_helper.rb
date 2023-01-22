@@ -4,7 +4,6 @@ module JobApplicationHelper
   def job_application_status_tag(status)
     color = { declined: 'bg-red', accepted: 'bg-green', waiting: 'bg-gray' }
 
-    content_tag(:span, t(".job_applications.status.#{status}"),
-                class: "tag #{color[status.to_sym]}")
+    tag.span(t(".job_applications.status.#{status}"), class: "tag #{color[status.to_sym]}")
   end
 end
