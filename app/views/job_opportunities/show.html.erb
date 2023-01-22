@@ -6,12 +6,9 @@
   <% end %>
 
   <% box.body do %>
-    <p><%= t('.company') %>: <%= @job_opportunity.company.name %></p>
-    <p><%= t('.job_level') %>: <%= @job_opportunity.job_level %></p>
-    <p><%= t('.description') %>: <%= @job_opportunity.description %></p>
-    <p><%= t('.salary_range') %>: <%= @job_opportunity.salary_range %></p>
-    <p><%= t('.place') %>: <%= @job_opportunity.place %></p>
-    <p><%= t('.limit_date') %>: <%= @job_opportunity.limit_date.strftime("%d/%b/%Y") %></p>
+    <p><%= link_to @job_opportunity.company.name, @job_opportunity.company %> | <%= @job_opportunity.place %></p>
+    <p><%= basic_info(@job_opportunity.salary_range, @job_opportunity.job_level, @job_opportunity.limit_date, @job_opportunity.number_of_positions) %></p>
+    <p><b><%= t('.description') %></b><br><%= @job_opportunity.description %></p>
 
     <%= candidate_links(@job_opportunity) %>
   <% end %>

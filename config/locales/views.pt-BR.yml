@@ -18,7 +18,8 @@ pt-BR:
       job_title: Título da vaga
       limit_date: Data limite
       place: Local
-      salary_range: Faixa salarial 
+      salary_range: Faixa salarial
+      positions: Número de vagas disponíveis
       status:
         active: Ativa
         inactive: Inativa

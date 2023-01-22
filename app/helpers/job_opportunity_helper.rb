@@ -92,4 +92,15 @@ module JobOpportunityHelper
 
     content_tag(:span, t(".status.#{status}"), class: "tag #{color}")
   end
+
+  def basic_info(salary_range, job_level, limit_date, positions)
+    format_date = limit_date&.strftime('%d/%b/%Y')
+
+    content_tag(:ul, class: 'no-bullets green-icon') do
+      concat tag.li(fa_icon('money', title: t('.salary_range'), text: salary_range)) if salary_range
+      concat tag.li(fa_icon('info', title: t('.job_level'), text: job_level)) if job_level
+      concat tag.li(fa_icon('calendar', title: t('.limit_date'), text: format_date)) if limit_date
+      concat tag.li(fa_icon('user', title: t('.positions'), text: positions)) if positions
+    end
+  end
 end
