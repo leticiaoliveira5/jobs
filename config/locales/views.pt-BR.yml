@@ -18,15 +18,18 @@ pt-BR:
       job_title: Título da vaga
       limit_date: Data limite
       place: Local
-      salary_range: Faixa salarial 
+      salary_range: Faixa salarial
+      positions: Número de vagas disponíveis
       status:
         active: Ativa
         inactive: Inativa
       job_applications:
+        title: Candidaturas recebidas
         status:
           waiting: Aguardando avaliação
           accepted: Aceita
           declined: Não aceita
+        empty_state: Nenhum candidato se inscreveu para esta vaga
   companies:
     index:
       search_placeholder: Digite o que procura...

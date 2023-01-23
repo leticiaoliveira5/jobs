@@ -10,12 +10,12 @@ feature 'Employee changes job opportunity status' do
   scenario 'inactivation' do
     login_as employee, scope: :employee
     visit job_opportunity_path(job_opportunity)
-    click_on 'Inativar vaga'
+    page.find_link(title: 'Inativar vaga').click
 
     expect(current_path).to eq job_opportunity_path(job_opportunity)
     expect(job_opportunity.reload.status).to eq 'inactive'
     expect(page).to have_text('Inativa')
-    expect(page).to have_link('Ativar vaga')
+    expect(page).to have_link(title: 'Ativar vaga')
   end
 
   scenario 'activation' do
@@ -23,11 +23,11 @@ feature 'Employee changes job opportunity status' do
 
     login_as employee, scope: :employee
     visit job_opportunity_path(job_opportunity)
-    click_on 'Ativar vaga'
+    page.find_link(title: 'Ativar vaga').click
 
     expect(current_path).to eq job_opportunity_path(job_opportunity)
     expect(job_opportunity.reload.status).to eq 'active'
     expect(page).to have_text('Ativa')
-    expect(page).to have_link('Inativar vaga')
+    expect(page).to have_link(title: 'Inativar vaga')
   end
 end

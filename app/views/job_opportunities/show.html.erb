@@ -1,30 +1,41 @@
-<div class="contentblock">
-  <h2><%= @job_opportunity.job_title %> (<%= t(".#{@job_opportunity.status}") %>)</h2>
+<%= render(BoxComponent.new) do |box| %>
+  <% box.title do %>
+    <%= @job_opportunity.job_title %>
+    <%= job_opportunity_status_tag(@job_opportunity.status) %>
+    <%= employee_links(@job_opportunity) %>
+  <% end %>
 
-  <p><%= t('.company') %>: <%= @job_opportunity.company.name %></p>
-  <p><%= t('.job_level') %>: <%= @job_opportunity.job_level %></p>
-  <p><%= t('.description') %>: <%= @job_opportunity.description %></p>
-  <p><%= t('.salary_range') %>: <%= @job_opportunity.salary_range %></p>
-  <p><%= t('.place') %>: <%= @job_opportunity.place %></p>
-  <p><%= t('.limit_date') %>: <%= @job_opportunity.limit_date %></p>
+  <% box.body do %>
+    <p><%= link_to @job_opportunity.company.name, @job_opportunity.company %> | <%= @job_opportunity.place %></p>
+    <p><%= basic_info(@job_opportunity) %></p>
+    <p><b><%= t('.description') %></b><br><%= @job_opportunity.description %></p>
 
-  <%= employee_links(@job_opportunity) %>
-  <%= candidate_links(@job_opportunity) %>
-</div>
+    <%= candidate_links(@job_opportunity) %>
+  <% end %>
+<% end %>
 
 <% if @employee %>
-  <div class="contentblock">
-    <h2>Candidaturas recebidas para esta vaga:</h2>
+  <% size = @job_applications.size %>
+  <%= render(BoxComponent.new(behavior: :collapsible)) do |box| %>
+    <% box.title { "#{t('.job_applications.title')} (#{size})" }%>
     
-    <% if @job_applications.size.positive? %>
-      <% @job_applications.each do |a| %>
-        <h4><%=@job_opportunity.job_title %> - <%= a.candidate.firstname %> <%= a.candidate.surname %> (<%= t(".job_applications.status.#{a.status}") %>)</h4>
-        <%= link_to "Ver perfil de #{a.candidate.firstname}", candidate_path(a.candidate) %> 
-        <%= link_to "Fazer proposta para #{a.candidate.firstname}", new_job_application_job_proposal_path(a) %>
-        <%= link_to "Rejeitar candidatura de #{a.candidate.firstname}", root_path %>
+    <% box.body do %>
+      <% if size.positive? %>
+        <% @job_applications.each do |job_application| %>
+          <%= render(ListItemComponent.new) do |component| %>
+            <% component.button { see_more(job_application) } %>
+            <div class="flexrow">
+              <%= user_avatar(job_application.candidate, size: '45x45', link: job_application.candidate) %>
+              <div>
+                <span class="bold"><%= job_application.candidate.full_name %></span><br>
+                <%= job_application_status_tag(job_application.status) %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% else %>
+        <div class="empty_state"><%= t('.job_applications.empty_state') %></div>
       <% end %>
-    <% else %>
-      Nenhum candidato se inscreveu para esta vaga
     <% end %>
-  </div>
+  <% end %>
 <% end %>

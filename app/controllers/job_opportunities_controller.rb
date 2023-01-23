@@ -23,7 +23,7 @@ class JobOpportunitiesController < ApplicationController
     return unless employee_signed_in?
 
     @employee = current_employee.company == @job_opportunity.company
-    @job_applications = @job_opportunity.job_applications
+    @job_applications = @job_opportunity.job_applications.includes(:candidate).order(status: :asc)
   end
 
   def create

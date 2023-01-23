@@ -1,7 +1,9 @@
 module ApplicationHelper
-  def user_avatar(user, size: '50x50')
+  def user_avatar(user, size: '50x50', link: nil)
     avatar = user.avatar.attached? ? user.avatar : 'icon.png'
-    image_tag(avatar, size: size, style: 'border-radius: 50%;')
+    img = image_tag(avatar, size: size, style: 'border-radius: 50%;')
+
+    link ? link_to(img, link) : img
   end
 
   def t_attr(str)
