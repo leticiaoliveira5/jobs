@@ -20,7 +20,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
-    <%= render(NavbarComponent.new(current_user: current_candidate || current_employee || nil)) %>
+    <%= render(NavbarComponent.new(title: 'Jobs')) do |nav| %>
+      <% nav.left do %>
+        <%= link_to 'Empresas', companies_path %>
+        <%= link_to 'Vagas', job_opportunities_path %>
+      <% end %>
+      <% nav.right do %>
+        <% employee_nav_links %>
+        <% candidate_nav_links %>
+      <% end %>
+    <% end %>
 
     <% if notice %>
       <p class="alert success"><%= notice %></p>
