@@ -4,10 +4,32 @@
       <span class="navtitle"><%= @title %></span>
     <% end %>
 
-    <%= left %>
+    <span class="links-row"><%= left %></span>
   </div>
 
   <div class="navright">
+    <span class="links-row"><%= right %></span>
+    <div class="nav-mobile-dropdown" onclick="toggleMenu()">
+      <i class="fa fa-bars green-icon"></i>
+    </div>
+  </div>
+</div>
+
+<div class="nav-mobile-dropdown-content">
+  <div class="nav">
+    <%= left %>
     <%= right %>
   </div>
 </div>
+
+<script>
+  function toggleMenu() {
+    let content = document.getElementsByClassName('nav-mobile-dropdown-content')[0]
+    console.log(content)
+    if (content.style.display == 'none') {
+      content.style.display = 'block';
+    } else {
+      content.style.display = 'none';
+    }
+  }
+</script>
