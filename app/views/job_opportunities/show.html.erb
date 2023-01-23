@@ -15,8 +15,8 @@
 <% end %>
 
 <% if @employee %>
-  <%= render(BoxComponent.new) do |box| %>
-    <% box.title { t('.job_applications.title') }%>
+  <%= render(BoxComponent.new(behavior: :collapsible, default: :closed)) do |box| %>
+    <% box.title { "#{t('.job_applications.title')} (#{@job_applications.size})" }%>
     
     <% box.body do %>
       <% if @job_applications.size.positive? %>

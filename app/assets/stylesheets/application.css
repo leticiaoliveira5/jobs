@@ -82,7 +82,10 @@ a:hover {
   white-space: nowrap;
 }
 
-.bg-gray { background-color: var(--background_color); }
+.bg-gray {
+  background-color: var(--background_color);
+  color: var(--inactive_link)
+}
 .bg-red { background-color: var(--alert_danger); }
 .bg-green { background-color: var(--alert_success); }
 
