@@ -10,7 +10,7 @@ feature 'candidate edits account details' do
   scenario 'successfully' do
     login_as candidate, scope: :candidate
     visit root_path
-    click_on 'Área do candidato'
+    within('.nav') { click_on 'Área do candidato' }
     click_on 'Editar meus dados'
     fill_in 'About me', with: 'Olá, meu nome é Maria'
     fill_in 'Current password', with: '123456'

@@ -12,7 +12,7 @@ feature 'Visitor views job opportunity details' do
 
   scenario 'successfully' do
     visit root_path
-    click_on 'Vagas'
+    within('.nav') { click_on 'Vagas' }
     within("#job-#{active_job_opportunity.id}") do
       click_on 'Ver detalhes'
     end

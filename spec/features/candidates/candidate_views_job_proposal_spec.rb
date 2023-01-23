@@ -17,7 +17,7 @@ feature 'Candidate views job proposals' do
   scenario 'successfully' do
     login_as candidate, scope: :candidate
     visit root_path
-    click_on 'Área do candidato'
+    within('.nav') { click_on 'Área do candidato' }
 
     expect(page).to have_content 'Propostas recebidas'
     expect(page).to have_text 'Vaga: Desenvolvedor'
@@ -28,7 +28,7 @@ feature 'Candidate views job proposals' do
     before do
       login_as candidate, scope: :candidate
       visit root_path
-      click_on 'Área do candidato'
+      within('.nav') { click_on 'Área do candidato' }
       click_on 'Ver detalhes da proposta'
     end
 

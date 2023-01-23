@@ -7,7 +7,7 @@ feature 'Visitor searches job opportunities' do
     create(:job_opportunity, company: apple, job_title: 'Desenvolvedor')
     create(:job_opportunity, company: apple, job_title: 'Supervisor')
     visit root_path
-    click_on 'Vagas'
+    within('.nav') { click_on 'Vagas' }
   end
 
   scenario 'by job title' do
