@@ -73,14 +73,14 @@ a:hover {
 }
 
 .tag {
-  text-transform: lowercase;
-  padding: 0.4em;
-  font-size: 0.75em;
   background-color: var(--background_color);
   border-radius: 20px;
-  line-height: 1.8em;
-  font-weight: 500;
   color:white;
+  font-size: 0.75em;
+  font-weight: 500;
+  line-height: 1.8em;
+  padding: 0.4em;
+  text-transform: lowercase;
   white-space: nowrap;
 }
 
@@ -92,9 +92,9 @@ a:hover {
 .bg-green { background-color: var(--alert_success); }
 
 .bold {
+  color: var(--title);
   font-size: 1.2em;
   font-weight: 700;
-  color: var(--title);
 }
 
 /* ul */
@@ -435,10 +435,11 @@ a:hover {
 /* CANDIDATE PREVIEW */
 
 .flexrow {
-  display: flex;
   align-items: center;
-  flex-direction: row;
   column-gap: 1rem;
+  display: flex;
+  flex-direction: row;
+  
 }
 
 /* LIST ITEM COMPONENT */
@@ -456,12 +457,12 @@ a:hover {
 
 .list-item {
   align-items: center;
+  border-radius: 7px;
   display: flex;
   justify-content: space-between;
   margin-top: 2px;
   padding: 15px;
   transition: 0.4s;  
-  border-radius: 7px;
 }
 
 .list-item:hover {
