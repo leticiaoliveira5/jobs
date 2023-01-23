@@ -26,9 +26,9 @@ module ApplicationHelper
   def employee_nav_links
     return unless current_employee
 
-    concat link_to 'Área do colaborador', '/company/dashboard' 
+    concat link_to 'Área do colaborador', '/company/dashboard'
     concat current_employee.email
     concat "(#{current_employee.company.name} - #{current_employee.role})"
-    concat link_to 'Sair', destroy_employee_session_path, method: :delete 
+    concat link_to 'Sair', destroy_employee_session_path, method: :delete
   end
 end
