@@ -383,6 +383,8 @@ a:hover {
   .nav a:hover {
     text-decoration: none;
   }
+
+  .nav-mobile-dropdown { display: none; }
 }
 
 /* hide links row on mobile screen */
