@@ -383,8 +383,6 @@ a:hover {
   .nav a:hover {
     text-decoration: none;
   }
-
-  .nav-mobile-dropdown { display: none; }
 }
 
 /* hide links row on mobile screen */
@@ -392,16 +390,16 @@ a:hover {
   .nav .links-row { display: none; }
 }
 
-.nav-mobile-dropdown-content { 
-  display: none;
-}
+.nav-mobile-dropdown-content { display: none; }
 
-.nav-mobile-dropdown-content .nav {
+.nav-mobile-dropdown-content .mobile-menu {
   align-items: flex-start;
+  background-color: var(--nav_background_color);
+  display: none;
   flex-direction: column;
   font-size: 1.2em;
-  line-height: 1.5em;
-  padding-left: 1em;
+  line-height: 1.6em;
+  padding: 1em;
 }
 
 .nav-mobile-dropdown { 

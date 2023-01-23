@@ -16,7 +16,7 @@
 </div>
 
 <div class="nav-mobile-dropdown-content">
-  <div class="nav">
+  <div class="mobile-menu">
     <%= left %>
     <%= right %>
   </div>
@@ -25,11 +25,14 @@
 <script>
   function toggleMenu() {
     let content = document.getElementsByClassName('nav-mobile-dropdown-content')[0]
+    let menu = document.getElementsByClassName('mobile-menu')[0]
     console.log(content)
     if (content.style.display == 'none') {
       content.style.display = 'block';
+      menu.style.display = 'flex';
     } else {
       content.style.display = 'none';
+      menu.style.display = 'none';
     }
   }
 </script>
