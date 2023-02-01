@@ -1,5 +1,5 @@
-# :reek:TooManyInstanceVariables { max_instance_variables: 6 }
 class JobOpportunitiesController < ApplicationController
+  before_action :set_job_opportunity, except: %i[index new create]
   before_action :authenticate_employee!, only: %i[create new edit]
   before_action :authenticate_candidate!, only: %i[create_job_application]
 
@@ -18,8 +18,6 @@ class JobOpportunitiesController < ApplicationController
   end
 
   def show
-    @job_opportunity = JobOpportunity.find(params[:id])
-
     return unless employee_signed_in?
 
     @employee = current_employee.company == @job_opportunity.company
@@ -37,8 +35,6 @@ class JobOpportunitiesController < ApplicationController
   end
 
   def create_job_application
-    @job_opportunity = JobOpportunity.find(params[:id])
-
     return unless @job_opportunity.active?
 
     job_application = JobApplication.create(
@@ -55,23 +51,18 @@ class JobOpportunitiesController < ApplicationController
   end
 
   def inactivate_job_opportunity
-    @job_opportunity = JobOpportunity.find(params[:id])
     @job_opportunity.inactive!
     redirect_to @job_opportunity
   end
 
   def activate_job_opportunity
-    @job_opportunity = JobOpportunity.find(params[:id])
     @job_opportunity.active!
     redirect_to @job_opportunity
   end
 
-  def edit
-    @job_opportunity = JobOpportunity.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @job_opportunity = JobOpportunity.find(params[:id])
     @job_opportunity.update(job_opportunity_params)
     if @job_opportunity.save
       redirect_to job_opportunity_path(@job_opportunity)
@@ -81,6 +72,10 @@ class JobOpportunitiesController < ApplicationController
   end
 
   private
+
+  def set_job_opportunity
+    @job_opportunity = JobOpportunity.find(params[:id])
+  end
 
   def job_opportunity_params
     params.require(:job_opportunity).permit(:job_title,
