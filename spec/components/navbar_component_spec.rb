@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe NavbarComponent, type: :component do
-  it 'renders nav bar' do
-    rendered_component = render_inline(described_class.new(current_user: nil)).to_html
+  let(:rendered_component) do
+    render_inline(described_class.new(title: 'Jobs')).to_html
+  end
 
+  it 'renders nav bar' do
     expect(rendered_component).to have_content('Jobs')
-    expect(rendered_component).to have_link('Empresas', href: '/companies')
-    expect(rendered_component).to have_link('Vagas', href: '/jobs')
   end
 end

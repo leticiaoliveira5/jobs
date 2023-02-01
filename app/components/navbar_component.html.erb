@@ -1,25 +1,37 @@
 <div class="nav">
   <div class="navleft">
     <%= link_to root_path do %>
-      <span class="navtitle">Jobs</span>
+      <span class="navtitle"><%= @title %></span>
     <% end %>
 
-    <%= link_to 'Empresas', companies_path %>
-    <%= link_to 'Vagas', job_opportunities_path %>
+    <span class="links-row"><%= left %></span>
   </div>
 
   <div class="navright">
-    <% if current_candidate %>
-      <%= link_to 'Área do candidato', '/candidate/dashboard' %>
-      <%= link_to 'Meu perfil', "/u/#{current_candidate.id}" %>
-      <%= current_candidate.email %>
-      <%= link_to 'Sair', destroy_candidate_session_path, method: :delete %>
-    <% end %>
-
-    <% if current_employee %>
-      <%= link_to 'Área do colaborador', '/company/dashboard' %>
-      <%= current_employee.email %> (<%=current_employee.company.name%> - <%=current_employee.role%>)
-      <%= link_to 'Sair', destroy_employee_session_path, method: :delete %>
-    <% end %>
+    <span class="links-row"><%= right %></span>
+    <div class="nav-mobile-dropdown" onclick="toggleMenu()">
+      <i class="fa fa-bars green-icon"></i>
+    </div>
   </div>
 </div>
+
+<div class="nav-mobile-dropdown-content">
+  <div class="mobile-menu">
+    <%= left %>
+    <%= right %>
+  </div>
+</div>
+
+<script>
+  function toggleMenu() {
+    let content = document.getElementsByClassName('nav-mobile-dropdown-content')[0]
+    let menu = document.getElementsByClassName('mobile-menu')[0]
+    if (content.style.display == 'none') {
+      content.style.display = 'block';
+      menu.style.display = 'flex';
+    } else {
+      content.style.display = 'none';
+      menu.style.display = 'none';
+    }
+  }
+</script>

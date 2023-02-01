@@ -21,7 +21,7 @@ feature 'Employee logs in' do
   end
 
   scenario 'and logs out' do
-    click_on 'Sair'
+    within('.nav') { click_on 'Sair' }
 
     expect(page).not_to have_content 'leticia@email.com'
     expect(page).not_to have_link 'Sair'

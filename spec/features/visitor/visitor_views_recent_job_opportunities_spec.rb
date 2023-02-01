@@ -11,7 +11,7 @@ feature 'Visitor viws recent job opportunities' do
 
   scenario 'successfully' do
     visit root_path
-    click_on 'Vagas'
+    within('.nav') { click_on 'Vagas' }
 
     expect(page).to have_link('Ver detalhes')
     expect(page).to have_text('Pleno') && have_text('Home Office')
@@ -21,7 +21,7 @@ feature 'Visitor viws recent job opportunities' do
     create(:job_opportunity, company: apple, job_title: 'Tech Lead', status: :inactive)
 
     visit root_path
-    click_on 'Vagas'
+    within('.nav') { click_on 'Vagas' }
 
     expect(current_path).to eq(job_opportunities_path)
     expect(page).not_to have_content('Tech Lead')

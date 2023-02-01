@@ -17,7 +17,7 @@ feature 'Employee views job applications' do
   scenario 'only if belongs to company' do
     login_as microsoft.employees.first, scope: :employee
     visit root_path
-    click_on 'Empresas'
+    within('.nav') { click_on 'Empresas' }
     click_on 'Apple'
     within("#job-#{job_opportunity.id}") do
       click_on 'Ver detalhes'

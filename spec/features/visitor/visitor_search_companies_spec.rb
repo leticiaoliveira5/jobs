@@ -4,7 +4,7 @@ feature 'Visitor searches job opportunities' do
   before do
     create(:company, name: 'Apple', address: 'California', domain: 'jobs.com')
     visit root_path
-    click_on 'Empresas'
+    within('.nav') { click_on 'Empresas' }
   end
 
   scenario 'by name' do
