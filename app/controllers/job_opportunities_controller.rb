@@ -14,19 +14,17 @@ class JobOpportunitiesController < ApplicationController
 
   def new
     @job_opportunity = JobOpportunity.new
-    @job_opportunities = JobOpportunity.all
   end
 
   def show
     return unless employee_signed_in?
 
-    @employee = current_employee.company == @job_opportunity.company
+    @employee = current_company == @job_opportunity.company
     @job_applications = @job_opportunity.job_applications.includes(:candidate).order(status: :asc)
   end
 
   def create
-    @job_opportunity = JobOpportunity.new(job_opportunity_params)
-    @job_opportunity.company = current_employee.company
+    @job_opportunity = current_company.job_opportunities.new(job_opportunity_params)
     if @job_opportunity.save
       redirect_to @job_opportunity
     else
@@ -35,10 +33,9 @@ class JobOpportunitiesController < ApplicationController
   end
 
   def create_job_application
-    return unless @job_opportunity.active?
+    return if @job_opportunity.inactive?
 
-    job_application = JobApplication.create(
-      job_opportunity: @job_opportunity,
+    job_application = @job_opportunity.job_applications.create(
       candidate: current_candidate,
       status: :waiting
     )
@@ -75,6 +72,10 @@ class JobOpportunitiesController < ApplicationController
 
   def set_job_opportunity
     @job_opportunity = JobOpportunity.find(params[:id])
+  end
+
+  def current_company
+    current_employee&.company
   end
 
   def job_opportunity_params
