@@ -24,16 +24,16 @@ class JobOpportunitiesController < ApplicationController
   end
 
   def create
-    @job_opportunity = current_company.job_opportunities.new(job_opportunity_params)
-    if @job_opportunity.save
-      redirect_to @job_opportunity
+    job_opportunity = current_company.job_opportunities.new(job_opportunity_params)
+    if job_opportunity.save
+      redirect_to job_opportunity
     else
       render 'new'
     end
   end
 
   def create_job_application
-    return if @job_opportunity.inactive?
+    return unless current_candidate && @job_opportunity.active?
 
     job_application = @job_opportunity.job_applications.create(
       candidate: current_candidate,
