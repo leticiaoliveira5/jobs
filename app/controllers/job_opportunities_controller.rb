@@ -24,18 +24,18 @@ class JobOpportunitiesController < ApplicationController
   end
 
   def create
-    job_opportunity = current_company.job_opportunities.new(job_opportunity_params)
-    if job_opportunity.save
-      redirect_to job_opportunity
+    @job_opportunity = current_company.job_opportunities.new(job_opportunity_params)
+    if @job_opportunity.save
+      redirect_to @job_opportunity
     else
       render 'new'
     end
   end
 
   def create_job_application
-    return unless current_candidate && @job_opportunity.active?
+    return if @job_opportunity.inactive?
 
-    job_application = @job_opportunity.job_applications.create(
+    job_application = @job_opportunity.job_applications.new(
       candidate: current_candidate,
       status: :waiting
     )
@@ -60,9 +60,8 @@ class JobOpportunitiesController < ApplicationController
   def edit; end
 
   def update
-    @job_opportunity.update(job_opportunity_params)
-    if @job_opportunity.save
-      redirect_to job_opportunity_path(@job_opportunity)
+    if @job_opportunity.update(job_opportunity_params)
+      redirect_to @job_opportunity
     else
       render 'edit'
     end
