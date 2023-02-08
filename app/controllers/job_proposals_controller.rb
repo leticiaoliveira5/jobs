@@ -4,22 +4,18 @@ class JobProposalsController < ApplicationController
   before_action :set_job_proposal, except: %i[new create]
 
   def new
-    @job_proposal = JobProposal.new(
-      candidate: job_application.candidate,
-      job_application:
-    )
+    @job_proposal = JobProposal.new(candidate: job_application&.candidate,
+                                    job_application: job_application)
   end
 
   def create
-    return unless job_application
-
     @job_proposal = JobProposal.new(job_proposal_params.merge(
-                                      candidate: job_application.candidate,
-                                      job_application:
+                                      candidate: job_application&.candidate,
+                                      job_application: job_application
                                     ))
 
     if @job_proposal.save
-      JobProposalMailer.notify_proposal(@job_proposal.id).deliver_now
+      email_proposal
       redirect_to company_path(job_application.company), notice: t('.success')
     else
       render 'new'
@@ -42,6 +38,10 @@ class JobProposalsController < ApplicationController
   end
 
   private
+
+  def email_proposal
+    JobProposalMailer.notify_proposal(@job_proposal.id).deliver_now
+  end
 
   def set_job_proposal
     @job_proposal = JobProposal.find(params[:id])
