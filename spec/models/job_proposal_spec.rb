@@ -2,13 +2,8 @@ require 'rails_helper'
 
 RSpec.describe JobProposal, type: :model do
   describe 'validation' do
-    let!(:job_application) { create(:job_application) }
     let(:job_proposal) do
-      described_class.new(
-        job_application: job_application,
-        candidate: job_application.candidate,
-        job_opportunity: job_application.job_opportunity
-      )
+      build(:job_proposal, message: nil, salary_proposal: nil, start_date: nil)
     end
 
     it 'is not valid without basic fields' do
