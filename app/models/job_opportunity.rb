@@ -6,6 +6,7 @@ class JobOpportunity < ApplicationRecord
 
   validates :job_title, :description, :job_level, :salary_range, :place,
             :limit_date, :number_of_positions, presence: true
+  validates :number_of_positions, numericality: { greater_than: 0 }
   validate :limit_date_cannot_be_in_the_past
 
   enum status: { active: 0, inactive: 1 }
