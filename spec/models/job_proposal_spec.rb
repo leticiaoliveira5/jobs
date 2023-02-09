@@ -2,16 +2,9 @@ require 'rails_helper'
 
 RSpec.describe JobProposal, type: :model do
   describe 'validation' do
-    let(:job_proposal) do
-      build(:job_proposal, message: nil, salary_proposal: nil, start_date: nil)
-    end
-
-    it 'is not valid without basic fields' do
-      expect(job_proposal).not_to be_valid
-      expect(job_proposal.errors).to include(:message,
-                                             :salary_proposal,
-                                             :start_date)
-    end
+    it { is_expected.to validate_presence_of(:message) }
+    it { is_expected.to validate_presence_of(:salary_proposal) }
+    it { is_expected.to validate_presence_of(:start_date) }
   end
 
   describe '#check_number_of_positions' do
