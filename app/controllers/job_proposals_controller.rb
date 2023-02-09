@@ -9,10 +9,9 @@ class JobProposalsController < ApplicationController
   end
 
   def create
-    @job_proposal = JobProposal.new(job_proposal_params.merge(
-                                      candidate: job_application&.candidate,
-                                      job_application: job_application
-                                    ))
+    @job_proposal = JobProposal.new(job_proposal_params)
+    @job_proposal.job_application = job_application
+    @job_proposal.candidate = job_application.candidate
 
     if @job_proposal.save
       email_proposal
