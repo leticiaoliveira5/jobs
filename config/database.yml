@@ -20,5 +20,7 @@ test:
 
 production:
   <<: *default
-  # database: db_production
-  # password: <%= ENV['DATABASE_PASSWORD'] %>
+  database: jobs_production
+  username: ubuntu
+  host: db
+  password: <%= Rails.application.credentials.config[:database_password] %>

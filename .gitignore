@@ -32,3 +32,5 @@ vendor/bundle/*
 
 # Ignore .rubocop.yml
 .rubocop.yml
+
+/config/credentials/production.key
