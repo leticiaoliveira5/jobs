@@ -18,4 +18,10 @@ class Company < ApplicationRecord
 
     "#{id}-#{name&.gsub(/[^0-9A-Za-z]/, '')}"
   end
+
+  def self.search(input)
+    return self if input.blank?
+
+    where('name ILIKE ? OR address ILIKE ? OR domain ILIKE ?', "%#{input}%", "%#{input}%", "%#{input}%")
+  end
 end
