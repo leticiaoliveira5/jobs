@@ -3,7 +3,7 @@ default: &default
   encoding: unicode
   user: postgres
   password: postgres
-  port: 5432
+  port: <%= ENV['POSTGRES_PORT'] %>
   host: db
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 

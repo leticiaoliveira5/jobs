@@ -5,16 +5,16 @@ services:
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
+      - "${POSTGRES_PORT}:${POSTGRES_PORT}"
     environment:
       POSTGRES_PASSWORD: postgres
   web:
     depends_on:
       - db
     build: .
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    command: bundle exec rails s -p ${PORT} -b '0.0.0.0'
     container_name: jobs_app
     volumes:
       - .:/jobs
     ports:
-      - "3000:3000"
+      - "${PORT}:${PORT}"
