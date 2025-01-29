@@ -6,7 +6,7 @@ class JobOpportunitiesController < ApplicationController
 
   def index
     @search = params[:search_input]
-    @job_opportunities = JobOpportunity.active.search(@search).order(:created_at).page(params[:page]).per(params[:per_page])
+    @job_opportunities = JobOpportunity.search(@search).active.order(:created_at).page(params[:page]).per(params[:per_page])
   end
 
   def new
