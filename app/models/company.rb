@@ -22,6 +22,7 @@ class Company < ApplicationRecord
   def self.search(input)
     return self if input.blank?
 
-    where('name ILIKE ? OR address ILIKE ? OR domain ILIKE ?', "%#{input}%", "%#{input}%", "%#{input}%")
+    where('name ILIKE ? OR address ILIKE ? OR domain ILIKE ?',
+          "%#{input}%", "%#{input}%", "%#{input}%")
   end
 end

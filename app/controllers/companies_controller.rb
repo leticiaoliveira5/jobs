@@ -4,7 +4,8 @@ class CompaniesController < ApplicationController
 
   def index
     @search = params[:search_input]
-    @companies = Company.includes(:active_job_opportunities).search(@search).page(params[:page]).per(params[:per_page])
+    @companies = Company.includes(:active_job_opportunities).search(@search)
+                        .page(params[:page]).per(params[:per_page])
   end
 
   def show
