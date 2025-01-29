@@ -8,7 +8,7 @@ A web application that allows company employees to create and manage job opportu
 
 <details>
 <summary> :white_check_mark: Features </summary>
-
+rrrrrr
 -   Employee creates account using corporate email, creating company
 -   Employee fills in the company data, if he/she is the first person in the company to join
 -   Visitor views registered companies
