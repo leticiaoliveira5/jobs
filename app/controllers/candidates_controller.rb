@@ -9,6 +9,7 @@ class CandidatesController < ApplicationController
   end
 
   def index
+    @search = search_param[:search]
     @candidates = Candidate.search(search_param).page(params[:page])
   end
 
@@ -23,7 +24,7 @@ class CandidatesController < ApplicationController
   private
 
   def search_param
-    params.permit(:search)[:search]
+    params.permit(:search)
   end
 
   def authenticate_user
