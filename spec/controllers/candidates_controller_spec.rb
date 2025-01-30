@@ -18,6 +18,26 @@ RSpec.describe CandidatesController, type: :controller, login_metadata: true do
     end
   end
 
+  describe '#index' do
+    it 'when no user signed in, redirects to login page' do
+      get :index
+
+      expect(response).to redirect_to root_path
+    end
+
+    it 'when employee signed in, renders candidates page', employee_signed_in: true do
+      get :index
+
+      expect(response).to render_template('index')
+    end
+
+    it 'when candidate signed in, renders candidates page', candidate_signed_in: true do
+      get :index
+
+      expect(response).to render_template('index')
+    end
+  end
+
   describe '#show' do
     it 'when no user signed in, redirects to login page' do
       get :show, params: { id: candidate.id }
