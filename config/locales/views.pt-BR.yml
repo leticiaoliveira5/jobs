@@ -73,6 +73,10 @@ pt-BR:
     show:
       rejection_motive: Motivo
   candidates:
+    index:
+      search_placeholder: Digite o que procura...
+      candidates: Candidatos em destaque
+      empty_state: Nenhum candidato encontrado
     show:
       personal_info: Dados Pessoais
       about_me: Sobre

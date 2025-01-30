@@ -34,3 +34,5 @@ vendor/bundle/*
 .rubocop.yml
 
 *.env
+
+/storage

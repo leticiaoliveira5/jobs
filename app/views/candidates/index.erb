@@ -1,0 +1,33 @@
+<%= render(BoxComponent.new(color: :transparent)) do |component| %>
+  <% component.body do %>
+    <%= form_tag(candidates_path, method: :get) do |f| %>
+      <div class="search_container">
+        <%= text_field_tag :search,
+                           params[:search],
+                           placeholder: t('.search_placeholder'),
+                           required: true %>
+        <button type="submit"><i class="fa fa-search green-icon"></i></button>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= render(BoxComponent.new) do |box| %>
+  <%= box.title { @search ? t('.search_result', input: @search) : t('.candidates') } %>
+  <%= box.body do %>
+    <% if @candidates.empty? %>
+      <div class="empty_state"><%= t('.empty_state') %></div>
+    <% else %>
+      <%= render(GridComponent.new) do %>
+        <% @candidates.each do |candidate| %>
+          <%= render(CompanyPreviewComponent.new) do %>
+            <%= link_to tag.h2(candidate.full_name), candidate_path(candidate) %>
+            <%= candidate.address %><br>
+            <p><%= see_more(candidate) %></p>
+          <% end %>
+        <% end %>
+      <% end %>
+      <%= paginate @candidates %>
+    <% end %>
+  <% end %>
+<% end %>
