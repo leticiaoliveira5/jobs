@@ -6,11 +6,8 @@ class JobOpportunitiesController < ApplicationController
 
   def index
     @search = params[:search_input]
-    @job_opportunities = if @search
-                           JobOpportunity.search(@search)
-                         else
-                           JobOpportunity.active.last(30)
-                         end
+    @job_opportunities = JobOpportunity.search(@search).active.order(:created_at)
+                                       .page(params[:page]).per(params[:per_page])
   end
 
   def new

@@ -4,12 +4,8 @@ class CompaniesController < ApplicationController
 
   def index
     @search = params[:search_input]
-    @companies = if @search
-                   Company.where('name ILIKE ? OR address ILIKE ? OR domain ILIKE ?',
-                                 "%#{@search}%", "%#{@search}%", "%#{@search}%")
-                 else
-                   Company.all.includes(:active_job_opportunities)
-                 end
+    @companies = Company.includes(:active_job_opportunities).search(@search)
+                        .page(params[:page]).per(params[:per_page])
   end
 
   def show

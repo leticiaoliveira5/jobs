@@ -18,6 +18,8 @@ class JobOpportunity < ApplicationRecord
   end
 
   def self.search(input)
+    return self if input.blank?
+
     joins(:company)
       .where('job_title ILIKE ? OR name ILIKE ?', "%#{input}%", "%#{input}%")
   end
