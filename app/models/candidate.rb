@@ -17,6 +17,13 @@ class Candidate < ApplicationRecord
   validates :document, length: { is: 11 }, on: :update, allow_blank: true
   validate :avatar_validation
 
+  def self.search(search)
+    return self if search.blank?
+
+    where('firstname ILIKE ? OR surname ILIKE ? OR address ILIKE ?',
+          "%#{search}%", "%#{search}%", "%#{search}%")
+  end
+
   def full_name
     "#{firstname} #{surname}"
   end

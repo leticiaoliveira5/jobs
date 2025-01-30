@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   end
 
   resources :candidates, path: '/u', only: :show
+  resources :candidates, only: :index
 
   resources :job_applications, path: 'applications', only: %i[destroy show] do
     post 'decline', on: :member
