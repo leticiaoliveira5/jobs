@@ -20,7 +20,8 @@ class Candidate < ApplicationRecord
   def self.search(search)
     return self if search.blank?
 
-    where('firstname ILIKE ? OR surname ILIKE ? OR address ILIKE ?', "%#{search}%", "%#{search}%", "%#{search}%")
+    where('firstname ILIKE ? OR surname ILIKE ? OR address ILIKE ?',
+          "%#{search}%", "%#{search}%", "%#{search}%")
   end
 
   def full_name
