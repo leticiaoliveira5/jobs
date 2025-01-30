@@ -5,9 +5,9 @@ require 'rails_helper'
 feature 'Employee searches candidates' do
   let(:employee) { create(:employee) }
   let(:company) { employee.company }
-  let!(:candidate) { create(:candidate, firstname: 'José', surname: 'Costa', address: 'Rio de Janeiro') }
 
   before do
+    create(:candidate, firstname: 'José', surname: 'Costa', address: 'Rio de Janeiro')
     login_as employee, scope: :employee
     visit root_path
     within('.nav') { click_on 'Candidatos' }
