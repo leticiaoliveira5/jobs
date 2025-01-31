@@ -1,14 +1,12 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'Employee edits company' do
   let!(:first_employee) { create(:employee, role: :admin) }
-  let(:regular_employee) do
-    create(:employee, role: :regular,
-                      email: 'ana@globe.com',
-                      company: first_employee.company)
-  end
+  let(:regular_employee) { create(:employee, role: :regular, company: first_employee.company) }
 
-  scenario 'successfully' do
+  scenario 'if admin' do
     login_as first_employee, scope: :employee
     visit root_path
     within('.nav') { click_on 'Área do colaborador' }
@@ -20,7 +18,7 @@ feature 'Employee edits company' do
     expect(page).to have_content 'Novo nome'
   end
 
-  scenario 'if admin' do
+  scenario 'if regular' do
     login_as regular_employee, scope: :employee
     visit root_path
     within('.nav') { click_on 'Área do colaborador' }
