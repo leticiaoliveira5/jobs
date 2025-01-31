@@ -2,7 +2,8 @@ require 'rails_helper'
 
 feature 'Visitor searches job opportunities' do
   before do
-    create(:company, name: 'Apple', domain: 'jobs.com')
+    company = create(:company, name: 'Apple', domain: 'jobs.com')
+    create(:address, resource: company, city: 'Los Angeles')
     visit root_path
     within('.nav') { click_on 'Empresas' }
   end
@@ -13,7 +14,7 @@ feature 'Visitor searches job opportunities' do
   end
 
   scenario 'by address' do
-    fill_in :search_input, with: 'California'
+    fill_in :search_input, with: 'Los Angeles'
     expect_to_find_company
   end
 
