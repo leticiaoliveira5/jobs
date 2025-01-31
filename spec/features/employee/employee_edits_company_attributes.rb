@@ -13,7 +13,6 @@ feature 'Employee edits company' do
     visit root_path
     within('.nav') { click_on 'Área do colaborador' }
     click_on 'Editar dados da empresa'
-    fill_in 'Endereço', with: 'Rua 7, número 10, Glória'
     click_on 'Cadastrar empresa'
 
     expect(current_path).to eq company_path(employee.company)

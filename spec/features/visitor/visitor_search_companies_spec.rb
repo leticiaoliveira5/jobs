@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Visitor searches job opportunities' do
   before do
-    create(:company, name: 'Apple', address: 'California', domain: 'jobs.com')
+    create(:company, name: 'Apple', domain: 'jobs.com')
     visit root_path
     within('.nav') { click_on 'Empresas' }
   end

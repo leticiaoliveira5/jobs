@@ -13,9 +13,7 @@ Employee.create!(email: 'admin@jobs.com',
 puts "Employee created! login: 'admin@jobs.com' and password: '123456'"
 
 company = Company.find_by(domain: 'jobs.com')
-company.update(name: 'Jobs',
-               address: 'Rio de Janeiro',
-               document: Faker::Company.brazilian_company_number.to_s)
+company.update(name: 'Jobs', document: Faker::Company.brazilian_company_number.to_s)
 
 JobOpportunity.create!(company: company,
                        job_title: 'Dummie',
@@ -42,7 +40,6 @@ Candidate.create(email: 'candidate@email.com',
                  firstname: 'Candidate',
                  surname: 'Jobs',
                  document: '46733146037',
-                 address: 'Av. Pereira',
                  about_me: 'This is Me')
 
 puts "Candidate created! login: 'candidate@email.com' and password: '123456'"

@@ -13,7 +13,7 @@ class Company < ApplicationRecord
   accepts_nested_attributes_for :address
 
   validates :domain, presence: true
-  validates :name, :address, :document, presence: true, on: :update
+  validates :name, :document, presence: true, on: :update
   validates :document, length: { is: 14 }, on: :update
   validates :domain, :document, uniqueness: true
 
@@ -26,7 +26,7 @@ class Company < ApplicationRecord
   def self.search(input)
     return self if input.blank?
 
-    where('name ILIKE ? OR address ILIKE ? OR domain ILIKE ?',
-          "%#{input}%", "%#{input}%", "%#{input}%")
+    left_joins(:address).where('name ILIKE ? OR addresses.city ILIKE ? OR domain ILIKE ?',
+                               "%#{input}%", "%#{input}%", "%#{input}%")
   end
 end

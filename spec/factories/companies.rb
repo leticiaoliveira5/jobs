@@ -2,8 +2,11 @@ FactoryBot.define do
   factory :company do
     name { Faker::Company.name }
     domain { Faker::Internet.domain_name(domain: name) }
-    address { Faker::Address.city }
     document { Faker::Company.brazilian_company_number.to_s }
+
+    after(:build) do |company|
+      company.address = build(:address, resource: company)
+    end
   end
 
   trait :with_employee do

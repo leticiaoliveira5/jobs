@@ -5,7 +5,16 @@
     <%= f.input :name %>
     <%= f.input :domain %>
     <%= f.input :document %>
-    <%= f.input :address  %>
+
+    <%= f.fields_for :addresses do |af| %>
+      <%= af.input :zipcode %>
+      <%= af.input :street %>
+      <%= af.input :number %>
+      <%= af.input :neighborhood %>
+      <%= af.input :city %>
+      <%= af.input :country, as: :string %>
+    <% end %>
+
     <%= f.submit 'Cadastrar empresa' %>
   <% end %>
 
