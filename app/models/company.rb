@@ -8,6 +8,10 @@ class Company < ApplicationRecord
   has_many :inactive_job_opportunities, -> { where(status: :inactive) },
            class_name: 'JobOpportunity', inverse_of: :company
 
+  has_one :address, as: :resource
+
+  accepts_nested_attributes_for :address
+
   validates :domain, presence: true
   validates :name, :address, :document, presence: true, on: :update
   validates :document, length: { is: 14 }, on: :update
