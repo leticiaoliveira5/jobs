@@ -13,10 +13,11 @@ feature 'Employee edits company' do
     visit root_path
     within('.nav') { click_on 'Área do colaborador' }
     click_on 'Editar dados da empresa'
+    fill_in 'Nome', with: 'Novo nome'
     click_on 'Cadastrar empresa'
 
-    expect(current_path).to eq company_path(employee.company)
-    expect(page).to have_content 'Rua 7, número 10, Glória'
+    expect(current_path).to eq company_path(first_employee.company.reload)
+    expect(page).to have_content 'Novo nome'
   end
 
   scenario 'if admin' do
