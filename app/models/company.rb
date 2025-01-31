@@ -8,7 +8,7 @@ class Company < ApplicationRecord
   has_many :inactive_job_opportunities, -> { where(status: :inactive) },
            class_name: 'JobOpportunity', inverse_of: :company
 
-  has_one :address, as: :resource
+  has_one :address, as: :resource, dependent: :destroy
 
   accepts_nested_attributes_for :address
 

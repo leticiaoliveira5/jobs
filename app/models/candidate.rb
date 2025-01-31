@@ -12,7 +12,7 @@ class Candidate < ApplicationRecord
   has_many :courses, dependent: :destroy
   has_many :languages, dependent: :destroy
   has_many :degrees, dependent: :destroy
-  has_one :address, as: :resource
+  has_one :address, as: :resource, dependent: :destroy
 
   has_one_attached :avatar
 

@@ -5,13 +5,13 @@ FactoryBot.define do
     zipcode { '24738200' }
     street { 'Rua José Toledo da Silva' }
     neighborhood { 'Santa Isabel' }
-    number {  '1' }
+    number { '1' }
     city { 'São Gonçalo' }
     state { 'RJ' }
     country { 'Brasil' }
 
-    factory :candidate_address do      
-      resource { association(:candidate)  }
+    factory :candidate_address do
+      resource { association(:candidate) }
     end
   end
 end
