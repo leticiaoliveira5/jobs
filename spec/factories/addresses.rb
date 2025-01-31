@@ -2,13 +2,13 @@ require 'faker'
 
 FactoryBot.define do
   factory :address, class: 'address' do
-    zipcode { '24738200' }
-    street { 'Rua José Toledo da Silva' }
-    neighborhood { 'Santa Isabel' }
+    zipcode { Faker::Address.zip_code }
+    street { Faker::Address.street_name }
     number { '1' }
-    city { 'São Gonçalo' }
-    state { 'RJ' }
-    country { 'Brasil' }
+    neighborhood { Faker::Address.community }
+    city { Faker::Address.city }
+    state { Faker::Address.state }
+    country { Faker::Address.country }
 
     factory :candidate_address do
       resource { association(:candidate) }
