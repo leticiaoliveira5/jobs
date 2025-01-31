@@ -18,6 +18,7 @@ class Company < ApplicationRecord
   validates :domain, :document, uniqueness: true
 
   delegate :to_line, to: :address, prefix: true, allow_nil: true
+  delegate :short_form, to: :address, prefix: true, allow_nil: true
 
   def to_param
     return nil unless persisted?

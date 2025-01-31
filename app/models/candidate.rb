@@ -21,6 +21,9 @@ class Candidate < ApplicationRecord
   validates :document, length: { is: 11 }, on: :update, allow_blank: true
   validate :avatar_validation
 
+  delegate :to_line, to: :address, prefix: true, allow_nil: true
+  delegate :short_form, to: :address, prefix: true, allow_nil: true
+
   def self.search(search)
     return self if search.blank?
 

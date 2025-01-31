@@ -9,4 +9,8 @@ class Address < ApplicationRecord
   def to_line
     [street, number, neighborhood, city, state, country, zipcode].compact.join(', ')
   end
+
+  def short_form
+    "#{city}, #{country}"
+  end
 end
