@@ -6,7 +6,7 @@ feature 'Employee edits company' do
   let!(:first_employee) { create(:employee, role: :admin) }
   let(:regular_employee) { create(:employee, role: :regular, company: first_employee.company) }
 
-  scenario 'if admin' do
+  scenario 'if is company admin' do
     login_as first_employee, scope: :employee
     visit root_path
     within('.nav') { click_on 'Área do colaborador' }
@@ -18,7 +18,7 @@ feature 'Employee edits company' do
     expect(page).to have_content 'Novo nome'
   end
 
-  scenario 'if regular' do
+  scenario '(not available for regular employee)' do
     login_as regular_employee, scope: :employee
     visit root_path
     within('.nav') { click_on 'Área do colaborador' }
