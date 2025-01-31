@@ -5,4 +5,8 @@ class Address < ApplicationRecord
 
   validates :street, :neighborhood, :city, :zipcode, :country, presence: true
   validates :number, numericality: true, allow_blank: true
+
+  def to_line
+    [street, number, neighborhood, city, state, country, zipcode].compact.join(', ')
+  end
 end

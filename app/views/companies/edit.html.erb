@@ -6,7 +6,7 @@
     <%= f.input :domain %>
     <%= f.input :document %>
 
-    <%= f.fields_for :addresses do |af| %>
+    <%= f.fields_for :address do |af| %>
       <%= af.input :zipcode %>
       <%= af.input :street %>
       <%= af.input :number %>

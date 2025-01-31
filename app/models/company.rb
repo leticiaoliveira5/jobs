@@ -17,6 +17,8 @@ class Company < ApplicationRecord
   validates :document, length: { is: 14 }, on: :update
   validates :domain, :document, uniqueness: true
 
+  delegate :to_line, to: :address, prefix: true, allow_nil: true
+
   def to_param
     return nil unless persisted?
 
