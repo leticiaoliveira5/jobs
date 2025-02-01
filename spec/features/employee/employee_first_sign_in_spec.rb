@@ -24,7 +24,6 @@ feature 'First employee sign in for the first time' do
   scenario 'and registers company' do
     fill_in 'Nome', with: 'Apple'
     fill_in 'CNPJ', with: '12345678912345'
-    fill_in 'Endereço', with: 'California'
     click_on 'Cadastrar empresa'
 
     expect(company.reload.name).to eq 'Apple'

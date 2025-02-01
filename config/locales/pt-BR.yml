@@ -1,6 +1,14 @@
 pt-BR:
   activerecord:
     attributes:
+      address:
+        street: Rua
+        number: Número
+        neighborhood: Bairro
+        state: Estado
+        city: Cidade
+        zipcode: Código postal
+        country: País
       candidate:
         email: E-mail
         firstname: Nome
@@ -48,6 +56,9 @@ pt-BR:
           has_many: Não é possível excluir o registro pois existem %{record} dependentes
           has_one: Não é possível excluir o registro pois existe um %{record} dependente
     models:
+      addresses:
+        one: Endereço
+        other: Endereços
       candidate:
         one: Candidato
         other: Candidatos

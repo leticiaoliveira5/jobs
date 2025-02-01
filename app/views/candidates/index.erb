@@ -22,7 +22,7 @@
         <% @candidates.each do |candidate| %>
           <%= render(CompanyPreviewComponent.new) do %>
             <%= link_to tag.h2(candidate.full_name), candidate_path(candidate) %>
-            <%= candidate.address %><br>
+            <%= candidate.address_short_form %><br>
             <p><%= see_more(candidate) %></p>
           <% end %>
         <% end %>

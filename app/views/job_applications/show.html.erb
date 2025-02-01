@@ -5,7 +5,7 @@
   <h3>Candidato: <%= @candidate.firstname %> <%= @candidate.surname %> 
   (<%= link_to 'Ver perfil', candidate_path(@job_application.candidate) %>)</h3>
   <h4>CPF:</h4> <%= @candidate.document %>
-  <h4>Endereço:</h4> <%= @candidate.address %>
+  <h4>Endereço:</h4> <%= @candidate.address_short_form %>
   <h4>Sobre mim:</h4> <%= @candidate.about_me %>
   <h4>Vaga:</h4> <%= link_to @job_application.job_opportunity.job_title, job_opportunity_path(@job_application.job_opportunity) %>
   <h4>Empresa:</h4> <%= link_to @job_application.company.name, company_path(@job_application.company) %>
