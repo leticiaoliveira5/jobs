@@ -13,38 +13,19 @@
   }
 }
 
-
-:root {
-  --background_color: gainsboro;
-  --content_blocks_color: white;
-  --title: #10462C;
-  --text_normal: black;
-  --link: #276a66;
-  --inactive_link: #818181;
-  --alert_success: green;
-  --alert_danger: #dc0000;
-  --alert_background: white;
-  --nav_link: #818181;
-  --nav_background_color: #EEEEEE;
-  --nav_background_color_hover: #3e8e41;
-  --button_link: white;
-  --button_color: #276a66;
-}
-
-
 body {
   font-family: 'Montserrat', sans-serif;
-  color: var(--text_normal);
-  background-color: var(--background_color);
+  color: black;
+  background-color: gainsboro;
   font-size: 14px;
   font-weight: 400;
   margin: 0;
 }
 
-h1, h2, h3, h4 { color: var(--title); }
+h1, h2, h3, h4 { color: #10462C; }
 
 a {
-  color: var(--link);
+  color: #276a66;
   font-weight: 500;
   letter-spacing: 0.05em;
   padding: 2px;
@@ -54,12 +35,12 @@ a {
 }
 
 a:hover {
-  text-decoration-color: var(--link);
+  text-decoration-color: #276a66;
 }
 
 .alert {
   align-self: center;
-  background-color: var(--alert_background);
+  background-color: white;
   border-radius: 7px;
   margin: 15px auto;
   padding: 15px 25px 15px 25px; /* top right bottom left */
@@ -67,15 +48,15 @@ a:hover {
   width: 30%;
 }
 
-.danger { color: var(--alert_danger); }
+.danger { color: #dc0000; }
 
-.success { color: var(--alert_success); }
+.success { color: green; }
 
 .button {
   all: unset;
-  background-color: var(--button_color);
+  background-color: #276a66;
   border-radius: 7px;
-  color: var(--button_link);
+  color: white;
   display: inline-block;
   font-weight: 500;
   margin: auto;
@@ -89,7 +70,7 @@ a:hover {
 }
 
 .tag {
-  background-color: var(--background_color);
+  background-color: gainsboro;
   border-radius: 20px;
   color:white;
   font-size: 0.75em;
@@ -101,14 +82,14 @@ a:hover {
 }
 
 .bg-gray {
-  background-color: var(--background_color);
-  color: var(--inactive_link)
+  background-color: gainsboro;
+  color: #818181
 }
-.bg-red { background-color: var(--alert_danger); }
-.bg-green { background-color: var(--alert_success); }
+.bg-red { background-color: #dc0000; }
+.bg-green { background-color: green; }
 
 .bold {
-  color: var(--title);
+  color: #10462C;
   font-size: 1.2em;
   font-weight: 700;
 }
@@ -121,7 +102,7 @@ a:hover {
 }
 
 .contentblock {
-  background-color: var(--content_blocks_color);
+  background-color: white;
   width: 80%;
   align-self: center;
   border-radius: 7px;
@@ -183,12 +164,12 @@ a:hover {
 }
 
 .gray-icon {
-  color: var(--background_color);
+  color: gainsboro;
   cursor: pointer;
 }
 
 .green-icon {
-  color: var(--title);
+  color: #10462C;
   cursor: pointer;
   margin-left: 5px;
 }
@@ -196,7 +177,7 @@ a:hover {
 /* SEARCH FIELD */
 
 .search_container {
-  border: 1px solid var(--button_color);
+  border: 1px solid #276a66;
   border-radius: 7px;
   display: flex;
   justify-content: space-between;
@@ -250,7 +231,7 @@ a:hover {
 }
 
 .login-component {
-  background-color: var(--nav_background_color);
+  background-color: #EEEEEE;
   border-radius: 7px;
   box-sizing: border-box;
   margin: 3em;
@@ -281,7 +262,7 @@ a:hover {
 
 .login-component .tab {
   border-bottom: 3px solid;
-  color: var(--inactive_link);
+  color: #818181;
   cursor: pointer;
   font-size: 1.6em;
   font-weight: 500;
@@ -292,8 +273,8 @@ a:hover {
 }
 
 .login-component .tabs .active {
-  border-color: var(--link);
-  color: var(--link);
+  border-color: #276a66;
+  color: #276a66;
   font-weight: 500;
   letter-spacing: 0.05em;
 }
@@ -326,7 +307,7 @@ a:hover {
 
 .login-component input[type=submit] {
   border: none;
-  color: var(--link);
+  color: #276a66;
   cursor: pointer;
   font-family: 'Montserrat', sans-serif;
   font-size: 24px;
@@ -359,7 +340,7 @@ a:hover {
 
 .nav {
   align-items: center;
-  background-color: var(--nav_background_color);
+  background-color: #EEEEEE;
   border: none;
   display: flex;
   justify-content: space-between;
@@ -369,7 +350,7 @@ a:hover {
 }
 
 .navtitle {
-  color: var(--title);
+  color: #10462C;
   font-size: 44px;
   padding: 10px;
   text-transform: uppercase;
@@ -390,7 +371,7 @@ a:hover {
   }
 
   .nav a {
-    color: var(--nav_link);
+    color: #818181;
     padding-left: 10px;
     padding-right: 10px;
     text-decoration: none;
@@ -412,7 +393,7 @@ a:hover {
 
 .nav-mobile-dropdown-content .mobile-menu {
   align-items: flex-start;
-  background-color: var(--nav_background_color);
+  background-color: #EEEEEE;
   display: none;
   flex-direction: column;
   font-size: 1.2em;
@@ -428,7 +409,7 @@ a:hover {
 /* BOX COMPONENT */
 
 .box .collapse-icon {
-  color: var(--inactive_link);
+  color: #818181;
   cursor: pointer;
   display: inline-flex;
   float: right;
@@ -452,7 +433,7 @@ a:hover {
 }
 
 .box .title {
-  color: var(--title);
+  color: #10462C;
   cursor: pointer;
   font-size: 1.5em;
   font-weight:  bold;
@@ -472,7 +453,7 @@ a:hover {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background-color: var(--nav_background_color);
+  background-color: #EEEEEE;
   border-radius: 7px;
 }
 
@@ -510,7 +491,7 @@ a:hover {
 }
 
 .list-item:hover {
-  background-color: var(--nav_background_color);
+  background-color: #EEEEEE;
 }
 
 .side-button {
@@ -529,7 +510,7 @@ a:hover {
 }
 
 .form-style .error {
-  color: var(--alert_danger);
+  color: #dc0000;
   display: block;
 }
 
@@ -559,11 +540,11 @@ input {
 .form-style input[type="checkbox"] { vertical-align: middle; }
 
 .form-style input[type=submit] {
-  background-color: var(--button_color);
+  background-color: #276a66;
   border-radius: 7px;
   border-style: none;
   box-sizing: border-box;
-  color: var(--button_link);
+  color: white;
   display: inline-block;
   margin: 10px auto;
   padding: 15px 32px;
