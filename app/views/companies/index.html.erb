@@ -22,7 +22,7 @@
         <% @companies.each do |company| %>
           <%= render(CompanyPreviewComponent.new) do %>
             <%= link_to tag.h2(company.name), company_path(company) %>
-            <%= company.address %><br>
+            <%= company.address_short_form %><br>
             <%= t('.active_opportunities') %>: <%= company.active_job_opportunities.size %><br>
             <%= company.domain %>
             <p><%= see_more(company) %></p>

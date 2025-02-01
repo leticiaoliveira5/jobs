@@ -6,7 +6,7 @@
     <h3><%= t('.domain') %></h3>
     <%= @company.domain %>
     <h3><%= t('.address') %></h3>
-    <%= @company.address %>
+    <%= @company.address_to_line || '-' %>
     <h3><%= t('.document') %></h3>
     <%= @company.document %>
   <% end %>

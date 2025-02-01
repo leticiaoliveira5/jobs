@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CompaniesController < ApplicationController
   before_action :authenticate_employee!, only: %i[dashboard edit update]
   before_action :set_company, only: %i[dashboard edit update]
@@ -9,7 +11,7 @@ class CompaniesController < ApplicationController
   end
 
   def show
-    @company = Company.find(params[:id])
+    @company = Company.includes(:address).find(params[:id])
     @job_opportunities = @company.job_opportunities.active
   end
 
@@ -18,7 +20,9 @@ class CompaniesController < ApplicationController
     redirect_to @company if @company.save
   end
 
-  def edit; end
+  def edit
+    @company.build_address unless @company.address
+  end
 
   def update
     @company.update(company_params)
@@ -43,6 +47,10 @@ class CompaniesController < ApplicationController
   end
 
   def company_params
-    params.require(:company).permit(:name, :domain, :address, :document)
+    params.require(:company).permit(:name, :domain, :document, address_attributes)
+  end
+
+  def address_attributes
+    { address_attributes: %i[zipcode street number neighborhood city state country] }
   end
 end
