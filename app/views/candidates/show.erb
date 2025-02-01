@@ -5,7 +5,7 @@
         <%= sidebar_avatar(@candidate.avatar) %>
         <p class="title"><%= @candidate.full_name %>
         <%= edit_candidate_info_button %></p>
-        <%= candidate_locale(@candidate.address) %>
+        <%= candidate_locale(@candidate.address_short_form) %>
         <%= candidate_website(@candidate.website) %>
       <% end %>
     <% end %>

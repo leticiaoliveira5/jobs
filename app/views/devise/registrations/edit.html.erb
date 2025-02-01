@@ -8,9 +8,17 @@
     <% if candidate_signed_in? %>
       <%= f.input :about_me, as: :text %>
       <%= f.input :document %>
-      <%= f.input :address %>
       <%= f.input :avatar, input_html: { accept: ['image/jpeg'] } %>
       <%= f.input :website %>
+
+      <%= f.fields_for :address, resource.address || resource.build_address do |af| %>
+        <%= af.input :zipcode %>
+        <%= af.input :street %>
+        <%= af.input :number %>
+        <%= af.input :neighborhood %>
+        <%= af.input :city %>
+        <%= af.input :country, as: :string %>
+      <% end %>
     <% end %>
 
     <%= f.input :email, as: :email, autofocus: true, autocomplete: "email" %>

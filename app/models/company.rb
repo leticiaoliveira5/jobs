@@ -8,10 +8,17 @@ class Company < ApplicationRecord
   has_many :inactive_job_opportunities, -> { where(status: :inactive) },
            class_name: 'JobOpportunity', inverse_of: :company
 
+  has_one :address, as: :resource, dependent: :destroy
+
+  accepts_nested_attributes_for :address
+
   validates :domain, presence: true
-  validates :name, :address, :document, presence: true, on: :update
+  validates :name, :document, presence: true, on: :update
   validates :document, length: { is: 14 }, on: :update
   validates :domain, :document, uniqueness: true
+
+  delegate :to_line, to: :address, prefix: true, allow_nil: true
+  delegate :short_form, to: :address, prefix: true, allow_nil: true
 
   def to_param
     return nil unless persisted?
@@ -22,7 +29,7 @@ class Company < ApplicationRecord
   def self.search(input)
     return self if input.blank?
 
-    where('name ILIKE ? OR address ILIKE ? OR domain ILIKE ?',
-          "%#{input}%", "%#{input}%", "%#{input}%")
+    left_joins(:address).where('name ILIKE ? OR addresses.city ILIKE ? OR domain ILIKE ?',
+                               "%#{input}%", "%#{input}%", "%#{input}%")
   end
 end

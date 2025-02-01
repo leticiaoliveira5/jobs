@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Employee sign in' do
   scenario 'and company already exists' do
-    apple = create(:company, name: 'Apple', domain: 'apple.com', address: 'Los Angeles')
+    apple = create(:company, name: 'Apple', domain: 'apple.com')
 
     visit root_path
     within('#employee-form') { click_on 'Inscrever-se' }
