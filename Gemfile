@@ -6,7 +6,7 @@ ruby '3.1.3'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 gem 'enumerate_it'
-gem 'font-awesome-rails', '4.7.0.8'
+gem 'font-awesome-rails', '4.7.0.9'
 gem 'kaminari', '>= 1.2.2'
 gem 'pg', '~> 1.3.5'
 gem 'puma', '~> 6.6'
