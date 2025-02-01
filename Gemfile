@@ -6,16 +6,14 @@ ruby '3.1.3'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 gem 'enumerate_it'
-gem 'font-awesome-rails', '4.7.0.8'
-gem 'jbuilder', '~> 2.5'
+gem 'font-awesome-rails', '4.7.0.9'
 gem 'kaminari', '>= 1.2.2'
 gem 'pg', '~> 1.3.5'
-gem 'puma', '~> 5.6'
-gem 'rails', '7.0.8.5'
+gem 'puma', '~> 6.6'
+gem 'rails', '7.0.8.7'
 gem 'sass-rails'
-gem 'simple_form', '5.1.0'
+gem 'simple_form', '~> 5.3'
 gem 'sprockets-rails'
-gem 'turbolinks', '~> 5'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'uglifier', '>= 1.3.0'
 gem 'view_component', '~> 2'
@@ -30,7 +28,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'capybara'
+  gem 'capybara', '~> 3.40'
   gem 'rails-controller-testing'
   gem 'shoulda-matchers', '~> 4.0'
   gem 'simplecov', '~> 0.13.0', require: false
