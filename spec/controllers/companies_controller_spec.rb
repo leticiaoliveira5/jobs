@@ -27,7 +27,7 @@ RSpec.describe CompaniesController, type: :controller, login_metadata: true do
   describe '#create' do
     it 'creates a company' do
       expect do
-        post :create, params: { company: { name: 'Apple', domain: 'apple.com', address: 'CA' } }
+        post :create, params: { company: { name: 'Apple', domain: 'apple.com' } }
       end.to change(Company, :count).by(1)
 
       expect(response).to redirect_to(company_path(Company.last))
@@ -35,22 +35,22 @@ RSpec.describe CompaniesController, type: :controller, login_metadata: true do
   end
 
   describe '#update' do
-    let(:company) { create(:company, :with_employee, address: 'California') }
+    let(:company) { create(:company, :with_employee) }
 
     before { sign_in(company.employees.first) }
 
     it 'with valid params, updates company' do
-      patch :update, params: { id: company.id, company: { address: 'New York' } }
+      patch :update, params: { id: company.id, company: { domain: 'company.com' } }
 
       expect(response).to redirect_to(company_path(company))
-      expect(company.reload.address).to eq 'New York'
+      expect(company.reload.domain).to eq 'company.com'
     end
 
     it 'with invalid params, renders edit' do
-      patch :update, params: { id: company.id, company: { address: '' } }
+      patch :update, params: { id: company.id, company: { domain: '' } }
 
       expect(response).to render_template('edit')
-      expect(company.reload.address).to eq 'California'
+      expect(company.reload.domain).not_to eq 'company.com'
     end
   end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_07_193045) do
+ActiveRecord::Schema[7.0].define(version: 2025_01_31_130805) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_07_193045) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "addresses", force: :cascade do |t|
+    t.bigint "resource_id", null: false
+    t.string "resource_type", null: false
+    t.string "street"
+    t.string "number"
+    t.string "neighborhood"
+    t.string "city"
+    t.string "state"
+    t.string "country"
+    t.string "zipcode"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "candidate_skills", force: :cascade do |t|
     t.bigint "candidate_id"
     t.bigint "skill_id"
@@ -61,7 +75,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_07_193045) do
     t.string "about_me"
     t.string "firstname"
     t.string "surname"
-    t.string "address"
     t.string "document"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
@@ -75,7 +88,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_07_193045) do
     t.datetime "updated_at", precision: nil, null: false
     t.string "domain"
     t.string "name"
-    t.string "address"
     t.string "document"
     t.index ["document"], name: "index_companies_on_document", unique: true
     t.index ["domain"], name: "index_companies_on_domain", unique: true

@@ -7,7 +7,7 @@
       <% end %>
       <%= box.body do %>
         <p><%= t_attr('candidate.document') %>: <%= @candidate.document %></p>
-        <%= candidate_locale(@candidate.address) %>
+        <%= candidate_locale(@candidate.address_short_form) %>
         <%= candidate_website(@candidate.website) %>        
         <%= link_to 'Editar meus dados', edit_candidate_registration_path(@candidate) %>
         <%= link_to 'Meu perfil', candidate_path(@candidate) %>
