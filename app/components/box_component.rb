@@ -8,8 +8,8 @@ class BoxComponent < ViewComponent::Base
   # color: [:primary, :secondary, :transparent]
 
   COLOR_OPTIONS = {
-    primary: 'var(--content_blocks_color)',
-    secondary: 'var(--nav_background_color)',
+    primary: 'white',
+    secondary: '#EEEEEE',
     transparent: 'transparent'
   }.freeze
 

@@ -1,4 +1,4 @@
-<%= simple_form_for(@job_opportunity) do |f| %>
+<%= simple_form_for(@job_opportunity, defaults: { input_html: { class: "shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" } }) do |f| %>
   <%= f.input :job_title %>
   <%= f.input :job_level, as: :select, collection: ['Júnior', 'Pleno', 'Sênior'] %>
   <%= f.input :salary_range %>
