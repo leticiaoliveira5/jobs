@@ -14,6 +14,7 @@ gem 'rails', '7.0.8.7'
 gem 'sass-rails'
 gem 'simple_form', '~> 5.3'
 gem 'sprockets-rails'
+gem 'tailwindcss-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'uglifier', '>= 1.3.0'
 gem 'view_component', '~> 2'
