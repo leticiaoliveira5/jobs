@@ -6,10 +6,10 @@
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
     <% if controller_name == "home" %>
       <%= stylesheet_link_tag 'homepage', media: 'all' %>
-    <% else %>
-      <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <% end %>
 
     <%= javascript_include_tag 'application' %>
