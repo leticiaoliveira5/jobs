@@ -10,28 +10,10 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require ./color_theme
  *= require_self
  *= require font-awesome
  */
-
- /* COLORS */
- 
-:root {
-  --background_color: gainsboro;
-  --content_blocks_color: white;
-  --title: #10462C;
-  --text_normal: black;
-  --link: #276a66;
-  --inactive_link: #818181;
-  --alert_success: green;
-  --alert_danger: #dc0000;
-  --alert_background: white;
-  --nav_link: #818181;
-  --nav_background_color: #EEEEEE;
-  --nav_background_color_hover: #3e8e41;
-  --button_link: white;
-  --button_color: #276a66;
-}
 
 body {
   font-family: 'Montserrat', sans-serif;
