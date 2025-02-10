@@ -10,7 +10,7 @@ gem 'font-awesome-rails', '4.7.0.9'
 gem 'kaminari', '>= 1.2.2'
 gem 'pg', '~> 1.3.5'
 gem 'puma', '~> 6.6'
-gem 'rails', '7.0.8.7'
+gem 'rails', '7.1.5.1'
 gem 'sass-rails'
 gem 'simple_form', '~> 5.3'
 gem 'sprockets-rails'
@@ -23,7 +23,7 @@ group :development, :test do
   gem 'factory_bot', '6.2.1'
   gem 'factory_bot_rails', '6.2.0'
   gem 'faker', require: false
-  gem 'rspec-rails', '~> 5.1.0'
+  gem 'rspec-rails', '~> 7'
   gem 'rubocop-rspec', require: false
 end
 
