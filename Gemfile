@@ -31,7 +31,7 @@ group :test do
   gem 'capybara', '~> 3.40'
   gem 'rails-controller-testing'
   gem 'shoulda-matchers', '~> 4.0'
-  gem 'simplecov', '~> 0.13.0', require: false
+  gem 'simplecov', '0.22.0', require: false
 end
 
 group :development do
