@@ -43,12 +43,12 @@ module JobOpportunityHelper
       job_application = job_opportunity.job_applications.find_by(candidate: current_candidate)
       button_to 'Cancelar candidatura',
                 job_application_path(job_application),
-                class: 'button',
+                class: 'btn btn-primary',
                 method: :delete
     else
       button_to 'Inscrever-se nesta vaga',
                 create_job_application_job_opportunity_path(job_opportunity),
-                class: 'button',
+                class: 'btn btn-primary',
                 method: :post
     end
   end
