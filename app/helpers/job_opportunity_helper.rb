@@ -67,9 +67,9 @@ module JobOpportunityHelper
   def job_opportunity_status_tag(status)
     color = case status
             when 'inactive'
-              'bg-gray'
+              'bg-secondary'
             when 'active'
-              'bg-green'
+              'bg-success'
             end
 
     tag.span(t(".status.#{status}"), class: "tag #{color}")
