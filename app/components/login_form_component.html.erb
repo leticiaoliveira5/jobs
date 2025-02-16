@@ -1,9 +1,9 @@
 <%= form_for(@resource_name, url: session_path(@resource_name)) do |f| %>
-  <div>
+  <div class="form-group">
     <%= f.label :email, t("activerecord.attributes.#{@resource_name}.email") %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
     <%= f.label :password, t("activerecord.attributes.#{@resource_name}.password"), autocomplete: "current-password" %>
-    <%= f.password_field :password %>
+    <%= f.password_field :password, class: 'form-control' %>
     <%= link_to t('devise.passwords.new.forgot_your_password'), new_password_path(@resource_name), class: 'hint-link' %>
   </div>
   <div>

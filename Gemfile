@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.1.3'
 
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bootstrap', '~> 5.3.3'
 gem 'devise'
 gem 'enumerate_it'
 gem 'font-awesome-rails', '4.7.0.9'
@@ -13,7 +14,6 @@ gem 'puma', '~> 6.6'
 gem 'rails', '7.1.5.1'
 gem 'sass-rails'
 gem 'simple_form', '~> 5.3'
-gem 'sprockets-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'uglifier', '>= 1.3.0'
 gem 'view_component', '~> 2'

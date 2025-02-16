@@ -1,20 +1,24 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require ./color_theme
- *= require ./form_style
- *= require_self
- *= require font-awesome
- */
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+$primary: #276a66;
+
+@import "bootstrap";
+@import "font-awesome";
+
+:root {
+  --background_color: gainsboro;
+  --content_blocks_color: white;
+  --title: #10462C;
+  --text_normal: black;
+  --link: #276a66;
+  --inactive_link: #818181;
+  --alert_success: green;
+  --alert_danger: #dc0000;
+  --nav_link: #818181;
+  --nav_background_color: #EEEEEE;
+  --nav_background_color_hover: #3e8e41;
+  --button_link: white;
+  --button_color: #276a66;
+}
 
 body {
   font-family: 'Montserrat', sans-serif;
@@ -30,8 +34,6 @@ h1, h2, h3, h4 { color: var(--title); }
 a {
   color: var(--link);
   font-weight: 500;
-  letter-spacing: 0.05em;
-  padding: 2px;
   text-decoration: underline;
   text-decoration-color: transparent;
   transition: 0.6s;
@@ -39,37 +41,6 @@ a {
 
 a:hover {
   text-decoration-color: var(--link);
-}
-
-.alert {
-  align-self: center;
-  background-color: var(--alert_background);
-  border-radius: 7px;
-  margin: 15px auto;
-  padding: 15px 25px 15px 25px; /* top right bottom left */
-  text-align: center;
-  width: 30%;
-}
-
-.danger { color: var(--alert_danger); }
-
-.success { color: var(--alert_success); }
-
-.button {
-  all: unset;
-  background-color: var(--button_color);
-  border-radius: 7px;
-  color: var(--button_link);
-  display: inline-block;
-  font-weight: 500;
-  margin: auto;
-  padding: 1em 2em;
-  text-align: center;
-  text-decoration: none;
-}
-
-.button:hover {
-  cursor: pointer;
 }
 
 .tag {
@@ -83,13 +54,6 @@ a:hover {
   text-transform: lowercase;
   white-space: nowrap;
 }
-
-.bg-gray {
-  background-color: var(--background_color);
-  color: var(--inactive_link)
-}
-.bg-red { background-color: var(--alert_danger); }
-.bg-green { background-color: var(--alert_success); }
 
 .bold {
   color: var(--title);
@@ -500,3 +464,64 @@ a:hover {
 .side-button {
   font-size: 1.3em;
 }
+
+
+
+/* FORM STYLES */
+
+
+.form-style .input {
+  margin: 15px auto;
+  width: 100%;
+}
+
+.form-style .actions {
+  margin: 15px auto;
+  width: 100%;
+}
+
+.form-style .error {
+  color: var(--alert_danger);
+  display: block;
+}
+
+.form-style label {
+  display: block;
+  font-size: 1.15em;
+  text-align: left;
+  text-transform: lowercase;
+}
+
+.form-style select,
+input {
+  border-color: rgb(191, 191, 191);
+  border-radius: 7px;
+  box-sizing: border-box;
+  font-size: 1em;
+  padding: 12px 16px;
+  width: 100%;
+}
+
+.form-style textarea {
+  max-width: 100%;
+  min-height: 20px;
+  width: 100%;
+}
+
+.form-style input[type="checkbox"] { vertical-align: middle; }
+
+.form-style input[type=submit] {
+  background-color: var(--button_color);
+  border-radius: 7px;
+  border-style: none;
+  box-sizing: border-box;
+  color: var(--button_link);
+  display: inline-block;
+  margin: 10px auto;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+}
+
+.form-style input[type=submit]:hover { cursor: pointer; }
