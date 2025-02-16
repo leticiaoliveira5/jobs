@@ -30,20 +30,6 @@ a:hover {
   text-decoration-color: var(--link);
 }
 
-.alert {
-  align-self: center;
-  background-color: var(--alert_background);
-  border-radius: 7px;
-  margin: 15px auto;
-  padding: 15px 25px 15px 25px; /* top right bottom left */
-  text-align: center;
-  width: 30%;
-}
-
-.danger { color: var(--alert_danger); }
-
-.success { color: var(--alert_success); }
-
 .button {
   all: unset;
   background-color: var(--button_color);
