@@ -1,7 +1,10 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
 @import "font-awesome";
- 
+
+@import "color_theme";
+@import "form_style";
+
 body {
   font-family: 'Montserrat', sans-serif;
   color: var(--text_normal);
