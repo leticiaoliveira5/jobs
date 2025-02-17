@@ -10,12 +10,15 @@ class Company < ApplicationRecord
 
   has_one :address, as: :resource, dependent: :destroy
 
+  has_one_attached :logo
+
   accepts_nested_attributes_for :address
 
   validates :domain, presence: true
   validates :name, :document, presence: true, on: :update
   validates :document, length: { is: 14 }, on: :update
   validates :domain, :document, uniqueness: true
+  validate :logo_validations
 
   delegate :to_line, to: :address, prefix: true, allow_nil: true
   delegate :short_form, to: :address, prefix: true, allow_nil: true
@@ -31,5 +34,12 @@ class Company < ApplicationRecord
 
     left_joins(:address).where('name ILIKE ? OR addresses.city ILIKE ? OR domain ILIKE ?',
                                "%#{input}%", "%#{input}%", "%#{input}%")
+  end
+
+  def logo_validations
+    return unless logo.attached?
+
+    errors.add(:logo, :content_type) if logo.content_type != 'image/png'
+    errors.add(:logo, :size) if logo.byte_size > 0.5.megabyte
   end
 end
