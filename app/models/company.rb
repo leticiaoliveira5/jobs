@@ -19,7 +19,7 @@ class Company < ApplicationRecord
   validates :document, length: { is: 14 }, on: :update
   validates :domain, :document, uniqueness: true
   validates :logo, content_type: 'image/png'
-  validates :logo, size: { less_than_or_equal_to: 0.5.megabytes }
+  validates :logo, size: { less_than: 0.5.megabytes }
 
   delegate :to_line, to: :address, prefix: true, allow_nil: true
   delegate :short_form, to: :address, prefix: true, allow_nil: true

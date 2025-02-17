@@ -15,24 +15,7 @@ RSpec.describe Company, type: :model do
   end
 
   describe 'validations' do
-    context 'logo' do
-      it 'validates content type' do
-        company = build(:company, :with_invalid_format_logo)
-
-        expect(company).to be_invalid
-        expect(company.errors).to include(:logo)
-      end
-
-      # rubocop:disable RSpec/AnyInstance
-      it 'validates size' do
-        company = build(:company, :with_logo)
-
-        allow_any_instance_of(ActiveStorage::Blob).to receive(:byte_size).and_return(1.megabyte)
-
-        expect(company).to be_invalid
-        expect(company.errors).to include(:logo)
-      end
-      # rubocop:enable RSpec/AnyInstance
-    end
+    it { is_expected.to validate_content_type_of(:logo).allowing('image/png') }
+    it { is_expected.to validate_size_of(:logo).less_than(0.5.megabytes) }
   end
 end

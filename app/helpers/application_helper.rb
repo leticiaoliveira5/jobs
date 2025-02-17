@@ -7,8 +7,8 @@ module ApplicationHelper
   end
 
   def company_logo(company, size: '50x50', link: nil)
-    logo = company.logo.attached? ? company.logo : 'icon.png'
-    img = image_tag(logo, size: size, style: 'border-radius: 50%;')
+    logo = company.logo
+    img = image_tag(logo.attached? ? logo : 'icon.png', size: size, style: 'border-radius: 50%;')
 
     link ? link_to(img, link) : img
   end
