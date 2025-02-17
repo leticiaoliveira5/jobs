@@ -1,6 +1,7 @@
 <%= render(BoxComponent.new) do |component| %>
   <%= component.title { 'Dados da empresa' } %>
   <%= component.body do %>
+    <%= company_logo(@company, size: '80x80')%>
     <h3><%= t('.name') %></h3>
     <%= @company.name %> 
     <h3><%= t('.domain') %></h3>
