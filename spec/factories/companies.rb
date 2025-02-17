@@ -15,18 +15,4 @@ FactoryBot.define do
                         email: Faker::Internet.email(domain: company.domain))
     end
   end
-
-  trait :with_logo do
-    after(:build) do |company|
-      company.logo.attach(io: File.open(Rails.root.join('spec/fixtures/img.png')),
-                          filename: 'img.jpg', content_type: 'image/png')
-    end
-  end
-
-  trait :with_invalid_format_logo do
-    after(:build) do |company|
-      company.logo.attach(io: File.open(Rails.root.join('spec/fixtures/text.txt')),
-                          filename: 'text.txt', content_type: 'text/txt')
-    end
-  end
 end
