@@ -23,8 +23,7 @@
           <%= render(CompanyPreviewComponent.new(title: company.name, title_link: company_path(company))) do %>
             <%= company_logo(company, size: '80x80', link: company_path(company)) %>
             <%= company.address_short_form %><br>
-            <%= t('.active_opportunities') %>: <%= company.active_job_opportunities.size %><br>
-            <%= company.domain %>
+            <%= company.active_job_opportunities.size %> <%= t('.active_opportunities') %><br>
           <% end %>
         <% end %>
       <% end %>

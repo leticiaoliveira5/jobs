@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.3'
 
+gem 'active_storage_validations', '~> 1.1', '>= 1.1.4'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 5.3.3'
 gem 'devise'
