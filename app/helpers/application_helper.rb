@@ -1,7 +1,14 @@
 module ApplicationHelper
   def user_avatar(user, size: '50x50', link: nil)
     avatar = user.avatar.attached? ? user.avatar : 'icon.png'
-    img = image_tag(avatar, size: size, style: 'border-radius: 50%;')
+    img = image_tag(avatar, size:, style: 'border-radius: 50%;')
+
+    link ? link_to(img, link) : img
+  end
+
+  def company_logo(company, size: '50x50', link: nil)
+    avatar = company.logo.attached? ? company.logo : 'icon.png'
+    img = image_tag(avatar, size:, style: 'border-radius: 50%;')
 
     link ? link_to(img, link) : img
   end
@@ -33,6 +40,6 @@ module ApplicationHelper
   end
 
   def back_button(path = :back, method = :get)
-    button_to I18n.t('go_back'), path, class: 'btn btn-secondary', method: method
+    button_to I18n.t('go_back'), path, class: 'btn btn-secondary', method:
   end
 end
