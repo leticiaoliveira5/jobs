@@ -4,7 +4,7 @@
   <%= f.input :salary_range %>
   <%= f.input :place %>
   <%= f.input :description, as: :text %>
-  <%= f.input :limit_date, as: :string %>
+  <%= f.input :limit_date, as: :date, html5: true %>
   <%= f.input :number_of_positions %>
-  <%= f.submit @job_opportunity.new_record? ? 'Cadastrar vaga' : 'Atualizar' %>
+  <%= f.button :submit, @job_opportunity.new_record? ? 'Cadastrar vaga' : 'Atualizar' %>
 <% end %>

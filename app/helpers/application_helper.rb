@@ -31,4 +31,8 @@ module ApplicationHelper
     concat "(#{current_employee.company.name} - #{current_employee.role})"
     concat link_to 'Sair', destroy_employee_session_path, method: :delete
   end
+
+  def back_button(path = :back, method = :get)
+    button_to I18n.t('go_back'), path, class: 'btn btn-secondary', method: method
+  end
 end

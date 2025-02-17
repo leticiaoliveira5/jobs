@@ -139,7 +139,7 @@
               <%= f.input :name, required: true, autocomplete: true %>
               <%= f.input :level, required: true, as: :select, collection: CandidateSkill.level_humanized_names %>
             <% end %>
-            <%= f.submit t('simple_form.save'), class: 'btn btn-primary' %>
+            <%= f.button :submit, t('simple_form.save') %>
           <% end %>
         <% end %>
       <% end %>
@@ -158,7 +158,7 @@
               <%= f.input :location, required: false %>
             <% end %>
 
-            <%= f.submit t('simple_form.save'), class: 'btn btn-primary' %>
+            <%= f.button :submit, t('simple_form.save') %>
           <% end %>
         <% end %>
       <% end %>
@@ -170,7 +170,7 @@
             <%= f.input :graduation_year, required: true, collection: 60.years.ago.year..10.years.from_now.year %>
             <%= f.input :institution, required: false %>
             <%= f.input :kind, required: false, collection: DegreeKinds.to_a %>
-            <%= f.submit t('simple_form.save'), class: 'btn btn-primary' %>
+            <%= f.button :submit, t('simple_form.save') %>
           <% end %>
         <% end %>
       <% end %>
@@ -181,7 +181,7 @@
             <%= f.input :title, required: true, autocomplete: true %>
             <%= f.input :certificate_link %>
             <%= f.input :description %>  
-            <%= f.submit t('simple_form.save'), class: 'btn btn-primary' %>
+            <%= f.button :submit, t('simple_form.save') %>
           <% end %>
         <% end %>
       <% end %>
@@ -191,7 +191,7 @@
           <%= simple_form_for(Language.new, url: languages_path, method: :post) do |f| %>
             <%= f.input :name, required: true, autocomplete: true %>
             <%= f.input :proficiency, required: true, collection: Proficiencies.to_a %>
-            <%= f.submit t('simple_form.save'), class: 'btn btn-primary' %>
+            <%= f.button :submit, t('simple_form.save') %>
           <% end %>
         <% end %>
       <% end %>

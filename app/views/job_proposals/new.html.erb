@@ -5,10 +5,10 @@
 
   <%= simple_form_for([@job_application, @job_proposal]) do |f| %>
     <%= f.input :message %>
-    <%= f.input :start_date, as: :string %>
+    <%= f.input :start_date, as: :date, html5: true %>
     <%= f.input :salary_proposal %>
-    <%= f.submit 'Enviar' %>
+    <%= f.button :submit, 'Enviar' %>
   <% end %>
 
-  <p><%= link_to 'Voltar', company_path(current_employee.company) %>
+  <%= back_button %>
 </div>
