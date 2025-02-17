@@ -37,7 +37,7 @@ class Company < ApplicationRecord
   end
 
   def logo_validations
-    return unless logo.attached?
+    return if logo.blank?
 
     errors.add(:logo, :content_type) if logo.content_type != 'image/png'
     errors.add(:logo, :size) if logo.byte_size > 0.5.megabyte
