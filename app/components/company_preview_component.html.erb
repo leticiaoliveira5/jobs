@@ -1,9 +1,5 @@
-<div class="company-preview rounded-4 bg-body-secondary d-flex flex-column justify-content-center align-items-center">
-  <%= link_to tag.h2(@title), @title_link.presence || '/' %>
+<div class="company-preview p-2 rounded-4 bg-body-secondary d-flex flex-column justify-content-center align-items-center">
+  <%= link_to tag.h3(@title.truncate(25)), @title_link.presence || '/' %>
 
   <%= content %>
-
-  <% if @see_more %>
-    <p><%= see_more(@see_more) %></p>
-  <% end %>
 </div>

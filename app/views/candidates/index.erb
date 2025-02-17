@@ -20,7 +20,7 @@
     <% else %>
       <%= render(GridComponent.new) do %>
         <% @candidates.each do |candidate| %>
-          <%= render(CompanyPreviewComponent.new(title: candidate.full_name, title_link: candidate_path(candidate), see_more: candidate)) do %>
+          <%= render(CompanyPreviewComponent.new(title: candidate.full_name, title_link: candidate_path(candidate))) do %>
             <%= candidate.address_short_form %><br>
           <% end %>
         <% end %>
