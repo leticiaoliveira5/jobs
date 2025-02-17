@@ -49,6 +49,8 @@ pt-BR:
           waiting: Aguardando avaliação
           accepted: Aceita
           declined: Não aceita
+    edit:
+      title: Cadastro de empresa
     dashboard:
       empty_state:
         active_job_opportunity: Nenhuma vaga ativa no momento.

@@ -1,3 +1,5 @@
-<div class="company-preview">
+<div class="company-preview p-2 rounded-4 bg-body-secondary d-flex flex-column justify-content-center align-items-center">
+  <%= link_to tag.h3(@title.truncate(25)), @title_link.presence || '/' %>
+
   <%= content %>
 </div>
