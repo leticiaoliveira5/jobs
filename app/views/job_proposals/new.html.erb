@@ -10,5 +10,5 @@
     <%= f.button :submit, 'Enviar' %>
   <% end %>
 
-  <p><%= link_to 'Voltar', company_path(current_employee.company) %>
+  <%= back_button company_path(current_employee.company)  %>
 </div>
