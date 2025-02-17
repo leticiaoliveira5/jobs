@@ -5,7 +5,7 @@
 
   <%= simple_form_for([@job_application, @job_proposal]) do |f| %>
     <%= f.input :message %>
-    <%= f.input :start_date, as: :string %>
+    <%= f.input :start_date, as: :date, html5: true %>
     <%= f.input :salary_proposal %>
     <%= f.button :submit, 'Enviar' %>
   <% end %>
