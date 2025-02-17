@@ -1,10 +1,13 @@
+<% content_for(:html_title) { t('.title') } %>
+
 <div class="contentblock">
-  <h1>Cadastro de empresa</h1>
+  <h2><%= t('.title') %></h2>
 
   <%= simple_form_for(@company) do |f| %>
     <%= f.input :name %>
     <%= f.input :domain %>
     <%= f.input :document %>
+    <%= f.input :logo, input_html: { accept: ['image/png'] } %>
 
     <%= f.fields_for :address do |af| %>
       <%= af.input :zipcode %>

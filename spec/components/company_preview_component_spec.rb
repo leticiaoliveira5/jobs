@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe CompanyPreviewComponent, type: :component do
-  subject { described_class.new }
+  subject { described_class.new(title: 'Name') }
 
   let(:rendered_component) { render_inline(subject).to_html }
 
