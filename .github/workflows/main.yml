@@ -42,6 +42,10 @@ jobs:
         run: |
           bundle exec rake db:schema:load
           bundle exec rspec --format documentation --require rails_helper
+      - name: Publish code coverage
+        uses: paambaati/codeclimate-action@v9.0.0
+        env:
+          CC_TEST_REPORTER_ID: 11390e99ff161ee53c4476bafb1fecfaca3efa634567ff188fcf3a49a3319553
   rubocop:
     name: rubocop
     runs-on: ubuntu-latest
