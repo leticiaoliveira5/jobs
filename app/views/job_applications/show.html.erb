@@ -3,19 +3,19 @@
   <%= box.body do %>
     <ul class="list-group">
       <li class="list-group-item">
-        <b>Candidato:</b> <%= @candidate.full_name %> (<%= link_to 'Ver perfil', candidate_path(@job_application.candidate) %>)
+        <b><%= t('.candidate') %>:</b> <%= @candidate.full_name %> (<%= link_to 'Ver perfil', candidate_path(@job_application.candidate) %>)
       </li>
       <li class="list-group-item">
-        <b>Endereço:</b> <%= @candidate.address_short_form %>
+        <b><%= t('.address') %>:</b> <%= @candidate.address_short_form %>
       </li>
       <li class="list-group-item">
-      <b>Apresentação:</b> <%= @candidate.about_me %>
+      <b><%= t('.presentation') %>:</b> <%= @candidate.about_me %>
       </li>
       <li class="list-group-item">
-      <b>Vaga:</b> <%= link_to @job_application.job_opportunity.job_title, job_opportunity_path(@job_application.job_opportunity) %>
+      <b><%= t('.job_opportunity') %>:</b> <%= link_to @job_application.job_opportunity.job_title, job_opportunity_path(@job_application.job_opportunity) %> (<%= link_to @job_application.company.name, company_path(@job_application.company) %>)
       </li>
       <li class="list-group-item">
-      <b>Empresa:</b> <%= link_to @job_application.company.name, company_path(@job_application.company) %>
+      <b><%= t('.requisites') %>:</b> 
       </li>
     </ul>
     <% if candidate_signed_in? && current_candidate == @job_application.candidate %>
