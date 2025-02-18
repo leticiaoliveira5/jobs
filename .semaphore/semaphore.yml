@@ -8,8 +8,6 @@ blocks:
   - name: RSpec
     task:
       env_vars:
-        - name: CC_TEST_REPORTER_ID
-          value: 11390e99ff161ee53c4476bafb1fecfaca3efa634567ff188fcf3a49a3319553
         - name: DATABASE_URL
           value: postgres://postgres@localhost:5432/db_test
       jobs:
@@ -25,7 +23,3 @@ blocks:
             - bin/rails db:create RAILS_ENV=test
             - bundle exec rake db:schema:load
             - bundle exec rspec --format documentation --require rails_helper
-            # - chmod +x ./cc-test-reporter
-            # - ./cc-test-reporter format-coverage -t simplecov -o codeclimate.backend.json coverage/.resultset.json
-            # - ./cc-test-reporter upload-coverage
-
