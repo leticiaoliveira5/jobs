@@ -1,4 +1,4 @@
-FROM ruby:3.2.4
+FROM ruby:3.3.6
 
 RUN apt-get update -qq && apt-get install --no-install-recommends -y nodejs yarn postgresql-client \
     && apt-get clean \
