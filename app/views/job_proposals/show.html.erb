@@ -18,7 +18,7 @@
                     <%= label_tag t('.start_date_confirmation') %>
                     <%= text_field_tag :start_date_confirmation, params[:start_date_confirmation] %>
                 </div>
-                <%= submit_tag 'Confirmar' %>
+                <%= submit_tag 'Confirmar', class: 'btn btn-success' %>
             <% end %>
         </div>
 
@@ -30,7 +30,7 @@
                     <%= label_tag t('.rejection_motive') %>
                     <%= text_field_tag :rejection_motive, params[:rejection_motive] %>
                 </div>
-                <%= submit_tag 'Confirmar' %>
+                <%= submit_tag 'Confirmar', class: 'btn btn-success' %>
             <% end %>
         </div>
 
