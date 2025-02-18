@@ -27,8 +27,8 @@ A web application that allows company employees to create and manage job opportu
 
 ## Current Versions
 
--   Ruby 3.1.3
--   Rails 7.0.4.1
+-   Ruby 3.3.6
+-   Rails 7.1.5.1
 
 ## Run locally
 
@@ -71,7 +71,7 @@ Now you can access the application at http://localhost:3000/
 
 Prerequisites:
 
--   Ruby 3.1.3
+-   Ruby 3.3.6
 -   Node.js
 -   Postgres
 
