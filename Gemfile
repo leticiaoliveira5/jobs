@@ -12,7 +12,7 @@ gem 'font-awesome-rails', '4.7.0.9'
 gem 'kaminari', '>= 1.2.2'
 gem 'pg', '~> 1.3.5'
 gem 'puma', '~> 6.6'
-gem 'rails', '7.1.5.1'
+gem 'rails', '7.2.2'
 gem 'sass-rails'
 gem 'simple_form', '~> 5.3'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

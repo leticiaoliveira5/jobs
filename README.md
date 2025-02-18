@@ -28,7 +28,7 @@ A web application that allows company employees to create and manage job opportu
 ## Current Versions
 
 -   Ruby 3.3.6
--   Rails 7.1.5.1
+-   Rails 7.2.2
 
 ## Run locally
 
