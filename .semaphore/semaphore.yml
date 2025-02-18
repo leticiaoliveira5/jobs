@@ -26,5 +26,6 @@ blocks:
             - bundle exec rake db:schema:load
             - bundle exec rspec --format documentation --require rails_helper
             - chmod +x ./cc-test-reporter
-            - ./cc-test-reporter format-coverage coverage/.resultset.json --input-type 'simplecov'
+            - ./cc-test-reporter format-coverage -t simplecov -o codeclimate.backend.json coverage/.resultset.json
             - ./cc-test-reporter upload-coverage
+
