@@ -22,7 +22,7 @@
       <%= button_to 'Cancelar candidatura', job_application_path(@job_application), method: :delete, class: 'btn btn-danger mt-2' %>
     <%end%>
     <% if employee_signed_in? %>
-      <%= button_to "Fazer proposta para #{@job_application.candidate.firstname}", new_job_application_job_proposal_path(@job_application), method: :get, class: 'btn btn-success mt-3' %>
+      <%= button_to t('.make_proposal_for', name: @job_application.candidate.firstname), new_job_application_job_proposal_path(@job_application), method: :get, class: 'btn btn-success mt-3' %>
     <% end %>
   <% end %>
 <% end %>
@@ -36,7 +36,7 @@
           <div class="form-group">
             <%= label_tag t('.give_a_reason') %>
             <%= text_area_tag :rejection_motive, params[:rejection_motive], class: 'form-control' %>
-            <%= submit_tag 'Enviar', class: 'btn btn-secondary mt-2' %>
+            <%= submit_tag t(:submit), class: 'btn btn-secondary mt-2' %>
           </div>
         <% end %>
       </div>
