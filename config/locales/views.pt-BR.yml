@@ -73,7 +73,15 @@ pt-BR:
         rejected: Não aceita
   job_applications:
     show:
-      rejection_motive: Motivo
+      job_application: Candidatura
+      reject_application: Rejeitar candidatura
+      give_a_reason: Dê um motivo para a rejeição da candidatura.
+      proposal: Fazer proposta
+      address: Endereço
+      requisites: Requisitos da vaga
+      job_opportunity: Vaga
+      candidate: Candidato
+      make_proposal_for: Fazer proposta para %{name}
   candidates:
     index:
       search_placeholder: Digite o que procura...

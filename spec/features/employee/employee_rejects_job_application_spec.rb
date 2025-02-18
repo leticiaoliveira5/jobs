@@ -22,7 +22,7 @@ feature 'Employee rejects job application' do
 
   scenario 'employee declines job application' do
     visit job_application_path(job_application)
-    within('.reject-form') { click_on('Confirmar') }
+    within('.reject-form') { click_on('Enviar') }
 
     expect(current_path).to eq company_path(job_application.company)
     expect(page).to have_content 'A aplicação de Fernanda foi rejeitada'

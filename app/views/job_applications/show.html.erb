@@ -1,39 +1,45 @@
-<div class="contentblock">
-
-  <h2>Candidatura</h2>
-
-  <h3>Candidato: <%= @candidate.firstname %> <%= @candidate.surname %> 
-  (<%= link_to 'Ver perfil', candidate_path(@job_application.candidate) %>)</h3>
-  <h4>CPF:</h4> <%= @candidate.document %>
-  <h4>Endereço:</h4> <%= @candidate.address_short_form %>
-  <h4>Sobre mim:</h4> <%= @candidate.about_me %>
-  <h4>Vaga:</h4> <%= link_to @job_application.job_opportunity.job_title, job_opportunity_path(@job_application.job_opportunity) %>
-  <h4>Empresa:</h4> <%= link_to @job_application.company.name, company_path(@job_application.company) %>
-  
-  <% if employee_signed_in? %>
-    <%= link_to "Fazer proposta para #{@job_application.candidate.firstname}", new_job_application_job_proposal_path(@job_application) %>
+<%= render(BoxComponent.new) do |box| %>
+  <%= box.title { t('.job_application') } %>
+  <%= box.body do %>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <b><%= t('.candidate') %>:</b> <%= @candidate.full_name %> (<%= link_to 'Ver perfil', candidate_path(@job_application.candidate) %>)
+      </li>
+      <li class="list-group-item">
+        <b><%= t('.address') %>:</b> <%= @candidate.address_short_form %>
+      </li>
+      <li class="list-group-item">
+      <b><%= t('.presentation') %>:</b> <%= @candidate.about_me %>
+      </li>
+      <li class="list-group-item">
+      <b><%= t('.job_opportunity') %>:</b> <%= link_to @job_application.job_opportunity.job_title, job_opportunity_path(@job_application.job_opportunity) %> (<%= link_to @job_application.company.name, company_path(@job_application.company) %>)
+      </li>
+      <li class="list-group-item">
+      <b><%= t('.requisites') %>:</b> 
+      </li>
+    </ul>
+    <% if candidate_signed_in? && current_candidate == @job_application.candidate %>
+      <%= button_to 'Cancelar candidatura', job_application_path(@job_application), method: :delete, class: 'btn btn-danger mt-2' %>
+    <%end%>
+    <% if employee_signed_in? %>
+      <%= button_to t('.make_proposal_for', name: @job_application.candidate.firstname), new_job_application_job_proposal_path(@job_application), method: :get, class: 'btn btn-success mt-3' %>
+    <% end %>
   <% end %>
-
-  <% if candidate_signed_in? && current_candidate == @job_application.candidate %>
-    <%= button_to 'Cancelar candidatura', job_application_path(@job_application), method: :delete, class: 'btn btn-danger' %>
-  <%end%>
-
-</div>  
-
-<% if employee_signed_in? %>
-  <div class="contentblock">
-    <h4>Rejeitar candidatura</h4>
-    Dê um motivo para a rejeição da candidatura.
-    
-    <div class= "reject-form">
-      <%= form_tag decline_job_application_path, method: :post do %>
-        <div>
-          <%= label_tag t('.rejection_motive') %>
-          <%= text_field_tag :rejection_motive, params[:rejection_motive] %>
-        </div>
-        <%= submit_tag 'Confirmar' %>
-      <% end %>
-    </div>
-  </div>
 <% end %>
 
+<% if employee_signed_in? %>
+  <%= render(BoxComponent.new(behavior: :collapsible)) do |box| %>
+    <%= box.title { t('.reject_application') } %>
+    <%= box.body do %>
+      <div class="reject-form">
+        <%= form_tag decline_job_application_path, method: :post do %>
+          <div class="form-group">
+            <%= label_tag t('.give_a_reason') %>
+            <%= text_area_tag :rejection_motive, params[:rejection_motive], class: 'form-control' %>
+            <%= submit_tag t(:submit), class: 'btn btn-secondary mt-2' %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

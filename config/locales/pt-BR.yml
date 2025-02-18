@@ -343,3 +343,4 @@ pt-BR:
       more_pages:
         display_entries: "Displaying %{entry_name} <b>%{first}–%{last}</b> of <b>%{total}</b> in total"
   go_back: Voltar
+  submit: Enviar
