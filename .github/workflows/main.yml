@@ -41,9 +41,10 @@ jobs:
           POSTGRES_PASSWORD: postgres
           DATABASE_URL: "postgres://postgres@localhost:5432/db_test"
           CC_TEST_REPORTER_ID: 11390e99ff161ee53c4476bafb1fecfaca3efa634567ff188fcf3a49a3319553
-        run: |
+        coverageCommand: |
           bundle exec rake db:schema:load
           bundle exec rspec --format documentation --require rails_helper
+        debug: true
   rubocop:
     name: rubocop
     runs-on: ubuntu-latest
