@@ -19,7 +19,7 @@
       </li>
     </ul>
     <% if candidate_signed_in? && current_candidate == @job_application.candidate %>
-      <%= button_to 'Cancelar candidatura', job_application_path(@job_application), method: :delete, class: 'btn btn-danger mt-2', data: { confirm: 'Are you sure you want to cancel your application?' } %>
+      <%= button_to 'Cancelar candidatura', job_application_path(@job_application), method: :delete, class: 'btn btn-danger mt-2', data: { confirm: t('are_you_sure') } %>
     <%end%>
     <% if employee_signed_in? %>
       <%= button_to t('.make_proposal_for', name: @job_application.candidate.firstname), new_job_application_job_proposal_path(@job_application), method: :get, class: 'btn btn-success mt-3' %>
