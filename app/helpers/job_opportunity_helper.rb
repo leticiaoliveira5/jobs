@@ -43,6 +43,7 @@ module JobOpportunityHelper
       job_application = job_opportunity.job_applications.find_by(candidate: current_candidate)
       button_to 'Cancelar candidatura',
                 job_application_path(job_application),
+                data: { confirm: t('are_you_sure') },
                 class: 'btn btn-primary',
                 method: :delete
     else
