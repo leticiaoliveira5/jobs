@@ -344,3 +344,4 @@ pt-BR:
         display_entries: "Displaying %{entry_name} <b>%{first}–%{last}</b> of <b>%{total}</b> in total"
   go_back: Voltar
   submit: Enviar
+  are_you_sure: Tem certeza?

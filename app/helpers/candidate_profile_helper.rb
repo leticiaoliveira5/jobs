@@ -12,7 +12,8 @@ module CandidateProfileHelper
 
     link_to fa_icon('trash', title: t('candidates.show.actions.delete'), class: 'gray-icon'),
             delete_path(item),
-            method: :delete
+            method: :delete,
+            data: { confirm: t('are_you_sure') }
   end
 
   def edit_candidate_info_button
