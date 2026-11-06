@@ -1,11 +1,10 @@
-version: '2'
 services:
   db:
-    image: postgres
+    image: postgres:18
     volumes:
-      - ./tmp/db:/var/lib/postgresql/data
+      - ./tmp/db:/var/lib/postgresql
     ports:
-      - "${POSTGRES_PORT}:${POSTGRES_PORT}"
+      - "${POSTGRES_PORT}:5432"
     environment:
       POSTGRES_PASSWORD: postgres
   web:
