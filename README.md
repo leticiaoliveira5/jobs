@@ -1,7 +1,7 @@
 # Jobs
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/c005119a689e2367251b/maintainability)](https://codeclimate.com/github/leticiaoliveira5/jobs/maintainability)
-[![codecov](https://codecov.io/gh/leticiaoliveira5/jobs/graph/badge.svg)](https://codecov.io/gh/leticiaoliveira5/jobs/tree/master)
+[![codecov](https://codecov.io/gh/leticiaoliveira5/jobs/graph/badge.svg?token=Y1IL1G1IE5)](https://codecov.io/gh/leticiaoliveira5/jobs)
 [![Build Status](https://leticiaoliveira5.semaphoreci.com/badges/jobs/branches/master.svg?style=shields)](https://leticiaoliveira5.semaphoreci.com/projects/jobs)
 
 A web application that allows company employees to create and manage job opportunities and find candidates interested in them.
