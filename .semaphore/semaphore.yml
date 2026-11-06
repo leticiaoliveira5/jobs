@@ -1,25 +1,25 @@
-# version: v1.0
-# name: Ruby
-# agent:
-#   machine:
-#     type: e1-standard-2
-#     os_image: ubuntu2004
-# blocks:
-#   - name: RSpec
-#     task:
-#       env_vars:
-#         - name: DATABASE_URL
-#           value: postgres://postgres@localhost:5432/db_test
-#       jobs:
-#         - name: rspec
-#           commands:
-#             - checkout
-#             - sem-version ruby 3.0.0
-#             - sem-service start postgres
-#             - bundle config set --local deployment 'true'
-#             - bundle config set --local path 'vendor/bundle'
-#             - bundle install
-#             - yarn install
-#             - bin/rails db:create RAILS_ENV=test
-#             - bundle exec rake db:schema:load
-#             - bundle exec rspec --format documentation --require rails_helper
+version: v1.0
+name: Ruby
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2204
+blocks:
+  - name: RSpec
+    task:
+      env_vars:
+        - name: DATABASE_URL
+          value: postgres://postgres@localhost:5432/db_test
+      jobs:
+        - name: rspec
+          commands:
+            - checkout
+            - sem-version ruby 3.0.0
+            - sem-service start postgres
+            - bundle config set --local deployment 'true'
+            - bundle config set --local path 'vendor/bundle'
+            - bundle install
+            - yarn install
+            - bin/rails db:create RAILS_ENV=test
+            - bundle exec rake db:schema:load
+            - bundle exec rspec --format documentation --require rails_helper
