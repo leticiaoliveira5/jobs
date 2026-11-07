@@ -1,11 +1,11 @@
 <%= render(PageComponent.new) do |component| %>
-  <%= component.sidebar do %>
+  <%= component.with_sidebar do %>
     <%= render(BoxComponent.new) do |box| %>
-      <%= box.title do %>
+      <%= box.with_title do %>
         <%= user_avatar(@candidate, size: '20x20') %>
         <%= @candidate.full_name %>
       <% end %>
-      <%= box.body do %>
+      <%= box.with_body do %>
         <p><%= t_attr('candidate.document') %>: <%= @candidate.document %></p>
         <%= candidate_locale(@candidate.address_short_form) %>
         <%= candidate_website(@candidate.website) %>        
@@ -15,10 +15,10 @@
     <% end %>
   <% end %>
 
-  <%= component.main_content do %>
+  <%= component.with_main_content do %>
     <%= render(BoxComponent.new(behavior: :collapsible)) do |component| %>
-      <% component.title { t('.applications') } %>
-      <% component.body do %>
+      <% component.with_title { t('.applications') } %>
+      <% component.with_body do %>
         <% if @job_applications.blank? %>
           <div class="empty_state"><%= t('.empty_state.job_application') %></div>
         <% else %>
@@ -36,8 +36,8 @@
     <% end %>
 
     <%= render(BoxComponent.new(behavior: :collapsible)) do |component| %>
-      <% component.title { t('.proposals') } %>
-      <% component.body do %>
+      <% component.with_title { t('.proposals') } %>
+      <% component.with_body do %>
         <% if @job_proposals.blank? %>
           <div class="empty_state"><%= t('.empty_state.job_proposal') %></div>
         <% else %>
