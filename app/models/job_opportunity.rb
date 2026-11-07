@@ -9,7 +9,7 @@ class JobOpportunity < ApplicationRecord
   validates :number_of_positions, numericality: { greater_than: 0 }
   validate :limit_date_cannot_be_in_the_past
 
-  enum status: { active: 0, inactive: 1 }
+  enum :status, { active: 0, inactive: 1 }
 
   def limit_date_cannot_be_in_the_past
     return unless limit_date.present? && limit_date < DateTime.now

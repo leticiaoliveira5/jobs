@@ -6,7 +6,7 @@ class WorkExperience < ApplicationRecord
   validates :job_title, :start_date, presence: true
   validate :end_date_is_after_start_date
 
-  enum status: { finished: 0, current: 1 }
+  enum :status, { finished: 0, current: 1 }
 
   has_enumeration_for :sector, with: Sectors
 

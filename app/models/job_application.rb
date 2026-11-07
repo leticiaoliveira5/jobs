@@ -6,7 +6,7 @@ class JobApplication < ApplicationRecord
 
   validate :candidate_must_have_basic_information
 
-  enum status: { waiting: 0, accepted: 1, declined: 2 }
+  enum :status, { waiting: 0, accepted: 1, declined: 2 }
 
   def candidate_must_have_basic_information
     return unless candidate.document.blank? || candidate.address.blank? || candidate.about_me.blank?

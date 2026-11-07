@@ -6,7 +6,7 @@ class JobProposal < ApplicationRecord
 
   validates :message, :start_date, :salary_proposal, presence: true
 
-  enum status: { waiting: 0, accepted: 1, rejected: 2 }
+  enum :status, { waiting: 0, accepted: 1, rejected: 2 }
 
   def check_number_of_positions
     number_of_positions = job_opportunity.number_of_positions
