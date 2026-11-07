@@ -10,7 +10,7 @@ class Employee < ApplicationRecord
 
   validates :firstname, :surname, presence: true
 
-  enum role: { regular: 0, admin: 1 }
+  enum :role, { regular: 0, admin: 1 }
 
   before_validation :find_or_create_company
   after_create :first_employee_is_admin

@@ -8,7 +8,7 @@ class CandidateSkill < ApplicationRecord
 
   attr_reader :name
 
-  enum level: { beginner: 0, intermediate: 1, advanced: 2 }
+  enum :level, { beginner: 0, intermediate: 1, advanced: 2 }
 
   def self.level_humanized_names
     levels.map do |key, value|
