@@ -1,11 +1,11 @@
 <%= render(BoxComponent.new) do |box| %>
-  <% box.title do %>
+  <% box.with_title do %>
     <%= @job_opportunity.job_title %>
     <%= job_opportunity_status_tag(@job_opportunity.status) %>
     <%= employee_links(@job_opportunity) %>
   <% end %>
 
-  <% box.body do %>
+  <% box.with_body do %>
     <p><%= link_to @job_opportunity.company.name, @job_opportunity.company %> | <%= @job_opportunity.place %></p>
     <p><%= basic_info(@job_opportunity) %></p>
     <p><b><%= t('.description') %></b><br><%= @job_opportunity.description %></p>
@@ -17,13 +17,13 @@
 <% if @employee %>
   <% size = @job_applications.size %>
   <%= render(BoxComponent.new(behavior: :collapsible)) do |box| %>
-    <% box.title { "#{t('.job_applications.title')} (#{size})" }%>
+    <% box.with_title { "#{t('.job_applications.title')} (#{size})" }%>
     
-    <% box.body do %>
+    <% box.with_body do %>
       <% if size.positive? %>
         <% @job_applications.each do |job_application| %>
           <%= render(ListItemComponent.new) do |component| %>
-            <% component.button { see_more(job_application) } %>
+            <% component.with_button { see_more(job_application) } %>
             <div class="flexrow">
               <%= user_avatar(job_application.candidate, size: '45x45', link: job_application.candidate) %>
               <div>

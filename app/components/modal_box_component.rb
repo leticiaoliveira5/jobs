@@ -8,6 +8,6 @@ class ModalBoxComponent < ViewComponent::Base
     @title = title
     @show_button_id = show_button_id
     @modal_id = modal_id
-    super
+    super()
   end
 end

@@ -7,8 +7,8 @@ RSpec.describe BoxComponent, type: :component do
 
   let(:rendered_component) do
     render_inline(subject) do |component|
-      component.title { 'Title' }
-      component.body { 'Body' }
+      component.with_title { 'Title' }
+      component.with_body { 'Body' }
     end.to_html
   end
 
