@@ -22,12 +22,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
     <%= render(NavbarComponent.new(title: 'Jobs')) do |nav| %>
-      <% nav.left do %>
+      <% nav.with_left do %>
         <%= link_to 'Empresas', companies_path %>
         <%= link_to 'Vagas', job_opportunities_path %>
         <%= link_to 'Candidatos', candidates_path %>
       <% end %>
-      <% nav.right do %>
+      <% nav.with_right do %>
         <% employee_nav_links %>
         <% candidate_nav_links %>
       <% end %>
