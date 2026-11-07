@@ -1,6 +1,6 @@
 <%= render(BoxComponent.new) do |box| %>
-  <%= box.title { t('.job_application') } %>
-  <%= box.body do %>
+  <%= box.with_title { t('.job_application') } %>
+  <%= box.with_body do %>
     <ul class="list-group">
       <li class="list-group-item">
         <b><%= t('.candidate') %>:</b> <%= @candidate.full_name %> (<%= link_to 'Ver perfil', candidate_path(@job_application.candidate) %>)
@@ -29,8 +29,8 @@
 
 <% if employee_signed_in? %>
   <%= render(BoxComponent.new(behavior: :collapsible)) do |box| %>
-    <%= box.title { t('.reject_application') } %>
-    <%= box.body do %>
+    <%= box.with_title { t('.reject_application') } %>
+    <%= box.with_body do %>
       <div class="reject-form">
         <%= form_tag decline_job_application_path, method: :post do %>
           <div class="form-group">

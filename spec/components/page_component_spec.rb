@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe PageComponent, type: :component do
   let(:rendered_component) do
     render_inline(described_class.new) do |component|
-      component.sidebar { 'Sidebar' }
-      component.main_content { 'Content' }
+      component.with_sidebar { 'Sidebar' }
+      component.with_main_content { 'Content' }
     end.to_html
   end
 

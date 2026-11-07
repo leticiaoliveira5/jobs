@@ -1,5 +1,5 @@
 <%= render(BoxComponent.new(color: :transparent)) do |component| %>
-  <% component.body do %>
+  <% component.with_body do %>
     <%= form_tag(job_opportunities_path, method: :get) do |f| %>
       <div class="search_container">
         <%= text_field_tag :search_input,
@@ -13,8 +13,8 @@
 <% end %>
 
 <%= render(BoxComponent.new) do |component| %>
-  <% component.title { @search ? t('.search_result', input: @search) : t('.jobs') } %>
-  <% component.body do %>
+  <% component.with_title { @search ? t('.search_result', input: @search) : t('.jobs') } %>
+  <% component.with_body do %>
     <% if @job_opportunities.empty? %>
       <div class="empty_state"><%= t('.empty_state') %></div>
     <% else %>
@@ -22,7 +22,7 @@
         <% @job_opportunities.each do |job| %>
           <%= render(ListItemComponent.new) do |component| %>
             <%= render(JobPreviewComponent.new(job_opportunity: job)) %>
-            <% component.button do %>
+            <% component.with_button do %>
               <%= view_job_opportunity_link(job) %>
             <% end %>
           <% end %>
