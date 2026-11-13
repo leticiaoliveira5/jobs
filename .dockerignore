@@ -1,5 +1,10 @@
-tmp/
-log/
-coverage/
-node_modules/
-.git/
+.git
+tmp/*
+log/*
+node_modules
+coverage
+storage
+*.env
+config/master.key
+yarn-error.log
+.byebug_history

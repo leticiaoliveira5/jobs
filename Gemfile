@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.3.6'
+ruby '4.0.9'
 
 gem 'active_storage_validations', '~> 1.1', '>= 1.1.4'
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -21,8 +21,8 @@ gem 'view_component', '4.23.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'factory_bot', '6.2.1'
-  gem 'factory_bot_rails', '6.2.0'
+  gem 'factory_bot', '6.6.0'
+  gem 'factory_bot_rails', '6.5.1'
   gem 'faker', require: false
   gem 'rspec-rails', '~> 7'
   gem 'rubocop-rspec', require: false
@@ -38,7 +38,5 @@ end
 group :development do
   gem 'listen', '~> 3.9'
   gem 'rubocop-rails', require: false
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
 end
