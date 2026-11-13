@@ -1,6 +1,7 @@
-FROM ruby:3.3.6
+FROM ruby:4.0.9
 
-RUN apt-get update -qq && apt-get install --no-install-recommends -y nodejs yarn postgresql-client \
+RUN apt-get update -qq && apt-get install --no-install-recommends -y nodejs npm postgresql-client \
+    && npm install -g yarn \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -9,7 +10,6 @@ WORKDIR /jobs
 
 COPY Gemfile /jobs/Gemfile
 COPY Gemfile.lock /jobs/Gemfile.lock
-RUN gem install bundler -v 2.3.26
 RUN bundle install
 
 COPY . /jobs
