@@ -5,7 +5,7 @@ class CompanyPreviewComponent < ViewComponent::Base
   include FontAwesome::Rails::IconHelper
 
   def initialize(title:, title_link: nil)
-    super
+    super()
     @title = title
     @title_link = title_link
   end

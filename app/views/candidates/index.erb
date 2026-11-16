@@ -1,5 +1,5 @@
 <%= render(BoxComponent.new(color: :transparent)) do |component| %>
-  <% component.body do %>
+  <% component.with_body do %>
     <%= form_tag(candidates_path, method: :get) do |f| %>
       <div class="search_container">
         <%= text_field_tag :search,
@@ -13,8 +13,8 @@
 <% end %>
 
 <%= render(BoxComponent.new) do |box| %>
-  <%= box.title { @search ? t('.search_result', input: @search) : t('.candidates') } %>
-  <%= box.body do %>
+  <%= box.with_title { @search ? t('.search_result', input: @search) : t('.candidates') } %>
+  <%= box.with_body do %>
     <% if @candidates.empty? %>
       <div class="empty_state"><%= t('.empty_state') %></div>
     <% else %>

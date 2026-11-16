@@ -3,7 +3,7 @@ class GridComponent < ViewComponent::Base
   TYPES = { responsive: 'responsive-grid', fixed: 'grid' }.freeze
 
   def initialize(type: :responsive, column_gap: nil, row_gap: nil, columns: nil, rows: nil)
-    super
+    super()
     @column_gap = column_gap
     @row_gap = row_gap
     @columns = columns

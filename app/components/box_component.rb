@@ -17,7 +17,7 @@ class BoxComponent < ViewComponent::Base
     @behavior = behavior
     @default = default
     @color = color
-    super
+    super()
   end
 
   def default_display

@@ -1,6 +1,6 @@
 <%= render(BoxComponent.new) do |component| %>
-  <%= component.title { 'Dados da empresa' } %>
-  <%= component.body do %>
+  <%= component.with_title { 'Dados da empresa' } %>
+  <%= component.with_body do %>
     <%= company_logo(@company, size: '80x80')%>
     <h3><%= t('.name') %></h3>
     <%= @company.name %> 
@@ -14,8 +14,8 @@
 <% end %>
 
 <%= render(BoxComponent.new()) do |component| %>
-  <%= component.title { "Vagas disponíveis (#{@job_opportunities.size})" } %>
-  <%= component.body do %>
+  <%= component.with_title { "Vagas disponíveis (#{@job_opportunities.size})" } %>
+  <%= component.with_body do %>
     <% if @job_opportunities.exists? %>
       <%= render(GridComponent.new(columns: 2)) do %>
         <% @job_opportunities.each do |job| %>
