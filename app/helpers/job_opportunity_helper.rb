@@ -12,19 +12,19 @@ module JobOpportunityHelper
   end
 
   def inactivate_link(job_opportunity)
-    link_to fa_icon('toggle-on', title: 'Inativar vaga', class: 'gray-icon'),
+    link_to fa_icon('toggle-on', title: 'Inativar vaga', class: 'text-body-tertiary'),
             inactivate_job_opportunity_job_opportunity_path(job_opportunity),
             title: 'Inativar vaga', method: :post
   end
 
   def activate_link(job_opportunity)
-    link_to fa_icon('toggle-off', title: 'Ativar vaga', class: 'gray-icon'),
+    link_to fa_icon('toggle-off', title: 'Ativar vaga', class: 'text-body-tertiary'),
             activate_job_opportunity_job_opportunity_path(job_opportunity),
             title: 'Ativar vaga', method: :post
   end
 
   def edit_link(job_opportunity)
-    link_to fa_icon('pencil', title: 'Editar vaga', class: 'gray-icon'),
+    link_to fa_icon('pencil', title: 'Editar vaga', class: 'text-body-tertiary'),
             edit_job_opportunity_path(job_opportunity), title: 'Editar vaga'
   end
 
@@ -61,7 +61,7 @@ module JobOpportunityHelper
   end
 
   def view_job_opportunity_link(job_opportunity)
-    link_to fa_icon('eye', title: 'Ver detalhes da vaga', class: 'green-icon'),
+    link_to fa_icon('eye', title: 'Ver detalhes da vaga', class: 'text-primary ms-1'),
             job_opportunity_path(job_opportunity)
   end
 
@@ -73,7 +73,7 @@ module JobOpportunityHelper
               'bg-success'
             end
 
-    tag.span(t(".status.#{status}"), class: "tag #{color}")
+    tag.span(t(".status.#{status}"), class: "badge rounded-pill text-bg-secondary fw-medium text-lowercase #{color}")
   end
 
   def basic_info(job_opportunity)
@@ -84,7 +84,7 @@ module JobOpportunityHelper
       positions: job_opportunity.number_of_positions
     }
 
-    tag.ul(class: 'no-bullets green-icon') do
+    tag.ul(class: 'list-unstyled m-0 text-primary ms-1') do
       attributes.each do |key, value|
         concat tag.li(fa_icon(basic_info_icons[key], title: t(".#{key}"), text: value)) if value
       end

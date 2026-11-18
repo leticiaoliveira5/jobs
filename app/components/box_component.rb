@@ -8,9 +8,9 @@ class BoxComponent < ViewComponent::Base
   # color: [:primary, :secondary, :transparent]
 
   COLOR_OPTIONS = {
-    primary: 'var(--content_blocks_color)',
-    secondary: 'var(--nav_background_color)',
-    transparent: 'transparent'
+    primary: 'bg-white',
+    secondary: 'bg-body-secondary',
+    transparent: 'bg-transparent'
   }.freeze
 
   def initialize(behavior: :default, default: :open, color: :primary)
@@ -32,7 +32,15 @@ class BoxComponent < ViewComponent::Base
     @behavior == :collapsible
   end
 
-  def bg
+  def collapse_id
+    @collapse_id ||= "box-#{SecureRandom.hex(4)}"
+  end
+
+  def expanded?
+    !(collapsible? && @default == :closed)
+  end
+
+  def bg_class
     COLOR_OPTIONS[@color]
   end
 end

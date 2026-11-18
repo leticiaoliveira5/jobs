@@ -20,7 +20,7 @@
       <% component.with_title { t('.applications') } %>
       <% component.with_body do %>
         <% if @job_applications.blank? %>
-          <div class="empty_state"><%= t('.empty_state.job_application') %></div>
+          <div class="opacity-50 py-5 text-center"><%= t('.empty_state.job_application') %></div>
         <% else %>
           <% @job_applications.each do |job_application| %>
             <%= render(ListItemComponent.new) do |item| %>
@@ -39,7 +39,7 @@
       <% component.with_title { t('.proposals') } %>
       <% component.with_body do %>
         <% if @job_proposals.blank? %>
-          <div class="empty_state"><%= t('.empty_state.job_proposal') %></div>
+          <div class="opacity-50 py-5 text-center"><%= t('.empty_state.job_proposal') %></div>
         <% else %>
           <% @job_proposals.each do |proposal| %>
             <%= render(ListItemComponent.new) do %>

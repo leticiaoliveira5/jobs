@@ -18,25 +18,31 @@ module ApplicationHelper
   end
 
   def see_more(instance)
-    link_to fa_icon('eye', title: 'Ver', class: 'green-icon'), instance
+    link_to fa_icon('eye', title: 'Ver', class: 'text-primary ms-1'), instance
+  end
+
+  def nav_links
+    concat link_to 'Empresas', companies_path, class: 'nav-link'
+    concat link_to 'Vagas', job_opportunities_path, class: 'nav-link'
+    concat link_to 'Candidatos', candidates_path, class: 'nav-link'
   end
 
   def candidate_nav_links
     return unless current_candidate
 
-    concat link_to 'Área do candidato', '/candidate/dashboard'
-    concat link_to 'Meu perfil', "/u/#{current_candidate.id}"
-    concat current_candidate.email
-    concat link_to 'Sair', destroy_candidate_session_path, method: :delete
+    concat link_to 'Área do candidato', '/candidate/dashboard', class: 'nav-link'
+    concat link_to 'Meu perfil', "/u/#{current_candidate.id}", class: 'nav-link'
+    concat content_tag(:span, current_candidate.email, class: 'navbar-text')
+    concat link_to 'Sair', destroy_candidate_session_path, method: :delete, class: 'nav-link'
   end
 
   def employee_nav_links
     return unless current_employee
 
-    concat link_to 'Área do colaborador', '/company/dashboard'
-    concat current_employee.email
-    concat "(#{current_employee.company.name} - #{current_employee.role})"
-    concat link_to 'Sair', destroy_employee_session_path, method: :delete
+    concat link_to 'Área do colaborador', '/company/dashboard', class: 'nav-link'
+    concat content_tag(:span, current_employee.email, class: 'navbar-text')
+    concat content_tag(:span, "(#{current_employee.company.name} - #{current_employee.role})", class: 'navbar-text')
+    concat link_to 'Sair', destroy_employee_session_path, method: :delete, class: 'nav-link'
   end
 
   def back_button(path = :back, method = :get)

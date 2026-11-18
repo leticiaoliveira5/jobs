@@ -1,37 +1,20 @@
-<div class="nav">
-  <div class="navleft">
-    <%= link_to root_path do %>
-      <span class="navtitle"><%= @title %></span>
-    <% end %>
+<nav class="navbar navbar-expand-md bg-body-secondary px-3 py-0">
+  <%= link_to root_path, class: 'navbar-brand text-uppercase fs-1 m-0 py-2' do %>
+    <%= @title %>
+  <% end %>
 
-    <span class="links-row"><%= left %></span>
+  <button class="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#<%= collapse_id %>"
+          aria-controls="<%= collapse_id %>"
+          aria-expanded="false"
+          aria-label="Menu">
+    <i class="fa fa-bars fs-2"></i>
+  </button>
+
+  <div class="collapse navbar-collapse" id="<%= collapse_id %>">
+    <div class="navbar-nav me-auto"><%= left %></div>
+    <div class="navbar-nav"><%= right %></div>
   </div>
-
-  <div class="navright">
-    <span class="links-row"><%= right %></span>
-    <div class="nav-mobile-dropdown" onclick="toggleMenu()">
-      <i class="fa fa-bars green-icon"></i>
-    </div>
-  </div>
-</div>
-
-<div class="nav-mobile-dropdown-content">
-  <div class="mobile-menu">
-    <%= left %>
-    <%= right %>
-  </div>
-</div>
-
-<script>
-  function toggleMenu() {
-    let content = document.getElementsByClassName('nav-mobile-dropdown-content')[0]
-    let menu = document.getElementsByClassName('mobile-menu')[0]
-    if (content.style.display == 'none') {
-      content.style.display = 'block';
-      menu.style.display = 'flex';
-    } else {
-      content.style.display = 'none';
-      menu.style.display = 'none';
-    }
-  }
-</script>
+</nav>
