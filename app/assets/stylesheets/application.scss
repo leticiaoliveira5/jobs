@@ -23,5 +23,10 @@ $link-hover-color: $primary;
 $link-hover-decoration: underline;
 $link-shade-percentage: 0%;
 
+$input-bg: white;
+$input-disabled-bg: #eeeeee;     // campos desabilitados (por padrão usa o secondary-bg)
+$form-select-bg: white;          // <select>
+$form-check-input-bg: white;     // checkbox e radio
+
 @import "bootstrap";
 @import "font-awesome";
