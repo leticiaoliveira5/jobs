@@ -15,13 +15,13 @@ class CompaniesController < ApplicationController
     @job_opportunities = @company.job_opportunities.active
   end
 
+  def edit
+    @company.build_address unless @company.address
+  end
+
   def create
     @company = Company.new(company_params)
     redirect_to @company if @company.save
-  end
-
-  def edit
-    @company.build_address unless @company.address
   end
 
   def update

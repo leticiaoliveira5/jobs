@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe JobApplicationsController, type: :controller, login_metadata: true do
+RSpec.describe JobApplicationsController, login_metadata: true, type: :controller do
   let(:candidate) { create(:candidate) }
   let(:job_application) { create(:job_application, candidate: candidate) }
   let(:employee) { create(:employee, company: job_application.company) }

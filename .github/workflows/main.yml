@@ -57,8 +57,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Curl rubocop.yml
-        run: curl https://raw.githubusercontent.com/leticiaoliveira5/code-style/master/.rubocop.3.yml -o .rubocop.yml
       - name: Set up Ruby 4.0.9
         uses: ruby/setup-ruby@v1.338.0
         with:

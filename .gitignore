@@ -30,9 +30,6 @@ vendor/bundle/*
 # Ignore coverage assets and page
 /coverage
 
-# Ignore .rubocop.yml
-.rubocop.yml
-
 *.env
 
 /storage

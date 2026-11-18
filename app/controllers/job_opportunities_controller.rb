@@ -10,16 +10,18 @@ class JobOpportunitiesController < ApplicationController
                                        .page(params[:page]).per(params[:per_page])
   end
 
-  def new
-    @job_opportunity = JobOpportunity.new
-  end
-
   def show
     return unless employee_signed_in?
 
     @employee = current_company == @job_opportunity.company
     @job_applications = @job_opportunity.job_applications.includes(:candidate).order(status: :asc)
   end
+
+  def new
+    @job_opportunity = JobOpportunity.new
+  end
+
+  def edit; end
 
   def create
     @job_opportunity = current_company.job_opportunities.new(job_opportunity_params)
@@ -54,8 +56,6 @@ class JobOpportunitiesController < ApplicationController
     @job_opportunity.active!
     redirect_to @job_opportunity
   end
-
-  def edit; end
 
   def update
     if @job_opportunity.update(job_opportunity_params)

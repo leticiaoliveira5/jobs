@@ -39,6 +39,6 @@ class Candidate < ApplicationRecord
     return if avatar.blank?
 
     errors.add(:avatar, :content_type) if avatar.content_type != 'image/jpeg'
-    errors.add(:avatar, :size) if avatar.byte_size > 0.5.megabyte
+    errors.add(:avatar, :size) if avatar.byte_size > 0.5.megabytes
   end
 end

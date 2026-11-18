@@ -3,6 +3,8 @@ class JobProposalsController < ApplicationController
   before_action :authenticate_candidate!, only: %i[show accept reject]
   before_action :set_job_proposal, except: %i[new create]
 
+  def show; end
+
   def new
     @job_proposal = JobProposal.new(candidate: job_application&.candidate,
                                     job_application: job_application)
@@ -20,8 +22,6 @@ class JobProposalsController < ApplicationController
       render 'new'
     end
   end
-
-  def show; end
 
   def accept
     @job_proposal.start_date_confirmation = params[:start_date_confirmation]
