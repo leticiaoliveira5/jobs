@@ -1,14 +1,6 @@
 <%= render(BoxComponent.new(color: :transparent)) do |component| %>
   <% component.with_body do %>
-    <%= form_tag(job_opportunities_path, method: :get) do |f| %>
-      <div class="search_container">
-        <%= text_field_tag :search_input,
-                           params[:search_input],
-                           placeholder: t('.search_placeholder'),
-                           required: true %>
-        <button type="submit"><i class="fa fa-search green-icon"></i></button>
-      </div>
-    <% end %>
+    <%= render(SearchComponent.new(path: job_opportunities_path, search_param: :search_input, required: true)) %>
   <% end %>
 <% end %>
 

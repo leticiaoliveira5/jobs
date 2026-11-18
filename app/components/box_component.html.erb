@@ -1,27 +1,33 @@
-<div class="box" style="background-color:<%= bg %>;">
+<div class="rounded-3 p-4 my-3 mx-auto w-100 text-start" style="background-color:<%= bg %>;">
   <% if collapsible? %>
-    <div class="title" onclick="toggleContent(this)">
-      <%= title if title? %>
-      <span class="collapse-icon"><%= default_symbol %></span>
+    <div class="d-flex justify-content-between align-items-center fs-4 fw-bold lh-base"
+         role="button"
+         aria-expanded="<%= expanded? %>"
+         aria-controls="<%= collapse_id %>">
+      <span><%= title if title? %></span>
+      <span class="fs-5 text-secondary" aria-hidden="true"><%= expanded? ? '−' : '+' %></span>
     </div>
   <% elsif title? %>
-    <div class="title"><%= title %></div>
+    <div class="fs-4 fw-bold lh-base"><%= title %></div>
   <% end %>
 
-  <div class="content" style="display:<%= default_display || 'block' %>;">
+  <div id="<%= collapse_id %>" class="mt-1 <%= 'd-none' if collapsible? && !expanded? %>">
     <%= body %>
   </div>
 </div>
 
-<script>
-  function toggleContent(element) {
-    let content = element.nextElementSibling;
-    if (content.style.display == 'none') {
-      content.style.display = 'block';
-      element.children[0].textContent = '-';
-    } else {
-      content.style.display = 'none';
-      element.children[0].textContent = '+'
-    }
-  }
-</script>
+<% if collapsible? %>
+  <script>
+    (function () {
+      const content = document.getElementById('<%= collapse_id %>');
+      const toggle = content.previousElementSibling;
+      const icon = toggle.lastElementChild;
+
+      toggle.addEventListener('click', () => {
+        const open = !content.classList.toggle('d-none');
+        toggle.setAttribute('aria-expanded', open);
+        icon.textContent = open ? '−' : '+';
+      });
+    })();
+  </script>
+<% end %>

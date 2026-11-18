@@ -1,25 +1,26 @@
 <% content_for(:html_title) { t('.title') } %>
 
-<div class="contentblock">
-  <h2><%= t('.title') %></h2>
+<%= render(BoxComponent.new) do |box| %>
+  <%= box.with_title { t('.title') } %>
+  <%= box.with_body do %>
+    <%= simple_form_for(@company) do |f| %>
+      <%= f.input :name %>
+      <%= f.input :domain %>
+      <%= f.input :document %>
+      <%= f.input :logo, input_html: { accept: ['image/png'] } %>
 
-  <%= simple_form_for(@company) do |f| %>
-    <%= f.input :name %>
-    <%= f.input :domain %>
-    <%= f.input :document %>
-    <%= f.input :logo, input_html: { accept: ['image/png'] } %>
+      <%= f.fields_for :address do |af| %>
+        <%= af.input :zipcode %>
+        <%= af.input :street %>
+        <%= af.input :number %>
+        <%= af.input :neighborhood %>
+        <%= af.input :city %>
+        <%= af.input :country, as: :string %>
+      <% end %>
 
-    <%= f.fields_for :address do |af| %>
-      <%= af.input :zipcode %>
-      <%= af.input :street %>
-      <%= af.input :number %>
-      <%= af.input :neighborhood %>
-      <%= af.input :city %>
-      <%= af.input :country, as: :string %>
+      <%= f.button :submit, 'Cadastrar empresa' %>
     <% end %>
 
-    <%= f.button :submit, 'Cadastrar empresa' %>
+    <%= back_button %>
   <% end %>
-
-  <%= back_button %>
-</div>
+<% end %>

@@ -1,6 +1,6 @@
-<div class="contentblock">
-    <h2>Proposta (<%=t(".status.#{@job_proposal.status}")%>)</h2>
-
+<%= render(BoxComponent.new) do |component| %>
+  <%= component.with_title { "Proposta (#{t(".status.#{@job_proposal.status}")})" } %>
+  <%= component.with_body do %>
     <p><%= t('.message') %>:
     <%= @job_proposal.message %></p>
     <p><%= t('.salary_proposal') %>:
@@ -9,46 +9,42 @@
     <%= @job_proposal.start_date %></p>
 
     <% if candidate_signed_in? && @job_proposal.status == 'waiting' %>
+      <h4>Aceitar proposta</h4>
+      <div class= "accept-form">
+        <%= form_tag accept_job_application_job_proposal_path, method: :post do %>
+          <div>
+              <%= label_tag t('.start_date_confirmation') %>
+              <%= text_field_tag :start_date_confirmation, params[:start_date_confirmation] %>
+          </div>
+          <%= submit_tag 'Confirmar' %>
+        <% end %>
+      </div>
 
-        <h4>Aceitar proposta</h4>
-
-        <div class= "accept-form">
-            <%= form_tag accept_job_application_job_proposal_path, method: :post do %>
-                <div>
-                    <%= label_tag t('.start_date_confirmation') %>
-                    <%= text_field_tag :start_date_confirmation, params[:start_date_confirmation] %>
-                </div>
-                <%= submit_tag 'Confirmar' %>
-            <% end %>
-        </div>
-
-        <h4>Rejeitar proposta</h4>
-
-        <div class= "reject-form">
-            <%= form_tag reject_job_application_job_proposal_path, method: :post do %>
-                <div>
-                    <%= label_tag t('.rejection_motive') %>
-                    <%= text_field_tag :rejection_motive, params[:rejection_motive] %>
-                </div>
-                <%= submit_tag 'Confirmar' %>
-            <% end %>
-        </div>
+      <h4>Rejeitar proposta</h4>
+      <div class= "reject-form">
+        <%= form_tag reject_job_application_job_proposal_path, method: :post do %>
+          <div>
+              <%= label_tag t('.rejection_motive') %>
+              <%= text_field_tag :rejection_motive, params[:rejection_motive] %>
+          </div>
+          <%= submit_tag 'Confirmar' %>
+        <% end %>
+      </div>
 
     <% end %>
-
-</div>
+  <% end %>
+<% end %>
 
 <% if @job_proposal.accepted? %>
-    <div class="contentblock">
-        <h2>Data de início</h2>
-        <%= @job_proposal.start_date_confirmation %>
-
-    </div>
+  <%= render(BoxComponent.new) do |box| %>
+    <%= box.with_title { 'Data de início' } %>
+    <%= box.with_body { @job_proposal.start_date_confirmation } %>
+  <% end %>
 <% end %>
 
 <% if @job_proposal.rejected? %>
-    <div class="contentblock">
-        <h2><%=t('.rejection_motive')%></h2>
-      <%= @job_proposal.rejection_motive %>
-    </div>
+  <%= render(BoxComponent.new) do |box| %>
+    <%= box.with_title { t('.rejection_motive') } %>
+    <%= box.with_body { @job_proposal.rejection_motive } %>
+  <% end %>
 <% end %>

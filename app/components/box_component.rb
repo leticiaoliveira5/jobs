@@ -32,6 +32,14 @@ class BoxComponent < ViewComponent::Base
     @behavior == :collapsible
   end
 
+  def collapse_id
+    @collapse_id ||= "box-#{SecureRandom.hex(4)}"
+  end
+
+  def expanded?
+    !(collapsible? && @default == :closed)
+  end
+
   def bg
     COLOR_OPTIONS[@color]
   end

@@ -1,9 +1,9 @@
 <% content_for(:html_title) { 'Cadastro de vaga' } %>
 
-<div class="contentblock">
-  <h2>Cadastro de vaga</h2>
-
-  <%= render 'form' %>
-
-  <%= back_button %>
-</div>
+<%= render(BoxComponent.new) do |component| %>
+  <% component.with_title { 'Cadastro de vaga' } %>
+  <% component.with_body do %>
+    <%= render 'form' %>
+    <%= back_button %>
+  <% end %>
+<% end %>
