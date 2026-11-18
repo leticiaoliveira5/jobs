@@ -155,31 +155,6 @@ a:hover {
   margin-left: 5px;
 }
 
-/* SEARCH FIELD */
-
-.search_container {
-  border: 1px solid var(--button_color);
-  border-radius: 7px;
-  display: flex;
-  justify-content: space-between;
-  margin: 5px auto;
-  padding: 10px;
-  position: relative;
-}
-
-.search_container input[type='text'] {
-  all: unset;
-  width: 100%;
-}
-
-.search_container input[type='text']:-webkit-autofill {
-  -webkit-background-clip: text;
-}
-
-.search_container button {
-  all: unset;
-  padding: 0 10px 0 10px;
-}
 
 
 
@@ -188,7 +163,6 @@ a:hover {
 .login-component * {
   box-sizing: border-box;
 }
-
 .login-component {
   background-color: var(--nav_background_color);
   border-radius: 7px;
@@ -205,20 +179,17 @@ a:hover {
     width: 100%;
   }
 }
-
 .login-component a,
 .login-component a:hover {
   font-weight: 700;
   text-decoration: none;
 }
-
 .login-component .tabs {
   display: flex;
   flex-direction: row;
   margin-bottom: 15px;
   width: 100%;
 }
-
 .login-component .tab {
   border-bottom: 3px solid;
   color: var(--inactive_link);
@@ -230,31 +201,26 @@ a:hover {
   text-align: center;
   width: 50%;
 }
-
 .login-component .tabs .active {
   border-color: var(--link);
   color: var(--link);
   font-weight: 500;
   letter-spacing: 0.05em;
 }
-
 .login-component .tabcontent {
   margin: auto;
   width: 85%;
 }
-
 .login-component .tabcontent div {
   font-size: 20px;
   margin: 1em auto;
   padding: 18px;
   text-align: center;
 }
-
 .login-component .btn {
   font-size: 24px;
   padding: 5px;
 }
-
 .login-component input[type=email],
 .login-component input[type=password] {
   border-radius: 7px;
@@ -263,7 +229,6 @@ a:hover {
   padding: 15px 20px;
   width: 100%;
 }
-
 .login-component input[type=submit] {
   border: none;
   color: var(--link);
@@ -272,9 +237,7 @@ a:hover {
   font-size: 24px;
   font-weight: 700;
 }
-
 .login-component input[type="checkbox"] { vertical-align: middle; }
-
 .login-component label {
   display: block;
   font-size: 20px;
@@ -282,19 +245,16 @@ a:hover {
   text-align: left;
   text-transform: lowercase;
 }
-
 .login-component .hint-link {
   float: right;
   font-size: 12px;
   margin-top: -10px;
 }
-
 .login-component .checkbox-field label {
   display: inline;
   font-size: 12px;
   text-transform: none;
 }
-
 
 
 .flexrow {
