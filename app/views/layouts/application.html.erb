@@ -5,13 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <% if controller_name == "home" %>
-      <%= stylesheet_link_tag 'homepage', media: 'all' %>
-    <% else %>
-      <%= stylesheet_link_tag 'application', media: 'all' %>
-    <% end %>
-
+    <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
@@ -23,9 +17,7 @@
 
     <%= render(NavbarComponent.new(title: 'Jobs')) do |nav| %>
       <% nav.with_left do %>
-        <%= link_to 'Empresas', companies_path %>
-        <%= link_to 'Vagas', job_opportunities_path %>
-        <%= link_to 'Candidatos', candidates_path %>
+        <% nav_links %>
       <% end %>
       <% nav.with_right do %>
         <% employee_nav_links %>
