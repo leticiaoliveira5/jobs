@@ -18,7 +18,7 @@ module ApplicationHelper
   end
 
   def see_more(instance)
-    link_to fa_icon('eye', title: 'Ver', class: 'green-icon'), instance
+    link_to fa_icon('eye', title: 'Ver', class: 'text-primary ms-1'), instance
   end
 
   def nav_links
