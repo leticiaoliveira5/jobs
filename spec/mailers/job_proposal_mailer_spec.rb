@@ -4,7 +4,7 @@ describe JobProposalMailer do
   describe '#notify_proposal' do
     let(:job_proposal) { create(:job_proposal) }
 
-    it 'should build and email correctly' do
+    it 'builds and email correctly' do
       mail = described_class.notify_proposal(job_proposal.id)
       expected_text = "#{job_proposal.candidate.firstname}, sua candidatura à vaga"
 

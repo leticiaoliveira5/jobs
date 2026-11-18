@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe CandidateSkillsController, type: :controller, login_metadata: true do
+RSpec.describe CandidateSkillsController, login_metadata: true, type: :controller do
   let(:candidate) { create(:candidate) }
   let(:candidate_skill) { create(:candidate_skill, candidate: candidate) }
 

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe DegreesController, type: :controller, login_metadata: true do
+RSpec.describe DegreesController, login_metadata: true, type: :controller do
   let(:candidate) { create(:candidate) }
 
   describe '#create' do

@@ -11,6 +11,7 @@ feature 'employee registers job opportunity' do
     click_on 'Cadastrar nova vaga'
   end
 
+  # rubocop:disable-next RSpec/ExampleLength
   scenario 'successfully' do
     fill_in 'Título da vaga', with: 'Ator'
     fill_in 'Faixa salarial', with: 'A combinar'
