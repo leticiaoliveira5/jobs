@@ -3,6 +3,7 @@
 <%= render(BoxComponent.new) do |component| %>
   <% component.with_title { 'Edição de vaga' } %>
   <% component.with_body do %>
-  <%= render 'form' %>
-  <%= back_button %>
+    <%= render 'form' %>
+    <%= back_button %>
+  <% end %>
 <% end %>
