@@ -7,7 +7,6 @@ pt-BR:
       search_label: Busca por empresa ou vaga
   job_opportunities:
     index:
-      search_placeholder: Digite o que procura...
       jobs: Vagas Recentes
       search_result: 'Resultado da Busca: "%{input}"'
       empty_state: Nenhuma vaga encontrada
@@ -32,7 +31,6 @@ pt-BR:
         empty_state: Nenhum candidato se inscreveu para esta vaga
   companies:
     index:
-      search_placeholder: Digite o que procura...
       active_opportunities: Vagas ativas
       companies: Empresas Cadastradas
       search_result: 'Resultado da Busca: "%{input}"'
@@ -84,7 +82,6 @@ pt-BR:
       make_proposal_for: Fazer proposta para %{name}
   candidates:
     index:
-      search_placeholder: Digite o que procura...
       candidates: Candidatos em destaque
       empty_state: Nenhum candidato encontrado
       search_result: 'Resultado da Busca: "%{input}"'
@@ -125,3 +122,5 @@ pt-BR:
       proposals: Propostas recebidas
       view_proposal: Ver detalhes da proposta
       view_opportunity: Ver detalhes da vaga
+  search_component:
+    search_placeholder: Digite o que procura...

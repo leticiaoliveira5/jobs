@@ -7,7 +7,7 @@ module CandidateDashboardHelper
     link_to fa_icon('close'),
             job_application_path(id),
             method: :delete,
-            class: 'green-icon',
+            class: 'text-primary ms-1',
             title: 'Cancelar inscrição na vaga',
             data: { confirm: t('are_you_sure') }
   end

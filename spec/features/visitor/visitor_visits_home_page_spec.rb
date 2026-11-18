@@ -14,7 +14,7 @@ feature 'Visitor visits home page' do
 
     expect(page).to have_content('Jobs')
     expect(page).to have_button('Login') && have_link('Inscrever-se')
-    within('.nav') do
+    within('.navbar') do
       expect(page).to have_link('Empresas')
       expect(page).to have_link('Vagas')
     end
