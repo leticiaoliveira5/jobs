@@ -57,24 +57,24 @@ RSpec.describe BoxComponent, type: :component do
   end
 
   context 'attribute color is not set' do
-    it { expect(rendered_component).to include('background-color:var(--content_blocks_color)') }
+    it { expect(rendered_component).to include('bg-white') }
   end
 
   context 'color attribute is set to primary' do
     subject { described_class.new(color: :primary) }
 
-    it { expect(rendered_component).to include('background-color:var(--content_blocks_color)') }
+    it { expect(rendered_component).to include('bg-white') }
   end
 
   context 'color attribute is set to secondary' do
     subject { described_class.new(color: :secondary) }
 
-    it { expect(rendered_component).to include('background-color:var(--nav_background_color)') }
+    it { expect(rendered_component).to include('bg-body-secondary') }
   end
 
   context 'color attribute is set to transparent' do
     subject { described_class.new(color: :transparent) }
 
-    it { expect(rendered_component).to include('background-color:transparent') }
+    it { expect(rendered_component).to include('bg-transparent') }
   end
 end

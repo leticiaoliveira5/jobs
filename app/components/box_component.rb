@@ -8,9 +8,9 @@ class BoxComponent < ViewComponent::Base
   # color: [:primary, :secondary, :transparent]
 
   COLOR_OPTIONS = {
-    primary: 'var(--content_blocks_color)',
-    secondary: 'var(--nav_background_color)',
-    transparent: 'transparent'
+    primary: 'bg-white',
+    secondary: 'bg-body-secondary',
+    transparent: 'bg-transparent'
   }.freeze
 
   def initialize(behavior: :default, default: :open, color: :primary)
@@ -40,7 +40,7 @@ class BoxComponent < ViewComponent::Base
     !(collapsible? && @default == :closed)
   end
 
-  def bg
+  def bg_class
     COLOR_OPTIONS[@color]
   end
 end

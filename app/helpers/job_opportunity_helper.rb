@@ -73,7 +73,7 @@ module JobOpportunityHelper
               'bg-success'
             end
 
-    tag.span(t(".status.#{status}"), class: "tag #{color}")
+    tag.span(t(".status.#{status}"), class: "badge rounded-pill text-bg-secondary fw-medium text-lowercase #{color}")
   end
 
   def basic_info(job_opportunity)
@@ -84,7 +84,7 @@ module JobOpportunityHelper
       positions: job_opportunity.number_of_positions
     }
 
-    tag.ul(class: 'no-bullets text-primary ms-1') do
+    tag.ul(class: 'list-unstyled m-0 text-primary ms-1') do
       attributes.each do |key, value|
         concat tag.li(fa_icon(basic_info_icons[key], title: t(".#{key}"), text: value)) if value
       end
