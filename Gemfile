@@ -9,6 +9,7 @@ gem 'bootstrap', '~> 5.3.3'
 gem 'devise'
 gem 'enumerate_it'
 gem 'font-awesome-rails', '4.7.0.9'
+gem 'json', '~> 2.9'
 gem 'kaminari', '>= 1.2.2'
 gem 'pg', '~> 1.3.5'
 gem 'puma', '~> 7.2'
@@ -25,6 +26,7 @@ group :development, :test do
   gem 'factory_bot_rails', '6.5.1'
   gem 'faker', require: false
   gem 'rspec-rails', '~> 7'
+  gem 'rubocop', '>= 1.82.1', require: false
   gem 'rubocop-rspec', require: false
 end
 

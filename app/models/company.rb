@@ -4,9 +4,9 @@ class Company < ApplicationRecord
   has_many :job_proposals, through: :job_opportunities
   has_many :job_applications, through: :job_opportunities
   has_many :active_job_opportunities, -> { where(status: :active) },
-           class_name: 'JobOpportunity', inverse_of: :company
+           class_name: 'JobOpportunity', inverse_of: :company, dependent: :destroy
   has_many :inactive_job_opportunities, -> { where(status: :inactive) },
-           class_name: 'JobOpportunity', inverse_of: :company
+           class_name: 'JobOpportunity', inverse_of: :company, dependent: :destroy
 
   has_one :address, as: :resource, dependent: :destroy
 

@@ -21,7 +21,7 @@ RSpec.describe Candidate, type: :model do
         expect(candidate.errors).to include(:avatar)
       end
 
-      # rubocop:disable RSpec/AnyInstance
+      # rubocop:disable-next RSpec/AnyInstance
       it 'validates size' do
         candidate = build(:candidate, :with_avatar)
 
@@ -30,7 +30,6 @@ RSpec.describe Candidate, type: :model do
         expect(candidate).to be_invalid
         expect(candidate.errors).to include(:avatar)
       end
-      # rubocop:enable RSpec/AnyInstance
     end
   end
 end

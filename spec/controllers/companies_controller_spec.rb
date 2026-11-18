@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe CompaniesController, type: :controller, login_metadata: true do
+RSpec.describe CompaniesController, login_metadata: true, type: :controller do
   let(:company) { create(:company, :with_employee) }
   let(:employee) { company.employees.first }
 
