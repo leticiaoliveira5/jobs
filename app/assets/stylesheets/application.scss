@@ -378,33 +378,3 @@ a:hover {
   
 }
 
-/* LIST ITEM COMPONENT */
-
-/* large screen */
-@media screen and (min-device-width: 750px) and (min-width: 750px) {
-  .side-button {
-    visibility: hidden;
-  }
-
-  .list-item:hover .side-button {
-    visibility: visible;
-  }
-}
-
-.list-item {
-  align-items: center;
-  border-radius: 7px;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 2px;
-  padding: 15px;
-  transition: 0.4s;  
-}
-
-.list-item:hover {
-  background-color: var(--nav_background_color);
-}
-
-.side-button {
-  font-size: 1.3em;
-}
