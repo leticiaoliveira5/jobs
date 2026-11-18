@@ -1,6 +1,6 @@
-<div class="contentblock">
-    <h2>Proposta (<%=t(".status.#{@job_proposal.status}")%>)</h2>
-
+<%= render(BoxComponent.new) do |component| %>
+  <% component.with_title { "Proposta (<%=t(".status.#{@job_proposal.status}")%>)" } %>
+  <% component.with_body do %>
     <p><%= t('.message') %>:
     <%= @job_proposal.message %></p>
     <p><%= t('.salary_proposal') %>:
@@ -35,20 +35,19 @@
         </div>
 
     <% end %>
-
-</div>
+  <% end %>
+<% end %>
 
 <% if @job_proposal.accepted? %>
-    <div class="contentblock">
-        <h2>Data de início</h2>
-        <%= @job_proposal.start_date_confirmation %>
-
-    </div>
+  <%= render(BoxComponent.new) do |box| %>
+    box.with_title { 'Data de início' }
+    box.with_body { @job_proposal.start_date_confirmation }
+  <% end %>
 <% end %>
 
 <% if @job_proposal.rejected? %>
-    <div class="contentblock">
-        <h2><%=t('.rejection_motive')%></h2>
-      <%= @job_proposal.rejection_motive %>
-    </div>
+  <%= render(BoxComponent.new) do |box| %>
+    <%= box.with_title { t('.rejection_motive') } %>
+    <%= box.with_body { @job_proposal.rejection_motive } %>
+  <% end %>
 <% end %>

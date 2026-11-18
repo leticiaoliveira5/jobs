@@ -82,16 +82,6 @@ a:hover {
   padding: 0; /* Remove padding */
 }
 
-.contentblock {
-  background-color: var(--content_blocks_color);
-  width: 80%;
-  align-self: center;
-  border-radius: 7px;
-  padding: 10px 25px 20px 25px; /* top right bottom left */
-  margin: 15px auto;
-  text-align: left;
-}
-
 .empty_state{
   opacity: 0.5;
   padding: 35px 0 35px 0;
