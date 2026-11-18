@@ -1,93 +1,45 @@
-<style>
-  .modalbox {
-    background: white;
-    display: none;
-    box-sizing: border-box;
-    border-radius: 7px;
-    padding: 25px; /* top right bottom left */
-    position: fixed;
-    left: 50%;
-    top: 40px;
-    transform: translate(-50%);
-    text-align: left;
-    width: 500px;
-    max-width: 80%;
-  }
+<div class="modal-backdrop fade show d-none" id="backdrop<%= @modal_id %>"></div>
 
-  .backdrop {
-    background-color: rgba(0,0,0,0.2);
-    width: 100vw;
-    height: 100vw;
-    position: fixed;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    display: none;
-  }
-
-  .modalbox .title {
-    color: #10462C;
-    font-size: 1.5em;
-    font-weight:  bold;
-    line-height: 1.6em;
-    margin-bottom: 0;
-    vertical-align: middle;
-  }
-</style>
-
-<div class="backdrop" id="backdrop<%= @modal_id %>"></div>
-  <div  class="modalbox" id="<%= @modal_id %>">
-    <div class="title">
-      <%= @title %>
-      <i onclick='closeModal("<%= @modal_id %>")' class="fa fa-close" style="float: right;"></i>
+<div class="modal" id="<%= @modal_id %>" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="title<%= @modal_id %>">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header border-0 pb-0">
+        <h5 class="modal-title fs-4 fw-bold" id="title<%= @modal_id %>"><%= @title %></h5>
+        <button type="button" class="btn-close" aria-label="Fechar" data-modal-close></button>
+      </div>
+      <div class="modal-body">
+        <%= body %>
+      </div>
     </div>
-    <%= body %>
   </div>
+</div>
 
 <script>
-  var btn = document.getElementById("<%= @show_button_id %>");
-  btn.setAttribute('onclick', 'showModal("<%= @modal_id %>")');
+  (function () {
+    const modal = document.getElementById('<%= @modal_id %>');
+    const backdrop = document.getElementById('backdrop<%= @modal_id %>');
+    const trigger = document.getElementById('<%= @show_button_id %>');
 
-  function showModal(id) {
-    var modal = document.getElementById(id)
-    var backdrop = document.getElementById(`backdrop${id}`)
+    const open = () => {
+      modal.classList.add('d-block');
+      backdrop.classList.remove('d-none');
+    };
 
-    // backdrop.style.display = 'block'
-    fadeIn(backdrop)
-    modal.style.display = 'block'
-  }
+    const close = () => {
+      modal.classList.remove('d-block');
+      backdrop.classList.add('d-none');
+    };
 
-  function closeModal(id) {
-    var modal = document.getElementById(id)
-    var backdrop = document.getElementById(`backdrop${id}`)
-    // backdrop.style.display = 'none'
-    fadeOut(backdrop)
-    modal.style.display = 'none'
-  }
+    if (trigger) trigger.addEventListener('click', open);
+    modal.querySelector('[data-modal-close]').addEventListener('click', close);
 
-  function fadeIn(element) {
-    var op = 0.1;  // initial opacity
-    element.style.display = 'block';
-    var timer = setInterval(function () {
-        if (op >= 1){
-            clearInterval(timer);
-        }
-        element.style.opacity = op;
-        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-        op += op * 0.1;
-    }, 10);
-  }
+    // clique fora da caixa (na área escura) fecha
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) close();
+    });
 
-  function fadeOut(element) {
-    var op = 1;  // initial opacity
-    var timer = setInterval(function () {
-        if (op <= 0){
-          clearInterval(timer);
-          element.style.display = 'none';
-        }
-      element.style.opacity = op;
-      element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-      op -= 0.1;
-    }, 10);
-   }
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && modal.classList.contains('d-block')) close();
+    });
+  })();
 </script>
