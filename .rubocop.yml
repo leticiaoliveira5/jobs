@@ -98,6 +98,11 @@ RSpec/MetadataStyle:
 RSpec/BeEq:
   Enabled: false
 
+RSpec/Output:
+  Enabled: true
+  Exclude:
+    - 'spec/rails_helper.rb'
+
 # Other
 
 Bundler/OrderedGems:
@@ -106,7 +111,6 @@ Bundler/OrderedGems:
 Rails/StrongParametersExpect:
   Enabled: false
 
-RSpec/Output:
-  Enabled: true
+Rails/RootPathnameMethods:
   Exclude:
     - 'spec/rails_helper.rb'
