@@ -1,51 +1,52 @@
-<div class="contentblock">
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+<%= render(BoxComponent.new) do |component| %>
+  <% component.with_title { 'Edit ' + resource_name.to_s.humanize } %>
+  <% component.with_body do %>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= f.input :firstname %>
+      <%= f.input :surname %>
 
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= f.input :firstname %>
-    <%= f.input :surname %>
+      <% if candidate_signed_in? %>
+        <%= f.input :about_me, as: :text %>
+        <%= f.input :document %>
+        <%= f.input :avatar, input_html: { accept: ['image/jpeg'] } %>
+        <%= f.input :website %>
 
-    <% if candidate_signed_in? %>
-      <%= f.input :about_me, as: :text %>
-      <%= f.input :document %>
-      <%= f.input :avatar, input_html: { accept: ['image/jpeg'] } %>
-      <%= f.input :website %>
-
-      <%= f.fields_for :address, resource.address || resource.build_address do |af| %>
-        <%= af.input :zipcode %>
-        <%= af.input :street %>
-        <%= af.input :number %>
-        <%= af.input :neighborhood %>
-        <%= af.input :city %>
-        <%= af.input :country, as: :string %>
+        <%= f.fields_for :address, resource.address || resource.build_address do |af| %>
+          <%= af.input :zipcode %>
+          <%= af.input :street %>
+          <%= af.input :number %>
+          <%= af.input :neighborhood %>
+          <%= af.input :city %>
+          <%= af.input :country, as: :string %>
+        <% end %>
       <% end %>
+
+      <%= f.input :email, as: :email, autofocus: true, autocomplete: "email" %>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <i>Leave password blank if you don't want to change it</i>
+
+      <%= f.input :password, as: :password, 
+                            autocomplete: "new-password", 
+                            hint: "#{@minimum_password_length} characters minimum" if @minimum_password_length %>
+
+      <%= f.input :password_confirmation, as: :password, autocomplete: "new-password" %>
+      
+      <i>We need your current password to confirm your changes</i>
+
+      <%= f.input :current_password, as: :password, autocomplete: "current-password" %>
+
+      <%= f.button :submit, "Update" %>
+
     <% end %>
 
-    <%= f.input :email, as: :email, autofocus: true, autocomplete: "email" %>
+    <h3>Cancel my account</h3>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-    <% end %>
+    <p><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger' %></p>
 
-    <i>Leave password blank if you don't want to change it</i>
-
-    <%= f.input :password, as: :password, 
-                           autocomplete: "new-password", 
-                           hint: "#{@minimum_password_length} characters minimum" if @minimum_password_length %>
-
-    <%= f.input :password_confirmation, as: :password, autocomplete: "new-password" %>
-    
-    <i>We need your current password to confirm your changes</i>
-
-    <%= f.input :current_password, as: :password, autocomplete: "current-password" %>
-
-    <%= f.button :submit, "Update" %>
-
+    <%= back_button %>
   <% end %>
-
-  <h3>Cancel my account</h3>
-
-  <p><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger' %></p>
-
-  <%= back_button %>
-</div>
+<% end %>
