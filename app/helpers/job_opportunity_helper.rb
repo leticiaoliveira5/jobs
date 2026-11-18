@@ -73,7 +73,8 @@ module JobOpportunityHelper
               'bg-success'
             end
 
-    tag.span(t(".status.#{status}"), class: "badge rounded-pill text-bg-secondary fw-medium text-lowercase #{color}")
+    tag.span(t(".status.#{status}"),
+             class: "badge rounded-pill text-bg-secondary fw-medium text-lowercase #{color}")
   end
 
   def basic_info(job_opportunity)

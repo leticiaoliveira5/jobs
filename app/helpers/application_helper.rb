@@ -36,12 +36,14 @@ module ApplicationHelper
     concat link_to 'Sair', destroy_candidate_session_path, method: :delete, class: 'nav-link'
   end
 
+  # rubocop:disable-next Metrics/AbcSize
   def employee_nav_links
     return unless current_employee
 
     concat link_to 'Área do colaborador', '/company/dashboard', class: 'nav-link'
     concat content_tag(:span, current_employee.email, class: 'navbar-text')
-    concat content_tag(:span, "(#{current_employee.company.name} - #{current_employee.role})", class: 'navbar-text')
+    concat content_tag(:span, "(#{current_employee.company.name} - #{current_employee.role})",
+                       class: 'navbar-text')
     concat link_to 'Sair', destroy_employee_session_path, method: :delete, class: 'nav-link'
   end
 

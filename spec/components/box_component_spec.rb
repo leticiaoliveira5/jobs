@@ -50,7 +50,8 @@ RSpec.describe BoxComponent, type: :component do
     subject { described_class.new(behavior: :collapsible, default: :closed) }
 
     it 'renders the toggle collapsed with the content hidden' do
-      expect(rendered_component).to have_css('[aria-controls][aria-expanded="false"]', text: 'Title')
+      expect(rendered_component).to have_css('[aria-controls][aria-expanded="false"]',
+                                             text: 'Title')
       expect(rendered_component).to have_css('[aria-hidden="true"]', text: '+')
       expect(rendered_component).to have_css('.d-none', text: 'Body')
     end

@@ -10,7 +10,8 @@ module CandidateProfileHelper
   def delete_item_button(item)
     return unless candidate_signed_in?
 
-    link_to fa_icon('trash', title: t('candidates.show.actions.delete'), class: 'text-body-tertiary'),
+    title = t('candidates.show.actions.delete')
+    link_to fa_icon('trash', title:, class: 'text-body-tertiary'),
             delete_path(item),
             method: :delete,
             data: { confirm: t('are_you_sure') }
@@ -79,8 +80,8 @@ module CandidateProfileHelper
     return unless website
 
     tag.p(fa_icon('link', class: 'text-primary ms-1').concat(link_to(website,
-                                                              "http://#{website}",
-                                                              target: :_blank,
-                                                              rel: :noopener)))
+                                                                     "http://#{website}",
+                                                                     target: :_blank,
+                                                                     rel: :noopener)))
   end
 end
