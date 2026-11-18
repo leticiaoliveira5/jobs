@@ -181,29 +181,7 @@ a:hover {
   padding: 0 10px 0 10px;
 }
 
-/* GRID COMPONENT */
 
-.grid {
-  display: grid;
-  margin: 0 auto;
-  max-width: 100%;
-}
-
-/* mobile screen */
-.responsive-grid { 
-  display: grid;
-  grid-template-columns: 1fr;
-}
-
-/* mediun screen */
-@media only screen and (min-width: 600px) and (min-device-width: 600px) {
-  .responsive-grid { grid-template-columns: 1fr 1fr; }
-}
-
-/* large screen */
-@media only screen and (min-width: 900px) and (min-device-width: 900px) {
-  .responsive-grid { grid-template-columns: 1fr 1fr 1fr; }
-}
 
 /* LOGIN COMPONENT */
 
