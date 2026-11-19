@@ -1,0 +1,45 @@
+<div class="tabs d-flex flex-row mb-3 w-100">
+  <% @tabs.each do |tab| %>
+    <div class="tab flex-fill text-center text-secondary fw-medium fs-4 pt-4 pb-1 border-bottom border-3" onclick="showTab(event, '<%= tab[:id] %>')" id="defaultOpen">
+      <%= tab[:title] %>
+    </div>
+  <% end %>
+</div>
+
+<% @tabs.each do |tab| %>
+  <div class="tabcontent mx-auto w-75 p-3" id="<%= tab[:id] %>">
+    <%= tab[:content] %>
+  </div>
+<% end %>
+
+<script>
+  document.getElementById("defaultOpen").click();
+
+  function showTab(evt, tabName) {
+  var i, tabcontent, tab;
+
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  tab = document.getElementsByClassName("tab");
+  for (i = 0; i < tab.length; i++) {
+    tab[i].className = tab[i].className.replace(" active", "");
+  }
+
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+
+<style>
+  .tabs {}
+  .tab { cursor: pointer; }
+  .tabs .active {
+    border-color: #276a66 !important;
+    color: #276a66 !important;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+</style>
