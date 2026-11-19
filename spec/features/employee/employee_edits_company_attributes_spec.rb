@@ -9,7 +9,7 @@ feature 'Employee edits company' do
   scenario 'if is company admin' do
     login_as first_employee, scope: :employee
     visit root_path
-    within('.nav') { click_on 'Área do colaborador' }
+    within('.navbar') { click_on 'Área do colaborador' }
     click_on 'Editar dados da empresa'
     fill_in 'Nome', with: 'Novo nome'
     click_on 'Cadastrar empresa'
@@ -21,7 +21,7 @@ feature 'Employee edits company' do
   scenario '(not available for regular employee)' do
     login_as regular_employee, scope: :employee
     visit root_path
-    within('.nav') { click_on 'Área do colaborador' }
+    within('.navbar') { click_on 'Área do colaborador' }
 
     expect(page).not_to have_content 'Editar dados da empresa'
   end
