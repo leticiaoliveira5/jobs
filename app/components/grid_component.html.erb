@@ -1,5 +1,8 @@
 <style>
   .grid {
+    display: grid;
+    margin: 0 auto;
+    max-width: '100%';
     column-gap: <%= column_gap %>;
     grid-template-columns: <%= columns_css %>;
     grid-template-rows: <%= rows_css %>;
@@ -7,8 +10,20 @@
   }
 
   .responsive-grid {
+    display: grid;
+    grid-template-columns: 1fr;
     column-gap: <%= column_gap %>;
     row-gap: <%= row_gap %>;
+  }
+
+  /* mediun screen */
+  @media only screen and (min-width: 600px) and (min-device-width: 600px) {
+    .responsive-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* large screen */
+  @media only screen and (min-width: 900px) and (min-device-width: 900px) {
+    .responsive-grid { grid-template-columns: 1fr 1fr 1fr; }
   }
 </style>
 
