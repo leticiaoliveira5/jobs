@@ -1,4 +1,4 @@
-<div class="login-component">
+<div class="login-component m-auto w-100 overflow-hidden m-5 bg-body-secondary rounded">
   <div class="tabs">
     <div class="tab" onclick="showTab(event, 'candidate-form')" id="defaultOpen">
       <%= t('activerecord.models.candidate.one') %>
@@ -8,10 +8,10 @@
     </div>
   </div>
   <div class="tabcontent" id="candidate-form">
-    <%= render(LoginFormComponent.new(resource_name: 'candidate')) %>
+    <%= render 'form', resource_name: 'candidate' %>
   </div>
   <div class="tabcontent" id="employee-form">
-    <%= render(LoginFormComponent.new(resource_name: 'employee')) %>
+    <%= render 'form', resource_name: 'employee' %>
   </div>
 </div>
 
@@ -19,22 +19,18 @@
   document.getElementById("defaultOpen").click();
 
   function showTab(evt, tabName) {
-  // Declare all variables
   var i, tabcontent, tab;
 
-  // Get all elements with class="tabcontent" and hide them
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
     tabcontent[i].style.display = "none";
   }
 
-  // Get all elements with class="tab" and remove the class "active"
   tab = document.getElementsByClassName("tab");
   for (i = 0; i < tab.length; i++) {
     tab[i].className = tab[i].className.replace(" active", "");
   }
 
-  // Show the current tab, and add an "active" class to the button that opened the tab
   document.getElementById(tabName).style.display = "block";
   evt.currentTarget.className += " active";
 }
@@ -42,30 +38,7 @@
 
 <style>
 
-.login-component * {
-  box-sizing: border-box;
-}
-.login-component {
-  background-color: #eeeeee;
-  border-radius: 7px;
-  box-sizing: border-box;
-  margin: 3em;
-  overflow: hidden;
-}
-
-/* large screen */
-@media screen and (min-device-width: 750px) and (min-width: 750px) {
-  .login-component {
-    box-sizing: border-box;
-    margin: auto;
-    width: 100%;
-  }
-}
-.login-component a,
-.login-component a:hover {
-  font-weight: 700;
-  text-decoration: none;
-}
+.login-component {}
 .login-component .tabs {
   display: flex;
   flex-direction: row;
