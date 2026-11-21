@@ -11,7 +11,7 @@ feature 'Candidate displays skills on profile page' do
   scenario 'successfully' do
     login_as candidate, scope: :candidate
     visit root_path
-    within('.nav') do
+    within('nav') do
       click_on 'Meu perfil'
     end
 
