@@ -1,18 +1,16 @@
 @import "tailwindcss";
+
 @source "../../../config/initializers";
 
 @theme {
   --color-primary: #276a66;
   --color-secondary: #818181;
-
   --color-body: gainsboro;            /* $body-bg */
-  --color-body-secondary: #eeeeee;    /* $body-secondary-bg */
+  --color-body-secondary: #eee;       /* $body-secondary-bg */
   --color-heading: #10462c;           /* $headings-color */
   --color-surface: white;             /* card, modal, dropdown, input, select, check */
   --color-input-disabled: #eeeeee;
-
   --font-sans: "Montserrat", sans-serif;
-
   --radius-default: 7px;
 }
 
