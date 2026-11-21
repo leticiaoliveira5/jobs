@@ -1,9 +1,9 @@
 <% content_for(:html_title) { 'Edição de vaga' } %>
 
-<div class="contentblock">
-  <h2>Edição de vaga </h2>
-
-  <%= render 'form' %>
-
-  <%= back_button %>
-</div>
+<%= render(BoxComponent.new) do |component| %>
+  <% component.with_title { 'Edição de vaga' } %>
+  <% component.with_body do %>
+    <%= render 'form' %>
+    <%= back_button %>
+  <% end %>
+<% end %>
