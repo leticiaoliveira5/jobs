@@ -72,6 +72,12 @@ RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :controller
 
   config.include FontAwesome::Rails::IconHelper
+
+  config.before(:suite) do
+    unless Rails.root.join('app/assets/builds/tailwind.css').exist?
+      system('bin/rails tailwindcss:build') || abort('tailwindcss:build failed')
+    end
+  end
 end
 
 Shoulda::Matchers.configure do |config|
