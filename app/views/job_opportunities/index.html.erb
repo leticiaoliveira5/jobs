@@ -8,7 +8,7 @@
   <% component.with_title { @search ? t('.search_result', input: @search) : t('.jobs') } %>
   <% component.with_body do %>
     <% if @job_opportunities.empty? %>
-      <div class="opacity-50 py-5 text-center"><%= t('.empty_state') %></div>
+      <%= render(EmptyStateComponent.new(text: t('.empty_state'))) %>
     <% else %>
       <%= render(GridComponent.new(row_gap: 1.2)) do %>
         <% @job_opportunities.each do |job| %>

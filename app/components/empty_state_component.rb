@@ -1,8 +1,8 @@
 class EmptyStateComponent < ViewComponent::Base
-  def initialize(resource: nil)
+  def initialize(resource: nil, text: nil)
     super()
     @resource = resource
-    @text = build_text
+    @text = text || build_text
   end
 
   private

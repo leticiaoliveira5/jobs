@@ -8,7 +8,7 @@
   <%= box.with_title { @search ? t('.search_result', input: @search) : t('.candidates') } %>
   <%= box.with_body do %>
     <% if @candidates.empty? %>
-      <div class="opacity-50 py-5 text-center"><%= t('.empty_state') %></div>
+      <%= render(EmptyStateComponent.new(text: t('.empty_state'))) %>
     <% else %>
       <%= render(GridComponent.new) do %>
         <% @candidates.each do |candidate| %>

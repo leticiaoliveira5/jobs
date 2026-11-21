@@ -34,7 +34,7 @@
           <% end %>
         <% end %>
       <% else %>
-        <div class="opacity-50 py-5 text-center"><%= t('.job_applications.empty_state') %></div>
+        <%= render(EmptyStateComponent.new(text: t('.job_applications.empty_state'))) %>
       <% end %>
     <% end %>
   <% end %>
