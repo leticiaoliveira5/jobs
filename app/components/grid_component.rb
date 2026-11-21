@@ -1,6 +1,6 @@
 # :reek:TooManyInstanceVariables { max_instance_variables: 5 }
 class GridComponent < ViewComponent::Base
-  TYPES = { responsive: 'responsive-grid', fixed: 'grid' }.freeze
+  TYPES = { responsive: 'responsive-grid-component', fixed: 'grid-component' }.freeze
 
   def initialize(type: :responsive, column_gap: nil, row_gap: nil, columns: nil, rows: nil)
     super()
