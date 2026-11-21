@@ -25,14 +25,14 @@
     <% end %>
 
     <%= render(BoxComponent.new) do |component| %>
-    <% component.with_title do %>
-      <%= t('.work_experience') %>
-      <%= add_item_button('add_work_experience_button') %>
-    <% end %>
+      <% component.with_title do %>
+        <%= t('.work_experience') %>
+        <%= add_item_button('add_work_experience_button') %>
+      <% end %>
 
       <% component.with_body do %>
         <% if @work_experiences.empty? %>
-          <div class="opacity-50 py-12 text-center"><%= t('.empty_state.work_experience') %></div>
+          <%= render(EmptyStateComponent.new(resource: 'work_experience')) %>
         <% end %>
         <% @work_experiences.each do |w| %>
           <%= render(ListItemComponent.new) do |component| %>
@@ -47,14 +47,14 @@
     <% end %>
 
     <%= render(BoxComponent.new) do |component| %>
-    <% component.with_title do %>
-      <%= t('.degrees') %>
-      <%= add_item_button('add_degree_button') %>
-    <% end %>
+      <% component.with_title do %>
+        <%= t('.degrees') %>
+        <%= add_item_button('add_degree_button') %>
+      <% end %>
 
       <% component.with_body do %>
         <% if @degrees.empty? %>
-          <div class="opacity-50 py-12 text-center"><%= t('.empty_state.degree') %></div>
+          <%= render(EmptyStateComponent.new(resource: 'degree')) %>
         <% else %>
           <% @degrees.each do |d| %>
             <%= render(ListItemComponent.new) do |component| %>
@@ -69,14 +69,14 @@
     <% end %>
 
     <%= render(BoxComponent.new) do |component| %>
-    <% component.with_title do %>
-      <%= t('.candidate_skills') %>
-      <%= add_item_button('add_candidate_skill_button') %>
-    <% end %>
+      <% component.with_title do %>
+        <%= t('.candidate_skills') %>
+        <%= add_item_button('add_candidate_skill_button') %>
+      <% end %>
 
       <% component.with_body do %>
         <% if @candidate.candidate_skills.empty? %>
-          <div class="opacity-50 py-12 text-center"><%= t('.empty_state.candidate_skill') %></div>
+          <%= render(EmptyStateComponent.new(resource: 'candidate_skill')) %>
         <% else %>
           <% @candidate.candidate_skills.each do |s| %>
             <%= render(ListItemComponent.new) do |component| %>
@@ -90,14 +90,14 @@
     <% end %>
 
     <%= render(BoxComponent.new) do |component| %>
-    <% component.with_title do %>
-      <%= t('.courses') %>
-      <%= add_item_button('add_course_button') %>
-    <% end %>
+      <% component.with_title do %>
+        <%= t('.courses') %>
+        <%= add_item_button('add_course_button') %>
+      <% end %>
 
       <% component.with_body do %>
         <% if @courses.empty? %>
-          <div class="opacity-50 py-12 text-center"><%= t('.empty_state.course') %></div>
+          <%= render(EmptyStateComponent.new(resource: 'course')) %>
         <% else %>
           <% @courses.each do |c| %>
             <%= render(ListItemComponent.new) do |component| %>
@@ -111,14 +111,14 @@
     <% end %>
 
     <%= render(BoxComponent.new) do |component| %>
-    <% component.with_title do %>
-      <%= t('.languages') %>
-      <%= add_item_button('add_language_button') %>
-    <% end %>
+      <% component.with_title do %>
+        <%= t('.languages') %>
+        <%= add_item_button('add_language_button') %>
+      <% end %>
 
       <% component.with_body do %>
         <% if @candidate.languages.empty? %>
-          <div class="opacity-50 py-12 text-center"><%= t('.empty_state.language') %></div>
+          <%= render(EmptyStateComponent.new(resource: 'language')) %>
         <% else %>
           <% @candidate.languages.each do |l| %>
             <%= render(ListItemComponent.new) do |component| %>
