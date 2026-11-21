@@ -1,14 +1,6 @@
 <%= render(BoxComponent.new(color: :transparent)) do |component| %>
   <% component.with_body do %>
-    <%= form_tag(companies_path, method: :get) do |f| %>
-      <div class="search_container">
-        <%= text_field_tag :search_input,
-                           params[:search_input],
-                           placeholder: t('.search_placeholder'),
-                           required: true %>
-        <button type="submit"><i class="fa fa-search green-icon"></i></button>
-      </div>
-    <% end %>
+    <%= render(SearchComponent.new(path: companies_path, search_param: :search_input, required: true)) %>
   <% end %>
 <% end %>
 
@@ -16,7 +8,7 @@
   <%= box.with_title { @search ? t('.search_result', input: @search) : t('.companies') } %>
   <%= box.with_body do %>
     <% if @companies.empty? %>
-      <div class="empty_state"><%= t('.empty_state') %></div>
+      <%= render(EmptyStateComponent.new(text: t('.empty_state'))) %>
     <% else %>
       <%= render(GridComponent.new) do %>
         <% @companies.each do |company| %>
