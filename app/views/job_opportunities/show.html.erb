@@ -24,17 +24,17 @@
         <% @job_applications.each do |job_application| %>
           <%= render(ListItemComponent.new) do |component| %>
             <% component.with_button { see_more(job_application) } %>
-            <div class="flexrow">
+            <div class="d-flex flex-row align-items-center column-gap-3">
               <%= user_avatar(job_application.candidate, size: '45x45', link: job_application.candidate) %>
               <div>
-                <span class="bold"><%= job_application.candidate.full_name %></span><br>
+                <span class="fw-bold fs-5"><%= job_application.candidate.full_name %></span><br>
                 <%= job_application_status_tag(job_application.status) %>
               </div>
             </div>
           <% end %>
         <% end %>
       <% else %>
-        <div class="empty_state"><%= t('.job_applications.empty_state') %></div>
+        <%= render(EmptyStateComponent.new(text: t('.job_applications.empty_state'))) %>
       <% end %>
     <% end %>
   <% end %>
