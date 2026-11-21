@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@source "../../../config/initializers";
+
+@theme {
+  --color-primary: #276a66;
+  --color-secondary: #818181;
+  --color-body: gainsboro;            /* $body-bg */
+  --color-body-secondary: #eee;       /* $body-secondary-bg */
+  --color-heading: #10462c;           /* $headings-color */
+  --color-surface: white;             /* card, modal, dropdown, input, select, check */
+  --color-input-disabled: #eeeeee;
+  --font-sans: "Montserrat", sans-serif;
+  --radius-default: 7px;
+}
+
+@layer base {
+  body {
+    @apply bg-body text-black font-sans text-sm; /* text-sm = 0.875rem (14px) */
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-heading;
+  }
+
+  a {
+    @apply text-primary underline hover:text-primary hover:underline;
+  }
+}
