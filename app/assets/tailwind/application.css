@@ -9,7 +9,7 @@
   --color-body-secondary: #eee;       /* $body-secondary-bg */
   --color-heading: #10462c;           /* $headings-color */
   --color-surface: white;             /* card, modal, dropdown, input, select, check */
-  --color-input-disabled: #eeeeee;
+  --color-input-disabled: #eee;
   --font-sans: "Montserrat", sans-serif;
   --radius-default: 7px;
 }
