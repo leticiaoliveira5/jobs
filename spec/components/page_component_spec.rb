@@ -16,9 +16,13 @@ RSpec.describe PageComponent, type: :component do
     let(:with_sidebar) { true }
 
     it 'renders the sidebar and the content in a grid row' do
-      expect(rendered_component).to have_css('.container-xl .row')
-      expect(rendered_component).to have_css('.row > .col-md-4.col-lg-3', text: 'Sidebar')
-      expect(rendered_component).to have_css('.row > .col-md-8.col-lg-9', text: 'Content')
+      expect(rendered_component).to have_css('.max-w-\[1140px\] .grid.grid-cols-12')
+      expect(rendered_component).to have_css(
+        '.grid > [class~="md:col-span-4"][class~="lg:col-span-3"]', text: 'Sidebar'
+      )
+      expect(rendered_component).to have_css(
+        '.grid > [class~="md:col-span-8"][class~="lg:col-span-9"]', text: 'Content'
+      )
     end
   end
 
@@ -26,9 +30,9 @@ RSpec.describe PageComponent, type: :component do
     let(:with_sidebar) { false }
 
     it 'renders only the content, using the full width' do
-      expect(rendered_component).to have_css('.row > .col-12.col', text: 'Content')
-      expect(rendered_component).to have_no_css('.col-md-4')
-      expect(rendered_component).to have_no_css('.col-md-8')
+      expect(rendered_component).to have_css('.grid > .col-span-12', text: 'Content')
+      expect(rendered_component).to have_no_css('[class~="md:col-span-4"]')
+      expect(rendered_component).to have_no_css('[class~="md:col-span-8"]')
       expect(rendered_component).to have_no_text('Sidebar')
     end
   end

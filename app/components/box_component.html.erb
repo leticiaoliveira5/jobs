@@ -1,17 +1,17 @@
-<div class="rounded-3 p-4 my-3 mx-auto w-100 text-start <%= bg_class %>">
+<div class="mx-auto my-4 w-full rounded-lg p-6 text-start <%= bg_class %>">
   <% if collapsible? %>
-    <div class="d-flex justify-content-between align-items-center fs-4 fw-bold lh-base"
+    <div class="flex cursor-pointer items-center justify-between text-2xl font-bold leading-normal"
          role="button"
          aria-expanded="<%= expanded? %>"
          aria-controls="<%= collapse_id %>">
       <span><%= title if title? %></span>
-      <span class="fs-5 text-secondary" aria-hidden="true"><%= expanded? ? '−' : '+' %></span>
+      <span class="text-xl text-secondary" aria-hidden="true"><%= expanded? ? '−' : '+' %></span>
     </div>
   <% elsif title? %>
-    <div class="fs-4 fw-bold lh-base"><%= title %></div>
+    <div class="text-2xl font-bold leading-normal"><%= title %></div>
   <% end %>
 
-  <div id="<%= collapse_id %>" class="mt-1 <%= 'd-none' if collapsible? && !expanded? %>">
+  <div id="<%= collapse_id %>" class="mt-1 <%= 'hidden' if collapsible? && !expanded? %>">
     <%= body %>
   </div>
 </div>
@@ -24,7 +24,7 @@
       const icon = toggle.lastElementChild;
 
       toggle.addEventListener('click', () => {
-        const open = !content.classList.toggle('d-none');
+        const open = !content.classList.toggle('hidden');
         toggle.setAttribute('aria-expanded', open);
         icon.textContent = open ? '−' : '+';
       });

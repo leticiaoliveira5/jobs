@@ -10,7 +10,7 @@ feature 'Employee searches candidates' do
   before do
     login_as employee, scope: :employee
     visit root_path
-    within('.navbar') { click_on 'Candidatos' }
+    within('nav') { click_on 'Candidatos' }
   end
 
   scenario 'by name' do

@@ -1,20 +1,27 @@
-<nav class="navbar navbar-expand-md bg-body-secondary px-3 py-0">
-  <%= link_to root_path, class: 'navbar-brand text-uppercase fs-1 m-0 py-2' do %>
+<nav class="flex flex-wrap items-center justify-between bg-body-secondary px-4 py-0">
+  <%= link_to root_path, class: 'm-0 mr-4 whitespace-nowrap py-2 text-[2.5rem] uppercase text-black no-underline hover:text-black' do %>
     <%= @title %>
   <% end %>
 
-  <button class="navbar-toggler border-0"
+  <button class="cursor-pointer border-0 px-3 py-1 text-black md:hidden"
           type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#<%= collapse_id %>"
           aria-controls="<%= collapse_id %>"
           aria-expanded="false"
-          aria-label="Menu">
-    <i class="fa fa-bars fs-2"></i>
+          aria-label="Menu"
+          onclick="onClickMenuButton()">
+    <i class="fa fa-bars text-3xl"></i>
   </button>
 
-  <div class="collapse navbar-collapse" id="<%= collapse_id %>">
-    <div class="navbar-nav me-auto"><%= left %></div>
-    <div class="navbar-nav"><%= right %></div>
+  <div class="hidden grow basis-full md:flex md:basis-auto" id="<%= collapse_id %>">
+    <div class="me-auto flex flex-col md:flex-row"><%= left %></div>
+    <div class="flex flex-col md:flex-row"><%= right %></div>
   </div>
 </nav>
+
+<script>
+  function onClickMenuButton() {
+    const c = document.getElementById('<%= collapse_id %>');
+    c.classList.toggle('hidden');
+    this.setAttribute('aria-expanded', String(!c.classList.contains('hidden')));
+  }
+</script>

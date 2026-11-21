@@ -13,14 +13,14 @@ RSpec.describe BoxComponent, type: :component do
   end
 
   it 'renders the title and the body' do
-    expect(rendered_component).to have_css('.fs-4.fw-bold', text: 'Title')
+    expect(rendered_component).to have_css('.text-2xl.font-bold', text: 'Title')
     expect(rendered_component).to have_text('Body')
   end
 
   context 'when behavior is default' do
     it 'does not render toggle markup nor script' do
       expect(rendered_component).to have_no_css('[aria-controls]')
-      expect(rendered_component).to have_no_css('.d-none')
+      expect(rendered_component).to have_no_css('.hidden')
       expect(rendered_component).not_to include('<script>')
     end
   end
@@ -32,7 +32,7 @@ RSpec.describe BoxComponent, type: :component do
       expect(rendered_component).to have_css('[aria-controls][aria-expanded="true"]', text: 'Title')
       expect(rendered_component).to have_css('[aria-hidden="true"]', text: '−')
       expect(rendered_component).to have_text('Body')
-      expect(rendered_component).to have_no_css('.d-none')
+      expect(rendered_component).to have_no_css('.hidden')
     end
 
     it 'renders the toggle script' do
@@ -53,7 +53,7 @@ RSpec.describe BoxComponent, type: :component do
       expect(rendered_component).to have_css('[aria-controls][aria-expanded="false"]',
                                              text: 'Title')
       expect(rendered_component).to have_css('[aria-hidden="true"]', text: '+')
-      expect(rendered_component).to have_css('.d-none', text: 'Body')
+      expect(rendered_component).to have_css('.hidden', text: 'Body')
     end
   end
 

@@ -1,9 +1,15 @@
-<div class="login-container">
-  <div class="m-auto w-100 overflow-hidden m-5 bg-body-secondary rounded">
-    <%= render(TabsComponent.new(tabs: [
-      { id: 'candidate-form', title: t('activerecord.models.candidate.one'), content: render('form', resource_name: 'candidate') },
-      { id: 'employee-form', title: t('activerecord.models.company.one'), content: render('form', resource_name: 'employee') }
-    ])) %>
+<div class="flex flex-col justify-between h-screen">
+  <div class="float-right">
+    <div class="m-auto w-full overflow-hidden m-12 bg-body-secondary rounded-lg">
+      <%= render(TabsComponent.new()) do |component| %>
+        <% component.with_tab(id: 'candidate-form', title: t('activerecord.models.candidate.one')) do %>
+          <%= render 'form', resource_name: 'candidate' %>
+        <% end %>
+        <% component.with_tab(id: 'employee-form', title: t('activerecord.models.employee.one')) do %>
+          <%= render 'form', resource_name: 'employee' %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
 
@@ -14,19 +20,11 @@
       background-image: url('<%= asset_path HomeController.random_background_image %>');
       background-repeat: no-repeat;
       background-size: cover;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 100vh;
     }
 
     .container {
       margin: auto;
       width: 80%;
-    }
-
-    .login-container {
-      float: right;
     }
   }
 

@@ -32,7 +32,7 @@
 
       <% component.with_body do %>
         <% if @work_experiences.empty? %>
-          <div class="opacity-50 py-5 text-center"><%= t('.empty_state.work_experience') %></div>
+          <div class="opacity-50 py-12 text-center"><%= t('.empty_state.work_experience') %></div>
         <% end %>
         <% @work_experiences.each do |w| %>
           <%= render(ListItemComponent.new) do |component| %>
@@ -54,7 +54,7 @@
 
       <% component.with_body do %>
         <% if @degrees.empty? %>
-          <div class="opacity-50 py-5 text-center"><%= t('.empty_state.degree') %></div>
+          <div class="opacity-50 py-12 text-center"><%= t('.empty_state.degree') %></div>
         <% else %>
           <% @degrees.each do |d| %>
             <%= render(ListItemComponent.new) do |component| %>
@@ -76,7 +76,7 @@
 
       <% component.with_body do %>
         <% if @candidate.candidate_skills.empty? %>
-          <div class="opacity-50 py-5 text-center"><%= t('.empty_state.candidate_skill') %></div>
+          <div class="opacity-50 py-12 text-center"><%= t('.empty_state.candidate_skill') %></div>
         <% else %>
           <% @candidate.candidate_skills.each do |s| %>
             <%= render(ListItemComponent.new) do |component| %>
@@ -97,7 +97,7 @@
 
       <% component.with_body do %>
         <% if @courses.empty? %>
-          <div class="opacity-50 py-5 text-center"><%= t('.empty_state.course') %></div>
+          <div class="opacity-50 py-12 text-center"><%= t('.empty_state.course') %></div>
         <% else %>
           <% @courses.each do |c| %>
             <%= render(ListItemComponent.new) do |component| %>
@@ -118,7 +118,7 @@
 
       <% component.with_body do %>
         <% if @candidate.languages.empty? %>
-          <div class="opacity-50 py-5 text-center"><%= t('.empty_state.language') %></div>
+          <div class="opacity-50 py-12 text-center"><%= t('.empty_state.language') %></div>
         <% else %>
           <% @candidate.languages.each do |l| %>
             <%= render(ListItemComponent.new) do |component| %>
