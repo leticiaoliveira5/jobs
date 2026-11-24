@@ -1,15 +1,15 @@
-<div class="flex flex-col justify-between h-screen">
-  <div class="float-right">
-    <div class="m-auto w-full overflow-hidden m-12 bg-body-secondary rounded-lg">
-      <%= render(TabsComponent.new()) do |component| %>
-        <% component.with_tab(id: 'candidate-form', title: t('activerecord.models.candidate.one')) do %>
-          <%= render 'form', resource_name: 'candidate' %>
-        <% end %>
-        <% component.with_tab(id: 'employee-form', title: t('activerecord.models.employee.one')) do %>
-          <%= render 'form', resource_name: 'employee' %>
-        <% end %>
+<div class="flex flex-col lg:flex-row justify-between">
+  <div class="w-full"></div>
+  <div class="w-full"></div>
+  <div class="w-full mt-12 lg:mt-24 overflow-hidden bg-body-secondary rounded-lg">
+    <%= render(TabsComponent.new()) do |component| %>
+      <% component.with_tab(id: 'candidate-form', title: t('activerecord.models.candidate.one')) do %>
+        <%= render 'form', resource_name: 'candidate' %>
       <% end %>
-    </div>
+      <% component.with_tab(id: 'employee-form', title: t('activerecord.models.employee.one')) do %>
+        <%= render 'form', resource_name: 'employee' %>
+      <% end %>
+    <% end %>
   </div>
 </div>
 
