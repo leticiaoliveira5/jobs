@@ -1,37 +1,27 @@
-<div class="nav">
-  <div class="navleft">
-    <%= link_to root_path do %>
-      <span class="navtitle"><%= @title %></span>
-    <% end %>
+<nav class="flex flex-wrap items-center justify-between bg-body-secondary px-4 py-0">
+  <%= link_to root_path, class: 'm-0 mr-4 whitespace-nowrap py-2 text-[2.5rem] uppercase text-black no-underline hover:text-black' do %>
+    <%= @title %>
+  <% end %>
 
-    <span class="links-row"><%= left %></span>
-  </div>
+  <button class="cursor-pointer border-0 px-3 py-1 text-black md:hidden"
+          type="button"
+          aria-controls="<%= collapse_id %>"
+          aria-expanded="false"
+          aria-label="Menu"
+          onclick="onClickMenuButton()">
+    <i class="fa fa-bars text-3xl"></i>
+  </button>
 
-  <div class="navright">
-    <span class="links-row"><%= right %></span>
-    <div class="nav-mobile-dropdown" onclick="toggleMenu()">
-      <i class="fa fa-bars green-icon"></i>
-    </div>
+  <div class="hidden grow basis-full md:flex md:basis-auto" id="<%= collapse_id %>">
+    <div class="me-auto flex flex-col md:flex-row gap-2 mb-2 md:mb-0"><%= left %></div>
+    <div class="flex flex-col md:flex-row gap-2"><%= right %></div>
   </div>
-</div>
-
-<div class="nav-mobile-dropdown-content">
-  <div class="mobile-menu">
-    <%= left %>
-    <%= right %>
-  </div>
-</div>
+</nav>
 
 <script>
-  function toggleMenu() {
-    let content = document.getElementsByClassName('nav-mobile-dropdown-content')[0]
-    let menu = document.getElementsByClassName('mobile-menu')[0]
-    if (content.style.display == 'none') {
-      content.style.display = 'block';
-      menu.style.display = 'flex';
-    } else {
-      content.style.display = 'none';
-      menu.style.display = 'none';
-    }
+  function onClickMenuButton() {
+    const c = document.getElementById('<%= collapse_id %>');
+    c.classList.toggle('hidden');
+    this.setAttribute('aria-expanded', String(!c.classList.contains('hidden')));
   }
 </script>
