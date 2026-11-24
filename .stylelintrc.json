@@ -16,6 +16,20 @@
           "reference"
         ]
       }
-    ]
+    ],
+    "at-rule-prelude-no-invalid": [
+      true,
+      {
+        "ignoreAtRules": [
+          "apply",
+          "theme",
+          "source",
+          "utility",
+          "variant",
+          "custom-variant"
+        ]
+      }
+    ],
+    "import-notation": null
   }
 }
