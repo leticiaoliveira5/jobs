@@ -5,7 +5,6 @@ ruby '4.0.9'
 
 gem 'active_storage_validations', '~> 1.1', '>= 1.1.4'
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'bootstrap', '~> 5.3.3'
 gem 'devise'
 gem 'enumerate_it'
 gem 'font-awesome-rails', '4.7.0.9'
@@ -14,8 +13,9 @@ gem 'kaminari', '>= 1.2.2'
 gem 'pg', '~> 1.3.5'
 gem 'puma', '~> 7.2'
 gem 'rails', '8.0.5.2'
-gem 'sass-rails'
 gem 'simple_form', '~> 5.3'
+gem 'sprockets-rails'
+gem 'tailwindcss-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'uglifier', '>= 1.3.0'
 gem 'view_component', '4.23.0'

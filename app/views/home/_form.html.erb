@@ -1,0 +1,27 @@
+<%= form_for(resource_name, url: session_path(resource_name)) do |f| %>
+  <div>
+    <%= f.label :email, t("activerecord.attributes.#{resource_name}.email"), class: 'block text-xl text-left lowercase' %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'block w-full my-3 px-4 py-2 text-xl rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500' %>
+
+    <%= f.label :password, t("activerecord.attributes.#{resource_name}.password"), class: 'block text-xl text-left lowercase' %>
+    <%= f.password_field :password, autocomplete: "current-password", class: 'block w-full my-3 px-4 py-2 text-xl rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500' %>
+
+    <%= link_to t('devise.passwords.new.forgot_your_password'), new_password_path(resource_name), class: 'float-right text-sm' %>
+  </div>
+
+  <div class="clear-both">
+    <%= f.submit t('devise.sessions.new.sign_in'), class: 'block w-full my-3 text-2xl font-bold text-blue-600 border-0 rounded cursor-pointer' %><br>
+
+    <span>
+      <%= f.label(:remember_me, class: 'inline text-xs normal-case') do %>
+        <%= f.check_box(:remember_me, class: 'align-middle') %>
+        <%= t('devise.labels.remember_me') %>
+      <% end %>
+    </span>
+  </div>
+
+  <div>
+    <%= t('home.index.or_create_an_account') %><br>
+    <%= link_to t('devise.registrations.new.sign_up'), new_registration_path(resource_name), class: 'font-bold no-underline' %>
+  </div>
+<% end %>
