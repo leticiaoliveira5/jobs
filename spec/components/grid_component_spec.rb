@@ -24,12 +24,12 @@ RSpec.describe GridComponent, type: :component do
   context 'is responsive' do
     subject { described_class.new(type: :responsive) }
 
-    it { expect(rendered_component).to have_css('.responsive-grid') }
+    it { expect(rendered_component).to have_css('.responsive-grid-component') }
   end
 
   context 'is fixed' do
     subject { described_class.new(type: :fixed) }
 
-    it { expect(rendered_component).to have_css('.grid') }
+    it { expect(rendered_component).to have_css('.grid-component') }
   end
 end
