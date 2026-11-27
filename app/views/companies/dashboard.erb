@@ -9,9 +9,9 @@
       <% @company.employees.each do |employee| %>
         <p><%= employee.firstname %> <%= employee.surname %> (<%= employee.role %>)</p>
       <% end %>
-      <p><%= link_to 'Editar dados da empresa', '/company/edit_info' %></p>
+      <%= render(ButtonLinkComponent.new(title: 'Editar dados da empresa', href: '/company/edit_info')) %>
     <% end %>
-    <p><%= link_to 'Cadastrar nova vaga', new_job_opportunity_path %></p>
+    <%= render(ButtonLinkComponent.new(title: 'Cadastrar nova vaga', href: new_job_opportunity_path))  %>
   <% end %>
 <% end %>
 
