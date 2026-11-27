@@ -47,8 +47,7 @@ module ApplicationHelper
     concat link_to 'Sair', destroy_employee_session_path, method: :delete, class: 'no-underline'
   end
 
-  def back_button(path = :back, method = :get)
-    link_to render(ButtonComponent.new(title: I18n.t('go_back'), style: 'secondary')), path,
-            method: method
+  def back_button(path = 'javascript:history.back()')
+    render(ButtonLinkComponent.new(title: I18n.t('go_back'), style: 'secondary', href: path))
   end
 end
