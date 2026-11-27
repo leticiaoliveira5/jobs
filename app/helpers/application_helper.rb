@@ -48,6 +48,6 @@ module ApplicationHelper
   end
 
   def back_button(path = :back, method = :get)
-    button_to I18n.t('go_back'), path, class: 'btn btn-secondary', method: method
+    link_to render(ButtonComponent.new(title: I18n.t('go_back'), style: 'secondary')), path, method: method
   end
 end
