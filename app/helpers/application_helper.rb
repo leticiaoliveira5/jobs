@@ -48,6 +48,7 @@ module ApplicationHelper
   end
 
   def back_button(path = :back, method = :get)
-    link_to render(ButtonComponent.new(title: I18n.t('go_back'), style: 'secondary')), path, method: method
+    link_to render(ButtonComponent.new(title: I18n.t('go_back'), style: 'secondary')), path,
+            method: method
   end
 end
