@@ -1,4 +1,21 @@
-<div class="list-item" id="<%= @id %>">
+<div class="mt-1 flex items-center justify-between rounded-md border-0 bg-transparent p-4 hover:bg-body-secondary" id="<%= @id %>">
   <span><%= content %></span>
-  <span class="side-button"><%= button %></span>
+  <span class="text-xl" data-side-button><%= button %></span>
 </div>
+
+<% if button? %>
+  <script>
+    (function () {
+      const item = document.currentScript.previousElementSibling;
+      const button = item.querySelector('[data-side-button]');
+      const largeScreen = window.matchMedia('(min-width: 750px) and (hover: hover)');
+      const show = (visible) => button.classList.toggle('invisible', largeScreen.matches && !visible);
+
+      show(false);
+      item.addEventListener('mouseenter', () => show(true));
+      item.addEventListener('mouseleave', () => show(false));
+      item.addEventListener('focusin', () => show(true));
+      item.addEventListener('focusout', () => show(false));
+    })();
+  </script>
+<% end %>

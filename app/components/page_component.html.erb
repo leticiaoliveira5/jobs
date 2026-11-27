@@ -1,10 +1,12 @@
-<div class="page">
-  <% if sidebar %>
-    <div class="page-sidebar">
-      <%= sidebar %>
+<div class="mx-auto w-full max-w-[1140px] px-0">
+  <div class="grid grid-cols-12 gap-x-6">
+    <% if sidebar %>
+      <div class="col-span-12 md:col-span-4 md:pe-4 lg:col-span-3">
+        <%= sidebar %>
+      </div>
+    <% end %>
+    <div class="col-span-12 min-w-0 <%= 'md:col-span-8 lg:col-span-9' if sidebar %>">
+      <%= main_content %>
     </div>
-  <% end %>
-  <div class="page-content">
-    <%= main_content %>
   </div>
 </div>
