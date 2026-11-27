@@ -14,14 +14,14 @@ feature 'Employee logs in' do
 
   scenario 'successfully' do
     expect(current_path).to eq company_path(employee.company)
-    within('.nav') do
+    within('nav') do
       expect(page).to have_content 'leticia@email.com'
       expect(page).to have_link 'Sair'
     end
   end
 
   scenario 'and logs out' do
-    within('.nav') { click_on 'Sair' }
+    within('nav') { click_on 'Sair' }
 
     expect(page).not_to have_content 'leticia@email.com'
     expect(page).not_to have_link 'Sair'

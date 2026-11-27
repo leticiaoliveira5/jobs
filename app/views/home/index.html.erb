@@ -1,3 +1,38 @@
-<div class="login-container">
-  <%= render(LoginComponent.new) %>
+<div class="flex flex-col lg:flex-row justify-between">
+  <div class="w-full"></div>
+  <div class="w-full"></div>
+  <div class="w-full mt-12 lg:mt-24 overflow-hidden bg-body-secondary rounded-lg">
+    <%= render(TabsComponent.new()) do |component| %>
+      <% component.with_tab(id: 'candidate-form', title: t('activerecord.models.candidate.one')) do %>
+        <%= render 'form', resource_name: 'candidate' %>
+      <% end %>
+      <% component.with_tab(id: 'employee-form', title: t('activerecord.models.employee.one')) do %>
+        <%= render 'form', resource_name: 'employee' %>
+      <% end %>
+    <% end %>
+  </div>
 </div>
+
+<style>
+  /* large screen */
+  @media screen and (min-device-width: 750px) and (min-width: 750px) {
+    body {
+      background-image: url('<%= asset_path HomeController.random_background_image %>');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .container {
+      margin: auto;
+      width: 80%;
+    }
+  }
+
+  /* small screen  */
+  @media screen and (max-device-width: 750px) and (max-width: 750px) {
+    .container {
+      width: 95%;
+      margin: auto;
+    }
+  }
+</style>

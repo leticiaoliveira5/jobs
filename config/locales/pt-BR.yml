@@ -345,3 +345,9 @@ pt-BR:
   go_back: Voltar
   submit: Enviar
   are_you_sure: Tem certeza?
+  empty_state:
+    work_experience: Nenhuma experiência profissional cadastrada
+    degree: Nenhuma formação acadêmica cadastrada
+    candidate_skill: Nenhuma habilidade cadastrada
+    course: Nenhum curso cadastrado
+    default: Nenhum registro encontrado
